@@ -1,0 +1,14 @@
+<div class="item">
+    <h2 class="titleX">新しい「かけら」を作る</h2>
+    <div class="borderX">
+        <p>
+            「かけら」は誰でも自由に作ることができます。以下のフォームに書き込んでみてください。1行目が見出しになります。
+        </p>
+        <form title="新しい「かけら」を作ります。一行目が見出しになります。見出しも、内容もあとで自由に編集できます。" action="<SITE_URL>" method="post">
+            <input type="hidden" name="mycmd" value="write" />
+            <input type="hidden" name="myid" value="" />
+            <textarea cols="60" rows="4" name="mymsg"></textarea><br />
+            <input type="submit" value="書き込む" />
+        </form>
+    </div>
+</div>

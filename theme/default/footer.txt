@@ -1,0 +1,33 @@
+<div class="sidebar">
+    <form title="入力した単語を含む「かけら」を探します" action="<SITE_URL>" method="get">
+        <input type="hidden" name="mycmd" value="search" />
+        <input type="text" name="myword" value="<SEARCH_WORD>" size="20" /><br /><input type="submit" value="検索" />
+    </form>
+
+    <LOOP SEARCH_LIST>
+        <span style="{ word-break:keep-all; }">
+            <a
+                title="「<SEARCH_WORD>」を含む「かけら」を探す"
+                href="<SITE_URL>?mycmd=search&amp;myword=<SEARCH_ENCODED_WORD>"><SEARCH_WORD></a>&nbsp;<a
+                style="text-decoration: none;"
+                title="「<SEARCH_WORD>」の検索履歴を削除する"
+                href="<SITE_URL>?mycmd=delsearch&amp;myword=<SEARCH_ENCODED_WORD>">x</a>
+        </span>
+        <br />
+    </LOOP>
+</div>
+
+<div class="body">
+    <p>
+        <a href="<SITE_URL>?recent">すべてのかけら</a>
+    </p>
+</div>
+
+<div class="footer">
+    <p>
+        <a href="<SITE_URL>"><SITE_NAME></a> by <PROFILE>.<br />
+        Powered by <a href="http://www.hyuki.com/kakera/about.html">Yuki::Kakera</a> <VERSION>.
+    </p>
+</div>
+</body>
+</html>

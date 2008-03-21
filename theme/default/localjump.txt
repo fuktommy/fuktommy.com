@@ -1,0 +1,17 @@
+<IF DO_SEARCH>
+    <div class="localjump">
+        「<SEARCH_WORD>」の検索結果：
+        <LOOP ITEM_LIST>
+            <a href="#i<ITEM_NUM>"><ITEM_TITLE></a> ・ 
+        </LOOP>
+    </div>
+</IF>
+
+<IF DO_TOP>
+    <div class="localjump">
+        最近更新された「かけら」：
+        <LOOP ITEM_LIST>
+            <a href="#i<ITEM_NUM>"><ITEM_TITLE></a> ・ 
+        </LOOP>
+    </div>
+</IF>

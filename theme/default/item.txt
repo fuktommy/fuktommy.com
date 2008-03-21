@@ -1,0 +1,42 @@
+<div class="item">
+    <a name="i<ITEM_NUM>" id="i<ITEM_NUM>" ></a>
+    <h2 class="title<ITEM_STYLE>"><ITEM_TITLE></h2>
+    <div class="border<ITEM_STYLE>">
+        <IF ITEM_IMAGE_URL>
+            <img alt="[image for <ITEM_ID>]" src="<ITEM_IMAGE_URL>" />
+        </IF>
+        <p>
+            <IF ITEM_SUMMARIZED>
+                <ITEM_SUMMARY_HEAD>
+                <br />
+                <a title="この「かけら」全体を表示します。" href="<ITEM_URL>">（中略）</a><br />
+                <br />
+                <ITEM_SUMMARY_TAIL>
+                <br />
+            <ELSE>
+                <ITEM_BODY>
+            </IF>
+        </p>
+
+        <IF ITEM_ALMOST_FULL>
+            <p>
+                （もうちょっとで、この「かけら」はいっぱいになります）
+            </p>
+        </IF>
+
+        <form title="「かけら」に追記します。"
+            action="<SITE_URL>" method="post">
+                <input type="hidden" name="mycmd" value="add" />
+                <input type="hidden" name="myid" value="<ITEM_ID>" />
+                <textarea cols="60" rows="3" name="mymsg"></textarea><br />
+                <input type="submit" value="追記" />
+                <div style="text-align: right">
+                    <a
+                    title="この「かけら」だけを表示します。他の人にこの「かけら」を伝えるときに便利です。"
+                    href="<ITEM_URL>">permalink</a>&nbsp;&nbsp;<a
+                    title="この「かけら」を編集します。"
+                    href="<ITEM_EDIT_URL>">edit</a>
+                </div>
+        </form>
+    </div>
+</div>

@@ -2,7 +2,7 @@
 >>>define DESCRIPTION   SKKIMEや窓使いの憂鬱などです。
 >>>define SECTION       Windows
 >>>include "head.h"
-<!-- $Id: tools.ht 4 2008-03-20 13:24:12Z fuktommy $ -->
+<!-- $Id$ -->
 
 <h2>はじめに</h2>
 <p>ここ数年はクライアント機にもLinuxを使っていました。

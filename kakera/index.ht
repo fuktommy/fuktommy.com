@@ -1,7 +1,7 @@
 >>>define TITLE         声のかけら。自作パッチ
 >>>define DESCRIPTION   声のかけら。を拡張しています。
 >>>include "head.h"
-<!-- $Id: index.ht 4 2008-03-20 13:24:12Z fuktommy $ -->
+<!-- $Id$ -->
 
 <h2>声のかけら。とは</h2>
 <p><a href="http://www.hyuki.com/kakera/about.html">声のかけら。</a> は

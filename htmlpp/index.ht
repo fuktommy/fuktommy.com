@@ -1,7 +1,7 @@
 >>>define TITLE         HTMLプリプロセッサ(Another HTMLPP)
 >>>define DESCRIPTION   HTMLのための、CPPのようなもの
 >>>include "head.h"
-<!-- $Id: index.ht 4 2008-03-20 13:24:12Z fuktommy $ -->
+<!-- $Id$ -->
 
 <h2>はじめに</h2>
 <p>Blogなどの<a href="http://www.atmarkit.co.jp/aig/04biz/contentmanagement.html" title="＠IT情報マネジメント用語事典 [CMS (content management system)]">CMS</a>では複数のページのデザインを統一したり、一度に変換したりできます。

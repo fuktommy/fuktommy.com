@@ -2,7 +2,7 @@
 >>>define DESCRIPTION   参加しているSNS。
 >>>define AMAZONADS     1
 >>>include "head.h"
-<!-- $Id: sns.ht 4 2008-03-20 13:24:12Z fuktommy $ -->
+<!-- $Id$ -->
 
 <ul>
   <li><a href="http://mixi.jp/show_friend.pl?id=30173">mixi</a></li>

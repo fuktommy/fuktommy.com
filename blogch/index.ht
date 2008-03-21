@@ -1,7 +1,7 @@
 >>>define TITLE         blogch配布ページ
 >>>define DESCRIPTION   「blogch」(ぶろぐっち)は簡易的なブログです。
 >>>include "head.h"
-<!-- $Id: index.ht 4 2008-03-20 13:24:12Z fuktommy $ -->
+<!-- $Id$ -->
 
 <h2>blogchとは</h2>
 <p>「blogch」(ぶろぐっち)は簡易的なブログです。

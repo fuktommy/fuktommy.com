@@ -1,0 +1,29 @@
+diff -Nru kakera-1.0.0/index.cgi kakera/index.cgi
+--- kakera-1.0.0/index.cgi	2007-12-15 00:40:46.000000000 +0900
++++ kakera/index.cgi	2007-12-15 00:39:58.000000000 +0900
+@@ -30,7 +30,7 @@
+ my $modifier_image_base_url = "http://www.example.com/kakera/images/";
+ my $modifier_touch_file = "/usr/you/kakera/files/touched.txt";
+ my $modifire_spam_list = "/usr/you/kakera/files/spam.txt";
+-my $modifier_charset = "sjis";
++my $modifier_charset = "utf-8";
+ ##############################
+ &main;
+ exit(0);
+diff -Nru kakera-1.0.0/theme/default/header.txt kakera/theme/default/header.txt
+--- kakera-1.0.0/theme/default/header.txt	2004-05-07 19:18:48.000000000 +0900
++++ kakera/theme/default/header.txt	2007-12-15 00:40:22.000000000 +0900
+@@ -1,10 +1,10 @@
+-Content-type: text/html; charset=Shift_JIS
++Content-type: text/html; charset=UTF-8
+ 
+-<?xml version="1.0" encoding="Shift_JIS"?>
++<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+ <head>
+-    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS" />
++    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+     <meta http-equiv="content-style-type" content="text/css" />
+     <link rel="index" href="<SITE_URL>" />
+     <link rel="alternate" type="application/rss+xml" title="RSS" href="<SITE_URL>?rss" />

@@ -1,0 +1,27 @@
+>>>define TITLE         くっつきブログ
+>>>define DESCRIPTION   どんなウェブページでもブログにしてしまいます。
+>>>include "head.h"
+
+<p>どんなウェブページでもブログにしてしまいます。</p>
+
+<h2>設置手順</h2>
+<ol>
+  <li>このスクリプトの設定項目を変更する。</li>
+  <li>CGIをサーバに設置する。</li>
+  <li>data_pathで指定したディレクトリに書き込めるようにする。</li>
+  <li>各HTMLからCGIにリンクを張る。</li>
+  <li>管理者モード(パスワードは空)で新しいパスワードを設定する。</li>
+</ol>
+
+<h2>ダウンロード</h2>
+<ul>
+  <li>2005-11-08 <a href="quickblog-0.1.b7.py">0.1 beta7</a></li>
+  <li>2005-11-05 <a href="quickblog-0.1.b6.py">0.1 beta6</a></li>
+</ul>
+
+<h2>連携</h2>
+<p><a href="/htmlpp/">Another HTMLPP</a>や
+<a href="/htmlpp/#coop">各種ツール</a>を使うと、
+ブログのように全体のデザインを統一することができます。</p>
+
+>>>include "foot.h"

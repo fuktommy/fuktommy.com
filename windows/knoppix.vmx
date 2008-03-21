@@ -1,0 +1,79 @@
+## VMware Player for LiveCD samples
+## 05.10.21 : Makoto NARA (Mc.N)
+## 06.09.02 : Fuktommy
+
+###########################################################
+## Display name
+displayName = "Knoppix"
+
+
+###########################################################
+## guest OS setting (Other Linux 2.6.x kernel)
+guestOS = "other26xlinux"
+
+
+###########################################################
+## memory (MB)
+memsize = "256"
+
+
+###########################################################
+## IDEx:y
+## x (1=Primary,2=Secondary)
+## y (0=Master, 1=Slave)
+
+## startConnected (TRUE=Power On connect, FALSE=Power On disconnect)
+ide1:0.startConnected = "TRUE"
+## present (TRUE=Exist Hardware, FALSE=not,)
+ide1:0.present = "TRUE"
+## CDROM IMAGE FILE
+ide1:0.deviceType = "cdrom-image"
+ide1:0.fileName = "knoppix-fuse-4.0.2_20060207.iso"
+## CDROM drive DIRECT Access (auto)
+##ide1:0.fileName = "auto detect"
+##ide1:0.deviceType = "cdrom-raw"
+
+ide1:1.present = "TRUE"
+ide1:1.startConnected = "TRUE"
+ide1:1.fileName = "auto detect"
+ide1:1.deviceType = "cdrom-raw"
+
+
+###########################################################
+## SCSI[0-6]
+
+## present (TRUE=Exist Hardware, FALSE=not,)
+scsi0.present = "TRUE"
+scsi0.virtualDev = "lsilogic"
+
+
+###########################################################
+## floppy[0|1]
+
+## startConnected (TRUE=Power On connect, FALSE=Power On disconnect)
+floppy0.startConnected = "FALSE"
+## Floppy drive DIRECT Access (A:)
+floppy0.fileName = "A:"
+##floppy0.fileName = "dummy.flp"
+
+
+###########################################################
+## ethernet
+ethernet0.present = "TRUE"
+ethernet0.connectionType = "nat"
+
+###########################################################
+## USB
+usb.present = "TRUE"
+
+
+###########################################################
+## Sound (es1371)
+sound.present = "TRUE"
+sound.virtualDev = "es1371"
+
+
+config.version = "8"
+virtualHW.version = "4"
+nvram = "other26xlinux.nvram"
+

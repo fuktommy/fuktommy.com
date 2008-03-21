@@ -1,0 +1,84 @@
+diff -Nru wmx-6.orig/Buttons.C wmx-6/Buttons.C
+--- wmx-6.orig/Buttons.C	2001-04-04 17:58:31.000000000 +0900
++++ wmx-6/Buttons.C	2005-02-22 21:52:51.000000000 +0900
+@@ -184,19 +184,19 @@
+ 	    }
+ 	    
+ 	} else
+-#endif CONFIG_QUICKRAISE_KEY
++#endif //CONFIG_QUICKRAISE_KEY
+ #ifdef CONFIG_QUICKHIDE_KEY
+ 	if (key == CONFIG_QUICKHIDE_KEY && c) {
+ 	    c->hide();
+ 	      
+ 	} else 
+-#endif CONFIG_QUICKHIDE_KEY
++#endif //CONFIG_QUICKHIDE_KEY
+ #ifdef CONFIG_QUICKCLOSE_KEY
+ 	if (key == CONFIG_QUICKCLOSE_KEY && c) {
+ 	    c->kill();
+ 
+ 	} else
+-#endif CONFIG_QUICKCLOSE_KEY
++#endif //CONFIG_QUICKCLOSE_KEY
+ #ifdef CONFIG_QUICKHEIGHT_KEY
+ 	if (key == CONFIG_QUICKHEIGHT_KEY && c) {
+ 
+diff -Nru wmx-6.orig/Config.h wmx-6/Config.h
+--- wmx-6.orig/Config.h	2000-05-25 00:48:59.000000000 +0900
++++ wmx-6/Config.h	2005-02-22 21:53:18.000000000 +0900
+@@ -75,8 +75,8 @@
+ 
+ // What to run to get a new window (from the "New" menu option)
+ #define CONFIG_NEW_WINDOW_LABEL "New"
+-//#define CONFIG_NEW_WINDOW_COMMAND "xterm"
+-#define CONFIG_NEW_WINDOW_COMMAND "/home/chris/.wmx/terminal"
++#define CONFIG_NEW_WINDOW_COMMAND "x-terminal-emulator"
++//#define CONFIG_NEW_WINDOW_COMMAND "/home/chris/.wmx/terminal"
+ #define CONFIG_NEW_WINDOW_COMMAND_OPTIONS 0
+ // or, for example,
+ //#define CONFIG_NEW_WINDOW_COMMAND_OPTIONS "-ls","-sb","-sl","1024",0
+@@ -188,17 +188,17 @@
+ #define CONFIG_FLIP_UP_KEY        XK_Right
+ #define CONFIG_FLIP_DOWN_KEY      XK_Left
+ #define CONFIG_HIDE_KEY           XK_Return
+-#define CONFIG_STICKY_KEY         XK_Pause
++#define CONFIG_STICKY_KEY         XK_End
+ #define CONFIG_RAISE_KEY          XK_Up
+ #define CONFIG_LOWER_KEY          XK_Down
+ // Prior and Next should be the same as Page_Up and Page_Down in R6
+ #define CONFIG_FULLHEIGHT_KEY     XK_Prior
+-#define CONFIG_NORMALHEIGHT_KEY   XK_Next
+-#define CONFIG_FULLWIDTH_KEY      XK_KP_Add
++#define CONFIG_NORMALHEIGHT_KEY   XK_KP_Add
++#define CONFIG_FULLWIDTH_KEY      XK_Next
+ #define CONFIG_NORMALWIDTH_KEY    XK_KP_Subtract
+ #define CONFIG_MAXIMISE_KEY       XK_Home
+-#define CONFIG_UNMAXIMISE_KEY     XK_End
+-#define CONFIG_SAME_KEY_MAX_UNMAX False
++#define CONFIG_UNMAXIMISE_KEY     XK_Pause
++#define CONFIG_SAME_KEY_MAX_UNMAX True
+ 
+ // The next two may clash badly with Emacs, if you use Alt as the
+ // modifier.  The commented variants might work better for some.
+@@ -251,7 +251,7 @@
+ // all, probably you should compile your X11 library with -DX_LOCALE.
+ // I did it for my NetBSD box. :-)
+ 
+-#define I18N 0
++#define I18N 1
+ 
+ // Fonts used all over the place.  NICE_FONT is for the frames, and
+ // NICE_MENU_FONT for the menus.  NASTY_FONT is what you'll get if it
+diff -Nru wmx-6.orig/Menu.C wmx-6/Menu.C
+--- wmx-6.orig/Menu.C	2000-05-25 00:50:27.000000000 +0900
++++ wmx-6/Menu.C	2005-02-22 21:52:51.000000000 +0900
+@@ -621,7 +621,7 @@
+ 
+ 
+ CommandMenu::CommandMenu(WindowManager *manager, XEvent *e,
+-			 char* otherdir = NULL)
++			 char* otherdir)
+     : Menu(manager, e)
+ {
+     const char *home = getenv("HOME");

@@ -1,0 +1,126 @@
+diff -Nru kakera.orig/index.cgi kakera/index.cgi
+--- kakera.orig/index.cgi	2004-05-19 16:57:28.000000000 +0900
++++ kakera/index.cgi	2007-07-21 23:32:46.000000000 +0900
+@@ -29,6 +29,7 @@
+ my $modifier_image_dir = "/usr/you/kakera/images";
+ my $modifier_image_base_url = "http://www.example.com/kakera/images/";
+ my $modifier_touch_file = "/usr/you/kakera/files/touched.txt";
++my $modifire_spam_list = "/usr/you/kakera/files/spam.txt";
+ my $modifier_charset = "sjis";
+ ##############################
+ &main;
+@@ -44,6 +45,7 @@
+         DATA_DIR => $modifier_data_dir,
+         IMAGE_DIR => $modifier_image_dir,
+         IMAGE_BASE_URL => $modifier_image_base_url,
++        SPAM_LIST => $modifire_spam_list,
+         use_html_permalink => 1,
+         max_summary_length => 500,
+         max_msg_length => 5000,
+diff -Nru kakera.orig/lib/Yuki/Kakera.pm kakera/lib/Yuki/Kakera.pm
+--- kakera.orig/lib/Yuki/Kakera.pm	2004-05-19 16:56:50.000000000 +0900
++++ kakera/lib/Yuki/Kakera.pm	2007-07-21 23:33:03.000000000 +0900
+@@ -262,12 +262,34 @@
+     $self->print_output($template);
+ }
+ 
++sub is_spam($$) {
++    my ($self, $msg) = @_;
++    if (-e $self->{SPAM_LIST}) {
++        my $FILE;
++        open $FILE, $self->{SPAM_LIST};
++        while (my $line = <$FILE>) {
++            chomp($line);
++            if (($line =~ /^\s*#/) || ($line =~ /^\s*$/)) {
++                # nop
++            } elsif ($msg =~ /$line/) {
++                return 1;
++            }
++        }
++    }
++    return 0;
++}
++
+ sub do_write {
+     my ($self) = @_;
+     if ($self->{form}->{mymsg}) {
+         if (length($self->{form}->{mymsg}) > $self->{max_msg_length}) {
+             $self->{template_param}->{ERROR_TOOLONG} = 1;
+             $self->do_edit;
++        } elsif ($self->{template_param}->{ERROR_SPAM}) {
++            $self->do_edit;
++        } elsif ($self->is_spam($self->{form}->{mymsg})) {
++            $self->{template_param}->{ERROR_SPAM} = 1;
++            $self->do_edit;
+         } else {
+             my $edit_id = _create_id();
+             my $style = $self->{form}->{mystyle};
+@@ -296,6 +318,9 @@
+     if ($self->{form}->{mymsg}) {
+         my $body = $self->{database}->{$self->{form}->{myid}};
+         my ($edit_id, $style) = split(/:/, $self->slice_one_line(\$body));
++        if ($self->is_spam($self->{form}->{mymsg})) {
++            $self->{template_param}->{ERROR_SPAM} = 1;
++        }
+         $self->{form}->{mymsg} = "$body\n$self->{form}->{mymsg}";
+         $style = "0" unless defined($style);
+         $self->{form}->{mystyle} = $style;
+@@ -800,6 +825,8 @@
+     if (defined($self->{form}->{myid})) {
+         return if $self->{form}->{myid} =~ /^$id_pattern$/;
+         $self->{form}->{myid} = _create_id();
++    } elsif (defined($self->{form}->{mymsg})) {
++        $self->{form}->{myid} = _create_id();
+     }
+ }
+ 
+diff -Nru kakera.orig/readme.spam.txt kakera/readme.spam.txt
+--- kakera.orig/readme.spam.txt	1970-01-01 09:00:00.000000000 +0900
++++ kakera/readme.spam.txt	2007-07-21 23:32:46.000000000 +0900
+@@ -0,0 +1,20 @@
++====================================
++「声のかけら。」スパムフィルタパッチ
++Satoshi Fukutomi <info@fuktommy.com>
++====================================
++
++●概要
++正規表現でスパムリストを書くと、マッチした文字列は書き込みできなくなります。
++
++●スパムリストのパス
++index.cgi の $modifire_spam_list で設定してください。
++
++●スパムリストの書式
++空行や#で始まる行は無視されます。
++1行に1つの正規表現を書いてください。
++
++●ライセンス
++このパッチは「声のかけら。」と同じ条件でライセンスします。
++This program is free software; you can redistribute it and/or
++modify it under the same terms as Yuki::Kakera itself.
++Copyright (C) 2007 by Satoshi Fukutomi.
+diff -Nru kakera.orig/theme/clover/do_edit.txt kakera/theme/clover/do_edit.txt
+--- kakera.orig/theme/clover/do_edit.txt	2004-04-27 13:13:52.000000000 +0900
++++ kakera/theme/clover/do_edit.txt	2007-07-21 23:32:46.000000000 +0900
+@@ -6,6 +6,9 @@
+         <IF ERROR_TOOLONG>
+             テキストが長すぎます。再編集してください。
+         </IF>
++        <IF ERROR_SPAM>
++            スパムとみなされました。再編集してください。
++        </IF>
+         <p>
+         1行目はタイトルになります。URLは自動的にリンクになります。HTMLのタグは使えません。
+         </p>
+diff -Nru kakera.orig/theme/default/do_edit.txt kakera/theme/default/do_edit.txt
+--- kakera.orig/theme/default/do_edit.txt	2004-05-03 00:12:22.000000000 +0900
++++ kakera/theme/default/do_edit.txt	2007-07-21 23:32:46.000000000 +0900
+@@ -6,6 +6,9 @@
+         <IF ERROR_TOOLONG>
+             テキストが長すぎます。再編集してください。
+         </IF>
++        <IF ERROR_SPAM>
++            スパムとみなされました。再編集してください。
++        </IF>
+         <p>
+         1行目はタイトルになります。URLは自動的にリンクになります。HTMLのタグは使えません。
+         </p>

@@ -1,0 +1,105 @@
+diff -Nru kakera-1.00/index.cgi kakera-1.00_spam-0.1.0/index.cgi
+--- kakera-1.00/index.cgi	2004-05-19 16:57:28.000000000 +0900
++++ kakera-1.00_spam-0.1.0/index.cgi	2007-04-21 14:54:44.000000000 +0900
+@@ -29,6 +29,7 @@
+ my $modifier_image_dir = "/usr/you/kakera/images";
+ my $modifier_image_base_url = "http://www.example.com/kakera/images/";
+ my $modifier_touch_file = "/usr/you/kakera/files/touched.txt";
++my $modifire_spam_list = "/usr/you/kakera/files/spam.txt";
+ my $modifier_charset = "sjis";
+ ##############################
+ &main;
+@@ -44,6 +45,7 @@
+         DATA_DIR => $modifier_data_dir,
+         IMAGE_DIR => $modifier_image_dir,
+         IMAGE_BASE_URL => $modifier_image_base_url,
++        SPAM_LIST => $modifire_spam_list,
+         use_html_permalink => 1,
+         max_summary_length => 500,
+         max_msg_length => 5000,
+diff -Nru kakera-1.00/lib/Yuki/Kakera.pm kakera-1.00_spam-0.1.0/lib/Yuki/Kakera.pm
+--- kakera-1.00/lib/Yuki/Kakera.pm	2004-05-19 16:56:50.000000000 +0900
++++ kakera-1.00_spam-0.1.0/lib/Yuki/Kakera.pm	2007-04-21 14:53:36.000000000 +0900
+@@ -262,12 +262,32 @@
+     $self->print_output($template);
+ }
+ 
++sub is_spam($$) {
++    my ($self, $msg) = @_;
++    if (-e $self->{SPAM_LIST}) {
++        my $FILE;
++        open $FILE, $self->{SPAM_LIST};
++        while (my $line = <$FILE>) {
++            chomp($line);
++            if (($line =~ /^\s*#/) || ($line =~ /^\s*$/)) {
++                # nop
++            } elsif ($msg =~ /$line/) {
++                return 1;
++            }
++        }
++    }
++    return 0;
++}
++
+ sub do_write {
+     my ($self) = @_;
+     if ($self->{form}->{mymsg}) {
+         if (length($self->{form}->{mymsg}) > $self->{max_msg_length}) {
+             $self->{template_param}->{ERROR_TOOLONG} = 1;
+             $self->do_edit;
++        } elsif ($self->is_spam($self->{form}->{mymsg})) {
++            $self->{template_param}->{ERROR_SPAM} = 1;
++            $self->do_edit;
+         } else {
+             my $edit_id = _create_id();
+             my $style = $self->{form}->{mystyle};
+diff -Nru kakera-1.00/readme.spam.txt kakera-1.00_spam-0.1.0/readme.spam.txt
+--- kakera-1.00/readme.spam.txt	1970-01-01 09:00:00.000000000 +0900
++++ kakera-1.00_spam-0.1.0/readme.spam.txt	2007-04-21 15:00:03.000000000 +0900
+@@ -0,0 +1,20 @@
++====================================
++「声のかけら。」スパムフィルタパッチ
++Satoshi Fukutomi <info@fuktommy.com>
++====================================
++
++●概要
++正規表現でスパムリストを書くと、マッチした文字列は書き込みできなくなります。
++
++●スパムリストのパス
++index.cgi の $modifire_spam_list で設定してください。
++
++●スパムリストの書式
++空行や#で始まる行は無視されます。
++1行に1つの正規表現を書いてください。
++
++●ライセンス
++このパッチは「声のかけら。」と同じ条件でライセンスします。
++This program is free software; you can redistribute it and/or
++modify it under the same terms as Yuki::Kakera itself.
++Copyright (C) 2007 by Satoshi Fukutomi.
+diff -Nru kakera-1.00/theme/clover/do_edit.txt kakera-1.00_spam-0.1.0/theme/clover/do_edit.txt
+--- kakera-1.00/theme/clover/do_edit.txt	2004-04-27 13:13:52.000000000 +0900
++++ kakera-1.00_spam-0.1.0/theme/clover/do_edit.txt	2007-04-21 14:58:26.000000000 +0900
+@@ -6,6 +6,9 @@
+         <IF ERROR_TOOLONG>
+             テキストが長すぎます。再編集してください。
+         </IF>
++        <IF ERROR_SPAM>
++            スパムとみなされました。再編集してください。
++        </IF>
+         <p>
+         1行目はタイトルになります。URLは自動的にリンクになります。HTMLのタグは使えません。
+         </p>
+diff -Nru kakera-1.00/theme/default/do_edit.txt kakera-1.00_spam-0.1.0/theme/default/do_edit.txt
+--- kakera-1.00/theme/default/do_edit.txt	2004-05-03 00:12:22.000000000 +0900
++++ kakera-1.00_spam-0.1.0/theme/default/do_edit.txt	2007-04-21 14:52:50.000000000 +0900
+@@ -6,6 +6,9 @@
+         <IF ERROR_TOOLONG>
+             テキストが長すぎます。再編集してください。
+         </IF>
++        <IF ERROR_SPAM>
++            スパムとみなされました。再編集してください。
++        </IF>
+         <p>
+         1行目はタイトルになります。URLは自動的にリンクになります。HTMLのタグは使えません。
+         </p>

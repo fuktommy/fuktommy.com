@@ -1,0 +1,77 @@
+>>>define TITLE         Debian Sarge のメモ
+>>>define DESCRIPTION   設定やパッチなどです
+>>>define SECTION       Linux
+>>>include "head.h"
+
+<h2>はじめに</h2>
+<p>なかなかリリースされない、Debian Sarge についての設定メモです。
+ハードウェアに依存しない話はここに移します。</p>
+
+<h2>さざなみフォント</h2>
+<p>東風フォントのポジションに取って代わりそうな、注目されるフォントです。</p>
+
+<pre># apt-get install ttf-sazanami-{gothic,mincho}</pre>
+
+>>>textpre "dot.fonts.conf"
+
+<pre>~/.gtkrc-2.0:
+gtk-key-theme-name = "Emacs"
+gtk-font-name = "Sazanami Gothic 10"</pre>
+
+<p>gtk-key-theme-name = "Emacs" はオマケです。</p>
+
+<pre>~/.qt/qtrc
+[Font Substitutions]
+Arial=Sazanami Gothic
+Helvetica=Sazanami Gothic</pre>
+
+<h2>ウィンドウマネージャwmx</h2>
+<p><a href="http://www.all-day-breakfast.com/wmx/">wmx</a>はシンプルかつ多機能なウィンドウマネージャです。
+もとになっている<a href="http://www.all-day-breakfast.com/wm2/">wm2</a>にはDebianパッケージがありますが、wmxにはないので、コンパイルします。</p>
+
+<p>今入っている-devパッケージですが、どれが必須のものなのかは分かりません。</p>
+<ul>
+  <li>libice-dev</li>
+  <li>libsm-dev</li>
+  <li>libstdc++5-3.3-dev</li>
+  <li>libx11-dev</li>
+  <li>libxext-dev</li>
+  <li>libxi-dev</li>
+  <li>libxmu-dev</li>
+  <li>libxpm-dev</li>
+  <li>libxt-dev</li>
+  <li>libxv-dev</li>
+  <li>x-dev</li>
+  <li>xlibs-static-dev</li>
+</ul>
+
+<p>パッチを当ててコンパイルします。パッチは次のような変更点を含んでいます。</p>
+
+<ul>
+  <li>GCC3で警告が出るので、
+      「#endif COMMENT」を「#endif //COMMENT」のように変更した。</li>
+  <li>GCC3でエラーが出るので、
+      実引数の「char* otherdir = NULL」を「char* otherdir」に変更した。</li>
+  <li>メニューから起動するターミナルを x-terminal-emulator とした。</li>
+  <li>「最大化/元に戻す」のキーバインドを Alt-Home とした。</li>
+  <li>「横最大化/元に戻す」のキーバインドを Alt-PageDn とした。</li>
+  <li>「縦最大化/元に戻す」のキーバインドを Alt-PageUp とした。</li>
+  <li>「ウィンドウ固定」のキーバインドを Alt-End とした。</li>
+  <li>I18Nを有効にして、タイトルバーに日本語が出るようにした。</li>
+</ul>
+
+<pre>% patch -p1 &lt; <a href="wmx6-sarge.diff">wmx6-sarge.diff</a>
+% ./configure
+% make
+% strip wmx
+# cp wmx /usr/loca/bin</pre>
+
+<h2>Qt</h2>
+<p>Qtで日本語入力をするための設定です。
+将来的にはQtにパッチが取り込まれて、この設定が不要になると思います。</p>
+<pre>~/.qt/qtrc:
+[General]
+XIMInputStyle=Over The Spot</pre>
+
+
+>>>include "foot.h"

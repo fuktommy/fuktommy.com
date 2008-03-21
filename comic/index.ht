@@ -1,0 +1,10 @@
+>>>define TITLE         漫画
+>>>define DESCRIPTION   データベースとか。あんま更新してない
+>>>include "head.h"
+
+<ul>
+  <li><a href="dqc.zip">「ドラゴンクエスト4コママンガ劇場番外編」データベース</a></li>
+  <li><a href="eg4koma.tgz">エニックス4コマDB</a></li>
+  <li><a href="eg4koma.cgi">エニックス4コマDB検索</a></li>
+</ul>
+>>>include "foot.h"

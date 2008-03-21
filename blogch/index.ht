@@ -1,0 +1,44 @@
+>>>define TITLE         blogch配布ページ
+>>>define DESCRIPTION   「blogch」(ぶろぐっち)は簡易的なブログです。
+>>>include "head.h"
+<!-- $Id: index.ht 4 2008-03-20 13:24:12Z fuktommy $ -->
+
+<h2>blogchとは</h2>
+<p>「blogch」(ぶろぐっち)は簡易的なブログです。
+コメント機能は<a href="http://b.hatena.ne.jp/">はてなブックマーク</a>頼みで、
+トラックバックの代わりに<a href="http://blogsearch.google.com/">Google Blog Search</a>を使ったバックリンクがあります。</p>
+
+<p>もともとの「blogch」は掲示板風のBlog、またはBlog風の掲示板でしたが、
+新しいブログの開発のために名前を引き継ぎました。</p>
+
+<p>サンプルはこちら:
+<a href="http://blog.fuktommy.com/">blog.fuktommy.com</a></p>
+
+<h2>ダウンロード</h2>
+<p>blogch3。PHP+Smartyによる実装。</p>
+<ul>
+  <li><a href="blogch3.2008-02-14.tar.gz">blogch3.2008-02-14</a></li>
+  <li><a href="blogch3.2007-11-22.tar.gz">blogch3.2007-11-22</a></li>
+  <li><a href="blogch3.2007-11-04.4.tar.gz">blogch3 2007-11-04r4</a></li>
+  <li><a href="blogch3.2007-11-04.tar.gz">blogch3 2007-11-04</a></li>
+  <li><a href="blogch3.2007-08-26.tar.gz">blogch3 2007-08-26</a></li>
+  <li><a href="blogch3.2007-08-25.1.tar.gz">blogch3 2007-08-25r1</a></li>
+  <li><a href="blogch3.2007-08-19.tar.gz">blogch3 2007-08-19</a></li>
+  <li><a href="blogch3.2007-08-18.tar.gz">blogch3 2007-08-18</a></li>
+</ul>
+
+<h2>blogch2</h2>
+<p>Pythonによる実装。</p>
+<ul>
+  <li><a href="blogch.2007-05-01.tar.gz">blogch 2007-05-01</a></li>
+  <li><a href="blogch.2007-04-30.tar.gz">blogch 2007-04-30</a></li>
+  <li><a href="blogch.2007-04-29.tar.gz">blogch 2007-04-29</a></li>
+  <li><a href="blogch.2007-02-13.tar.gz">blogch 2007-02-13</a></li>
+</ul>
+
+<h2>元祖blogch</h2>
+<ul>
+  <li>2004-12-28 <a href="blogch-0.3.7.tar.gz">blogch-0.3.7</a></li>
+</ul>
+
+>>>include "foot.h"

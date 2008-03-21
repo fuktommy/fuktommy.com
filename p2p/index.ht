@@ -1,0 +1,17 @@
+>>>define TITLE         P2P応援
+>>>define DESCRIPTION   メモや文書
+>>>include "head.h"
+
+<ul>
+  <li><a href="/poeny/">Poenyミラー</a></li>
+  <li><a href="shingetsu-history.ps.gz">第2回P2P勉強会用新月の資料(PS)</a></li>
+  <li><a href="shingetsu-history.pdf">第2回P2P勉強会用新月の資料(PDF)</a></li>
+  <li><a href="shingetsu.ps.gz">P2P勉強会用新月の資料(PS)</a></li>
+  <li><a href="shingetsu.pdf">P2P勉強会用新月の資料(PDF)</a></li>
+  <li><a href="zigumo-source0.1.0.zip">P2P匿名掲示板zigumo(ver.0.1.0)のソース</a></li>
+  <li><a href="zigumo-0.1.2.zip">P2P匿名掲示板zigumo(ver.0.1.2)のバイナリ</a></li>
+  <li><a href="zigumo.zip">P2P匿名掲示板zigumo(ver.0.2)のソース</a></li>
+  <li><a href="vojta.doc.gz">Vojta非公式マニュアル</a></li>
+  <li><a href="vojtachecker-0.1.0.pl.gz">Vojtaの状態を監視するツール</a></li>
+</ul>
+>>>include "foot.h"

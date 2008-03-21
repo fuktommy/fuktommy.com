@@ -1,0 +1,108 @@
+@import "common.css";
+@import "pc.css";
+
+div#maincolumn {
+    border: none;
+    width: 100%;
+    padding-top: 0;
+}
+
+div#maincolumn p {
+    margin: 1em 20%;
+}
+
+div#maincolumn ul, div#maincolumn dl {
+    margin: 1em 30%;
+}
+
+div#maincolumn ul.navi {
+    margin: 1em 10%;
+}
+
+div#sidebar {
+    width: 25%;
+    display: none;
+}
+
+h1 {
+    font-size: 400%;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+div.menupanel {
+    margin: 1em;
+    border: solid 1px black;
+}
+
+ul.navi {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul.navi li {
+    display: inline;
+    padding: 0 1ex;
+}
+
+p#search {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.feedset td {
+    vertical-align: top;
+    border: none;
+}
+
+.feedset .feedlist {
+    border: 1px solid #808080;
+    padding: 1ex;
+}
+
+.feedset a {
+    text-decoration: none;
+}
+
+.feedset a:hover {
+    text-decoration: underline;
+}
+
+.feedset h2 {
+    margin-top: 0;
+}
+
+.feedset h2 a {
+    color: #00B;
+}
+
+.feedset ul {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.feedset li {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.feedset .listmark {
+    color: #ccc;
+}
+
+.feedset .comment {
+    color: #666;
+    font-size: 80%;
+}
+
+address {
+    margin-top: 1em;
+}
+
+div.adsfoot {
+    margin-bottom: 1em;
+}

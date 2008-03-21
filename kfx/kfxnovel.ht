@@ -1,0 +1,26 @@
+>>>define TITLE         KFXリレー小説ファン
+>>>define DESCRIPTION   相関図などを作りました
+>>>define SECTION       KFX
+>>>include "head.h"
+
+<h2>殺人機械（ですとろいやぁ）編</h2>
+<p>相関図計画が発動しました。</p>
+<ul>
+  <li><a href="destroy.lzh">殺人機械編(BMP)</a></li>
+  <li><a href="destroy.jpg">殺人機械編(JPEG)</a></li>
+</ul>
+
+<h2>伊太利亜編</h2>
+<p><a href="nenpyo.zip">「第三の試練」の相関図</a>を作ってみました。</p>
+
+<h2>延べ200話記念企画</h2>
+<p>お祝いに代えて、<a href="mura200.lzh">年表、対戦表、用語集</a>などを作ってみました。</p>
+
+<h2>延べ400話記念企画</h2>
+<p>お祝いに代えて、<a href="mura400.lzh">年表、対戦表、用語集など(強化版)</a>を作ってみました。</p>
+
+<h2>リレー小説補完計画用アイテム</h2>
+<p><a href="kfxnovel.lzh">KFXリレー小説をローカルで読みやすくするツール</a></p>
+<p>cgi関連のデータを取り除いたり、改行をつけたりして読みやすくします。(2000/06/19)</p>
+
+>>>include "foot.h"

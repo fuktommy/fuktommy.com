@@ -1,0 +1,14 @@
+>>>define TITLE         頂きものギャラリー
+>>>define DESCRIPTION   昔頂いたものです
+>>>define SECTION       KFX
+>>>include "head.h"
+
+<h2>Ｇ−０１殿</h2>
+<p><a href="mari_g01.lzh"><img src="mariya.jpg" alt="まりや" width="200" height="200" /></a></p>
+<p>　KFXキャラの「まりや」です。</p>
+
+<h2>すべすべまんじゅうがに殿</h2>
+<p><a href="subekara.lzh"><img src="subekara.jpg" alt="空手少女" width="200" height="200" /></a></p>
+<p>　すべすべまんじゅうがに殿のＨＰ「最中ソフト」の1000ヒット記念ということで頂きました。直上正拳突き・吹上（スト３のまこと）っぽい技だそうです。ガッツポーズかと思った……</p>
+
+>>>include "foot.h"

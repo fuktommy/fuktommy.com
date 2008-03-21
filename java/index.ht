@@ -1,0 +1,17 @@
+>>>define TITLE         Javaの部屋
+>>>define DESCRIPTION   昔に作ったソフトばっかりです。
+>>>include "head.h"
+
+<p><a href="http://www.kfx.w3.to/">F-Ace殿</a>がExe化して下さっています。ただしIE付属のJava仮想機械をインストールしなければいけないそうです。僕はIE自体インストールできないのでF-Ace殿にアップしてもらいました。</p>
+
+<dl>
+  <dt><a href="btlship.lzh">戦艦魚雷ゲーム</a>(ver.1.10／28KB)(2001/01/08)</dt>
+  <dd>互いに座標を言い合っていくというアレです。ローカルルールです。</dd>
+
+  <dt><a href="reverse.lzh">リバーシ</a>(ver.1.30／37KB)(2001/01/05)</dt>
+  <dd>オセロです。α−βアルゴリズムという思考ルーチンを積んでます。</dd>
+
+  <dt><a href="tictac.lzh">Tic-Tac-Toe</a>(ver.1.00／23KB)(2000/12/27)</dt>
+  <dd>○×ゲームです。α−βアルゴリズムという思考ルーチンを積んでます。</dd>
+</dl>
+>>>include "foot.h"

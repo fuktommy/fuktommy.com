@@ -1,0 +1,23 @@
+(global-set-key "\C-xt" 'skk-toggle-kutouten)
+
+(setq skk-rom-kana-rule-list '(
+    ("z " nil "¡¡")
+    ("z@" nil "¡÷")
+    ("@" nil "@")
+    ("z=" nil "¡á")
+    ("z(" nil "¡Ê")
+    ("z)" nil "¡Ë")
+    (":"  nil ":")
+    ("z:" nil "¡§")
+    ("z>" nil "¡ä")
+    ("z<" nil "¡ã")
+    ("z!" nil "¡ª")
+    ("z#" nil "¡ô")
+    ("z+" nil "¡Ü")
+))
+
+;(setq skk-search-prog-list                            
+;    '((skk-search-jisyo-file skk-jisyo 0 t)
+;      (skk-search-server skk-aux-large-jisyo 10000)
+;      (skk-search-jisyo-file "~/etc/SKK-JISYO.1for1" 0)
+;))

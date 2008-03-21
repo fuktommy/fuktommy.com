@@ -1,0 +1,18 @@
+>>>define TITLE         必勝!! ナンバープレイス
+>>>define DESCRIPTION   JavaScript版のナンプレ解法です。
+>>>include "head.h"
+
+<p>2001年にPerlの勉強で作ったものをJavaScriptに移植しました。
+マスに数字を入れて「スタート」を押せば始まります。
+「必勝」と書いてありますが、実際には解けないパターンもあります。</p>
+
+<div id="matrix"><p>JavaScriptを有効にしてください。</p></div>
+<script type="text/javascript" src="numberplace.js" charset="utf-8"></script>
+<p>
+<button tabindex="90" accesskey="s" onclick="np_start();" onkeypress="np_start();">スタート</button>
+<button tabindex="91" accesskey="c" onclick="np_clear();" onkeypress="np_clear();">消去</button>
+<span id="status">JavaScriptを有効にしてください。</span>
+</p>
+<script type="text/javascript">np_init();</script>
+
+>>>include "foot.h"

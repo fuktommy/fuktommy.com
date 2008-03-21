@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD HTML 4.01//EN'
+	'http://www.w3.org/TR/html4/strict.dtd'>
+<html lang='ja'>
+<head>
+  <meta http-equiv="Content-Language" content="ja">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <title>手動トラックバック</title>
+  <link rev="made" href="mailto:fuktommy@inter7.jp">
+  <link rel="contents" href="/">
+  <style type="text/css"><!--
+    .star { color: red; }
+  --></style>
+  <script type="text/javascript"><!--
+    function setxurl() {
+      document.tbform.action=document.TBurl.tburl.value;
+      document.TBurl.xtburl.value=document.TBurl.tburl.value
+    }
+    //--></script>
+</head>
+<body>
+<noscript><p>JavaScriptを使えるようにしてください。</p></noscript>
+
+<p><strong>注意! HTML4.01化したものはMozilla FireFox 0.8でのみテストしました。</strong></p>
+
+<p>このフォームはjavascriptをオンにしないと動作しません。<br>
+多分どのヴァージョンでも動くと思います。<br>
+いろいろ、好きに改変、再配布してください。</p>
+
+<p>トラックバックは送るとこちらからは訂正できません。<br>
+記入事項がただしいかどうか確認してから送ってください。<br>
+とくに、相手記事のトラックバック用urlは間違えないでください。<br>
+<span class="star">*</span>がついているのは必須項目です。</p>
+
+<hr>
+<form action="javascript:setxurl('xx')" name="TBurl">
+<table summary="相手の記事">
+  <tr>
+    <td>相手の記事のtrackback用url<span class="star">*</span></td>
+    <td><input name="tburl" type="text" value="" size="100" accesskey="f" tabindex="1"></td>
+  </tr>
+  <tr>
+    <td>確認</td>
+    <td><input name="xtburl" type="text" value="" size="100" accesskey="f" tabindex="1" readonly></td>
+  </tr>
+</table>
+<p><input type="submit" value="設定" accesskey="x" tabindex="1"></p>
+</form>
+
+<hr>
+<form action="./" method="post" enctype="application/x-www-form-urlencoded" name="tbform">
+<p>あなたの……
+<input type="hidden" name="charset" value="UTF-8"></p>
+<table summary="トラックバックの内容">
+  <tr>
+    <td>記事のタイトル</td>
+    <td><input type="text" name="title" value="" size="100" accesskey="f" tabindex="1"></td>
+  </tr>
+  <tr>
+    <td>記事のurl<span class="star">*</span></td>
+    <td><input type="text" name="url" value="" size="100" accesskey="f" tabindex="1"></td>
+  </tr>
+  <tr>
+    <td>記事の内容</td>
+    <td><input type="text" name="excerpt" value="" size="100" accesskey="f" tabindex="1"></td>
+  </tr>
+  <tr>
+    <td>サイト名<span class="star">*</span></td>
+    <td><input type="text" name="blog_name" value="" size="100" accesskey="f" tabindex="1"></td>
+  </tr>
+</table>
+<p><input type="submit" value="TrackBack" accesskey="x" tabindex="2"></p>
+</form>
+
+<hr>
+<p>オリジナル作者: <a href="http://jouno.s11.xrea.com/" title="強盗喇叭と姦淫林檎">jouno</a><br>
+オリジナル: <a href="http://jouno.s11.xrea.com/archives/b2/weblog192.html">手動トラックバック</a><br>
+HTML4.01化: <a href="http://fuktommy.s64.xrea.com/" title="FukTommyのブックマークス">Fuktommy</a></p>
+</body>
+</html>

@@ -1,0 +1,108 @@
+>>>define TITLE         Windowsにインストールするツール類
+>>>define DESCRIPTION   SKKIMEや窓使いの憂鬱などです。
+>>>define SECTION       Windows
+>>>include "head.h"
+<!-- $Id: tools.ht 4 2008-03-20 13:24:12Z fuktommy $ -->
+
+<h2>はじめに</h2>
+<p>ここ数年はクライアント機にもLinuxを使っていました。
+先週までは特に問題はなかったのですが、<a href="http://bb.goo.ne.jp/">goo ブロードバンドナビ</a>で動画を観ようとしたらLinuxではライセンスの取得ができませんでした。止むを得ないのでLinuxは消してしまって、WindowsXPをインストールすることにしました。</p>
+
+<h2>アーカイバ</h2>
+<dl>
+  <dt><a href="http://www.vector.co.jp/soft/win95/util/se169348.html">Lhaplus</a></dt>
+  <dd>tar,gzip,bzip2等が解凍できます。</dd>
+</dl>
+
+<h2>ユーザインタフェース</h2>
+<dl>
+  <dt><a href="http://mayu.sourceforge.net/">窓使いの憂鬱</a></dt>
+  <dd><a href="http://www.chombo.com/" title="CHOMBOのページ">AltIME</a>とどちらをインストールするか迷ったのですが、Shift-0で~を出したかったのでこちらにしました。<a href="dot.mayu">.mayuの設定例</a>。</dd>
+
+  <dt><a href="http://www.tatari-sakamoto.jp/~tatari/skkime.jis.html">SKKIME</a></dt>
+  <dd>日本語入力はこれです。SKKに慣れてしまうと他のIMEは使えなくなってしまいます。<a href="http://openlab.jp/skk/wiki/wiki.cgi?page=SKK%BC%AD%BD%F1#p0">辞書</a>は<a href="http://openlab.jp/skk/index-j.html">SKK Openlab</a>から入手します。</dd>
+
+  <dt><a href="http://www.microsoft.com/windowsxp/downloads/powertoys/xppowertoys.mspx" title="Microsoft PowerToys for Windows XP">Tweak UI</a></dt>
+  <dd>X-Mouseを設定します。</dd>
+
+  <dt><a href="http://mx1.tiki.ne.jp/~wraith/software.htm">ウィンドウフォルダ</a></dt>
+  <dd>ウィンドウをタスクトレイに格納して、タスクバーをすっきりさせます。</dd>
+</dl>
+
+<h2>プログラム実行環境</h2>
+<dl>
+  <dt><a href="http://www.cygwin.com/">Cygwin</a></dt>
+  <dd>これは必須でしょう。下に出てくるSKKのインストールにも使います。ちなみにシェルはzshにしています。<a href="dot.zshrc">.zshrcの設定例</a>。</dd>
+
+  <dt><a href="http://www.dd.iij4u.or.jp/~nsym/cygwin/cygterm/">CygTerm</a></dt>
+  <dd>Cygwin用の端末を作るのに使います。<a href="#putty">PuTTY</a>と組み合わせると便利です。設定の方法は「<a href="http://www.ep.sci.hokudai.ac.jp/~kk/setup/env_cnf.html#cygterm">Windows 環境構築</a>」を参考にしました。</dd>
+
+  <dt><a href="http://www.python.jp/Zope/">Python</a></dt>
+  <dd><a href="/saku">朔</a>を動かすのに使います。</dd>
+</dl>
+
+<h2>エディタ</h2>
+<dl>
+  <dt><a href="http://www.gnu.org/software/emacs/emacs.html">GNU Emacs</a></dt>
+  <dd>定番のエディタです。ダウンロードはRINGサーバの<a href="http://www.t.ring.gr.jp/pub/GNU/emacs/windows/">GNU/Emacs</a>から。
+      <a href="dot.emacs">.emacsの設定例 (Emacs22)</a> /
+      <a href="dot.emacs.21">.emacsの設定例 (Emacs21)</a>。
+      フォントの設定にてこずりましたが、<a href="http://www.asahi-net.or.jp/~pw9s-szk/emacs/emacs_conf.html">Emacs21のWindowsへのインストールと設定</a>を参考にしました。</dd>
+
+  <dt><a href="http://openlab.jp/skk/index-j.html">ddskk</a></dt>
+  <dd>Emacs上の日本語入力はこれです。環境変数PATHにEmacsのパスを追加してコンパイルします。
+      <a href="dot.skk">.skkの設定例</a>。</dd>
+
+  <dt><a href="http://www.ie.u-ryukyu.ac.jp/~kono/nkf/">NKF</a></dt>
+  <dd>定番の文字コード変換ツールです。コマンドラインから使えるので便利。</dd>
+
+  <dt><a href="http://www.ff.iij4u.or.jp/~nrt/lv/">LV</a></dt>
+  <dd>多言語対応のテキストビューアです。</dd>
+</dl>
+
+<h2>ネットワーク</h2>
+<dl>
+  <dt><a href="http://www.mozilla-japan.org/products/firefox/">Firefox</a></dt>
+  <dd>タブが便利なブラウザ。拡張機能は
+      <a href="https://addons.mozilla.org/firefox/158/">Tabbrowser Preferences</a>,
+      <a href="https://addons.mozilla.org/firefox/249/">Html Validator</a>,
+      <a href="https://addons.mozilla.org/firefox/722/">NoScript</a>,
+      <a href="https://addons.mozilla.org/ja/firefox/addon/748">Greasemonkey</a>
+      を入れています。</dd>
+
+  <dt id="putty"><a href="http://hp.vector.co.jp/authors/VA024651/" title="hdk の自作ソフトの紹介">PuTTY日本語版</a></dt>
+  <dd>SSH接続クライアントです。LAN内部はこれで繋ぎます。</dd>
+
+  <dt><a href="http://www2.biglobe.ne.jp/~sota/ffftp.html">FFFTP</a></dt>
+  <dd>サイト管理にはこれ。</dd>
+
+  <dt><a href="http://tubo.80.kg/">禁断の壷</a></dt>
+  <dd><a href="http://2ch.net/">2ちゃんねる</a>ブラウザには何を使うか迷いましたが、公式っぽい壷にしました。ちなみにLinuxでは<a href="/py2ch/">py2ch</a>を使っています。<a href="tubo.pac">プロキシ設定ファイルの例</a>。</dd>
+
+  <dt><a href="http://www.skype.com/intl/ja/">Skype</a></dt>
+  <dd>Windowsにしてからは1回も通話してないけど…</dd>
+</dl>
+
+<h2>マルチメディア</h2>
+<dl>
+  <dt><a href="http://www.winamp.com/">WINAMP</a></dt>
+  <dd>定番のオーディオプレーヤーです。<a href="http://www.xmms.org/">X Multimedia System</a>を使っていたのでとっつきやすかったです。日本語フォントの設定は<a href="http://cssbug.at.infoseek.co.jp/winamp/wa5/faq.html">Winamp5 FAQ</a>を参考にしました。</dd>
+
+  <dt><a href="http://www8.plala.or.jp/kusutaku/iview/">IrfanView32 日本語版</a></dt>
+  <dd>画像表示・調整・変換に。</dd>
+
+  <dt><a href="http://www.adobe.co.jp/products/acrobat/readstep2.html">Adobe Reader</a></dt>
+  <dd>定番ですけど。</dd>
+
+  <dt><a href="http://deepburner.com/">DeepBurner</a></dt>
+  <dd>ISOイメージを焼けるソフトです。</dd>
+</dl>
+
+<h2>自作ツール</h2>
+<dl>
+  <dt><a href="access.pyw">HDDアクセス</a></dt>
+  <dd><a href="http://blog.fuktommy.com/1118236244">Dell INSPIRON 700m</a>を使っています。Linuxを入れていたときからなんですが、HDDがスピンダウン(回転停止)するまでの時間が異様に短かいのです。30秒くらいのときもあります。2chで相談したら、「 ずっとアクセスしときゃいいんじゃね」というありがたいコメントを貰ったので、30秒ごとにアクセスすることにしました。</dd>
+  <dd>その後同じスレで「BIOSをA04にしてみ。再始動キュイーン消えるから」と教えてもらったのでそのようにしました。直ったようです。</dd>
+</dl>
+
+>>>include "foot.h"

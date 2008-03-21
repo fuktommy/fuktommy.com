@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="content-script-type" content="text/javascript" />
+  <title>FukTropy</title>
+  <meta name="robots" content="NOINDEX" />
+  <link rev="made" href="/" />
+  <link rel="contents" href="/" />
+  <link rel="stylesheet" type="text/css" href="tropy.css" />
+</head>
+<body>
+<div id="main">
+</div>
+<script type="text/javascript" src="tropy.js"></script>
+<noscript><p>JavaScript must be enabled.</p></noscript>
+</body>
+</html>

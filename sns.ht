@@ -1,0 +1,19 @@
+>>>define TITLE         ソーシャルネットワーク
+>>>define DESCRIPTION   参加しているSNS。
+>>>define AMAZONADS     1
+>>>include "head.h"
+<!-- $Id: sns.ht 4 2008-03-20 13:24:12Z fuktommy $ -->
+
+<ul>
+  <li><a href="http://mixi.jp/show_friend.pl?id=30173">mixi</a></li>
+  <li><a href="http://gree.jp/fuktommy/">GREE</a></li>
+  <li><a href="http://www.ziki.com/people/fuktommy">Ziki</a></li>
+  <li><a href="http://www.myspace.com/fuktommy">MySpace</a></li>
+  <li><a href="http://dwango.jp/">dwango.jp</a> (ケータイSNS)</li>
+  <li><a href="http://mbga.jp/">モバゲータウン</a> (ケータイSNS)</li>
+  <li><a href="http://www.mybloglog.com/buzz/members/Fuktommy/">MyBlogLog</a></li>
+  <li><a href="http://www.blogmura.com/profile/103897.html">にほんブログ村</a></li>
+  <li><a href="http://twitter.com/fuktommy">Twitter</a></li>
+  <li><a href="http://www.nicovideo.jp/user/146583">ニコニコ動画</a></li>
+</ul>
+>>>include "foot.h"

@@ -1,0 +1,44 @@
+>>>define TITLE         UPnP
+>>>define DESCRIPTION   UPnPを利用したツール
+>>>include "head.h"
+
+<p><a href="http://www.upnp.org/">UPnP</a>を利用したツールを公開します。
+UPnPについては<a href="http://www.aa.alpha-net.ne.jp/bosuke/trash/upnp.htm" title="UPnP対応ルーターをいじくる">βえんどるふぃん</a>を参考にしました。</p>
+
+<h2>PortCtrl</h2>
+<p>UPnPを利用してポートの開閉をするツールです。</p>
+
+<p>長時間(5〜6時間くらい？)使用しているとネットワークの調子が悪くなることがあるようです。調査中。</p>
+
+<ol>
+  <li>インターネットに繋ぐ。
+      普通はルータやPCの設定を変更する必要はない。</li>
+  <li><a href="http://www.python.jp/Zope/">Python</a>をインストールする。</li>
+  <li>portctrl.pywをダブルクリックすると起動する。
+      上の段に Router: http://... のように表示されていれば起動成功。
+      ウィンドウが開かなかったり、 Router: None と表示されていれば失敗。</li>
+  <li>ポート番号と種類(TCPかUDPか)を入れてOpenを押すとポートが開く。
+      うまくいけば入力欄が灰色になって編集できなくなる。
+      そうでなければ失敗。</li>
+  <li>Closeを押すとポートが閉じる。</li>
+  <li>Quitを押すかウィンドウを閉じればプログラムは終了。
+      その際プログラムで開いたポートは自動的に閉じる。</li>
+</ol>
+
+<ul>
+  <li><a href="portctrl-0.1.0.tar.gz">PortCtrl 0.1.0</a> (2006-11-20)</li>
+</ul>
+
+<h2>Dynamic DNS Daemon</h2>
+<p>UPnPを利用してグローバルIPアドレスを監視し、
+変化があればDDNSの更新スクリプトを呼び出すソフトです。
+ルータのURIなどを調べて設定してください。
+PortCtrlに含まれるupnp.pyが必要です。</p>
+
+<ul>
+  <li><a href="ddnsd-0.1.2.py">DDNSD 0.1.2</a> (2006-01-27)</li>
+</ul>
+
+
+
+>>>include "foot.h"

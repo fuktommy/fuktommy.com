@@ -1,0 +1,20 @@
+@import "common.css";
+
+form#search {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    background-color: #efefef;
+}
+
+address {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+div.adsfoot {
+    margin: 0;
+    text-align: center;
+}

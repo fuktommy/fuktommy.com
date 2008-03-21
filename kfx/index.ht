@@ -1,0 +1,60 @@
+>>>define TITLE         Koubou of Fuktommy X
+>>>define DESCRIPTION   格闘ゲームのデータです。今は更新してませんが。
+>>>include "head.h"
+
+<p>KnuckleFighter-X とは<a href="http://www2s.biglobe.ne.jp/~carrot/">Carrot Softwere</a>の制作したフリーウエアの対戦格闘ゲームです。キャラクターを自作できるのが特長で、多くの方が制作しています。</p>
+<p>ここにあるデータは自由に利用・改変・再配布をすることができます。</p>
+
+<h2>自作キャラ</h2>
+<ul>
+  <li><a href="mari0230.lzh">まりや</a>(37kb)(2000/05/01)</li>
+  <li><a href="doi0112.lzh">DOI</a>(109kb)(1999/11/08)</li>
+  <li><a href="yachtdoi.lzh">DOIフェイス画像(よっとまん殿)</a>(3kb)(2000/06/12)</li>
+  <li><a href="musa0111.lzh">ムサ夫</a>(110kb)(1999/11/08)</li>
+  <li><a href="niji0101.lzh">怪奇虹男</a>(13kb)(2000/02/07)</li>
+  <li><a href="4kak0102.lzh">■</a>(16kb)(2000/01/31)</li>
+  <li><a href="saka0101.lzh">さかな</a>(13kb)(2000/02/22)</li>
+  <li><a href="12850.lzh">サムライガソ</a>(19kb)(2000/07/31)</li>
+  <li><a href="fuktommy.lzh">FukTommy</a>(17kb)(2000/11/05)</li>
+  <li><a href="jidai.lzh">FukTommy in the 時代劇</a>(43kb)(2000/12/03)</li>
+  <li><a href="stand.lzh">FukTommy in the 奇妙な世界</a>(35kb)(2000/12/25)</li>
+  <li><a href="mib.lzh">FukTommy from Men In Black</a>(30kb)(2001/01/04)</li>
+  <li><a href="sports.lzh">スポォツマンのFukTommy</a>(33kb)(2001/01/28)</li>
+  <li><a href="fruits.lzh">ガーデニングのFukTommy</a>(27kb)(2001/02/22)</li>
+  <li><a href="clock.lzh">時計屋さんのFukTommy</a>(29kb)(2001/03/23)</li>
+</ul>
+
+<h2>ステージ画像</h2>
+<ul>
+  <li><a href="stage.lzh">第１シリーズ</a>(69kb)(2000/06/06)</li>
+  <li><a href="snow.lzh">雪国編</a>(11kb)(2000/07/16)</li>
+</ul>
+
+<h2>改造</h2>
+<ul>
+  <li><a href="fuksanae.lzh">早苗(飛龍＋＋殿)</a>(10kb)(2000/09/25)</li>
+  <li><a href="fukssana.lzh">真・早苗(飛龍＋＋殿)</a>(8kb)(2000/10/12)</li>
+  <li><a href="fkousuke.lzh">コースケ(KAZU殿＆コースケ殿)</a>(1kb)(2000/01/11)</li>
+</ul>
+
+<h2>プログラム</h2>
+<ul>
+  <li><a href="entry.lzh">ランダムエントリー</a>(18kb)(2000/08/27)</li>
+  <li><a href="urchar11.lzh">あなたにぴったりなキャラ捜します(DOS汎用版)</a>(21kb)(2000/01/31)</li>
+  <li><a href="urchar2b.lzh">あなたにぴったりなキャラ捜します(avaアプレット版)</a>(21kb)(2000/01/31)</li>
+  <li><a href="kncheker.lzh">ナックルチェッカー</a>(47KB)(2000/11/24)</li>
+  <li><a href="balancer.lzh">KFXバランサー</a>(22KB)(2000/11/20)</li>
+  <li><a href="kfxadv.lzh">KFXアドベンチャー</a>(234KB)(2000/09/01)</li>
+  <li><a href="kfxadvsr.lzh">KFXアドベンチャー素材</a>(56KB)</li>
+</ul>
+
+<h2>企画</h2>
+<ul>
+  <li><a href="stand">スタンド使い in KFX</a></li>
+  <li><a href="kfx_char">KFX 心に残るキャラ</a></li>
+  <li><a href="k_enemy.lzh">コースケ最強エネミー決定リーグ(10MB)</a></li>
+  <li><a href="kfxnovel">KFX リレー小説ファン</a></li>
+  <li><a href="nenpyo.zip">年表</a></li>
+  <li><a href="gift">頂きものギャラリー</a></li>
+</ul>
+>>>include "foot.h"

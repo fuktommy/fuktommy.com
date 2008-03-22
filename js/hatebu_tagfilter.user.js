@@ -25,7 +25,7 @@
     function loadTagsFromCache() {
         var cloud = {};
         var now = (new Date()).getTime() / 1000;
-        if (GM_getValue('cache_time', 0) + 1800*1000 < now) {
+        if (GM_getValue('cache_time', 0) + 1800 < now) {
             return false;
         } else {
             var cached = GM_getValue('tags', '');

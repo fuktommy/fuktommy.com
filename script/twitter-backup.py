@@ -46,8 +46,10 @@ from gzip import GzipFile
 from StringIO import StringIO
 from time import sleep
 
-FEED_PARENT_URL = 'http://twitter.com/statuses/user_timeline/'
 __version__ = "$Revision$"
+
+FEED_PARENT_URL = 'http://twitter.com/statuses/user_timeline/'
+VERSION = __version__[11:-1].strip()
 
 
 class TwitterLog:
@@ -128,7 +130,7 @@ def load_options():
 def get_feed(url):
     agent = urllib.FancyURLopener()
     agent.addheaders = []
-    agent.addheaders.append(('User-Agent', 'Twitte-Backup/' + __version__))
+    agent.addheaders.append(('User-Agent', 'Twitte-Backup/' + VERSION))
     agent.addheaders.append(('Accept-Encoding', 'gzip'))
     for i in range(5):
         try:

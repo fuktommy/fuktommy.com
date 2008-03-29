@@ -82,7 +82,7 @@ class TwitterLog:
                    (guid, pubdate, title, link, description)
                    VALUES (?, ?, ?, ?, ?)""",
                            (update['guid'],
-                            update.get('pubdate', ''),
+                            update.get('pubDate', ''),
                             update.get('title', ''),
                             update.get('link', ''),
                             update.get('description', '')))

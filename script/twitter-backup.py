@@ -166,6 +166,13 @@ def _test():
                    </feed>'''
             self.logdata = [(u'hoge', u'bar', u'foo')]
 
+        def testInsertUpdate(self):
+            self.log.insert_update({'title': u'foo', 'updated': u'bar', 'link': u'hoge'})
+            cursor = self.log.db.cursor()
+            cursor.execute("SELECT * FROM twitterlog;")
+            rows = cursor.fetchall()
+            self.assertEqual(self.logdata, rows)
+
         def testReadFeed(self):
             self.log.read_feed(self.xml)
             cursor = self.log.db.cursor()

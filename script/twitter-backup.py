@@ -48,7 +48,7 @@ from gzip import GzipFile
 from StringIO import StringIO
 from time import sleep
 
-__version__ = "$Revision$"
+__version__ = '$Revision$'
 
 FEED_PARENT_URL = 'http://twitter.com/statuses/user_timeline/'
 VERSION = __version__[11:-1].strip()
@@ -117,6 +117,9 @@ def load_options():
         a = argv.pop(0)
         if a == '-o':
             dbpath = argv.pop(0)
+        elif a == '--test':
+            _test()
+            sys.exit()
         else:
             username = a
     if username is None:
@@ -145,6 +148,34 @@ def get_feed(url):
     except IOError:
         pass
     return feed
+
+def _test():
+    import unittest
+
+    class TestTwitterLog(unittest.TestCase):
+        def setUp(self):
+            self.log = TwitterLog('test', ':memory:')
+            self.xml = \
+                '''<?xml version="1.0" encoding="UTF-8"?>
+                   <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
+                     <entry>
+                       <title>test: foo</title>
+                       <updated>bar</updated>
+                       <link rel="alternate" type="text/html" href="hoge"/>
+                     </entry>
+                   </feed>'''
+            self.logdata = [(u'hoge', u'bar', u'foo')]
+
+        def testReadFeed(self):
+            self.log.read_feed(self.xml)
+            cursor = self.log.db.cursor()
+            cursor.execute("SELECT * FROM twitterlog;")
+            rows = cursor.fetchall()
+            self.assertEqual(self.logdata, rows)
+
+    suite = unittest.makeSuite(TestTwitterLog)
+    unittest.TextTestRunner(verbosity=2).run(suite)
+# End of _test
 
 def main():
     username, dbpath, feedurl = load_options()

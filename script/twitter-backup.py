@@ -1,12 +1,12 @@
 #!/usr/bin/python
 '''Twitte Backup.
 
-1. download RSS feed
+1. download Atom feed
 2. insert updates into sqlite DB
 
-usage: twitte-backup username [-d dbpath]
+usage: twitte-backup username [-o dbpath]
 options:
-    -d dbpath: sqlite DB file path. default is ./<username>.db
+    -o dbpath: sqlite DB file path. default is ./<username>.db
 '''
 #
 # Copyright (c) 2008 Satoshi Fukutomi <info@fuktommy.com>.
@@ -37,6 +37,8 @@ options:
 #
 
 import os.path
+import re
+import socket
 import sqlite3
 import sys
 import traceback
@@ -56,36 +58,30 @@ class TwitterLog:
     '''Twitte Log DB Wrapper.
     '''
 
-    def __init__(self, dbpath):
+    def __init__(self, username, dbpath):
+        self.username = username
         if os.path.isfile(dbpath):
             self.db = sqlite3.connect(dbpath)
         else:
             self.db = sqlite3.connect(dbpath)
             self.db.executescript(
                 """CREATE TABLE twitterlog (
-                   guid PRIMARY KEY,
+                   link PRIMARY KEY,
                    pubdate,
-                   title,
-                   link,
-                   description
+                   body
                    );""")
         self.db.isolation_level = None
 
     def insert_update(self, update):
         cursor = self.db.cursor()
-        cursor.execute("SELECT COUNT(*) FROM twitterlog WHERE guid = ?;", (update['guid'], ))
+        cursor.execute("SELECT COUNT(*) FROM twitterlog WHERE link = ?;", (update['link'], ))
         if int(cursor.fetchone()[0]) > 0:
             return
         try:
-            cursor.execute(
-                """INSERT INTO twitterlog
-                   (guid, pubdate, title, link, description)
-                   VALUES (?, ?, ?, ?, ?)""",
-                           (update['guid'],
-                            update.get('pubDate', ''),
-                            update.get('title', ''),
-                            update.get('link', ''),
-                            update.get('description', '')))
+            cursor.execute("INSERT INTO twitterlog (link, pubdate, body) VALUES (?, ?, ?)",
+                           (update['link'],
+                            update.get('updated', ''),
+                            update.get('title', '')))
         except sqlite3.IntegrityError, err:
             traceback.print_exc()
         cursor.close()
@@ -97,12 +93,16 @@ class TwitterLog:
         '''Read feed string and insert updates into log DB.
         '''
         dom = xml.dom.minidom.parseString(data)
-        for item in dom.getElementsByTagName('item'):
+        for entry in dom.getElementsByTagName('entry'):
             update = {}
-            for element in item.childNodes:
+            for element in entry.childNodes:
                 if element.hasChildNodes():
                     update[element.nodeName] = element.firstChild.nodeValue
-            self.insert_update(update)
+                elif element.nodeName == 'link':
+                    update['link'] = element.getAttribute('href')
+            update['title'] = update.get('title', '').replace(self.username + ': ', '', 1)
+            if ('link' in update) and update['link']:
+                self.insert_update(update)
 
 # End of TwitterLog
 
@@ -115,15 +115,15 @@ def load_options():
     argv = sys.argv[1:]
     while argv:
         a = argv.pop(0)
-        if a == '-d':
+        if a == '-o':
             dbpath = argv.pop(0)
         else:
             username = a
     if username is None:
-        sys.exit('usage: twitte-backup username [-d dbpath]')
+        sys.exit('usage: twitte-backup username [-o dbpath]')
     if dbpath is None:
         dbpath = './%s.db' % username
-    feedurl = '%s%s.rss' % (FEED_PARENT_URL, username)
+    feedurl = '%s%s.atom' % (FEED_PARENT_URL, username)
 
     return username, dbpath, feedurl
 
@@ -132,6 +132,7 @@ def get_feed(url):
     agent.addheaders = []
     agent.addheaders.append(('User-Agent', 'Twitte-Backup/' + VERSION))
     agent.addheaders.append(('Accept-Encoding', 'gzip'))
+    socket.setdefaulttimeout(10)
     for i in range(5):
         try:
             feed = agent.open(url).read()
@@ -147,7 +148,7 @@ def get_feed(url):
 
 def main():
     username, dbpath, feedurl = load_options()
-    log = TwitterLog(dbpath)
+    log = TwitterLog(username, dbpath)
     feed = get_feed(feedurl)
     log.read_feed(feed)
 

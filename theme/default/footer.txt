@@ -8,9 +8,11 @@
         <span style="{ word-break:keep-all; }">
             <a
                 title="「<SEARCH_WORD>」を含む「かけら」を探す"
+                rel="nofollow"
                 href="<SITE_URL>?mycmd=search&amp;myword=<SEARCH_ENCODED_WORD>"><SEARCH_WORD></a>&nbsp;<a
                 style="text-decoration: none;"
                 title="「<SEARCH_WORD>」の検索履歴を削除する"
+                rel="nofollow"
                 href="<SITE_URL>?mycmd=delsearch&amp;myword=<SEARCH_ENCODED_WORD>">x</a>
         </span>
         <br />

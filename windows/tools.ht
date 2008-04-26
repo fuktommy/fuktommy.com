@@ -92,7 +92,8 @@
       <a href="https://addons.mozilla.org/ja/thunderbird/addon/4654">Remove Duplicate Messages (Alternate)</a>,
       <a href="https://addons.mozilla.org/ja/thunderbird/addon/2110">MinimizeToTray</a>
       を入れています。
-      <a href="https://mail.google.com/mail/">Gmail</a>の方が便利だけどね。</dd>
+      <a href="https://mail.google.com/mail/">Gmail</a>の方が便利だけどね。
+      <a href="thunderbird.user.js">user.jsの設定例</a>。</dd>
 
   <dt><a href="http://desktop.google.com/ja/">Google Desktop</a></dt>
   <dd>検索とか。</dd>

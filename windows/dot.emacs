@@ -69,6 +69,7 @@
 (global-set-key [mouse-4] 'scroll-down)
 (global-set-key [mouse-5] 'scroll-up)
 (setq initial-scratch-message nil)
+(setq inhibit-startup-message t)
 
 (defun my-favorite-mode () (text-mode))
 (setq default-major-mode 'my-favorite-mode)

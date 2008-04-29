@@ -14,6 +14,15 @@
 (setq default-process-coding-system '(euc-jp-unix . euc-jp-unix))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ユニコード
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(skk-mode 1)
+;(require 'un-define)
+;(require 'jisx0213)
+(require 'un-supple)
+(un-supple-enable 'windows)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 漢字変換 (skk) の設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key "\C-o" 'skk-mode)
@@ -32,13 +41,6 @@
 		   (skk-set-cursor-properly)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ユニコード
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(skk-mode 1)
-;(require 'un-define)
-;(require 'jisx0213)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; いろいろ
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key [delete] 'delete-char)
@@ -54,6 +56,7 @@
 (global-set-key "\C-\\" 'undo)
 
 (setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 (setq tab-stop-list
     '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120))
 
@@ -71,6 +74,7 @@
 (setq default-major-mode 'my-favorite-mode)
 (defun emacs-lisp-mode		() (my-favorite-mode))
 (defun perl-mode		() (my-favorite-mode))
+(defun python-mode		() (my-favorite-mode))
 (defun sgml-mode		() (my-favorite-mode))
 (defun html-mode		() (my-favorite-mode))
 (defun html-mode		() (my-favorite-mode))
@@ -86,13 +90,12 @@
 (defun java-mode		() (my-favorite-mode))
 (defun nroff-mode		() (my-favorite-mode))
 (defun makefile-mode		() (my-favorite-mode))
+(defun conf-mode		() (my-favorite-mode))
 (setq initial-major-mode 'my-favorite-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Windows
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(set-default-font "-outline-ＭＳ ゴシック-normal-r-normal-normal-16-120-96-96-c-*-iso10646-1")
-
 (create-fontset-from-ascii-font
  "-outline-ＭＳ ゴシック-normal-r-normal-normal-16-*-*-*-*-*-iso8859-1"
  nil "myfont")
@@ -104,9 +107,16 @@
                   '("ＭＳ ゴシック*" . "jisx0201-katakana"))
 (add-to-list 'default-frame-alist '(font . "fontset-myfont"))
 
+;(set-default-font "-outline-\202l\202r \203\123\203V\203b\203N-normal-r-normal-normal-16-120-96-96-c-*-iso10646-1")
+
 (set-scroll-bar-mode 'left)
 
 (setenv "CYGWIN" "")
 (setq explicit-shell-file-name "c:\\cygwin\\bin\\zsh.exe")
 (setq shell-file-name "sh.exe")
 (setq shell-command-switch "-c")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; テンプレート編集
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-coding-alist '("\\.tpl$" . utf-8))

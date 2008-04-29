@@ -32,6 +32,9 @@
   <dt><a href="/script/">各種スクリプト</a></dt>
   <dd>PythonやPerlのスクリプトです。</dd>
 
+  <dt><a href="/homebin/">~/bin</a></dt>
+  <dd>~/binの中身です。</dd>
+
   <dt><a href="/feedgetter/">FeedGetter</a></dt>
   <dd>RSSフィードを取ってきて整形するツール。</dd>
 

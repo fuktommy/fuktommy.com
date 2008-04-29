@@ -30,29 +30,32 @@
 import os
 import re
 
-DIR = './script'
-BASEURI = 'http://fuktommy.com/script/'
+DIR = [('./homebin', 'http://fuktommy.com/homebin/'),
+       ('./script', 'http://fuktommy.com/script/')]
 
 def print_error():
+    print 'Status: 404 Not Found'
     print 'Content-Type: text/plain'
     print
     print 'ERROR'
 
 def main():
-    basename = os.environ.get('QUERY_STRING', '')
+    basename = os.environ.get('PATH_INFO', '').replace('/', '', 1)
+    if not basename:
+        basename = os.environ.get('QUERY_STRING', '')
+
     if re.search(r'^\w[-._0-9A-Za-z]+$', basename):
-        files = os.listdir(DIR)
-        files = filter(lambda i: i.startswith(basename), files)
-        files.sort()
-        if not files:
-            print_error()
-        else:
-            print 'Location: %s%s' % (BASEURI, files[-1])
-            print 'Content-Type: text/plain'
-            print 
-            print files[-1]
-    else:
-        print_error()
+        for dirname, baseuri in DIR:
+            files = os.listdir(dirname)
+            files = filter(lambda i: i.startswith(basename), files)
+            files.sort()
+            if files:
+                print 'Location: %s%s' % (baseuri, files[-1])
+                print 'Content-Type: text/plain'
+                print 
+                print files[-1]
+                return
+    print_error()
 
 if __name__ == '__main__':
     main()

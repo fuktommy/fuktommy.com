@@ -1,19 +1,6 @@
 RewriteEngine on
 
-RewriteRule ^index.rdf$ http://fuktommy.com/rss [R=301,L]
 RewriteRule ^poeny/rss.cgi$ http://fuktommy.com/poeny/rss [R=301,L]
-
-RewriteCond %{QUERY_STRING} cmd=rss
-RewriteRule ^$ http://blog.fuktommy.com/rss? [R=301,L]
-
-RewriteCond %{QUERY_STRING} cmd=rss
-RewriteRule ^daifuku/$ http://blog.fuktommy.com/rss? [R=301,L]
-
-RewriteRule ^daifuku/([0-9]+).html http://blog.fuktommy.com/$1
-RewriteRule ^([0-9]+).html http://blog.fuktommy.com/$1 [R=301,L]
-
-RewriteRule ^shingetsu.rdf http://bbs.shingetsu.info/gateway.cgi/rss [R=301,L]
-RewriteRule ^dummy         http://bbs.shingetsu.info/
 
 RewriteCond %{HTTP_USER_AGENT} ^WWWC [OR]
 RewriteCond %{HTTP_USER_AGENT} ^MFcrawler [OR]
@@ -21,35 +8,18 @@ RewriteCond %{HTTP_USER_AGENT} ^libwww-perl [OR]
 RewriteCond %{HTTP_USER_AGENT} "^Hatena Antenna"
 RewriteRule ^$ http://blog.fuktommy.com/rss [R,L]
 
-RewriteRule ^daifuku    http://blog.fuktommy.com/ [R=301,L]
-RewriteRule ^dcard      http://fuktommy.com/blogch/ [R=301,L]
-RewriteRule ^saku       http://shingetsu.info/saku/ [R=301,L]
-RewriteRule ^linux/genhtml   http://fuktommy.com/htmlpp/ [R=301,L]
-RewriteRule ^book/jiden      http://blog.fuktommy.com/986742000  [R=301,L]
-RewriteRule ^food/melonpan   http://blog.fuktommy.com/1072969200 [R=301,L]
-RewriteRule ^linux/windows   http://blog.fuktommy.com/1076252401 [R=301,L]
-RewriteRule ^linux/python    http://blog.fuktommy.com/1076252402 [R=301,L]
-RewriteRule ^solaris/dotfile http://blog.fuktommy.com/1112189181 [R=301,L]
-RewriteRule ^solaris/smf     http://blog.fuktommy.com/1112359291 [R=301,L]
-RewriteRule ^web/possession  http://blog.fuktommy.com/1117150560 [R=301,L]
-RewriteRule ^linux/install   http://blog.fuktommy.com/1118236243 [R=301,L]
-RewriteRule ^linux/dell700   http://blog.fuktommy.com/1118236244 [R=301,L]
-RewriteRule ^p2p/cstop2p     http://blog.fuktommy.com/1128084484 [R=301,L]
-RewriteRule ^p2p/definition2 http://blog.fuktommy.com/1128084518 [R=301,L]
-RewriteRule ^p2p/definition  http://blog.fuktommy.com/1128084508 [R=301,L]
-RewriteRule ^p2p/term        http://blog.fuktommy.com/1128084538 [R=301,L]
-RewriteRule ^p2p/next        http://blog.fuktommy.com/1128084527 [R=301,L]
-RewriteRule ^web/bbs2blog    http://blog.fuktommy.com/1128084662 [R=301,L]
-RewriteRule ^web/parody      http://blog.fuktommy.com/1129301285 [R=301,L]
-RewriteRule ^p2p/search      http://blog.fuktommy.com/1130420013 [R=301,L]
-RewriteRule ^web/search      http://blog.fuktommy.com/1130420013 [R=301,L]
-RewriteRule ^web/2chcopy     http://blog.fuktommy.com/1130567571 [R=301,L]
-RewriteRule ^p2p/p2ptype     http://blog.fuktommy.com/1130645541 [R=301,L]
-RewriteRule ^p2p/simplep2p   http://blog.fuktommy.com/1130911507 [R=301,L]
-RewriteRule ^linux/rss       http://blog.fuktommy.com/1131976975 [R=301,L]
-RewriteRule ^web/anonymousbl http://blog.fuktommy.com/1132707989 [R=301,L]
-RewriteRule ^web/google      http://blog.fuktommy.com/1131080524 [R=301,L]
-RewriteRule ^web/tropy2      http://blog.fuktommy.com/1131460559 [R=301,L]
-RewriteRule ^p2p/hash        http://blog.fuktommy.com/1132328529 [R=301,L]
-RewriteRule ^linux/server    http://blog.fuktommy.com/1139576564 [R=301,L]
-RewriteRule ^linux/eximwild  http://blog.fuktommy.com/1140792128 [R=301,L]
+RewriteRule ^htmlpp/blog-pin http://fuktommy.com/homebin/blog-ping      [R=301,L]
+RewriteRule ^htmlpp/tinyhttp http://fuktommy.com/homebin/tinyhttp       [R=301,L]
+RewriteRule ^htmlpp/htmlpp   http://fuktommy.com/homebin/htmlpp         [R=301,L]
+RewriteRule ^htmlpp/mkrss    http://fuktommy.com/homebin/mkrss          [R=301,L]
+RewriteRule ^htmlpp/mksitema http://fuktommy.com/homebin/mksitemap      [R=301,L]
+RewriteRule ^script/csvview  http://fuktommy.com/homebin/csvview        [R=301,L]
+RewriteRule ^script/filediet http://fuktommy.com/homebin/filediet       [R=301,L]
+RewriteRule ^script/mkpswd   http://fuktommy.com/homebin/mkpswd         [R=301,L]
+RewriteRule ^script/parse-qu http://fuktommy.com/homebin/parse-query    [R=301,L]
+RewriteRule ^script/riget    http://fuktommy.com/homebin/riget          [R=301,L]
+RewriteRule ^script/rss2hate http://fuktommy.com/homebin/rss2hatena     [R=301,L]
+RewriteRule ^script/sweetumb http://fuktommy.com/homebin/sweetumb       [R=301,L]
+RewriteRule ^script/twitter- http://fuktommy.com/homebin/twitter-backup [R=301,L]
+RewriteRule ^script/xmlcheck http://fuktommy.com/homebin/xmlcheck       [R=301,L]
+RewriteRule ^script/zgu      http://fuktommy.com/homebin/zgu            [R=301,L]

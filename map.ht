@@ -168,5 +168,9 @@
   <li>プログラマ (主に携帯サイトの開発)</li>
   <li><a href="http://info.dwango.co.jp/">ドワンゴ</a>所属(2007年から)</li>
 </ul>
+<p>このウェブサイトに含まれる意見や結論は私個人によるものであって、
+現在または過去の所属組織の公式な方針を、
+明示黙示を問わず、あらわしているものととってはならない。
+(cf. <a href="http://www.freebsd.org/ja/copyright/freebsd-license.html">The FreeBSD Copyright</a>)</p>
 
 >>>include "foot.h"

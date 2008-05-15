@@ -9,5 +9,5 @@ rsync -Cacv --delete \
     --exclude="- /setup.sh" \
     --exclude="- /template" \
     --exclude="- /blog" \
-    --exclude="- /blogsitemp.txt" \
+    --exclude="- /blogsitemap.txt" \
     ./ /srv/www/mobile.fuktommy.com/

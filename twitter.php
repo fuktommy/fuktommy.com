@@ -38,6 +38,6 @@ try {
         fputcsv($out, $row);
     }
     fclose($out);
-} catch (Exceptioin $err) {
+} catch (Exception $err) {
     // pass
 }

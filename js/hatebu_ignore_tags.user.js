@@ -34,6 +34,7 @@
     }
 
     function saveIgnoreTags() {
+        ignoreTable = {};
         var tags = saveText.value.split(/, */);
         var data = '';
         for (var i=tags.length-1; i>=0; i--) {
@@ -42,8 +43,10 @@
             } else {
                 data += '[]' + encodeURIComponent(tags[i]);
             }
+            ignoreTable[tags[i]] = true;
         }
         GM_setValue('tags', data);
+        hideTags();
         saveForm.appendChild(document.createTextNode('保存しました。'));
     }
 
@@ -63,6 +66,8 @@
             var tag = span[i].innerHTML;
             if (ignoreTable[tag]) {
                 span[i].style.display = 'none';
+            } else {
+                span[i].style.display = 'inline';
             }
         }
         button.innerHTML = '全タグを表示';

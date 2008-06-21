@@ -11,48 +11,41 @@
 // http://fuktommy.com/bsdl
 
 (function() {
-    var ignoreTags = [
-        'amazon',
-        'DL違法化',
-        'filtering',
-        'googlevideo',
-        'miau',
-        'musashi',
-        'ngn',
-        'ohmynews',
-        'slp',
-        'seo',
-        'stage6',
-        'tinycafe',
-        'しょこたん',
-        'ひこにゃん',
-        'らきすた',
-        'ガンダム式',
-        'クリムゾン',
-        'サイトウサン',
-        'デブサミ',
-        'ニコブ',
-        'モスバーガー問題',
-        'ライトセイバー',
-        'ロングテール',
-        'リーダーシップ',
-        '人間力',
-        '医療',
-        '人間関係',
-        '公私問題',
-        '転載',
-        '先行者',
-        '初音ミク',
-        '初音ミク公序良俗問題',
-        '初音ミク着うた問題',
-        '瀧澤',
-        '缶りょめ',
-        '蒟蒻',
-        '虚構新聞',
-        '麻生太郎'
-    ];
-
     var button = document.createElement('button');
+
+    var saveForm = document.createElement('form');
+    var saveText = document.createElement('input');
+    var saveButton = document.createElement('button');
+
+    var ignoreTable = {};
+    var ignoreTagsString = '';
+
+    function loadIgnoreTags() {
+        var tags = GM_getValue('tags', '').split('[]');
+        for (var i=tags.length-1; i>=0; i--) {
+            var tag = decodeURIComponent(tags[i]);
+            ignoreTable[tag] = true;
+            if (ignoreTagsString == '') {
+                ignoreTagsString = tag;
+            } else {
+                ignoreTagsString += ', ' + tag;
+            }
+        }
+    }
+
+    function saveIgnoreTags() {
+        var tags = saveText.value.split(/, */);
+        var data = '';
+        for (var i=tags.length-1; i>=0; i--) {
+            if (data == '') {
+                data = encodeURIComponent(tags[i]);
+            } else {
+                data += '[]' + encodeURIComponent(tags[i]);
+            }
+        }
+        GM_setValue('tags', data);
+        saveForm.appendChild(document.createTextNode('保存しました。'));
+    }
 
     function displayTags() {
         var span = document.getElementById('tags_list').getElementsByTagName('span');
@@ -65,10 +58,6 @@
     }
 
     function hideTags() {
-        var ignoreTable = {};
-        for (var i=ignoreTags.length-1; i>=0; i--) {
-            ignoreTable[ignoreTags[i]] = true;
-        }
         var span = document.getElementById('tags_list').getElementsByTagName('span');
         for (var i=span.length-1; i>=0; i--) {
             var tag = span[i].innerHTML;
@@ -82,10 +71,23 @@
     }
 
     function init() {
+        document.getElementById('tags_list').appendChild(button);
+        document.getElementById('tags_list').appendChild(saveForm);
+
         button.innerHTML = '全タグを表示';
         button.type = 'button';
-        document.getElementById('tags_list').appendChild(button);
+
+        saveText.size = 100;
+        saveButton.innerHTML = '無視タグを保存';
+        saveButton.type = 'button';
+        saveForm.appendChild(saveText);
+        saveForm.appendChild(saveButton);
+
+        loadIgnoreTags();
         hideTags();
+
+        saveText.value = ignoreTagsString;
+        saveButton.addEventListener('click', saveIgnoreTags, false);
     }
 
     window.addEventListener('load', init, false);

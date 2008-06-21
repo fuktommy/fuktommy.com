@@ -1,5 +1,5 @@
 <script type="text/javascript"><!--
-amazon_ad_tag="fuktommysstor-22"; 
+amazon_ad_tag="fuktommy-22"; 
 amazon_ad_width="180"; 
 amazon_ad_height="150"; 
 amazon_color_background="EFEFEF"; 

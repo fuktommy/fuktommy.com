@@ -27,8 +27,7 @@
         ['ブログ一般', 'Yahoo! 検索', false,
          'http://blog-search.yahoo.co.jp/search?fr=top_v2&ei=UTF-8&p='],
         ['本(和書)', 'Amazon 検索', false,
-         'http://astore.amazon.co.jp/fuktommysstor-22/search/' +
-         '503-8565522-0087920?node=2&x=6&y=13&keywords=']
+         'http://astore.amazon.co.jp/fuktommy-22/search?node=52&keywords=']
     ];
     var searchbox_poweredby = [
         ['Google', 'http://www.google.co.jp/'],
@@ -41,7 +40,7 @@
 
 <div class="adsfoot">
 <script type="text/javascript"><!--
-amazon_ad_tag="fuktommysstor-22"; 
+amazon_ad_tag="fuktommy-22"; 
 amazon_ad_width="468"; 
 amazon_ad_height="60"; 
 amazon_color_background="EFEFEF"; 

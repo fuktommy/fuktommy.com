@@ -5,6 +5,20 @@
 // $Id$
 
 (function() {
+    var bookmarkinfo = null;
+    var ul = document.getElementsByTagName('ul');
+    for (var i=0; i<ul.length; i++) {
+        if (ul[i].className == 'bookmarkinfo') {
+            bookmarkinfo = ul[i];
+            break;
+        }
+    }
+    var messageArea = null;
+    if (bookmarkinfo != null) {
+        messageArea = document.createElement('li');
+        bookmarkinfo.appendChild(messageArea);
+    }
+
     var DeleteFormList = Class.create();
     DeleteFormList.prototype.initialize = function () {
         this.item = [];
@@ -16,7 +30,7 @@
     };
     DeleteFormList.prototype.removeNextItem  = function () {
         if (this.item.length <= this.j) {
-            alert('finish');
+            alert('removed ' + this.j + ' entries');
             return;
         } else {
             var pars = $H({rkm: this.item[this.j][1],
@@ -26,6 +40,9 @@
                 {parameters: pars}
             );
             this.j++;
+            if (messageArea != null) {
+                messageArea.innerHTML = '(removed ' + this.j + ' / ' + this.item.length + ' entries)';
+            }
             setTimeout(this.removeNextItem.bindAsEventListener(this), 1000);
         }
     };

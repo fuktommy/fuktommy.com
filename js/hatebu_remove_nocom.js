@@ -1,5 +1,5 @@
 // Copyright (c) 2008 Satoshi Fukutomi <info@fuktommy.com>.
-// http://fuktommy.com/js/hatebu_tagfilter.js
+// http://fuktommy.com/js/
 // Distributed under new BSD license
 // http://fuktommy.com/bsdl
 // $Id$

@@ -91,6 +91,7 @@
         bookmarklet.href = "javascript:(function(){"
                          + "var s=document.createElement('script');"
                          + "s.src='" + base + "bookmarklet.js';"
+                         + "s.charset='utf-8';"
                          + "document.body.appendChild(s);"
                          + "})();void(0);";
     }

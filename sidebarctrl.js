@@ -11,7 +11,7 @@ function showSideBar() {
     if (top) {
         main.style.width = "70%";
     } else if (ie) {
-        main.style.width = "78%";
+        main.style.width = "75%";
     } else {
         main.style.width = "75%";
     }

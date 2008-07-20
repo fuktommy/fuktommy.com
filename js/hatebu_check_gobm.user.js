@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Hanena Bookmark Check Go Bookmark
+// @name        Hatena Bookmark Check Go Bookmark
 // @namespace   http://fuktommy.com/js/
 // @description Check go bookmark checkbox in hatena bookmark add entry page.
 // @include     http://b.hatena.ne.jp/add?mode=confirm&*

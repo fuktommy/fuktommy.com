@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Hanena Bookmark Tag Filter
+// @name        Hatena Bookmark Tag Filter
 // @namespace   http://fuktommy.com/js/
 // @description Add reload tag for NoScript
 // @include     http://b.hatena.ne.jp/add?mode=confirm&*

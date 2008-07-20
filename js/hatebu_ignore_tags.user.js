@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Hanena Bookmark Ignore Tags Filter
+// @name        Hatena Bookmark Ignore Tags Filter
 // @namespace   http://fuktommy.com/js/
 // @description Ignore tags user set.
 // @include     http://b.hatena.ne.jp/add?mode=confirm&*

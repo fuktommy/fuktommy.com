@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Alt to Link
+// @name        Alt to Title
 // @namespace   http://fuktommy.com/js/
 // @description Accent recent userd tag at add entry page.
 // @include     http://www.nicovideo.jp/*

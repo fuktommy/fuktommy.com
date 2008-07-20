@@ -9,7 +9,7 @@
 // http://fuktommy.com/js/
 // Distributed under new BSD license
 // http://fuktommy.com/bsdl
-// $Id: $
+// $Id$
 
 (function() {
     function modifyLinks() {

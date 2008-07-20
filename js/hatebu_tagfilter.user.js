@@ -9,7 +9,7 @@
 // http://fuktommy.com/js/hatebu_tagfilter.user.js
 // Distributed under new BSD license
 // http://fuktommy.com/bsdl
-// $Id: hatebu_tagfilter.user.js 35 2008-03-20 14:52:31Z fuktommy $
+// $Id$
 
 (function() {
     function resizeTags(cloud) {

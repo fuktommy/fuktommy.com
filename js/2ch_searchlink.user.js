@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        2ch Search Link Modifier
 // @namespace   http://fuktommy.com/js/
-// @description Accent recent userd tag at add entry page.
+// @description Modify link 100-200 to l50.
 // @include     http://find.2ch.net/*
 // ==/UserScript==
 

@@ -1,4 +1,4 @@
-// É¬¾¡!! ¥Ê¥ó¥Ğ¡¼¥×¥ì¥¤¥¹
+// å¿…å‹!! ãƒŠãƒ³ãƒãƒ¼ãƒ—ãƒ¬ã‚¤ã‚¹
 //
 // Copyright (c) 2001,2006 Satoshi Fukutomi <info@fuktommy.com>.
 // All rights reserved.
@@ -26,12 +26,12 @@
 //
 
 var SIZE = 9;
-var ROWS = 3;	// È¢¤Î½Ä¤ÎÄ¹¤µ
-var COLS = 3;	// È¢¤Î²£¤ÎÄ¹¤µ
+var ROWS = 3;	// ç®±ã®ç¸¦ã®é•·ã•
+var COLS = 3;	// ç®±ã®æ¨ªã®é•·ã•
 
 
 //
-// ¼¡¤Î¥Ş¥¹¤ËÈô¤ÖÀßÄê
+// æ¬¡ã®ãƒã‚¹ã«é£›ã¶è¨­å®š
 //
 function addEventJump(prev, next) {
     if (prev.addEventListener) {
@@ -60,7 +60,7 @@ function addEventJump(prev, next) {
 
 
 //
-// ³ÎÄê¤·¤¿¿ô»ú¤ÎÉ½
+// ç¢ºå®šã—ãŸæ•°å­—ã®è¡¨
 //
 function FixedMatrix() {
     this.matrix = [];
@@ -95,19 +95,19 @@ function FixedMatrix() {
     }
 }
 
-// »²¾È
+// å‚ç…§
 FixedMatrix.prototype.get = function(x, y) {
     return this.matrix[x][y].value;
 }
 
-// ÂåÆş
+// ä»£å…¥
 FixedMatrix.prototype.set = function(x, y, value) {
     this.matrix[x][y].value = value;
 }
 
 
 //
-// ¿ô»ú¤Î¸õÊä¤ò³ÊÇ¼¤¹¤ëÉ½
+// æ•°å­—ã®å€™è£œã‚’æ ¼ç´ã™ã‚‹è¡¨
 //
 function CandidateMatrix() {
     this.matrix = [];
@@ -124,7 +124,7 @@ function CandidateMatrix() {
     }
 }
 
-// ¤¢¤ë¥Ş¥¹¤Ë¤Ä¤¤¤Æ¤Î¸õÊä¤Î½¸¹ç
+// ã‚ã‚‹ãƒã‚¹ã«ã¤ã„ã¦ã®å€™è£œã®é›†åˆ
 CandidateMatrix.prototype.condidate = function(x, y) {
     var buf = [];
     for (var i=0; i<SIZE; i++) {
@@ -135,7 +135,7 @@ CandidateMatrix.prototype.condidate = function(x, y) {
     return buf;
 }
 
-// ¿ô»ú¤Î³ÎÄê
+// æ•°å­—ã®ç¢ºå®š
 CandidateMatrix.prototype.fix = function(x, y, value) {
     for (var i=0; i<SIZE; i++) {
         this.matrix[x][y][i] = false;
@@ -151,7 +151,7 @@ CandidateMatrix.prototype.fix = function(x, y, value) {
     }
 }
 
-// ¸õÊä¤¬1¤Ä¤·¤«¤Ê¤¤¥Ş¥¹¤ò¸¡º÷
+// å€™è£œãŒ1ã¤ã—ã‹ãªã„ãƒã‚¹ã‚’æ¤œç´¢
 CandidateMatrix.prototype.search = function() {
     var buf = [];
     for (var i=0; i<SIZE; i++) {
@@ -165,14 +165,14 @@ CandidateMatrix.prototype.search = function() {
     return buf;
 }
 
-// ¿ô»ú¤¬Æş¤ë¤«¤É¤¦¤«
+// æ•°å­—ãŒå…¥ã‚‹ã‹ã©ã†ã‹
 CandidateMatrix.prototype.check = function(x, y, value) {
     return this.matrix[x][y][value-1];
 }
 
 
 //
-// ¥á¥¤¥ó
+// ãƒ¡ã‚¤ãƒ³
 //
 var fixedMatrix;
 var candidateMatrix;
@@ -195,7 +195,7 @@ function np_clear() {
 function np_start() {
     candidateMatrix = new CandidateMatrix();
     var status = document.getElementById('status');
-    status.innerHTML = '·×»»Ãæ';
+    status.innerHTML = 'è¨ˆç®—ä¸­';
     var count = 0;
 
     for (var i=0; i<SIZE; i++) {
@@ -211,7 +211,7 @@ function np_start() {
 
     var done = false;
     while (! done) {
-        status.innerHTML = '·×»»Ãæ: ' + count++;
+        status.innerHTML = 'è¨ˆç®—ä¸­: ' + count++;
         done = true;
         condidate = candidateMatrix.search();
         if (condidate.length) {
@@ -269,5 +269,5 @@ function np_start() {
         }
     }
 
-    status.innerHTML = '½ªÎ»';
+    status.innerHTML = 'çµ‚äº†';
 }

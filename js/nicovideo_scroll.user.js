@@ -61,8 +61,10 @@
     };
     var links = new Links();
 
-    function makeListView() {
-        // 戻るリンク
+    /**
+     * 戻るリンク
+     */
+    function appendPrevPage() {
         var anchors = document.getElementsByTagName('a');
         for (var i = 0; i < anchors.length; i++) {
             if (anchors[i].className == 'prevpage') {
@@ -74,6 +76,28 @@
             links.append(anchors[0]);
         }
 
+    }
+
+    /**
+     * 次へリンク
+     */
+    function appendNextPage() {
+        var anchors = document.getElementsByTagName('a');
+        var anchor = null;
+        for (var i = 0; i < anchors.length; i++) {
+            if (anchors[i].className == 'nextpage') {
+                anchor = anchors[i];
+            }
+        }
+        if (anchor != null) {
+            links.append(anchor);
+        }
+    }
+
+    /**
+     * 動画の並べ変え
+     */
+    function makeListView() {
         // 動画一覧を探す
         var videoListSrc = null;
         var tables = document.getElementsByTagName('table');
@@ -110,24 +134,11 @@
             var anchor = images[i].parentNode;
             links.append(anchor);
         }
-
-        // 次へリンク
-        var anchor = null;
-        for (var i = 0; i < anchors.length; i++) {
-            if (anchors[i].className == 'nextpage') {
-                anchor = anchors[i];
-            }
-        }
-        if (anchor != null) {
-            links.append(anchor);
-        }
-        if (links.links[0] != null) {
-            links.select(0);
-        } else {
-            anchors[0].focus();
-        }
     }
 
+    /**
+     * キーが押されたとき
+     */
     function dispatchKeyPress(event) {
         if (event.ctrlKey || event.shiftKey) {
             return;
@@ -142,15 +153,13 @@
         }
     }
 
-    function makeKeyBind() {
-        window.addEventListener('keypress', dispatchKeyPress, false);
-    }
-
     function init() {
+        appendPrevPage();
         makeListView();
-        makeKeyBind();
+        appendNextPage();
+        window.addEventListener('keypress', dispatchKeyPress, false);
+        links.select(0);
     }
 
-    //window.addEventListener('init', modifyLinks, false);
-    init();
+    window.addEventListener('load', init, false);
 })();

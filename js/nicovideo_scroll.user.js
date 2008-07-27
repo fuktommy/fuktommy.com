@@ -68,6 +68,9 @@
                 break;
             }
         }
+        if (links.links.length == 0) {
+            links.append(anchors[0]);
+        }
 
         // 動画一覧を探す
         var videoListSrc = null;
@@ -116,8 +119,10 @@
         if (anchor != null) {
             links.append(anchor);
         }
-        if (links.links.length > 0) {
-            links.links[0].focus();
+        if (links.links[0] != null) {
+            links.select(0);
+        } else {
+            anchors[0].focus();
         }
     }
 

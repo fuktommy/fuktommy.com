@@ -4,8 +4,10 @@
 // @description J and K scroll viewer
 // @include     http://www.nicovideo.jp/newarrival
 // @include     http://www.nicovideo.jp/newarrival?page=*
-// @include     http://www.nicovideo.jp/tag/*
+// @include     http://www.nicovideo.jp/recent
+// @include     http://www.nicovideo.jp/recent?page=*
 // @include     http://www.nicovideo.jp/search/*
+// @include     http://www.nicovideo.jp/tag/*
 // ==/UserScript==
 
 // キー操作:

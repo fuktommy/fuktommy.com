@@ -140,7 +140,10 @@
      * キーが押されたとき
      */
     function dispatchKeyPress(event) {
-        if (event.ctrlKey || event.shiftKey) {
+        if (event.ctrlKey || event.shiftKey || event.altKey) {
+            return;
+        }
+        if (event.target.tagName == 'INPUT') {
             return;
         }
         var key = String.fromCharCode(event.which);

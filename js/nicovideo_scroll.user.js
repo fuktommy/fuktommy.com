@@ -116,7 +116,9 @@
         if (anchor != null) {
             links.append(anchor);
         }
-        links.select(1);
+        if (links.links.length > 0) {
+            links.links[0].focus();
+        }
     }
 
     function dispatchKeyPress(event) {

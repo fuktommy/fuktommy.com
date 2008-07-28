@@ -24,6 +24,9 @@
 // $Id$
 
 (function() {
+    /**
+     * 動画ページと前後のページへのリンクが入っている
+     */
     function Links() {
         this.links = [];
         this.index = 0;
@@ -158,11 +161,22 @@
         }
     }
 
+    /**
+     * ページの最下部に改行を入れる。
+     * 最後の動画にスクロールしたとき左上に来るように。
+     */
+    function addLastSpace() {
+        for (var i = 0; i < 10; i++) {
+            document.body.appendChild(document.createElement('br'));
+        }
+    }
+
     function init() {
         appendPrevPage();
         makeListView();
         appendNextPage();
         window.addEventListener('keypress', dispatchKeyPress, false);
+        addLastSpace();
         links.select(0);
     }
 

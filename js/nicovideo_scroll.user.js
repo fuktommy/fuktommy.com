@@ -72,7 +72,7 @@
     var links = new Links();
 
     /**
-     * 戻るリンク
+     * 戻るリンク・次へリンク
      */
     function setNavigation() {
         var anchors = document.getElementsByTagName('a');
@@ -84,18 +84,6 @@
             }
         }
         links.firstLink = anchors[0];
-    }
-
-    /**
-     * 次へリンク
-     */
-    function appendNextPage() {
-        var anchors = document.getElementsByTagName('a');
-        for (var i = 0; i < anchors.length; i++) {
-            if (anchors[i].className == 'nextpage') {
-                links.nextPage = anchors[i].href;
-            }
-        }
     }
 
     /**

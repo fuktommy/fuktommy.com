@@ -30,6 +30,9 @@
     function Links() {
         this.links = [];
         this.index = 0;
+        this.firstLink = 0;
+        this.prevPage = null;
+        this.nextPage = null;
     }
     Links.prototype.append = function(anchor) {
         this.links[this.links.length] = anchor;
@@ -37,17 +40,16 @@
     Links.prototype.select = function(index) {
         this.index = index;
         if (this.links[index] != null) {
-            if (index == 0) {
-                window.scroll(0, 0);
-            } else {
-                window.scroll(0, this.links[index].offsetParent.offsetParent.offsetTop);
-            }
+            window.scroll(0, this.links[index].offsetParent.offsetParent.offsetTop);
             this.links[index].focus();
         }
     };
     Links.prototype.back = function() {
         if (this.index <= 0) {
             this.index = 0;
+            if (this.prevPage) {
+                location.href = this.prevPage;
+            }
         } else {
             this.index--;
         }
@@ -56,6 +58,9 @@
     Links.prototype.forward = function() {
         if (this.links.length - 1 <= this.index) {
             this.index = this.links.length - 1;
+            if (this.nextPage) {
+                location.href = this.nextPage;
+            }
         } else {
             this.index++;
         }
@@ -69,18 +74,16 @@
     /**
      * 戻るリンク
      */
-    function appendPrevPage() {
+    function setNavigation() {
         var anchors = document.getElementsByTagName('a');
         for (var i = 0; i < anchors.length; i++) {
-            if (anchors[i].className == 'prevpage') {
-                links.append(anchors[i]);
-                break;
+            if ((anchors[i].className == 'prevpage') && (! links.prevPage)) {
+                links.prevPage = anchors[i].href + '#bottom';
+            } else if (anchors[i].className == 'nextpage') {
+                links.nextPage = anchors[i].href;
             }
         }
-        if (links.links.length == 0) {
-            links.append(anchors[0]);
-        }
-
+        links.firstLink = anchors[0];
     }
 
     /**
@@ -88,14 +91,10 @@
      */
     function appendNextPage() {
         var anchors = document.getElementsByTagName('a');
-        var anchor = null;
         for (var i = 0; i < anchors.length; i++) {
             if (anchors[i].className == 'nextpage') {
-                anchor = anchors[i];
+                links.nextPage = anchors[i].href;
             }
-        }
-        if (anchor != null) {
-            links.append(anchor);
         }
     }
 
@@ -172,12 +171,16 @@
     }
 
     function init() {
-        appendPrevPage();
         makeListView();
-        appendNextPage();
+        setNavigation();
         window.addEventListener('keypress', dispatchKeyPress, false);
         addLastSpace();
-        links.select(0);
+        if (location.hash == '#bottom') {
+            links.select(links.links.length - 1);
+        } else {
+            links.index = -1;
+            links.firstLink.focus();
+        }
     }
 
     window.addEventListener('load', init, false);

@@ -3,8 +3,10 @@
 // @namespace   http://fuktommy.com/js/
 // @description J and K scroll viewer
 // @include     http://www.nicovideo.jp/newarrival
+// @include     http://www.nicovideo.jp/newarrival#*
 // @include     http://www.nicovideo.jp/newarrival?page=*
 // @include     http://www.nicovideo.jp/recent
+// @include     http://www.nicovideo.jp/recent#*
 // @include     http://www.nicovideo.jp/recent?page=*
 // @include     http://www.nicovideo.jp/search/*
 // @include     http://www.nicovideo.jp/tag/*
@@ -30,6 +32,8 @@
     function Links() {
         this.links = [];
         this.index = 0;
+        this.prevPage = null;
+        this.nextPage = null;
     }
     Links.prototype.append = function(anchor) {
         this.links[this.links.length] = anchor;
@@ -48,6 +52,9 @@
     Links.prototype.back = function() {
         if (this.index <= 0) {
             this.index = 0;
+            if (this.prevPage) {
+                location.href = this.prevPage + '#bottom';
+            }
         } else {
             this.index--;
         }
@@ -56,6 +63,9 @@
     Links.prototype.forward = function() {
         if (this.links.length - 1 <= this.index) {
             this.index = this.links.length - 1;
+            if (this.nextPage) {
+                location.href = this.nextPage;
+            }
         } else {
             this.index++;
         }
@@ -74,6 +84,7 @@
         for (var i = 0; i < anchors.length; i++) {
             if (anchors[i].className == 'prevpage') {
                 links.append(anchors[i]);
+                links.prevPage = anchors[i];
                 break;
             }
         }
@@ -92,6 +103,7 @@
         for (var i = 0; i < anchors.length; i++) {
             if (anchors[i].className == 'nextpage') {
                 anchor = anchors[i];
+                links.nextPage = anchors[i];
             }
         }
         if (anchor != null) {
@@ -171,13 +183,21 @@
         }
     }
 
+    function initFocus() {
+        if (location.hash == '#bottom') {
+            links.select(links.links.length - 1);
+        } else {
+            links.select(0);
+        }
+    }
+
     function init() {
         appendPrevPage();
         makeListView();
         appendNextPage();
         window.addEventListener('keypress', dispatchKeyPress, false);
         addLastSpace();
-        links.select(0);
+        initFocus();
     }
 
     window.addEventListener('load', init, false);

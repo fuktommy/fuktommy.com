@@ -1,0 +1,51 @@
+>>>define TITLE         ニコニコ動画便利ツール
+>>>define DESCRIPTION   ニコニコ動画のための便利ツール
+>>>include "head.h"
+<!-- $Id$ -->
+
+<p><a href="http://www.nicovideo.jp/">ニコニコ動画</a>のための便利ツールです。</p>
+
+<h2>Greasemonkey用スクリプト</h2>
+<p><a href="https://addons.mozilla.org/ja/firefox/addon/748">Greasemonkey</a>用のスクリプトです。</p>
+
+<h3><a href="jkscroll.user.js">JKScroll</a></h3>
+<p>タグ検索などの動画一覧画面でキーボードでスクロールします。
+これを使うとマウスよりも早く動画を眺めることができます。</p>
+
+<p>キーバインド</p>
+<ul>
+  <li>J: 次(下)の動画。ページの一番下に行ったときは、次のページ</li>
+  <li>K: 前(上)の動画。ページの一番上に行ったときは前のページ</li>
+  <li>O or V: リンクを別のウィンドウで開く(設定によっては別のタブで開く)</li>
+  <li>Enter: リンクを同じウィンドウで開く</li>
+</ul>
+
+<p>履歴</p>
+<ul>
+  <li>2008-08-02 最近見た動画・ホットリスト・マイリスト・気まぐれ検索・ランキングに対応
+      (<a href="http://blog.fuktommy.com/1217608112">ニコニコ動画高速閲覧ツール「JKScroll」</a>)</li>
+  <li>2008-07-28 キーワード検索・タグ検索・新着コメント順に対応
+      (<a href="http://blog.fuktommy.com/1217172357">新着動画に目を通す</a>)</li>
+  <li>2008-07-27 新着動画のみ対応
+      (<a href="http://blog.fuktommy.com/1217133751">ニコニコのランキングがつまらなくなっただって？</a>)</li>
+</ul>
+
+
+<h3><a href="player_to_link.user.js">外部プレーヤーをリンクにする</a></h3>
+<p><a href="https://addons.mozilla.org/ja/firefox/addon/722/">NoScript</a>でJavaScriptを無効にしていると
+外部プレーヤーが見れないので、その場所にサムネイルつきのリンクを出します。</p>
+
+
+<h2>ツール以外</h2>
+<ul>
+  <li><a href="http://www.nicovideo.jp/user/146583">公開プロフィール</a></li>
+  <li><a href="http://archives2.fuktommy.com/niconico/">公開動画のソース</a></li>
+  <li><a href="http://www.nicovideo.jp/mylist/6251399">マイリスト</a></li>
+</ul>
+
+<p>このウェブサイトに含まれる意見や結論は私個人によるものであって、
+現在または過去の所属組織の公式な方針を、
+明示黙示を問わず、あらわしているものととってはならない。
+(<a href="http://www.freebsd.org/ja/copyright/freebsd-license.html">The FreeBSD Copyright</a> を参考にしました)</p>
+
+>>>include "foot.h"

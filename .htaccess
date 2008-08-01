@@ -23,3 +23,6 @@ RewriteRule ^script/sweetumb http://fuktommy.com/homebin/sweetumb       [R=301,L
 RewriteRule ^script/twitter- http://fuktommy.com/homebin/twitter-backup [R=301,L]
 RewriteRule ^script/xmlcheck http://fuktommy.com/homebin/xmlcheck       [R=301,L]
 RewriteRule ^script/zgu      http://fuktommy.com/homebin/zgu            [R=301,L]
+
+RewriteRule ^js/nicovideo_player_to_link.user.js http://fuktommy.com/niconico/player_to_link.user.js [R=301,L]
+RewriteRule ^js/nicovideo_scroll.user.js         http://fuktommy.com/niconico/jkscroll.user.js [R=301,L]

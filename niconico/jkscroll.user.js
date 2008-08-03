@@ -82,11 +82,7 @@
     Links.prototype.select = function(index) {
         this.index = index;
         if (this.links[index] != null) {
-            if (index == 0) {
-                window.scroll(0, 0);
-            } else {
-                window.scroll(0, this.links[index].offset);
-            }
+            window.scroll(0, this.links[index].offset);
             this.links[index].anchor.focus();
         }
     };
@@ -180,9 +176,6 @@
             links.unshift({anchor: links.prevPage, offset: 0});
         } else {
             links.unshift({anchor: anchors[0], offset: 0});
-        }
-        if (links.nextPage) {
-            links.push({anchor: links.nextPage, offset: links.nextPage.offsetParent.offsetParent.offsetTop});
         }
     }
 

@@ -213,7 +213,7 @@
         // 動画へのリンク
         var images = videoListDst.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'thumb_img_M') {
+            if (images[i].className != 'video_img_M') {
                 continue;
             }
             var anchor = {anchor: images[i].parentNode,
@@ -235,16 +235,19 @@
         }
 
         var baseurl = location.protocol + '//' + location.host + location.pathname;
-        if (page == 2) {
-            links.prevPage = baseurl;
-        } else if (page > 2) {
-            links.prevPage = baseurl + '?page=' + (page - 1);
-        }
-        if (page < 3) {
-            links.nextPage = baseurl + '?page=' + (page + 1);
-        }
+        var prevPage = baseurl + '?page=' + (page - 1);
+        var nextPage = baseurl + '?page=' + (page + 1);
 
         var anchors = document.getElementsByTagName('a');
+        for (var i = 0; i < anchors.length; i++) {
+            if (anchors[i].href == prevPage) {
+                links.prevPage = prevPage;
+            } else if (anchors[i].href == nextPage) {
+                links.nextPage = nextPage;
+            } else if ((links.prevPage == null) && (anchors[i].href == baseurl)) {
+                links.prevPage = baseurl;
+            }
+        }
         links.unshift({anchor: anchors[0], offset: 0});
     }
 
@@ -254,7 +257,7 @@
     function addVideosForRanking() {
         var images = document.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'thumb_img_M') {
+            if (images[i].className != 'video_img_M') {
                 continue;
             }
             var anchor = {anchor: images[i].parentNode,
@@ -306,7 +309,7 @@
         // 動画へのリンク
         var images = videoListDst.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'thumb_img_L') {
+            if (images[i].className != 'video_img_L') {
                 continue;
             }
             var anchor = {anchor: images[i].parentNode,
@@ -373,7 +376,7 @@
         // 動画へのリンク
         var images = videoListDst.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'thumb_img_L') {
+            if (images[i].className != 'video_img_L') {
                 continue;
             }
             var anchor = {anchor: images[i].parentNode,
@@ -398,7 +401,7 @@
     function addVideosForMylist() {
         var images = document.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'thumb_img_M') {
+            if (images[i].className != 'video_img_M') {
                 continue;
             }
             var anchor = {anchor: images[i].parentNode,

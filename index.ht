@@ -4,22 +4,31 @@
 >>>include "tags.h"
 >>>include "head.h"
 
-<$H2>コンテンツ<$_H2>
+<$H2>読む<$_H2>
 <ul>
   <li><a href="http://mobile.fuktommy.com/blog/">ブログ</a></li>
   <li><a href="http://b.hatena.ne.jp/fuktommy/mobile">はてなブックマーク</a></li>
   <li><a href="http://www.google.co.jp/gwt/n?u=http%3A%2F%2Fm.twitter.com%2Ffuktommy&amp;hl=ja&amp;mrestrict=chtml&amp;q=http%3A%2F%2Fm.twitter.com%2F&amp;source=m&amp;output=chtml&amp;site=search">Twitter (Google経由)</a></li>
-  <li><a href="mailto:info@fuktommy.com">メール</a></li>
-  <li><a href="tel:09063407335">電話</a></li>
   <li><a href="http://r.hatena.ne.jp/fuktommy/mobile">ヘッドライン</a></li>
-  <li><a href="http://bbs.shingetsu.info/mobile.cgi">新月掲示板</a></li>
-  <li><a href="http://fuktommy.com/hateber/">はてバーぶろぐ</a></li>
   <li><a href="http://b.hatena.ne.jp/entrylistmobile?url=http://blog.fuktommy.com/&amp;threshold=1&amp;include_news=1&amp;sort=eid">はてブの反響</a></li>
-  <li><a href="tokyo">モバイル東京</a></li>
+  <li><a href="http://pc.mbga.jp/.pc/_u?u=2796792">モバゲータウン</a></li>
   <li><a href="http://fuktommy.com/">Fuktommy.com</a></li>
 </ul>
 
-<$H2>おすすめリンク<$_H2>
+<$H2>連絡先<$_H2>
+<ul>
+  <li><a href="mailto:info@fuktommy.com">メール</a></li>
+  <li><a href="tel:09063407335">電話</a></li>
+</ul>
+
+<$H2>使う<$_H2>
+<ul>
+  <li><a href="http://bbs.shingetsu.info/mobile.cgi">新月掲示板</a></li>
+  <li><a href="http://fuktommy.com/hateber/">はてバーぶろぐ</a></li>
+  <li><a href="tokyo">モバイル東京</a></li>
+</ul>
+
+<$H2>おすすめ<$_H2>
 <ul>
   <li><a href="google">グーグル関連</a></li>
   <li><a href="http://amazon.jp/">Amazon</a></li>

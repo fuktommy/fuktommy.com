@@ -6,6 +6,9 @@ Content-type: text/html; charset=utf-8
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="content-style-type" content="text/css" />
+    <IF SEARCH_WORD>
+        <meta name="robots" content="noindex,nofollow,noarchive" />
+    </IF>
     <link rel="index" href="<SITE_URL>" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="<SITE_URL>?rss" />
     <link rel="SHORTCUT ICON" type="image/x-icon" href="/favicon.ico" />

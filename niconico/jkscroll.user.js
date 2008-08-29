@@ -16,6 +16,7 @@
 // @include     http://www.nicovideo.jp/recent?page=*
 // @include     http://www.nicovideo.jp/search/*
 // @include     http://www.nicovideo.jp/tag/*
+// @include     http://www.nicovideo.jp/myvideo/*
 // ==/UserScript==
 
 // キー操作:

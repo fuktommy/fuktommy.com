@@ -30,6 +30,7 @@ my $modifier_image_dir = "/srv/www/bbs.fuktommy.com/images";
 my $modifier_image_base_url = "http://bbs.fuktommy.com/images/";
 my $modifier_touch_file = "/srv/data/bbs.fuktommy.com/files/touched.txt";
 my $modifire_spam_list = "/srv/data/bbs.fuktommy.com/spam.txt";
+my $modifire_robot_list = "/srv/data/bbs.fuktommy.com/robotua.txt";
 my $modifier_charset = "utf-8";
 ##############################
 &main;
@@ -46,6 +47,7 @@ sub main {
         IMAGE_DIR => $modifier_image_dir,
         IMAGE_BASE_URL => $modifier_image_base_url,
         SPAM_LIST => $modifire_spam_list,
+        ROBOT_LIST => $modifire_robot_list,
         use_html_permalink => 0,
         max_summary_length => 500,
         max_msg_length => 5000,

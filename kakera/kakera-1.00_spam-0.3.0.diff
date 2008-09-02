@@ -1,11 +1,11 @@
 diff -Nru kakera.orig/index.cgi kakera/index.cgi
 --- kakera.orig/index.cgi	2004-05-19 16:57:28.000000000 +0900
-+++ kakera/index.cgi	2007-07-21 23:32:46.000000000 +0900
++++ kakera/index.cgi	2008-09-03 02:33:55.000000000 +0900
 @@ -29,6 +29,7 @@
  my $modifier_image_dir = "/usr/you/kakera/images";
  my $modifier_image_base_url = "http://www.example.com/kakera/images/";
  my $modifier_touch_file = "/usr/you/kakera/files/touched.txt";
-+my $modifire_spam_list = "/usr/you/kakera/files/spam.txt";
++my $modifier_spam_list = "/usr/you/kakera/files/spam.txt";
  my $modifier_charset = "sjis";
  ##############################
  &main;
@@ -18,25 +18,27 @@ diff -Nru kakera.orig/index.cgi kakera/index.cgi
          max_summary_length => 500,
          max_msg_length => 5000,
 diff -Nru kakera.orig/lib/Yuki/Kakera.pm kakera/lib/Yuki/Kakera.pm
---- kakera.orig/lib/Yuki/Kakera.pm	2004-05-19 16:56:50.000000000 +0900
-+++ kakera/lib/Yuki/Kakera.pm	2007-07-21 23:33:03.000000000 +0900
-@@ -262,12 +262,34 @@
+--- kakera.orig/lib/Yuki/Kakera.pm	2008-09-03 02:33:47.000000000 +0900
++++ kakera/lib/Yuki/Kakera.pm	2008-09-03 02:33:55.000000000 +0900
+@@ -262,12 +262,36 @@
      $self->print_output($template);
  }
  
-+sub is_spam($$) {
-+    my ($self, $msg) = @_;
-+    if (-e $self->{SPAM_LIST}) {
++sub in_listfile($$$) {
++    my ($self, $word, $filename) = @_;
++    if (-e $filename) {
 +        my $FILE;
-+        open $FILE, $self->{SPAM_LIST};
++        open $FILE, $filename;
 +        while (my $line = <$FILE>) {
 +            chomp($line);
 +            if (($line =~ /^\s*#/) || ($line =~ /^\s*$/)) {
 +                # nop
-+            } elsif ($msg =~ /$line/) {
++            } elsif ($word =~ /$line/) {
++                close $FILE;
 +                return 1;
 +            }
 +        }
++        close $FILE;
 +    }
 +    return 0;
 +}
@@ -49,34 +51,25 @@ diff -Nru kakera.orig/lib/Yuki/Kakera.pm kakera/lib/Yuki/Kakera.pm
              $self->do_edit;
 +        } elsif ($self->{template_param}->{ERROR_SPAM}) {
 +            $self->do_edit;
-+        } elsif ($self->is_spam($self->{form}->{mymsg})) {
++        } elsif ($self->in_listfile($self->{form}->{mymsg}, $self->{SPAM_LIST})) {
 +            $self->{template_param}->{ERROR_SPAM} = 1;
 +            $self->do_edit;
          } else {
              my $edit_id = _create_id();
              my $style = $self->{form}->{mystyle};
-@@ -296,6 +318,9 @@
+@@ -296,6 +320,9 @@
      if ($self->{form}->{mymsg}) {
          my $body = $self->{database}->{$self->{form}->{myid}};
          my ($edit_id, $style) = split(/:/, $self->slice_one_line(\$body));
-+        if ($self->is_spam($self->{form}->{mymsg})) {
++        if ($self->in_listfile($self->{form}->{mymsg}, $self->{SPAM_LIST})) {
 +            $self->{template_param}->{ERROR_SPAM} = 1;
 +        }
          $self->{form}->{mymsg} = "$body\n$self->{form}->{mymsg}";
          $style = "0" unless defined($style);
          $self->{form}->{mystyle} = $style;
-@@ -800,6 +825,8 @@
-     if (defined($self->{form}->{myid})) {
-         return if $self->{form}->{myid} =~ /^$id_pattern$/;
-         $self->{form}->{myid} = _create_id();
-+    } elsif (defined($self->{form}->{mymsg})) {
-+        $self->{form}->{myid} = _create_id();
-     }
- }
- 
 diff -Nru kakera.orig/readme.spam.txt kakera/readme.spam.txt
 --- kakera.orig/readme.spam.txt	1970-01-01 09:00:00.000000000 +0900
-+++ kakera/readme.spam.txt	2007-07-21 23:32:46.000000000 +0900
++++ kakera/readme.spam.txt	2008-09-03 02:33:55.000000000 +0900
 @@ -0,0 +1,20 @@
 +====================================
 +「声のかけら。」スパムフィルタパッチ
@@ -100,7 +93,7 @@ diff -Nru kakera.orig/readme.spam.txt kakera/readme.spam.txt
 +Copyright (C) 2007 by Satoshi Fukutomi.
 diff -Nru kakera.orig/theme/clover/do_edit.txt kakera/theme/clover/do_edit.txt
 --- kakera.orig/theme/clover/do_edit.txt	2004-04-27 13:13:52.000000000 +0900
-+++ kakera/theme/clover/do_edit.txt	2007-07-21 23:32:46.000000000 +0900
++++ kakera/theme/clover/do_edit.txt	2008-09-03 02:33:55.000000000 +0900
 @@ -6,6 +6,9 @@
          <IF ERROR_TOOLONG>
              テキストが長すぎます。再編集してください。
@@ -113,7 +106,7 @@ diff -Nru kakera.orig/theme/clover/do_edit.txt kakera/theme/clover/do_edit.txt
          </p>
 diff -Nru kakera.orig/theme/default/do_edit.txt kakera/theme/default/do_edit.txt
 --- kakera.orig/theme/default/do_edit.txt	2004-05-03 00:12:22.000000000 +0900
-+++ kakera/theme/default/do_edit.txt	2007-07-21 23:32:46.000000000 +0900
++++ kakera/theme/default/do_edit.txt	2008-09-03 02:33:55.000000000 +0900
 @@ -6,6 +6,9 @@
          <IF ERROR_TOOLONG>
              テキストが長すぎます。再編集してください。

@@ -1,18 +1,18 @@
-diff -Nru kakera-1.0.0/index.cgi kakera/index.cgi
---- kakera-1.0.0/index.cgi	2007-12-15 00:40:46.000000000 +0900
-+++ kakera/index.cgi	2007-12-15 00:39:58.000000000 +0900
+diff -Nru kakera.orig/index.cgi kakera/index.cgi
+--- kakera.orig/index.cgi	2008-09-03 02:33:55.000000000 +0900
++++ kakera/index.cgi	2008-09-03 02:35:43.000000000 +0900
 @@ -30,7 +30,7 @@
  my $modifier_image_base_url = "http://www.example.com/kakera/images/";
  my $modifier_touch_file = "/usr/you/kakera/files/touched.txt";
- my $modifire_spam_list = "/usr/you/kakera/files/spam.txt";
+ my $modifier_spam_list = "/usr/you/kakera/files/spam.txt";
 -my $modifier_charset = "sjis";
 +my $modifier_charset = "utf-8";
  ##############################
  &main;
  exit(0);
-diff -Nru kakera-1.0.0/theme/default/header.txt kakera/theme/default/header.txt
---- kakera-1.0.0/theme/default/header.txt	2004-05-07 19:18:48.000000000 +0900
-+++ kakera/theme/default/header.txt	2007-12-15 00:40:22.000000000 +0900
+diff -Nru kakera.orig/theme/default/header.txt kakera/theme/default/header.txt
+--- kakera.orig/theme/default/header.txt	2004-05-07 19:18:48.000000000 +0900
++++ kakera/theme/default/header.txt	2008-09-03 02:35:26.000000000 +0900
 @@ -1,10 +1,10 @@
 -Content-type: text/html; charset=Shift_JIS
 +Content-type: text/html; charset=UTF-8

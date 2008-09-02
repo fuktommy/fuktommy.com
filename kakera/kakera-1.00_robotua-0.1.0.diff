@@ -1,0 +1,66 @@
+diff -Nru kakera.orig/index.cgi kakera/index.cgi
+--- kakera.orig/index.cgi	2008-09-03 02:36:36.000000000 +0900
++++ kakera/index.cgi	2008-09-03 02:38:08.000000000 +0900
+@@ -31,6 +31,7 @@
+ my $modifier_image_base_url = "http://www.example.com/kakera/images/";
+ my $modifier_touch_file = "/usr/you/kakera/files/touched.txt";
+ my $modifier_spam_list = "/usr/you/kakera/files/spam.txt";
++my $modifire_robot_list = "/usr/you/kakera/files/robotua.txt";
+ my $modifier_charset = "utf-8";
+ ##############################
+ &main;
+@@ -47,6 +48,7 @@
+         IMAGE_DIR => $modifier_image_dir,
+         IMAGE_BASE_URL => $modifier_image_base_url,
+         SPAM_LIST => $modifire_spam_list,
++        ROBOT_LIST => $modifire_robot_list,
+         use_html_permalink => 1,
+         max_summary_length => 500,
+         max_msg_length => 5000,
+diff -Nru kakera.orig/lib/Yuki/Kakera.pm kakera/lib/Yuki/Kakera.pm
+--- kakera.orig/lib/Yuki/Kakera.pm	2008-09-03 02:36:36.000000000 +0900
++++ kakera/lib/Yuki/Kakera.pm	2008-09-03 02:37:36.000000000 +0900
+@@ -410,7 +410,8 @@
+         DO_SEARCH => 1,
+     );
+     $self->print_output($template);
+-    if (@item_list > 0) {
++    if ((@item_list > 0)
++            && (! $self->in_listfile($ENV{'HTTP_USER_AGENT'}, $self->{ROBOT_LIST}))) {
+         $self->save_search_word($escaped_search_word);
+     }
+ }
+@@ -418,7 +419,8 @@
+ sub do_delsearch {
+     my ($self) = @_;
+     my $escaped_delete_word = _escape($self->{form}->{myword});
+-    if (defined $escaped_delete_word) {
++    if ((defined $escaped_delete_word)
++            && (! $self->in_listfile($ENV{'HTTP_USER_AGENT'}, $self->{ROBOT_LIST}))) {
+         $self->kill_search_word($escaped_delete_word);
+     } else {
+         # $database{"search"} = "";
+diff -Nru kakera.orig/readme.robotua.txt kakera/readme.robotua.txt
+--- kakera.orig/readme.robotua.txt	1970-01-01 09:00:00.000000000 +0900
++++ kakera/readme.robotua.txt	2008-09-03 02:37:36.000000000 +0900
+@@ -0,0 +1,20 @@
++====================================
++「声のかけら。」検索ロボットパッチ
++Satoshi Fukutomi <info@fuktommy.com>
++====================================
++
++●概要
++正規表現で検索ロボットリストを書くと、マッチしたUAは検索ワードを保存したり削除したりできなくなります。
++
++●スパムリストのパス
++index.cgi の $modifire_robot_list で設定してください。
++
++●スパムリストの書式
++空行や#で始まる行は無視されます。
++1行に1つの正規表現を書いてください。
++
++●ライセンス
++このパッチは「声のかけら。」と同じ条件でライセンスします。
++This program is free software; you can redistribute it and/or
++modify it under the same terms as Yuki::Kakera itself.
++Copyright (C) 2008 by Satoshi Fukutomi.

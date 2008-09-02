@@ -15,9 +15,11 @@
 <p>これらのパッチは「声のかけら。」と同じ条件のもとで配布することができます。</p>
 <ul>
   <li><a href="kakera-1.00_nullid-0.1.0.diff">日付なしの記事が書けてしまうバグを修正する</a></li>
-  <li><a href="kakera-1.00_spam-0.2.0.diff">スパムフィルタ</a></li>
-  <li><a href="kakera-1.00_utf8-0.1.0.diff">文字コードをUTF-8にする</a></li>
+  <li><a href="kakera-1.00_spam-0.3.0.diff">スパムフィルタ</a></li>
+  <li><a href="kakera-1.00_utf8-0.1.1.diff">文字コードをUTF-8にする</a></li>
   <li><a href="kakera-1.00_subversion-0.1.0.diff">Subversionでバックアップをとる</a></li>
+  <li><a href="kakera-1.00_robotua-0.1.0.diff">検索エンジンのロボットは
+      検索ワードを保存したり削除したりできなくする</a></li>
 </ul>
 
 <h2>インストール手順</h2>
@@ -31,11 +33,12 @@
 $ unzip ../kakera100.zip</code></pre>
 
 <h3>パッチを当てる</h3>
-<p>必要なものだけでいいです。</p>
+<p>基本的には必要なものだけでいいのですが、上から順に当てないと依存関係があったりします。</p>
 <pre class="code"><code>$ patch -p 1 -i ../kakera-1.00_nullid-0.1.0.diff
-$ patch -p 1 -i ../kakera-1.00_spam-0.2.0.diff
-$ patch -p 1 -i ../kakera-1.00_utf8-0.1.0.diff
-$ patch -p 1 -i ../kakera-1.00_subversion-0.1.0.diff</code></pre>
+$ patch -p 1 -i ../kakera-1.00_spam-0.3.0.diff
+$ patch -p 1 -i ../kakera-1.00_utf8-0.1.1.diff
+$ patch -p 1 -i ../kakera-1.00_subversion-0.1.0.diff
+$ patch -p 1 -i ../kakera-1.00_robotua-0.1.0.diff</code></pre>
 
 <h3>不要なファイルを消す</h3>
 <p>僕はデフォルトのテーマしか使わないのですが、適宜読み換えてください。</p>

@@ -406,8 +406,10 @@
                 continue;
             }
             var anchor = {anchor: images[i].parentNode,
-                          offset: images[i].parentNode.offsetParent.offsetParent.offsetTop
-                                + images[i].parentNode.offsetParent.offsetTop};
+                          offset: images[i].parentNode.offsetParent.offsetTop
+                                + images[i].parentNode.offsetParent.offsetParent.offsetTop
+                                + images[i].parentNode.offsetParent.offsetParent.offsetParent.offsetTop
+                                + images[i].parentNode.offsetParent.offsetParent.offsetParent.offsetParent.offsetTop};
             links.push(anchor);
         }
     }

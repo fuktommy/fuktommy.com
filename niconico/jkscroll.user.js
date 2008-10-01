@@ -8,7 +8,6 @@
 // @include     http://www.nicovideo.jp/newarrival
 // @include     http://www.nicovideo.jp/newarrival#*
 // @include     http://www.nicovideo.jp/newarrival?page=*
-// @include     http://www.nicovideo.jp/random
 // @include     http://www.nicovideo.jp/ranking/*
 // @exclude     http://www.nicovideo.jp/ranking/*/ichiba
 // @include     http://www.nicovideo.jp/recent
@@ -217,8 +216,11 @@
             if (images[i].className != 'video_img_M') {
                 continue;
             }
+            var offsetBase = images[i].parentNode.offsetParent.offsetParent;
             var anchor = {anchor: images[i].parentNode,
-                          offset: images[i].parentNode.offsetParent.offsetParent.offsetTop};
+                          offset: offsetBase.offsetTop
+                                + offsetBase.offsetParent.offsetParent.offsetTop
+                                + offsetBase.offsetParent.offsetParent.offsetParent.offsetParent.offsetTop};
             links.push(anchor);
         }
     }
@@ -287,7 +289,7 @@
         var videoListSrc = null;
         var tables = document.getElementsByTagName('table');
         for (var i = 0; i < tables.length; i++) {
-            if (tables[i].summary == 'ホットリスト') {
+            if (tables[i].summary == '一覧') {
                 videoListSrc = tables[i];
                 break;
             }
@@ -310,12 +312,16 @@
         // 動画へのリンク
         var images = videoListDst.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'video_img_L') {
+            if (images[i].className != 'video_img_M') {
                 continue;
             }
+            var offsetBase = images[i].parentNode.offsetParent.offsetParent;
             var anchor = {anchor: images[i].parentNode,
-                          offset: images[i].parentNode.offsetParent.offsetParent.offsetParent.offsetParent.offsetTop
-                                + images[i].parentNode.offsetParent.offsetParent.offsetTop};
+                          offset: offsetBase.offsetTop
+                                + offsetBase.offsetParent.offsetParent.offsetTop
+                                + offsetBase.offsetParent.offsetParent.offsetParent.offsetParent.offsetTop};
+
+
             links.push(anchor);
         }
     }

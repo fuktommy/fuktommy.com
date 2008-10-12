@@ -9,6 +9,7 @@
 >>>ifndef TOPPAGE
 >>>include "adsmini.h"
 >>>endif
+>>>include "amazonbanner.h"
 >>>endif
 
 >>>ifndef TOPPAGE

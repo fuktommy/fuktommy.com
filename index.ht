@@ -37,6 +37,18 @@
 // ]]>
 </script>
 <script type="text/javascript" src="/searchbox.js"></script>
+<noscript>
+  <div style="text-align:center">
+    <form method="get" action="http://www.google.co.jp/search"><p>
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="ja" />
+      <input type="hidden" name="domains" value="fuktommy.com" />
+      <input type="hidden" name="sitesearch" value="fuktommy.com" />
+      <input type="text" id="q" name="q" value="" size="55" maxlength="255" />
+      <input type="submit" name="btnG" value="サイト内検索" />
+    </p></form>
+  </div>
+</noscript>
 
 <div class="adsfoot">
 <script type="text/javascript"><!--

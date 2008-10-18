@@ -7,5 +7,5 @@ amazon_color_border="808080";
 amazon_color_logo="FFFFFF"; 
 amazon_color_link="0000FF"; 
 amazon_ad_logo="hide"; 
-amazon_ad_title="Amazon.co.jp"; //--></script>
+amazon_ad_title="最近読んだ本"; //--></script>
 <script type="text/javascript" src="http://www.assoc-amazon.jp/s/asw.js"></script>

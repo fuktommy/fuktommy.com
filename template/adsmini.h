@@ -1,1 +1,1 @@
-googleads.h
+amazon.h

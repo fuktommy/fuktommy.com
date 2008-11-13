@@ -22,8 +22,8 @@
         ['ウェブ全体', 'Google 検索', false,
          'http://www.google.co.jp/search?ie=UTF-8&domains=fuktommy.com&q='],
         ['僕のブログ', 'Google 検索', true,
-         'http://www.google.co.jp/search?ie=UTF-8&domains=fuktommy.com&' +
-         'sitesearch=fuktommy.com&q='],
+         'http://www.google.com/cse?cx=003570941829906538055:5apetotzz44'
+         + '&ie=UTF-8&q='],
         ['ブログ一般', 'Yahoo! 検索', false,
          'http://blog-search.yahoo.co.jp/search?fr=top_v2&ei=UTF-8&p='],
         ['通販', 'Amazon 検索', false,

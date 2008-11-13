@@ -54,8 +54,8 @@ form#searchbar p {
     width: 180px;
 }
 
-form#searchbar input#q {
-    width: 100%;
+form#searchbar input#searchbox {
+    width: 90%;
 }
 
 a:hover {

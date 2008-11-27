@@ -13,7 +13,7 @@
 
 (function() {
     function resizeTags(cloud) {
-        var tags = document.getElementById('tags_list').getElementsByTagName('span');
+        var tags = document.getElementById('all-tags').getElementsByTagName('span');
         for (var i=tags.length-1; i>=0; i--) {
             var tag = tags[i].innerHTML;
             if (cloud[tag]) {
@@ -57,7 +57,7 @@
         GM_setValue('cache_time', now);
         GM_setValue('tags', cached);
 
-        var tags = document.getElementById('tags_list').getElementsByTagName('span');
+        var tags = document.getElementById('all-tags').getElementsByTagName('span');
         for (var i=tags.length-1; i>=0; i--) {
             var tag = tags[i].innerHTML;
             if (cloud[tag]) {
@@ -67,16 +67,19 @@
     }
 
     function getUsername() {
-        var anchor = document.getElementsByTagName('a');
-        for (var i=anchor.length-1; i>=0; i--) {
-            if (anchor[i].className == 'username') {
-                return anchor[i].firstChild.nodeValue;
+        var img = document.getElementsByTagName('img');
+        for (var i=img.length-1; i>=0; i--) {
+            if (img[i].className == 'profile-image') {
+                return img[i].title;
             }
         }
         return null;
     }
 
     function readFeed() {
+        document.body.style.width = '90%';
+        document.getElementById('all-tags').style.lineHeight = '1.2';
+
         if (loadTagsFromCache()) {
             return;
         }

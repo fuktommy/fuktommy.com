@@ -13,7 +13,7 @@
 
 (function() {
     function checkGoBookmark() {
-        document.getElementById('go_bm').checked = true;
+        document.getElementById('redirect_entry').checked = true;
     }
 
     window.addEventListener('load', checkGoBookmark, false);

@@ -9,6 +9,7 @@
 // http://fuktommy.com/js/hatebu_ignore_tags.user.js
 // Distributed under new BSD license
 // http://fuktommy.com/bsdl
+// $Id:$
 
 (function() {
     var button = document.createElement('button');
@@ -51,7 +52,7 @@
     }
 
     function displayTags() {
-        var span = document.getElementById('tags_list').getElementsByTagName('span');
+        var span = document.getElementById('all-tags').getElementsByTagName('span');
         for (var i=span.length-1; i>=0; i--) {
              span[i].style.display = 'inline';
         }
@@ -61,7 +62,7 @@
     }
 
     function hideTags() {
-        var span = document.getElementById('tags_list').getElementsByTagName('span');
+        var span = document.getElementById('all-tags').getElementsByTagName('span');
         for (var i=span.length-1; i>=0; i--) {
             var tag = span[i].innerHTML;
             if (ignoreTable[tag]) {
@@ -76,8 +77,8 @@
     }
 
     function init() {
-        document.getElementById('tags_list').appendChild(button);
-        document.getElementById('tags_list').appendChild(saveForm);
+        document.getElementById('all-tags').appendChild(button);
+        document.getElementById('all-tags').appendChild(saveForm);
 
         button.innerHTML = '全タグを表示';
         button.type = 'button';

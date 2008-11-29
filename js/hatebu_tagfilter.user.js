@@ -78,7 +78,7 @@
 
     function readFeed() {
         document.body.style.width = '90%';
-        document.getElementById('all-tags').style.lineHeight = '1.2';
+        document.getElementById('all-tags').style.lineHeight = '1.5';
 
         if (loadTagsFromCache()) {
             return;

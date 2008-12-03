@@ -1,5 +1,6 @@
 // Call Google Feeds API
-// Copyright (c) 2007 Satoshi Fukutomi <info@fuktommy.com>.
+// Copyright (c) 2007,2008 Satoshi Fukutomi <info@fuktommy.com>.
+// $Id:$
 
 (function () {
     var feeds = [
@@ -53,6 +54,7 @@
                             var content = item.content;
                             content = content.replace(/\n/g, '');
                             content = content.replace(/<blockquote.*blockquote>/, '');
+                            content = content.replace(/<a .*<\/a>/g, '');
                             content = content.replace(/<.*?>/g, '');
                             content = content.replace(/(https?:\/\/[^\0-\x20\x7F-\xFF"'<>]+)/g, '<a href="$1">$1</a>');
                             if (content != '') {

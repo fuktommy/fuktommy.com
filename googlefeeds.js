@@ -1,12 +1,11 @@
 // Call Google Feeds API
 // Copyright (c) 2007,2008 Satoshi Fukutomi <info@fuktommy.com>.
-// $Id:$
+// $Id$
 
 (function () {
     var feeds = [
         {'container': 'feed_blog',     'url': 'http://blog.fuktommy.com/rss'},
-        {'container': 'feed_bookmark', 'url': 'http://b.hatena.ne.jp/fuktommy/rss'},
-        {'container': 'feed_twitter',  'url': 'http://twitter.com/statuses/user_timeline/fuktommy.rss'}
+        {'container': 'feed_bookmark', 'url': 'http://b.hatena.ne.jp/fuktommy/rss'}
     ];
     google.load('feeds', '1');
 
@@ -28,9 +27,6 @@
                         var li = document.createElement('li');
                         ul.appendChild(li);
                         var title = item.title;
-                        if (feeds[_i].container == 'feed_twitter') {
-                            title = title.replace(/^fuktommy:\s*/i, '');
-                        }
                         li.innerHTML = '<span class="listmark">●</span>';
                         var a = document.createElement('a');
                         li.appendChild(a);

@@ -8,6 +8,7 @@ RewriteCond %{HTTP_USER_AGENT} ^libwww-perl [OR]
 RewriteCond %{HTTP_USER_AGENT} "^Hatena Antenna"
 RewriteRule ^$ http://blog.fuktommy.com/rss [R,L]
 
+RewriteRule ^hateber/(.*)    http://hateber.fuktommy.com/$1             [R=301,L]
 RewriteRule ^htmlpp/blog-pin http://fuktommy.com/homebin/blog-ping      [R=301,L]
 RewriteRule ^htmlpp/tinyhttp http://fuktommy.com/homebin/tinyhttp       [R=301,L]
 RewriteRule ^htmlpp/htmlpp   http://fuktommy.com/homebin/htmlpp         [R=301,L]

@@ -23,7 +23,7 @@
   <dt><a href="/niconico/">ニコニコ動画便利ツール</a></dt>
   <dd>ニコニコ動画のための便利ツール。</dd>
 
-  <dt><a href="/hateber/">はてバーぶろぐ</a></dt>
+  <dt><a href="http://hateber.fuktommy.com/">はてバーぶろぐ</a></dt>
   <dd>はてなブックマークを使ったミニブログ。</dd>
 
   <dt><a href="http://shingetsu.info/">新月</a></dt>
@@ -112,12 +112,11 @@
   <dt><a href="http://blog.fuktommy.com/">blog.fuktommy.com</a></dt>
   <dd>メイン。</dd>
 
-  <dt><a href="http://twitter.com/fuktommy">Twitter</a></dt>
-  <dd>チャット+伝言板+SNS。
-      <a href="/twitter?out=csv">バックアップはこちら</a>。</dd>
-
   <dt><a href="http://b.hatena.ne.jp/fuktommy/">はてなブックマーク</a></dt>
-  <dd>リンク集。</dd>
+  <dd>リンク集 + ミニブログ。
+      ここのコメントにも
+      <a href="http://creativecommons.org/licenses/by/2.1/jp/">CC_BY</a>
+      を適用します。</dd>
 
   <dt><a href="http://www.google.com/reader/shared/16776374911935067914">一時的クリップ</a></dt>
   <dd><a href="https://www.google.com/reader/view/">Google Reader</a> の共有アイテムです。
@@ -125,6 +124,10 @@
 
   <dt><a href="http://astore.amazon.co.jp/fuktommy-22">Fuktommyはこんな本を読んでいます。</a></dt>
   <dd>Amazonインスタントストア。</dd>
+
+  <dt><a href="http://twitter.com/fuktommy">Twitter</a></dt>
+  <dd>チャット+伝言板+SNS。更新停止中。
+      <a href="/twitter?out=csv">バックアップはこちら</a>。</dd>
 
   <dt><a href="http://www.amazon.co.jp/gp/registry/registry.html?type=wishlist&amp;id=3VGI29TIGSZ8">Amazonほしい物リスト</a></dt>
   <dd>プレゼント募集中。</dd>

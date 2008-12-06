@@ -23,7 +23,7 @@
 // OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 // SUCH DAMAGE.
 //
-// $Id: bookmarklet.js 72 2008-07-12 15:14:01Z fuktommy $
+// $Id$
 //
 
 (function () {

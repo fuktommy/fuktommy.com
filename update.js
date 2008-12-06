@@ -23,7 +23,7 @@
 // OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 // SUCH DAMAGE.
 //
-// $Id: update.js 73 2008-07-12 15:19:17Z fuktommy $
+// $Id$
 //
 
 (function () {

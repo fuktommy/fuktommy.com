@@ -13,6 +13,6 @@ if (preg_match('/DoCoMo|KDDI|SoftBank|Vodafone|J-PHONE/', $ua)) {
 }
 header('Location: http://b.hatena.ne.jp/' . $action
         . '?mode=confirm'
-        . '&title=' . urlencode($title . ' ' . strftime('%Y-%m-%d %H:%M:%S', $now))
+        . '&title=' . urlencode($title)
         . '&url=' . urlencode($base . '#b' . strftime('%Y%m%d%H%M%S', $now))
 );

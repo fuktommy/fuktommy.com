@@ -183,15 +183,16 @@
      * 検索ページの動画の並べ変え
      */
     function makeListViewForSearch() {
-        // 動画一覧を探す
-        var videoListSrc = null;
-        var tables = document.getElementsByTagName('table');
-        for (var i = 0; i < tables.length; i++) {
-            if (tables[i].className == 'video_list') {
-                videoListSrc = tables[i];
-                break;
-            }
+        if (document.getElementById('filtertext')) {
+            var tableIndex = 1;
+        } else {
+            var tableIndex = 0;
         }
+
+        // 動画一覧を探す
+        var videoListSrc = document.getElementById('PAGEBODY')
+                                   .getElementsByTagName('table')[tableIndex]
+                                   .getElementsByTagName('table')[1];
         if (videoListSrc == null) {
             return;
         }
@@ -199,28 +200,29 @@
         // 動画一覧をコピー
         var videoListDst = document.createElement('div');
         videoListSrc.parentNode.insertBefore(videoListDst, videoListSrc);
-        var videoInfos = videoListSrc.getElementsByTagName('td');
+        var videoInfos = videoListSrc.getElementsByTagName('div');
         for (var i = 0; i < videoInfos.length; i++) {
-            if (videoInfos[i].className != 'video_info') {
+            if (videoInfos[i].className != 'thumb_frm') {
                 continue;
             }
             var dst = document.createElement('div');
             videoListDst.appendChild(dst);
             dst.appendChild(videoInfos[i].cloneNode(true));
             videoInfos[i].innerHTML = '';
+            videoInfos[i].style.display = 'none';
         }
 
         // 動画へのリンク
         var images = videoListDst.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'video_img_M') {
+            if (images[i].className != 'video_w96') {
                 continue;
             }
-            var offsetBase = images[i].parentNode.offsetParent.offsetParent;
+            var offsetBase = images[i].parentNode.offsetParent.offsetParent.parentNode;
             var anchor = {anchor: images[i].parentNode,
                           offset: offsetBase.offsetTop
                                 + offsetBase.offsetParent.offsetParent.offsetTop
-                                + offsetBase.offsetParent.offsetParent.offsetParent.offsetParent.offsetTop};
+                                + offsetBase.offsetParent.offsetParent.offsetParent.offsetTop};
             links.push(anchor);
         }
     }
@@ -260,12 +262,15 @@
     function addVideosForRanking() {
         var images = document.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'video_img_M') {
+            if (images[i].className != 'video_w96') {
                 continue;
             }
+            var offsetBase = images[i].parentNode.offsetParent.offsetParent;
             var anchor = {anchor: images[i].parentNode,
-                          offset: images[i].parentNode.offsetParent.offsetParent.offsetParent.offsetParent.offsetTop
-                                + images[i].parentNode.offsetParent.offsetTop};
+                          offset: offsetBase.offsetTop
+                                + offsetBase.offsetParent.offsetTop
+                                + offsetBase.offsetParent.offsetParent.offsetTop
+                                + offsetBase.offsetParent.offsetParent.offsetParent.offsetTop};
             links.push(anchor);
         }
     }
@@ -286,14 +291,9 @@
      */
     function makeListViewForHotlist() {
         // 動画一覧を探す
-        var videoListSrc = null;
-        var tables = document.getElementsByTagName('table');
-        for (var i = 0; i < tables.length; i++) {
-            if (tables[i].summary == '一覧') {
-                videoListSrc = tables[i];
-                break;
-            }
-        }
+        var videoListSrc = document.getElementById('PAGEBODY')
+                                   .getElementsByTagName('table')[1]
+                                   .getElementsByTagName('table')[0];
         if (videoListSrc == null) {
             return;
         }
@@ -312,82 +312,15 @@
         // 動画へのリンク
         var images = videoListDst.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'video_img_M') {
+            if (images[i].className != 'video_w96') {
                 continue;
             }
-            var offsetBase = images[i].parentNode.offsetParent.offsetParent;
+            var offsetBase = images[i].parentNode.offsetParent.offsetParent.parentNode;
             var anchor = {anchor: images[i].parentNode,
                           offset: offsetBase.offsetTop
                                 + offsetBase.offsetParent.offsetParent.offsetTop
                                 + offsetBase.offsetParent.offsetParent.offsetParent.offsetParent.offsetTop};
 
-
-            links.push(anchor);
-        }
-    }
-
-
-    // ---- 気まぐれ検索 ---------------------------------------------------------------- //
-    /**
-     * 気まぐれ検索のナビゲーションリンク
-     */
-    function setNavigationForRandom() {
-        var anchors = document.getElementsByTagName('a');
-        for (var i = 0; i < anchors.length; i++) {
-            if ((! links.prevPage) && (anchors[i].href == location.href)) {
-                links.prevPage = anchors[i];
-            } else if (anchors[i].href == location.href) {
-                links.nextPage = anchors[i];
-            }
-        }
-        links.prevPage = null;
-        links.unshift({anchor: anchors[0], offset: 0});
-        if (links.nextPage) {
-            links.push({anchor: links.nextPage, offset: links.nextPage.offsetTop});
-        } else {
-            links.nextPage = location.href;
-        }
-    }
-
-    /**
-     * 気まぐれ検索の動画の並べ変え
-     */
-    function makeListViewForRandom() {
-        // 動画一覧を探す
-        var videoListSrc = null;
-        var tables = document.getElementsByTagName('table');
-        for (var i = 0; i < tables.length; i++) {
-            if (tables[i].summary == 'きまぐれ検索') {
-                videoListSrc = tables[i];
-                break;
-            }
-        }
-        if (videoListSrc == null) {
-            return;
-        }
-
-        // 動画一覧をコピー
-        var videoListDst = document.createElement('div');
-        videoListSrc.parentNode.insertBefore(videoListDst, videoListSrc);
-        var videoInfos = videoListSrc.getElementsByTagName('td');
-        for (var i = 0; i < videoInfos.length; i++) {
-            if (videoInfos[i].className != 'random_td') {
-                continue;
-            }
-            var dst = document.createElement('div');
-            videoListDst.appendChild(dst);
-            dst.appendChild(videoInfos[i].cloneNode(true));
-            videoInfos[i].innerHTML = '';
-        }
-
-        // 動画へのリンク
-        var images = videoListDst.getElementsByTagName('img');
-        for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'video_img_L') {
-                continue;
-            }
-            var anchor = {anchor: images[i].parentNode,
-                          offset: images[i].parentNode.offsetParent.offsetParent.offsetTop};
             links.push(anchor);
         }
     }
@@ -408,7 +341,7 @@
     function addVideosForMylist() {
         var images = document.getElementsByTagName('img');
         for (var i = 0; i < images.length; i++) {
-            if (images[i].className != 'video_img_M') {
+            if (images[i].className != 'video_w96') {
                 continue;
             }
             var anchor = {anchor: images[i].parentNode,
@@ -430,9 +363,6 @@
                 || (location.pathname == '/history')) {
             addVideosForMylist();
             setNavigationForMylist();
-        } else if (location.pathname == '/random') {
-            makeListViewForRandom();
-            setNavigationForRandom();
         } else if (location.pathname == '/hotlist') {
             makeListViewForHotlist();
             setNavigationForHotlist();

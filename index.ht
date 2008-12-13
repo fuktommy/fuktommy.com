@@ -1,0 +1,60 @@
+>>>define TITLE         はてバーぶろぐ
+>>>define DESCRIPTION   はてなブックマークでミニブログします
+>>>define TOPPAGE 1
+>>>include "head.h"
+<!-- $Id$ -->
+
+<div style="text-align:center;">
+    <a id="jump" href="jump" style="border:1px solid #999; font-size:150%; padding:1ex; line-height:250%">POST</a><br />
+    <input type="checkbox" id="autoUpdate" />
+    <label for="autoUpdate">最新時刻でポストする</label>
+</div>
+
+<div style="text-align:center; margin-top:1em;">
+<script type="text/javascript"><!--
+amazon_ad_tag="fuktommy-22"; 
+amazon_ad_width="468"; 
+amazon_ad_height="60"; 
+amazon_color_background="EFEFEF"; 
+amazon_color_border="000000"; 
+amazon_color_logo="FFFFFF"; 
+amazon_color_link="0000FF"; //--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.jp/s/asw.js"></script>
+>>>include "amazonbanner.h"
+</div>
+
+<h2>これは何？</h2>
+<p>はてバー(※)のためのミニブログツールです。
+ダミーのURLを作るので、<a href="http://b.hatena.ne.jp/">はてなブックマーク</a>に追加して、
+コメント部分をミニブログとして使いましょう。</p>
+<p>POSTをクリックすると現在時刻の入ったURLとタイトルで
+ブックマークの追加ページが開くので、
+コメント欄に<a href="http://twitter.com/">Twitter</a>みたいにひとこと書いて、
+追加してください。
+詳しい説明はこちら→<a href="faq">質問と答え</a></p>
+<p>(※)はてブを使う人のことです。</p>
+
+<h2>何がうれしいの？</h2>
+<p>URLを指定してひとこと言うときははてなブックマーク、
+URLを指定しないときはTwitterや<a href="http://h.hatena.ne.jp/">はてなハイク</a>と
+ツールを使い分けている人が多いと思うのですが、
+1つのツールでどちらもできるようになります。</p>
+
+<h2>対応機種</h2>
+<p>IE7, Firefox3, au W61CA で確認しています。
+docomoの携帯では動作しないようです。
+携帯電話でエラーが出るときは
+<a href="http://b.hatena.ne.jp/mobile">はてなブックマーク</a>
+にログインしてから試してください。</p>
+
+<h2>ブックマークレット(PCのみ)</h2>
+<div>
+    <a id="bookmarklet" href="#">はてバーぶろぐ</a>
+</div>
+<p>右クリックして登録してください。
+どのページでもこのブックマークレットを実行すると、
+はてブの入力ページに飛びます。</p>
+
+<script type="text/javascript" src="update.js" charset="utf-8"></script>
+
+>>>include "foot.h"

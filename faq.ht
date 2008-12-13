@@ -1,0 +1,56 @@
+>>>define TITLE         質問と答え
+>>>define DESCRIPTION   はてなブックマークでミニブログします
+>>>include "head.h"
+<!-- $Id$ -->
+
+<div class="list">
+
+<h2>Twitterにある機能について</h2>
+<h3>タイムラインはありますか？</h3>
+<p>自分のひとことは見れませんが、
+<a href="http://b.hatena.ne.jp/fuktommy/favorite">お気に入り</a>
+があります。
+<a href="http://b.hatena.ne.jp/psychedesire/20080713#bookmark-9278119">id:psychedesire</a>より。</p>
+
+<h3>スターはありますか？</h3>
+<p><a href="http://s.hatena.ne.jp/fuktommy/report">はてなスター</a>
+があります。</p>
+
+<h3>リプライはありますか？</h3>
+<p>相手のコメントをブクマすればいいです。
+ついたブクマは
+<a href="http://b.hatena.ne.jp/bookmarklist?url=http%3A%2F%2Fb.hatena.ne.jp%2Ffuktommy%2F">一覧ページ</a>
+で確認します。
+<a href="http://b.hatena.ne.jp/PoohKid/20080715#bookmark-9278119">id:PoohKid</a>より。</p>
+
+<h2>はてブの仕組みについて</h2>
+<h3>タイトルに時刻が入らないのだけど</h3>
+<p>ブクマ追加ページでタイトルを変更するボタンを押してください。
+でもタイトル欄は変更せずに、そのままコメントを書いて追加してください。</p>
+
+<h2>便利な使い方</h2>
+<h3>自分のブクマページの整理ができる</h3>
+<p><a href="http://b.hatena.ne.jp/wakuteka/20080713#bookmark-9278119">id:wakuteka</a>より。</p>
+
+<h3>ToDoリストとして</h3>
+<p>これからやることに[todo]みたいなタグをつけておいて、
+<a href="http://b.hatena.ne.jp/fuktommy/tmp/">タグ検索</a>
+をつかって一覧にすることができます。
+終わったらタグを外せばよいです。</p>
+
+<h2>運用的なこと</h2>
+<h3>専用のアカウントを取るべき？</h3>
+<p>僕の主旨としては、ひとこととブクマを混ぜることに意味があると思うので、
+通常のアカウントでやるのがいいと思うのですが、
+混ぜたくない人もいるようです。
+<a href="http://b.hatena.ne.jp/Monzetsu/20080714#bookmark-9278119">id:Monzetsu</a>,
+<a href="http://b.hatena.ne.jp/wideangle/20080714#bookmark-9278119">id:wideangle</a>より。</p>
+
+<h2>できないこと</h2>
+<h3>発言内容をタイトルにする</h3>
+<p>同じ時刻のひとことが同じURLになるので、できません。
+<a href="http://b.hatena.ne.jp/kanbayashi/20080713#bookmark-9278119">id:kanbayashi</a>より。</p>
+
+</div>
+
+>>>include "foot.h"

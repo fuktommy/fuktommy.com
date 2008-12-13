@@ -55,6 +55,13 @@ docomoの携帯では動作しないようです。
 どのページでもこのブックマークレットを実行すると、
 はてブの入力ページに飛びます。</p>
 
+<h2>Greasemonkeyスクリプト(Firefoxのみ)</h2>
+<div>
+    <a href="HatebuChangeTitle.user.js">タイトル変更防止</a>
+</div>
+<p>通常だとはてブによってタイトルが書き換えられてしまうので、
+このスクリプトによって、それをやめさせます。</p>
+
 <script type="text/javascript" src="update.js" charset="utf-8"></script>
 
 >>>include "foot.h"

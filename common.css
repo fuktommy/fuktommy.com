@@ -1,0 +1,34 @@
+body {
+    background-color: #efefef;
+    color: #000;
+}
+
+a {
+    color: #00b;
+}
+
+a:visited {
+    color: #808;
+}
+
+img {
+    border-width: 0px;
+}
+
+p.sitename {
+    background-color: #afa;
+    font-weight: bold;
+}
+
+p.sitename a {
+    text-decoration: none;
+}
+
+address {
+    clear: both;
+    text-align: center;
+}
+
+strong {
+    color: red;
+}

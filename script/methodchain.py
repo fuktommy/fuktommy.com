@@ -25,10 +25,10 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-# $Id:$
+# $Id$
 #
 
-__version__ = '$Revision:$'
+__version__ = '$Revision$'
 __all__ = ['pack']
 
 
@@ -66,6 +66,8 @@ def pack(val):
     >>> import math
     >>> pack(9).pipe(math.pow, 6).pipe(math.sqrt).unpack()
     729.0
+    >>> pack('spam').upper()
+    'SPAM'
     >>> int(pack(9))
     9
     """

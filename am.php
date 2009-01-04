@@ -12,7 +12,7 @@ if (preg_match('|^/([-_.A-Za-z0-9]+)$|', $_SERVER['PATH_INFO'], $maches)) {
 $ua = $_SERVER['HTTP_USER_AGENT'];
 if (! $asin) {
     // pass
-} elseif (preg_match('/Google Wireless Transcoder|Hatena-Mobile-Gateway/', $ua)) {
+} elseif (preg_match('/Google Wireless Transcoder|Hatena/', $ua)) {
     // pass
 } elseif (preg_match('/DoCoMo|KDDI|SoftBank|Vodafone|J-PHONE/', $ua)) {
     header('Location: ' . sprintf(MOBILE_FORMAT, $asin));

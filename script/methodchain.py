@@ -41,12 +41,33 @@ class MethodChainContainer:
         """
         self.val = val
 
-    def pipe(self, method, *args):
+    def func(self, function, *args):
+        """Execute function with value and args.
+        """
+        array = [self.val]
+        array.extend(args)
+        return MethodChainContainer(function(*array))
+    pipe = func
+
+    def attr(self, attr_name):
+        """Pack attributes of wrapped value.
+        """
+        return MethodChainContainer(getattr(self.val, attr_name))
+
+    def method(self, method_name, *args):
         """Execute method with value and args.
         """
         array = [self.val]
         array.extend(args)
-        return MethodChainContainer(method(*array))
+        return MethodChainContainer(getattr(self.val, method_name)(*args))
+
+    def obj(self, method_name, *args):
+        """Execute method with value and args and return packed object.
+        """
+        array = [self.val]
+        array.extend(args)
+        getattr(self.val, method_name)(*args)
+        return self
 
     def unpack(self):
         """Content value.
@@ -64,8 +85,12 @@ def pack(val):
 
     example:
     >>> import math
-    >>> pack(9).pipe(math.pow, 6).pipe(math.sqrt).unpack()
-    729.0
+    >>> pack(3).pipe(math.pow, 6).func(math.sqrt).unpack()
+    27.0
+    >>> pack('spam').method('upper').unpack()
+    'SPAM'
+    >>> pack(list('spam')).obj('sort').obj('reverse')
+    ['s', 'p', 'm', 'a']
     >>> pack('spam').upper()
     'SPAM'
     >>> int(pack(9))
@@ -87,6 +112,11 @@ def _test():
             container = MethodChainContainer(9)
             self.assertEquals(9, container.unpack())
 
+        def test_func(self):
+            container = MethodChainContainer(9)
+            result = container.func(math.sqrt)
+            self.assertEquals(3, result.unpack())
+
         def test_pipe(self):
             container = MethodChainContainer(9)
             result = container.pipe(math.sqrt)
@@ -98,9 +128,24 @@ def _test():
             self.assertEquals(81, result.unpack())
 
         def test_pipe_chain(self):
-            container = MethodChainContainer(9)
+            container = MethodChainContainer(3)
             result = container.pipe(math.pow, 6).pipe(math.sqrt)
-            self.assertEquals(729, result.unpack())
+            self.assertEquals(27, result.unpack())
+
+        def test_attr(self):
+            container = MethodChainContainer('+')
+            result = container.attr('join')
+            self.assertEquals('o+o', result.unpack()('oo'))
+
+        def test_method(self):
+            container = MethodChainContainer('+')
+            result = container.method('join', 'oo')
+            self.assertEquals('o+o', result.unpack())
+
+        def test_obj(self):
+            container = MethodChainContainer(['1', '2', '3', '4'])
+            result = container.obj('reverse').func(','.join)
+            self.assertEquals('4,3,2,1', result.unpack())
 
         def test_getattr(self):
             container = MethodChainContainer(9)

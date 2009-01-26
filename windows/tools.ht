@@ -82,8 +82,8 @@
   <dt id="putty"><a href="http://hp.vector.co.jp/authors/VA024651/" title="hdk の自作ソフトの紹介">PuTTY日本語版</a></dt>
   <dd>SSH接続クライアントです。LAN内部はこれで繋ぎます。</dd>
 
-  <dt><a href="http://www2.biglobe.ne.jp/~sota/ffftp.html">FFFTP</a></dt>
-  <dd><a href="http://sourceforge.net/">SF.net</a>にアップする専用。</dd>
+  <dt><a href="http://www.tab2.jp/~winscp/">WinSCP</a></dt>
+  <dd>ファイル転送用。</dd>
 
   <dt><a href="http://tubo.80.kg/">禁断の壷</a></dt>
   <dd><a href="http://2ch.net/">2ちゃんねる</a>ブラウザには何を使うか迷いましたが、公式っぽい壷にしました。ちなみにLinuxでは<a href="/py2ch/">py2ch</a>を使っています。<a href="tubo.pac">プロキシ設定ファイルの例</a>。</dd>

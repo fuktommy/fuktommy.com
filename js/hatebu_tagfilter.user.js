@@ -25,17 +25,18 @@
     function loadTagsFromCache() {
         var cloud = {};
         var now = (new Date()).getTime() / 1000;
-        if (GM_getValue('cache_time', 0) + 1800 < now) {
+        var cacheTime = GM_getValue('cache_time', 0);
+        if (cacheTime <= 0) {
             return false;
-        } else {
-            var cached = GM_getValue('tags', '');
-            var tags = cached.split('[]');
-            for (var i=tags.length-1; i>=0; i--) {
-                cloud[decodeURIComponent(tags[i])] = true;
-            }
-            resizeTags(cloud);
-            return true;
         }
+        var result = now < cacheTime + 1800;
+        var cached = GM_getValue('tags', '');
+        var tags = cached.split('[]');
+        for (var i=tags.length-1; i>=0; i--) {
+            cloud[decodeURIComponent(tags[i])] = true;
+        }
+        resizeTags(cloud);
+        return result;
     }
 
     function loadTagsFromXML(xml) {

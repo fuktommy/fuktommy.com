@@ -12,6 +12,8 @@
 // $Id$
 
 (function() {
+    var status = document.createElement('span');
+
     function resizeTags(cloud) {
         var tags = document.getElementById('all-tags').getElementsByTagName('span');
         for (var i=tags.length-1; i>=0; i--) {
@@ -65,6 +67,7 @@
                 tags[i].style.fontSize = '20pt';
             }
         }
+        status.innerHTML = '(最新情報を取得しました)';
     }
 
     function getUsername() {
@@ -80,8 +83,12 @@
     function readFeed() {
         document.body.style.width = '90%';
         document.getElementById('all-tags').style.lineHeight = '1.5';
+        document.getElementById('all-tags').appendChild(status);
+        status.style.backgroundColor = '#faa';
+        status.style.color = '#000';
 
         if (loadTagsFromCache()) {
+            status.innerHTML = '(キャッシュされています)';
             return;
         }
 
@@ -89,6 +96,7 @@
         if (! username) {
             return;
         }
+        status.innerHTML = '(最新情報を取得中)';
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () {
             if ((request.readyState == 4) && (request.status == 200)) {

@@ -67,7 +67,7 @@
                 tags[i].style.fontSize = '20pt';
             }
         }
-        status.innerHTML = '(最新情報を取得しました)';
+        status.innerHTML = '最近使ったタグ: 最新情報を取得しました';
     }
 
     function getUsername() {
@@ -88,7 +88,7 @@
         status.style.color = '#000';
 
         if (loadTagsFromCache()) {
-            status.innerHTML = '(キャッシュされています)';
+            status.innerHTML = '最近使ったタグ: キャッシュされています';
             return;
         }
 
@@ -96,7 +96,7 @@
         if (! username) {
             return;
         }
-        status.innerHTML = '(最新情報を取得中)';
+        status.innerHTML = '最近使ったタグ: 最新情報を取得中';
         var request = new XMLHttpRequest();
         request.onreadystatechange = function () {
             if ((request.readyState == 4) && (request.status == 200)) {

@@ -183,16 +183,19 @@
      * 検索ページの動画の並べ変え
      */
     function makeListViewForSearch() {
-        if (document.getElementById('filtertext')) {
-            var tableIndex = 1;
-        } else {
-            var tableIndex = 0;
-        }
-
         // 動画一覧を探す
-        var videoListSrc = document.getElementById('PAGEBODY')
-                                   .getElementsByTagName('table')[tableIndex]
-                                   .getElementsByTagName('table')[1];
+        var container = document.getElementById('PAGEBODY');
+        if (document.getElementById('filtertext')) {
+            container = container.getElementsByTagName('table')[1];
+        } else {
+            container = container.getElementsByTagName('table')[0];
+        }
+        if (document.getElementById('nicoads')) {
+            container = container.getElementsByTagName('table')[2];
+        } else {
+            container = container.getElementsByTagName('table')[1];
+        }
+        var videoListSrc = container;
         if (videoListSrc == null) {
             return;
         }

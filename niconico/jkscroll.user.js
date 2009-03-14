@@ -16,6 +16,7 @@
 // @include     http://www.nicovideo.jp/search/*
 // @include     http://www.nicovideo.jp/tag/*
 // @include     http://www.nicovideo.jp/myvideo/*
+// @include     http://uad.nicovideo.jp/main/rank/*
 // ==/UserScript==
 
 // キー操作:
@@ -356,6 +357,32 @@
         }
     }
 
+    // ---- ニコニ広告ランキングページ -------------------------------------------------- //
+
+    /**
+     * ニコニ広告ランキングページのナビゲーションリンク
+     */
+    function setNavigationForUadRanking() {
+    }
+
+    /**
+     * ニコニ広告ランキングの動画をリストに入れる
+     */
+    function addVideosForUadRanking() {
+        var p = document.getElementsByTagName('p');
+        for (var i = 0; i < p.length; i++) {
+            if (p[i].className != 'thmb') {
+                continue;
+            }
+            var offsetBase = p[i].parentNode.parentNode;
+            var anchor = {anchor: p[i].childNodes[0],
+                          offset: offsetBase.offsetTop
+                                + offsetBase.offsetParent.offsetTop};
+            links.push(anchor);
+        }
+    }
+
+
     // ---- 振り分け -------------------------------------------------------------------- //
 
     function init() {
@@ -369,6 +396,9 @@
         } else if (location.pathname == '/hotlist') {
             makeListViewForHotlist();
             setNavigationForHotlist();
+        } else if (location.hostname == 'uad.nicovideo.jp') {
+            addVideosForUadRanking();
+            setNavigationForUadRanking();
         } else {
             makeListViewForSearch();
             setNavigationForSearch();

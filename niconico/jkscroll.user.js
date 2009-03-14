@@ -26,7 +26,7 @@
 //      Enter:  開く
 
 //
-// Copyright (c) 2008 Satoshi Fukutomi <info@fuktommy.com>.
+// Copyright (c) 2008,2009 Satoshi Fukutomi <info@fuktommy.com>.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -184,18 +184,16 @@
      */
     function makeListViewForSearch() {
         // 動画一覧を探す
-        var container = document.getElementById('PAGEBODY');
-        if (document.getElementById('filtertext')) {
-            container = container.getElementsByTagName('table')[1];
-        } else {
-            container = container.getElementsByTagName('table')[0];
-        }
-        if (document.getElementById('nicoads')) {
-            container = container.getElementsByTagName('table')[2];
-        } else {
-            container = container.getElementsByTagName('table')[1];
-        }
-        var videoListSrc = container;
+        var videoListSrc = (function(){
+            var t = document.getElementById('PAGEBODY')
+                            .getElementsByTagName('table');
+            for (var i = 0; i < t.length; i++) {
+                if (t[i].summary == 'list') {
+                    return t[i];
+                }
+            }
+            return null;
+        })();
         if (videoListSrc == null) {
             return;
         }
@@ -205,7 +203,8 @@
         videoListSrc.parentNode.insertBefore(videoListDst, videoListSrc);
         var videoInfos = videoListSrc.getElementsByTagName('div');
         for (var i = 0; i < videoInfos.length; i++) {
-            if (videoInfos[i].className != 'thumb_frm') {
+            if ((videoInfos[i].className != 'thumb_frm')
+                && (videoInfos[i].className.search(/thumb_frm_rank_/) != 0)) {
                 continue;
             }
             var dst = document.createElement('div');
@@ -224,6 +223,7 @@
             var offsetBase = images[i].parentNode.offsetParent.offsetParent.parentNode;
             var anchor = {anchor: images[i].parentNode,
                           offset: offsetBase.offsetTop
+                                + offsetBase.offsetParent.offsetTop
                                 + offsetBase.offsetParent.offsetParent.offsetTop
                                 + offsetBase.offsetParent.offsetParent.offsetParent.offsetTop};
             links.push(anchor);

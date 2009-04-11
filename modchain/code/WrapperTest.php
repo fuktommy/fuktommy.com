@@ -24,7 +24,7 @@
 // OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 // SUCH DAMAGE.
 //
-// $Id:$
+// $Id$
 //
 
 require_once 'PHPUnit/Framework.php';
@@ -295,6 +295,15 @@ class WrapperTest extends PHPUnit_Framework_TestCase
     /**
      * Get array element.
      */
+    public function testGetterArrayElement()
+    {
+        $wrapper = ModifireChain_Wrapper::getInstance(array('a' => 'b'));
+        $this->assertSame('b', $wrapper->a->unpack());
+    }
+
+    /**
+     * Get array element.
+     */
     public function testGetNull()
     {
         $wrapper = ModifireChain_Wrapper::getInstance('a');
@@ -302,9 +311,48 @@ class WrapperTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Get object field.
+     * Get array element.
      */
-    public function testField()
+    public function testGetDefault()
+    {
+        $wrapper = ModifireChain_Wrapper::getInstance('a');
+        $this->assertSame('b', $wrapper->get('a', 'b')->unpack());
+    }
+
+    /**
+     * Get array element.
+     */
+    public function testGetterArrayElementNull()
+    {
+        $wrapper = ModifireChain_Wrapper::getInstance('a');
+        $this->assertSame(null, $wrapper->a->unpack());
+    }
+
+    /**
+     * Get object property.
+     */
+    public function testProp()
+    {
+        $obj = new StdClass();
+        $obj->foo = 'bar';
+        $wrapper = ModifireChain_Wrapper::getInstance($obj);
+        $this->assertSame('bar', $wrapper->prop('foo')->unpack());
+    }
+
+    /**
+     * Get object property.
+     */
+    public function testPropertyDefault()
+    {
+        $obj = new StdClass();
+        $wrapper = ModifireChain_Wrapper::getInstance($obj);
+        $this->assertSame('bar', $wrapper->prop('foo', 'bar')->unpack());
+    }
+
+    /**
+     * Get object property.
+     */
+    public function testProperty()
     {
         $obj = new StdClass();
         $obj->foo = 'bar';
@@ -313,9 +361,9 @@ class WrapperTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Get object field.
+     * Get object property.
      */
-    public function testFieldNull()
+    public function testPropertyNull()
     {
         $obj = new StdClass();
         $wrapper = ModifireChain_Wrapper::getInstance($obj);
@@ -323,9 +371,9 @@ class WrapperTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Get object field.
+     * Get object property.
      */
-    public function testFieldScalar()
+    public function testPropertyScalar()
     {
         $wrapper = ModifireChain_Wrapper::getInstance('foo');
         $this->assertSame(null, $wrapper->foo->unpack());

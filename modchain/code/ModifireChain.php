@@ -24,7 +24,7 @@
 // OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 // SUCH DAMAGE.
 //
-// $Id:$
+// $Id$
 //
 
 
@@ -194,10 +194,13 @@ class ModifireChain_Wrapper implements IteratorAggregate
      */
     public function __get($key)
     {
-        return ModifireChain_Wrapper::getInstance(
-            (is_object($this->value) && property_exists($this->value, $key)) ?
-                $this->value->$key : null
-        );
+        if (is_object($this->value)) {
+            return $this->prop($key);
+        } elseif (is_array($this->value)) {
+            return $this->get($key);
+        } else {
+            return ModifireChain_Wrapper::getInstance(null);
+        }
     }
 
     /**
@@ -298,13 +301,28 @@ class ModifireChain_Wrapper implements IteratorAggregate
     /**
      * Get array element.
      * @param mixed $key
+     * @param mixed $default
      * @return ModifireChain_Wrapper
      */
-    public function get($key)
+    public function get($key, $default = null)
     {
         return new self(
             (is_array($this->value) && array_key_exists($key, $this->value)) ?
-                $this->value[$key] : null
+                $this->value[$key] : $default
+        );
+    }
+
+    /**
+     * Get object property.
+     * @param mixed $key
+     * @param mixed $default
+     * @return ModifireChain_Wrapper
+     */
+    public function prop($key, $default = null)
+    {
+        return new self(
+            (is_object($this->value) && property_exists($this->value, $key)) ?
+                $this->value->$key : $default
         );
     }
 

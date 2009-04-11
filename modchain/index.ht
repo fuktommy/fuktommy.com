@@ -68,8 +68,10 @@ $chain-&gt;text-&gt;stringFormat('%10s')-&gt;e();  // Smarty風のメソッド�
 
 // 配列のキーを指定する方法
 $chain-&gt;assoc-&gt;get('a')-&gt;get('b')-&gt;e();
+$chain-&gt;assoc-&gt;a-&gt;b-&gt;e();
 
 // オブジェクトの場合
+$chain-&gt;obj-&gt;prop('foo')-&gt;e();
 $chain-&gt;obj-&gt;foo-&gt;e();
 
 // 中身を取り出すとき

@@ -37,7 +37,7 @@ require_once 'ModifireChain.php';
 /**
  * Mock Object.
  */
-interface ObjectMock
+interface WrapperTest_ObjectMock
 {
     public function foo($format);
 }
@@ -72,7 +72,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testMethod()
     {
-        $obj = $this->getMock('ObjectMock');
+        $obj = $this->getMock('WrapperTest_ObjectMock');
         $obj->expects($this->once())
             ->method('foo')
             ->with('arg')
@@ -95,7 +95,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testCallMethod()
     {
-        $obj = $this->getMock('ObjectMock');
+        $obj = $this->getMock('WrapperTest_ObjectMock');
         $obj->expects($this->once())
             ->method('foo')
             ->with('arg')

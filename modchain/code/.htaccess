@@ -1,0 +1,2 @@
+RemoveHandler .php
+AddType text/plain .php

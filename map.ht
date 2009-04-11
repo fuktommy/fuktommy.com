@@ -29,6 +29,9 @@
   <dt><a href="http://shingetsu.info/">新月</a></dt>
   <dd>P2P匿名掲示板。</dd>
 
+  <dt><a href="/modchain/">ModifireChain</a></dt>
+  <dd>Smarty風のメソッドチェインでテンプレートを書くライブラリ。</dd>
+
   <dt><a href="/upnp/">UPnP</a></dt>
   <dd>UPnPを利用したツール。</dd>
 

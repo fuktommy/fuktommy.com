@@ -5,7 +5,7 @@
 // @include     http://b.hatena.ne.jp/add?mode=confirm&*
 // ==/UserScript==
 
-// Copyright (c) 2008 Satoshi Fukutomi <info@fuktommy.com>.
+// Copyright (c) 2008,2009 Satoshi Fukutomi <info@fuktommy.com>.
 // http://fuktommy.com/js/hatebu_tagfilter.user.js
 // Distributed under new BSD license
 // http://fuktommy.com/bsdl
@@ -81,17 +81,6 @@
     }
 
     function readFeed() {
-        document.body.style.width = '90%';
-        document.getElementById('all-tags').style.lineHeight = '1.5';
-        document.getElementById('all-tags').appendChild(status);
-        status.style.backgroundColor = '#faa';
-        status.style.color = '#000';
-
-        if (loadTagsFromCache()) {
-            status.innerHTML = '最近使ったタグ: キャッシュされています';
-            return;
-        }
-
         var username = getUsername();
         if (! username) {
             return;
@@ -107,5 +96,25 @@
         request.send(null);
     }
 
-    window.addEventListener('load', readFeed, false);
+    function init() {
+        document.body.style.width = '90%';
+        document.getElementById('all-tags').style.lineHeight = '1.5';
+        document.getElementById('all-tags').appendChild(status);
+        status.style.backgroundColor = '#faa';
+        status.style.color = '#000';
+
+        var updateButton = document.createElement('button');
+        document.getElementById('all-tags').appendChild(updateButton);
+        updateButton.innerHTML = '今すぐ更新する';
+        updateButton.type = 'button';
+        updateButton.addEventListener('click', readFeed, false);
+
+        if (loadTagsFromCache()) {
+            status.innerHTML = '最近使ったタグ: キャッシュされています';
+        } else {
+            readFeed();
+        }
+    }
+
+    window.addEventListener('load', init, false);
 })();

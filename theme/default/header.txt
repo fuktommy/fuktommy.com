@@ -26,7 +26,7 @@ Content-type: text/html; charset=utf-8
         <h1><a
             title="「<SITE_NAME>」のトップページへ行きます（リロード）。"
             href="<SITE_URL>"><SITE_NAME></a></h1>
-        <p>やさしい心で、ひとことどうぞ。</p>
+        <p>パスワードを求められたら、ユーザ名とパスワードにguestと入力してください。</p>
     </td><td valign="top">
         <INCLUDE localjump.txt>
     </td></tr></table>

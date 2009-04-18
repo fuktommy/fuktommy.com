@@ -72,7 +72,7 @@
 
     function getUsername() {
         var img = document.getElementsByTagName('img');
-        for (var i=img.length-1; i>=0; i--) {
+        for (var i=0; i<img.length; i++) {
             if (img[i].className == 'profile-image') {
                 return img[i].title;
             }

@@ -65,6 +65,7 @@ p#search {
 
 .feedset a {
     text-decoration: none;
+    color: #0000aa;
 }
 
 .feedset a:hover {
@@ -95,7 +96,7 @@ p#search {
 }
 
 .feedset .comment {
-    color: #666;
+    color: #333;
     font-size: 80%;
 }
 

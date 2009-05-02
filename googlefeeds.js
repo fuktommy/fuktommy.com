@@ -4,8 +4,9 @@
 
 (function () {
     var feeds = [
-        {'container': 'feed_blog',     'url': 'http://blog.fuktommy.com/rss'},
-        {'container': 'feed_bookmark', 'url': 'http://b.hatena.ne.jp/fuktommy/rss'}
+        {'container': 'feed_blog', 'url': 'http://blog.fuktommy.com/rss'},
+        {'container': 'feed_bookmark', 'url': 'http://b.hatena.ne.jp/fuktommy/rss'},
+        {'container': 'feed_nicovideo', 'url': 'http://www.nicovideo.jp/myvideo/146583?rss=atom'}
     ];
     google.load('feeds', '1');
 

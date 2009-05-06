@@ -92,4 +92,9 @@ touched.txt</pre>
 <pre class="code"><code>$ chown -R apache.apache files images
 $ chown -R apache.apache /tmp/svntest</code></pre>
 
+<h2>書き込み認証</h2>
+<p>SPAMを(ある程度)防いだり、
+検索エンジンのロボットが検索履歴を消していかないように設定する方法です。<br />
+<a href="http://blog.fuktommy.com/1240074944">声のかけら。にDigest認証をかけてみたよ</a></p>
+
 >>>include "foot.h"

@@ -144,15 +144,15 @@ class ModifireChain_Wrapper implements IteratorAggregate
 
     /**
      * Call function.
-     * @param string $name
+     * @param callback $callback
      * @param mixed $arguments...
      * @return ModifireChain_Wrapper
      */
-    public function func($name)
+    public function func($callback)
     {
         $arguments = func_get_args();
         $arguments[0] = $this->value;
-        return new self(call_user_func_array($name, $arguments));
+        return new self(call_user_func_array($callback, $arguments));
     }
 
     /**

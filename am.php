@@ -35,12 +35,29 @@ header('Content-Type: text/html; charset=UTF-8');
   <?php endif; ?>
 </head>
 <body>
-  <div>
+<div>
   <?php if ($asin): ?>
     <a href="<?php echo htmlspecialchars(sprintf(PC_FORMAT, $asin), ENT_QUOTES); ?>">Next</a>
   <?php else: ?>
     Error
   <?php endif; ?>
-  </div>
+</div>
+
+<!--
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<rdf:Description rdf:about="http://fuktommy.com/">
+   <foaf:maker rdf:parseType="Resource">
+     <foaf:holdsAccount>
+       <foaf:OnlineAccount foaf:accountName="fuktommy">
+         <foaf:accountServiceHomepage rdf:resource="http://www.hatena.ne.jp/" />
+       </foaf:OnlineAccount>
+     </foaf:holdsAccount>
+   </foaf:maker>
+</rdf:Description>
+</rdf:RDF>
+-->
+
 </body>
 </html>

@@ -84,8 +84,8 @@ amazon_color_link="0000FF"; //--></script>
     </td>
     <td>
       <div class="feedlist">
-      <h2><a href="http://www.nicovideo.jp/user/146583">ニコニコ動画</a></h2>
-      <div id="feed_nicovideo">読み込み中です...</div>
+      <h2><a href="http://twitter.com/fuktommy">Twitter</a></h2>
+      <div id="feed_twitter">読み込み中です...</div>
       </div>
     </td>
   </tr>

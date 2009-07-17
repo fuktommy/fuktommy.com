@@ -6,7 +6,7 @@
     var feeds = [
         {'container': 'feed_blog', 'url': 'http://blog.fuktommy.com/rss'},
         {'container': 'feed_bookmark', 'url': 'http://b.hatena.ne.jp/fuktommy/rss'},
-        {'container': 'feed_nicovideo', 'url': 'http://www.nicovideo.jp/myvideo/146583?rss=atom'}
+        {'container': 'feed_twitter', 'url': 'http://twitter.com/statuses/user_timeline/fuktommy.rss'}
     ];
     google.load('feeds', '1');
 
@@ -37,6 +37,10 @@
         }
     }
 
+    function formatTwitterTitle(title) {
+        return title.replace(/^fuktommy: /, '');
+    }
+
     function insertEntries(container, entries) {
         container.innerHTML = '';
         var ul = document.createElement('ul');
@@ -50,6 +54,9 @@
             var a = document.createElement('a');
             li.appendChild(a);
             a.href = item.link;
+            if (container.id == 'feed_twitter') {
+                title = formatTwitterTitle(title);
+            }
             a.appendChild(document.createTextNode(title));
             if (container.id == 'feed_bookmark') {
                 formatBookmarkFeed(li, item);

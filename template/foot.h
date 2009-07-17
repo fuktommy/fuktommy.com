@@ -1,4 +1,4 @@
-<address>Copyright&copy; 1998-2008 <a href="http://fuktommy.com/">Fuktommy</a>.
+<address>Copyright&copy; 1998-2009 <a href="http://fuktommy.com/">Fuktommy</a>.
 All Rights Reserved.<br />
 <a href="mailto:webmaster@fuktommy.com">webmaster@fuktommy.com</a>
 (<a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/" title="This work is licensed under a Creative Commons Attribution 2.1 Japan License.">Legal Notices</a>)

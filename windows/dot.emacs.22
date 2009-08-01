@@ -14,11 +14,19 @@
 (setq default-process-coding-system '(euc-jp-unix . euc-jp-unix))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 漢字変換 (skk) の設定
+;; ユニコード
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (skk-mode 1)
-(global-set-key "\C-o" 'toggle-input-method)
-(global-set-key [?\S-\ ] 'toggle-input-method)
+;(require 'un-define)
+;(require 'jisx0213)
+(require 'un-supple)
+(un-supple-enable 'windows)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 漢字変換 (skk) の設定
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key "\C-o" 'skk-mode)
+(global-set-key [?\S-\ ] 'skk-mode)
 (setq skk-status-indicator 'left)
 (setq skk-large-jisyo "C:/Program Files/Common Files/SKK/SKK-JISYO.L")
 (add-hook 'isearch-mode-hook
@@ -31,7 +39,6 @@
 	      (and (boundp 'skk-mode) skk-mode (skk-isearch-mode-cleanup))
 	      (and (boundp 'skk-mode-invoked) skk-mode-invoked
 		   (skk-set-cursor-properly)))))
-(setq default-input-method "japanese-skk")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; いろいろ
@@ -47,9 +54,7 @@
 (setq next-line-add-newlines nil)
 (setq visible-bell t)
 (global-set-key "\C-\\" 'undo)
-(server-start)
 
-;(setq-default indent-tabs-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq tab-stop-list
@@ -65,7 +70,6 @@
 (global-set-key [mouse-5] 'scroll-up)
 (setq initial-scratch-message nil)
 (setq inhibit-startup-message t)
-(set-background-color "gray93")
 
 (defun my-favorite-mode () (text-mode))
 (setq default-major-mode 'my-favorite-mode)
@@ -117,18 +121,3 @@
 ;; テンプレート編集
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-coding-alist '("\\.tpl$" . utf-8))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; チルダ問題
-;; http://www.bookshelf.jp/2ch/unix/1141309172.html#975
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(let ((my-translation-table
-    (make-translation-table-from-alist
-        '((#x301c . #xff5e)
-    ))))
-    (mapc
-        (lambda (coding-system)
-            (coding-system-put coding-system :decode-translation-table my-translation-table)
-            (coding-system-put coding-system :encode-translation-table my-translation-table)
-        )
-    '(utf-8 cp932 utf-16le))) 

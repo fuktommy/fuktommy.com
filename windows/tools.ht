@@ -45,8 +45,9 @@
 <dl>
   <dt><a href="http://www.gnu.org/software/emacs/emacs.html">GNU Emacs</a></dt>
   <dd>定番のエディタです。ダウンロードはRINGサーバの<a href="http://www.t.ring.gr.jp/pub/GNU/emacs/windows/">GNU/Emacs</a>から。
-      <a href="dot.emacs">.emacsの設定例 (Emacs22)</a> /
-      <a href="dot.emacs.21">.emacsの設定例 (Emacs21)</a>。
+      <a href="dot.emacs">.emacsの設定例 (Emacs23)</a> /
+      <a href="dot.emacs.22">Emacs22</a> /
+      <a href="dot.emacs.21">Emacs21</a>。
       フォントの設定にてこずりましたが、<a href="http://www.asahi-net.or.jp/~pw9s-szk/emacs/emacs_conf.html">Emacs21のWindowsへのインストールと設定</a>を参考にしました。</dd>
 
   <dt><a href="http://openlab.jp/skk/index-j.html">ddskk</a></dt>

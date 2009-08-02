@@ -1,13 +1,8 @@
 <ul><li>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><p>
-  <input type="hidden" name="cmd" value="_xclick" />
-  <input type="hidden" name="business" value="paypal@fuktommy.com" />
-  <input type="hidden" name="item_name" value="Fuktommy.com" />
-  <input type="hidden" name="amount" value="100" />
-  <input type="hidden" name="no_note" value="1" />
-  <input type="hidden" name="currency_code" value="JPY" />
-  <input type="hidden" name="tax" value="0" />
-  <input type="hidden" name="bn" value="PP-DonationsBF" />
-  <input type="image" src="/donate.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" tabindex="1" accesskey="d" />
-</p></form>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post"><div>
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="7210101" />
+<input type="image" src="https://www.paypal.com/ja_JP/JP/i/btn/btn_paynow_SM.gif" name="submit" alt="PayPal - オンラインで安全・簡単にお支払い" />
+<img alt="" src="https://www.paypal.com/ja_JP/i/scr/pixel.gif" width="1" height="1" />
+</div></form>
 </li></ul>

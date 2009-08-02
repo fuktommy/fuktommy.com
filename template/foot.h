@@ -45,7 +45,12 @@
       <img src="/feed-icon-16x16.gif" width="16" height="16" alt="" />
       RSS 1.0</a></li>
   <li><a href="http://fusion.google.com/add?feedurl=http%3A//fuktommy.com/rss"><img src="http://buttons.googlesyndication.com/fusion/add.gif" width="104" height="17" alt="Add to Google" /></a></li>
-  <li><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&amp;business=paypal%40fuktommy%2ecom&amp;item_name=Fuktommy%2ecom&amp;amount=500&amp;no_shipping=0&amp;no_note=1&amp;tax=0&amp;currency_code=JPY&amp;bn=PP%2dDonationsBF&amp;charset=UTF%2d8"><img src="/donate.gif" alt="Make payments with PayPal" width="73" height="44" /></a></li>
+  <li><form action="https://www.paypal.com/cgi-bin/webscr" method="post"><div>
+        <input type="hidden" name="cmd" value="_s-xclick" />
+        <input type="hidden" name="hosted_button_id" value="7210101" />
+        <input type="image" src="https://www.paypal.com/ja_JP/JP/i/btn/btn_paynow_SM.gif" name="submit" alt="PayPal - オンラインで安全・簡単にお支払い" />
+        <img alt="" src="https://www.paypal.com/ja_JP/i/scr/pixel.gif" width="1" height="1" />
+      </div></form></li>
   <li><a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/" title="This work is licensed under a Creative Commons Attribution 2.1 Japan License."><img alt="Creative Commons License" src="/cc-by-88x31.png" width="88" height="31" /></a></li>
   <li><a href="http://mobile.fuktommy.com/"><img src="/mobileqrcode.gif" width="132" height="132" alt="モバイルサイト" title="モバイルサイト" /></a></li>
 </ul>

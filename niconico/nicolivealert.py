@@ -71,7 +71,7 @@ def xml_get_string(dom, tagname):
     if len(array) > 0:
         return array[0].lastChild.nodeValue
     else:
-        return None
+        return ''
 
 
 class Event:

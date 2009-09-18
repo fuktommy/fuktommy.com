@@ -44,10 +44,8 @@ Usage:
 # $Id$
 #
 
-import codecs
 import re
 import socket
-import sys
 import urllib
 import xml.dom.minidom
 

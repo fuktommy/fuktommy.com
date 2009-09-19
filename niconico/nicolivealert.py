@@ -11,10 +11,18 @@ Usage:
     for event in alert:
         if not event.is_new_stream:
             continue
-        info = event.stream_info
-        print info['url'], info['communityname'], info['title']
+        if (event['communityid'] not in my_favorite_communities)
+           and (event['userid'] not in my_favorite_users):
+            continue
+        print event['url'], event['communityname'], event['title']
         if some_condition:
             alert.close()
+
+Event object elements:
+    without stream Info API:
+        streamid, communityid, userid, url
+    with stream Info API:
+        title, description, provider_type, communityname, thumbnail
 """
 #
 # Copyright (c) 2009 Satoshi Fukutomi <info@fuktommy.com>.
@@ -79,28 +87,56 @@ class Event:
     """
     is_new_stream = False
     is_message = False
-    stream_info = {}
-    client_message = ''
+    info = {}
+    message = ''
+
+
+class MessageEvent(Event):
+    is_message = True
+
+    def __init__(self, msg):
+        self.message = msg
 
     def __str__(self):
-        if self.is_new_stream:
-            return self.stream_info
-        else:
-            return self.client_message
+        return self.message
 
 
-def get_client_event(message):
-    event = Event()
-    event.is_message = True
-    event.client_message = message
-    return event
+class StreamEvent(Event):
+    is_new_stream = True
+    stream_info = None
 
+    def __init__(self, comment, stream_info):
+        self.comment = comment
+        self.stream_info = stream_info
 
-def get_stream_event(info):
-    event = Event()
-    event.is_new_stream = True
-    event.stream_info = info
-    return event
+    def __str__(self):
+        return str(self.info)
+
+    def fetch(self):
+        if self.info:
+            return
+        self.info = self.stream_info.get_info(self.comment['streamid'])
+
+    def get(self, key, default = None):
+        method = 'get_' + key
+        if hasattr(self, method):
+            return getattr(self, method)()
+        if key in self.comment:
+            return self.comment[key]
+        self.fetch()
+        return self.info.get(key, default)
+
+    def __getitem__(self, key):
+        method = 'get_' + key
+        if hasattr(self, method):
+            return getattr(self, method)()
+        if key in self.comment:
+            return self.comment[key]
+        self.fetch()
+        return self.info[key]
+
+    def get_url(self):
+        return '%s%d?alert=1' % (WATCH_PAGE, self.comment['streamid'])
 
 
 class AlertInfoApi:
@@ -154,11 +190,15 @@ class CommentServerApi:
         buf = ''
         while self.processing:
             buf += self.socket.recv(1024)
-            found = re.search(r'<chat.*?>(\d+),.*?</chat>', buf)
+            found = re.search(r'<chat.*?>(\d+),(\w+),(\d+)</chat>', buf)
             if not found:
                 continue
             buf = buf[found.end():]
-            yield int(found.group(1))
+            yield {
+                'streamid': int(found.group(1)),
+                'communityid': found.group(2),
+                'userid': int(found.group(3)),
+            }
 
 
 class StreamInfoApi:
@@ -173,9 +213,11 @@ class StreamInfoApi:
         response = self.agent.open(url).read()
         dom = xml.dom.minidom.parseString(response)
         return {
-            'url': '%s%d' % (WATCH_PAGE, streamid),
             'title': xml_get_string(dom, 'title'),
+            'description': xml_get_string(dom, 'description'),
+            'provider_type': xml_get_string(dom, 'provider_type'),
             'communityname': xml_get_string(dom, 'name'),
+            'thumbnail': xml_get_string(dom, 'thumbnail'),
         }
 
 
@@ -206,12 +248,11 @@ class Connection:
         self.connect()
         while self.processing:
             self.connect()
-            yield get_client_event('[connect]')
-            for streamid in self.comment_server:
-                info = self.stream_info.get_info(streamid)
-                yield get_stream_event(info)
+            yield MessageEvent('[connect]')
+            for comment in self.comment_server:
+                yield StreamEvent(comment, self.stream_info)
             self.close()
-            yield get_client_event('[close]')
+            yield MessageEvent('[close]')
 
 
 def connect():
@@ -224,10 +265,9 @@ def _print_event(event, encoding):
     if not event.is_new_stream:
         print event
         return
-    info = event.stream_info
     tmp = []
     for key in ('url', 'communityname', 'title'):
-        tmp.append(info.get(key, '').encode(encoding, 'replace'))
+        tmp.append(event[key].encode(encoding, 'replace'))
     print ' || '.join(tmp)
 
 

@@ -70,9 +70,9 @@ def get_url_opener():
 
 def xml_get_string(dom, tagname):
     array = dom.getElementsByTagName(tagname)
-    if len(array) > 0:
+    try:
         return array[0].lastChild.nodeValue
-    else:
+    except Exception:
         return ''
 
 

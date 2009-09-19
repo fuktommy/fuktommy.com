@@ -13,6 +13,7 @@ rsync -Cacv --delete \
     --exclude="*.zip" \
     --exclude="*.lzh" \
     --exclude="*.pdf" \
+    --exclude="*.pyc" \
     --exclude="README.html" \
     --exclude="- /setup.sh" \
     --exclude="- /smarty" \

@@ -74,17 +74,6 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
                   (event['url'], event['title'], event['communityname']))
 
 
-class IRCBotThread(Thread):
-    """IRC Connection Thread.
-    """
-    def __init__(self, bot):
-        Thread.__init__(self)
-        self.bot = bot
-
-    def run(self):
-        self.bot.start()
-
-
 def parse_args():
     """Parse command line argments.
     """
@@ -115,7 +104,7 @@ def main():
             options.real)
     bot.channel = options.channel
 
-    bot_thread = IRCBotThread(bot)
+    bot_thread = Thread(target=bot.start)
     bot_thread.setDaemon(True)
     bot_thread.start()
 

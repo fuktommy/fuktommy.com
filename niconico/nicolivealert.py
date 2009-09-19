@@ -71,6 +71,9 @@ class Agent:
             ('User-Agent', 'nicolivealert.py/' + VERSION)]
         self.last_fail = 0
 
+    def reset(self):
+        self.last_fail = 0
+
     def is_busy(self):
         return self.last_fail + 60 > time.time()
 
@@ -160,21 +163,6 @@ class StreamEvent(Event):
 
     def get_url(self):
         return '%s%d?alert=1' % (WATCH_PAGE, self.comment['streamid'])
-
-
-class StreamBusyEvent(StreamEvent):
-    """Event for system message when Stream Info API is busy.
-    """
-
-    is_message = True
-    is_new_stream = False
-
-    def __init__(self, comment):
-        self.comment = comment
-        self.info = {'busy': True}
-
-    def __str__(self):
-        return '[busy] ' + self.get_url()
 
 
 class AlertInfoApi:
@@ -276,21 +264,20 @@ class Connection:
 
     def connect(self):
         self.processing = True
+        self.agent.reset()
         info = self.alert_info.get_info()
         self.comment_server = CommentServerApi(info)
 
     def __iter__(self):
-        self.close()
-        self.connect()
+        self.processing = True
         while self.processing:
+            self.close()
             self.connect()
             yield MessageEvent('[connect]')
             for comment in self.comment_server:
                 if self.agent.is_busy():
-                    yield StreamBusyEvent(comment)
-                else:
-                    yield StreamEvent(comment, self.stream_info)
-            self.close()
+                    break
+                yield StreamEvent(comment, self.stream_info)
             yield MessageEvent('[close]')
 
 

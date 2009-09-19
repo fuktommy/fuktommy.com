@@ -17,12 +17,6 @@ Usage:
         print event['url'], event['communityname'], event['title']
         if some_condition:
             alert.close()
-
-Event object elements:
-    without stream Info API:
-        streamid, communityid, userid, url
-    with stream Info API:
-        title, description, provider_type, communityname, thumbnail
 """
 #
 # Copyright (c) 2009 Satoshi Fukutomi <info@fuktommy.com>.
@@ -59,7 +53,7 @@ import xml.dom.minidom
 
 
 __version__ = "$Revision$"
-__all__ = ['connect']
+__all__ = ['MessageEvent', 'StreamEvent', 'connect']
 
 GET_ALERT_INFO = 'http://live.nicovideo.jp/api/getalertinfo'
 GET_STREAM_INFO = 'http://live.nicovideo.jp/api/getstreaminfo/lv'
@@ -87,11 +81,15 @@ class Event:
     """
     is_new_stream = False
     is_message = False
-    info = {}
     message = ''
 
 
 class MessageEvent(Event):
+    """Event for system message.
+
+    connect, close, and so on.
+    """
+
     is_message = True
 
     def __init__(self, msg):
@@ -102,15 +100,28 @@ class MessageEvent(Event):
 
 
 class StreamEvent(Event):
+    """Event for new streaming start.
+
+    Elements:
+        without stream Info API:
+            streamid, communityid, userid, url
+        with stream Info API:
+            title, description, provider_type, communityname, thumbnail
+    """
+
     is_new_stream = True
-    stream_info = None
 
     def __init__(self, comment, stream_info):
+        self.info = {}
+        self.stream_info = None
         self.comment = comment
         self.stream_info = stream_info
 
     def __str__(self):
-        return str(self.info)
+        self.fetch()
+        ret = dict(self.comment)
+        ret.update(self.info)
+        return str(ret)
 
     def fetch(self):
         if self.info:
@@ -118,13 +129,10 @@ class StreamEvent(Event):
         self.info = self.stream_info.get_info(self.comment['streamid'])
 
     def get(self, key, default = None):
-        method = 'get_' + key
-        if hasattr(self, method):
-            return getattr(self, method)()
-        if key in self.comment:
-            return self.comment[key]
-        self.fetch()
-        return self.info.get(key, default)
+        try:
+            return self[key]
+        except KeyError:
+            return default
 
     def __getitem__(self, key):
         method = 'get_' + key
@@ -262,6 +270,8 @@ def connect():
 
 
 def _print_event(event, encoding):
+    """Usage sample.
+    """
     if not event.is_new_stream:
         print event
         return

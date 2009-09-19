@@ -48,6 +48,7 @@ Usage:
 
 import re
 import socket
+import time
 import urllib
 import xml.dom.minidom
 
@@ -61,18 +62,32 @@ WATCH_PAGE = 'http://live.nicovideo.jp/watch/lv'
 VERSION = __version__[11:-1].strip()
 
 
-def get_url_opener():
-    agent = urllib.URLopener()
-    agent.addheaders = []
-    agent.addheaders.append(('User-Agent', 'nicolivealert.py/' + VERSION))
-    return agent
+class Agent:
+    """Web XML API client.
+    """
+    def __init__(self):
+        self.agent = urllib.URLopener()
+        self.agent.addheaders = [
+            ('User-Agent', 'nicolivealert.py/' + VERSION)]
+        self.last_fail = 0
 
+    def is_busy(self):
+        return self.last_fail + 60 > time.time()
+
+    def fetch(self, url):
+        if self.is_busy():
+            return None
+        response = self.agent.open(url).read()
+        dom = xml.dom.minidom.parseString(response)
+        if dom.getElementsByTagName('error'):
+            self.last_fail = time.time()
+            return None
+        return dom
 
 def xml_get_string(dom, tagname):
-    array = dom.getElementsByTagName(tagname)
     try:
-        return array[0].lastChild.nodeValue
-    except Exception:
+        return dom.getElementsByTagName(tagname)[0].lastChild.nodeValue
+    except:
         return ''
 
 
@@ -147,6 +162,21 @@ class StreamEvent(Event):
         return '%s%d?alert=1' % (WATCH_PAGE, self.comment['streamid'])
 
 
+class StreamBusyEvent(StreamEvent):
+    """Event for system message when Stream Info API is busy.
+    """
+
+    is_message = True
+    is_new_stream = False
+
+    def __init__(self, comment):
+        self.comment = comment
+        self.info = {'busy': True}
+
+    def __str__(self):
+        return '[busy] ' + self.get_url()
+
+
 class AlertInfoApi:
     """API for information of comment server.
     """
@@ -157,8 +187,7 @@ class AlertInfoApi:
     def get_info(self):
         """Get nformation of comment server as a dictionary.
         """
-        response = self.agent.open(GET_ALERT_INFO).read()
-        dom = xml.dom.minidom.parseString(response)
+        dom = self.agent.fetch(GET_ALERT_INFO)
         return {
             'addr': xml_get_string(dom, 'addr'),
             'port': int(xml_get_string(dom, 'port')),
@@ -218,8 +247,7 @@ class StreamInfoApi:
 
     def get_info(self, streamid):
         url = '%s%d' % (GET_STREAM_INFO, streamid)
-        response = self.agent.open(url).read()
-        dom = xml.dom.minidom.parseString(response)
+        dom = self.agent.fetch(url)
         return {
             'title': xml_get_string(dom, 'title'),
             'description': xml_get_string(dom, 'description'),
@@ -234,7 +262,7 @@ class Connection:
     """
 
     def __init__(self):
-        self.agent = get_url_opener()
+        self.agent = Agent()
         self.alert_info = AlertInfoApi(self.agent)
         self.stream_info = StreamInfoApi(self.agent)
         self.comment_server = None
@@ -258,7 +286,10 @@ class Connection:
             self.connect()
             yield MessageEvent('[connect]')
             for comment in self.comment_server:
-                yield StreamEvent(comment, self.stream_info)
+                if self.agent.is_busy():
+                    yield StreamBusyEvent(comment)
+                else:
+                    yield StreamEvent(comment, self.stream_info)
             self.close()
             yield MessageEvent('[close]')
 

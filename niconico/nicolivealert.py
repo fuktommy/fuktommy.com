@@ -211,7 +211,7 @@ class CommentServerApi:
     def connect(self):
         self.processing = True
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.settimeout(10)
+        self.socket.settimeout(30)
         self.socket.connect((self.addr, self.port))
         msg = ('<thread thread="%d" version="20061206" res_from="-1"/>\0'
                % self.thread)

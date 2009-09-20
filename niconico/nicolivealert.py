@@ -82,8 +82,8 @@ class Agent:
     def fetch(self, url):
         if self.is_busy():
             return None
-        response = self.agent.open(url).read()
         try:
+            response = self.agent.open(url).read()
             dom = xml.dom.minidom.parseString(response)
         except:
             self.last_fail = time.time()

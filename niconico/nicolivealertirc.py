@@ -224,6 +224,18 @@ class Filter:
             bot.post('[list] %s %s%s' % (communityid, url, communityid))
 
 
+class EventPostAgent:
+    """Agent posts event to IRC in other thread.
+    """
+
+    def __init__(self, bot, event):
+        self.bot = bot
+        self.event = event
+
+    def post(self):
+        self.bot.post_event(self.event)
+
+
 def parse_args():
     """Parse command line argments.
     """
@@ -285,7 +297,10 @@ def main():
             if filter:
                 filter.flush_queue(bot)
             if event_is_to_post(event, filter, options.random):
-                bot.post_event(event)
+                post_agent = EventPostAgent(bot, event)
+                post_thread = Thread(target=post_agent.post)
+                post_thread.setDaemon(True)
+                post_thread.start()
     except KeyboardInterrupt:
         pass
 

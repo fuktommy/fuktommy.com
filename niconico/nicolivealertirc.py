@@ -85,14 +85,14 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
             traceback.print_exc()
 
     def do_add(self, msg):
-        found = re.search(r'^add\s+(co\d+)', msg)
+        found = re.search(r'^add\s+(c[ho]\d+)', msg)
         if not found:
             return False
         self.filter.add(found.group(1))
         return True
 
     def do_delete(self, msg):
-        found = re.search(r'^delete\s+(co\d+)', msg)
+        found = re.search(r'^delete\s+(c[ho]\d+)', msg)
         if not found:
             return False
         self.filter.delete(found.group(1))

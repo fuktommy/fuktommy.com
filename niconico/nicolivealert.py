@@ -61,6 +61,8 @@ GET_STREAM_INFO = 'http://live.nicovideo.jp/api/getstreaminfo/lv'
 WATCH_PAGE = 'http://live.nicovideo.jp/watch/lv'
 VERSION = __version__[11:-1].strip()
 
+socket.setdefaulttimeout(10)
+
 
 class Agent:
     """Web XML API client.
@@ -90,6 +92,7 @@ class Agent:
             self.last_fail = time.time()
             return None
         return dom
+
 
 def xml_get_string(dom, tagname):
     try:
@@ -208,6 +211,7 @@ class CommentServerApi:
     def connect(self):
         self.processing = True
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket.settimeout(10)
         self.socket.connect((self.addr, self.port))
         msg = ('<thread thread="%d" version="20061206" res_from="-1"/>\0'
                % self.thread)
@@ -218,7 +222,10 @@ class CommentServerApi:
         self.connect()
         buf = ''
         while self.processing:
-            buf += self.socket.recv(1024)
+            try:
+                buf += self.socket.recv(1024)
+            except socket.timeout:
+                break
             found = re.search(r'<chat.*?>(\d+),(\w+),(\d+)</chat>', buf)
             if not found:
                 continue
@@ -275,6 +282,7 @@ class Connection:
     def __iter__(self):
         self.processing = True
         while self.processing:
+            time.sleep(1)
             self.close()
             self.connect()
             yield MessageEvent('[connect]')

@@ -184,7 +184,7 @@ class Filter:
                 bot.post('[add] %s' % id)
             if self.list_queue:
                 self.list_queue = False
-                bot.post('[list start]')
+                bot.post('[list begin]')
                 self.list_table(bot)
                 bot.post('[list end]')
         except:

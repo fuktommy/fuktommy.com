@@ -69,9 +69,6 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
 
     def on_pubmsg(self, irc, e):
         try:
-            if not self.filter:
-                self.do_help()
-                return
             msg = e.arguments()[0]
             if self.do_add(msg):
                 return
@@ -79,7 +76,7 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
                 return
             if self.do_list(msg):
                 return
-            self.do_help()
+            self.do_help(msg)
         except:
             self.post('[error]')
             traceback.print_exc()
@@ -88,6 +85,9 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
         found = re.search(r'^add\s+(c[ho]\d+)', msg)
         if not found:
             return False
+        if not self.filter:
+            self.post('[error] filter is disabled')
+            return True
         self.filter.add(found.group(1))
         return True
 
@@ -95,6 +95,9 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
         found = re.search(r'^delete\s+(c[ho]\d+)', msg)
         if not found:
             return False
+        if not self.filter:
+            self.post('[error] filter is disabled')
+            return True
         self.filter.delete(found.group(1))
         return True
 
@@ -102,10 +105,15 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
         found = re.search(r'^list', msg)
         if not found:
             return False
+        if not self.filter:
+            self.post('[error] filter is disabled')
+            return True
         self.filter.list()
         return True
 
-    def do_help(self):
+    def do_help(self, msg):
+        if msg != 'help':
+            return False
         if self.filter:
             filter_status = 'enable'
         else:

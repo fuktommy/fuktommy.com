@@ -1,6 +1,9 @@
 #!/usr/bin/python
 """Nico Live Alert to IRC.
 
+Help:
+    nicolivealertirc.py --help
+
 Require:
     nicolivealert.py
     python-irclib
@@ -34,10 +37,16 @@ Require:
 #
 
 import optparse
+import os.path
+import random
+import re
+import sqlite3
 import time
+import traceback
 from threading import Thread
 
 import ircbot
+import irclib
 
 import nicolivealert
 
@@ -51,11 +60,60 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
     """Nico Live Alert to IRC Bot.
     """
     channel = None
+    filter = None
     encoding = 'utf8'
 
     def on_welcome(self, irc, e):
         irc.join(self.channel)
         self.post("Hi. I'm Nico Live Alert Bot.")
+
+    def on_pubmsg(self, irc, e):
+        try:
+            if not self.filter:
+                self.do_help()
+                return
+            msg = e.arguments()[0]
+            if self.do_add(msg):
+                return
+            if self.do_delete(msg):
+                return
+            if self.do_list(msg):
+                return
+            self.do_help()
+        except:
+            self.post('[error]')
+            traceback.print_exc()
+
+    def do_add(self, msg):
+        found = re.search(r'^add\s+(co\d+)', msg)
+        if not found:
+            return False
+        self.filter.add(found.group(1))
+        return True
+
+    def do_delete(self, msg):
+        found = re.search(r'^delete\s+(co\d+)', msg)
+        if not found:
+            return False
+        self.filter.delete(found.group(1))
+        return True
+
+    def do_list(self, msg):
+        found = re.search(r'^list', msg)
+        if not found:
+            return False
+        self.filter.list()
+        return True
+
+    def do_help(self):
+        if self.filter:
+            filter_status = 'enable'
+        else:
+            filter_status = 'disable'
+        self.post('[help] now filter is %s' % filter_status)
+        self.post('[help] "list" to list community id to filter')
+        self.post('[help] "add co123" to add community id to filter')
+        self.post('[help] "delete co123" to delete community id from filter')
 
     def post(self, message):
         """Post message.
@@ -72,6 +130,90 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
             return
         self.post('%s %s from %s' %
                   (event['url'], event['title'], event['communityname']))
+
+
+class Filter:
+    """Commmunity ID filter using SQLite DB.
+    """
+
+    def __init__(self, dbpath):
+        self.dbpath = dbpath
+        self.add_queue = []
+        self.delete_queue = []
+        self.list_queue = False
+
+    def open(self):
+        dbexists = os.path.isfile(self.dbpath)
+        self.db = sqlite3.connect(self.dbpath)
+        if not dbexists:
+            self.create_table()
+        self.db.isolation_level = None
+
+    def create_table(self):
+        self.db.executescript(
+            '''CREATE TABLE `filter` (
+                 `id` PRIMARY KEY,
+                 `update_time`
+               );''')
+
+    def includes(self, id):
+        cursor = self.db.cursor()
+        cursor.execute(
+            "SELECT COUNT(*) FROM `filter` WHERE `id` = ?;", (id, ))
+        return int(cursor.fetchone()[0]) > 0
+
+    def list(self):
+        self.list_queue = True
+
+    def add(self, id):
+        self.add_queue.append(id)
+
+    def delete(self, id):
+        self.delete_queue.append(id)
+
+    def flush_queue(self, bot):
+        try:
+            while self.delete_queue:
+                id = self.delete_queue.pop(0)
+                self.delet_from_table(id)
+                bot.post('[delete] %s' % id)
+            while self.add_queue:
+                id = self.add_queue.pop(0)
+                if not self.includes(id):
+                    self.add_to_table(id)
+                bot.post('[add] %s' % id)
+            if self.list_queue:
+                self.list_queue = False
+                bot.post('[list start]')
+                self.list_table(bot)
+                bot.post('[list end]')
+        except:
+            bot.post('[error]')
+            traceback.print_exc()
+
+    def add_to_table(self, id):
+        cursor = self.db.cursor()
+        cursor.execute(
+            '''INSERT INTO `filter`
+                 (`id`, `update_time`)
+                 VALUES (?, DATETIME())''',
+            (id, ))
+
+    def delet_from_table(self, id):
+        cursor = self.db.cursor()
+        cursor.execute(
+            "DELETE FROM `filter` WHERE `id` = ?;", (id, ))
+
+    def list_table(self, bot):
+        cursor = self.db.cursor()
+        cursor.execute("SELECT `id` FROM `filter`")
+        for row in cursor:
+            communityid = row[0]
+            if communityid.startswith('ch'):
+                url = 'http://ch.nicovideo.jp/channel/'
+            else:
+                url = 'http://ch.nicovideo.jp/community/'
+            bot.post('[list] %s %s%s' % (communityid, url, communityid))
 
 
 def parse_args():
@@ -92,17 +234,37 @@ def parse_args():
                       help='irc realname')
     parser.add_option('-e', '--encoding', dest='encoding', default='utf8',
                       help='irc encoding')
+    parser.add_option('-f', '--filter', dest='filter',
+                      help='community id filter (SQLite db)')
+    parser.add_option('-R', '--random', dest='random', type='float',
+                      metavar='RATE', default=0.0, help='random recommend rate')
     return parser.parse_args()
+
+
+def event_is_to_post(event, filter, rate):
+    if not event.is_new_stream:
+        return True
+    if filter and filter.includes(event['communityid']):
+        return True
+    if random.random() <= rate:
+        return True
+    return False
 
 
 def main():
     options, argv = parse_args()
+
+    filter = None
+    if options.filter:
+        filter = Filter(options.filter)
+        filter.open()
 
     bot = NicoAlertIRCBot(
             [(options.server, options.port)],
             options.nick,
             options.real)
     bot.channel = options.channel
+    bot.filter = filter
 
     bot_thread = Thread(target=bot.start)
     bot_thread.setDaemon(True)
@@ -112,7 +274,10 @@ def main():
     alert = nicolivealert.connect()
     try:
         for event in alert:
-            bot.post_event(event)
+            if filter:
+                filter.flush_queue(bot)
+            if event_is_to_post(event, filter, options.random):
+                bot.post_event(event)
     except KeyboardInterrupt:
         pass
 

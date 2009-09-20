@@ -81,7 +81,11 @@ class Agent:
         if self.is_busy():
             return None
         response = self.agent.open(url).read()
-        dom = xml.dom.minidom.parseString(response)
+        try:
+            dom = xml.dom.minidom.parseString(response)
+        except:
+            self.last_fail = time.time()
+            return None
         if dom.getElementsByTagName('error'):
             self.last_fail = time.time()
             return None

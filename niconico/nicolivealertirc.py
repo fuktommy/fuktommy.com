@@ -76,7 +76,9 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
                 return
             if self.do_list(msg):
                 return
-            if self.do_rate(msg):
+            if self.do_rate_set(msg):
+                return
+            if self.do_rate_show(msg):
                 return
             self.do_help(msg)
         except:
@@ -104,19 +106,24 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
         self.filter.list()
         return True
 
-    def do_rate(self, msg):
+    def do_rate_set(self, msg):
         found = re.search(r'^rate\s+(\d+[.]\d+)', msg)
         if not found:
             return False
         self.recommend.set_random_rate(float(found.group(1)))
         return True
 
+    def do_rate_show(self, msg):
+        if msg != 'rate':
+            return False
+        self.post('[rate] %f' % self.recommend.random_rate)
+
     def do_help(self, msg):
         if msg != 'help':
             return False
         self.post('[help] random recommend rate is %f'
                   % self.recommend.random_rate)
-        self.post('[help] "list" to list community id to filter')
+        self.post('[help] "list" to list community id filter')
         self.post('[help] "add co123" to add community id to filter')
         self.post('[help] "delete co123" to delete community id from filter')
         self.post('[help] "rate 0.5" to set random recommend rate')

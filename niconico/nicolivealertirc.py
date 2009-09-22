@@ -37,7 +37,6 @@ Require:
 #
 
 import optparse
-import os.path
 import random
 import re
 import sqlite3
@@ -60,8 +59,9 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
     """Nico Live Alert to IRC Bot.
     """
     channel = None
-    filter = None
     encoding = 'utf8'
+    filter = None
+    recommend = None
 
     def on_welcome(self, irc, e):
         irc.join(self.channel)
@@ -76,6 +76,8 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
                 return
             if self.do_list(msg):
                 return
+            if self.do_rate(msg):
+                return
             self.do_help(msg)
         except:
             self.post('[error]')
@@ -85,9 +87,6 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
         found = re.search(r'^add\s+(c[ho]\d+)', msg)
         if not found:
             return False
-        if not self.filter:
-            self.post('[error] filter is disabled')
-            return True
         self.filter.add(found.group(1))
         return True
 
@@ -95,9 +94,6 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
         found = re.search(r'^delete\s+(c[ho]\d+)', msg)
         if not found:
             return False
-        if not self.filter:
-            self.post('[error] filter is disabled')
-            return True
         self.filter.delete(found.group(1))
         return True
 
@@ -105,23 +101,25 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
         found = re.search(r'^list', msg)
         if not found:
             return False
-        if not self.filter:
-            self.post('[error] filter is disabled')
-            return True
         self.filter.list()
+        return True
+
+    def do_rate(self, msg):
+        found = re.search(r'^rate\s+(\d+[.]\d+)', msg)
+        if not found:
+            return False
+        self.recommend.set_random_rate(float(found.group(1)))
         return True
 
     def do_help(self, msg):
         if msg != 'help':
             return False
-        if self.filter:
-            filter_status = 'enable'
-        else:
-            filter_status = 'disable'
-        self.post('[help] now filter is %s' % filter_status)
+        self.post('[help] random recommend rate is %f'
+                  % self.recommend.random_rate)
         self.post('[help] "list" to list community id to filter')
         self.post('[help] "add co123" to add community id to filter')
         self.post('[help] "delete co123" to delete community id from filter')
+        self.post('[help] "rate 0.5" to set random recommend rate')
 
     def post(self, message):
         """Post message.
@@ -140,29 +138,34 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
                   (event['url'], event['title'], event['communityname']))
 
 
+def table_exists(db, table):
+    cursor = db.cursor()
+    cursor.execute(
+        '''SELECT COUNT(*) FROM `sqlite_master`
+             WHERE `type` = 'table' AND `name` = ?;''',
+        (table,))
+    return int(cursor.fetchone()[0]) > 0
+
+
 class Filter:
     """Commmunity ID filter using SQLite DB.
     """
 
-    def __init__(self, dbpath):
-        self.dbpath = dbpath
+    def __init__(self, db):
+        self.db = db
         self.add_queue = []
         self.delete_queue = []
         self.list_queue = False
 
     def open(self):
-        dbexists = os.path.isfile(self.dbpath)
-        self.db = sqlite3.connect(self.dbpath)
-        if not dbexists:
-            self.create_table()
-        self.db.isolation_level = None
-
-    def create_table(self):
+        if table_exists(self.db, 'filter'):
+            return self
         self.db.executescript(
             '''CREATE TABLE `filter` (
                  `id` PRIMARY KEY,
                  `update_time`
                );''')
+        return self
 
     def includes(self, id):
         cursor = self.db.cursor()
@@ -224,6 +227,68 @@ class Filter:
             bot.post('[list] %s %s%s' % (communityid, url, communityid))
 
 
+class Recommend:
+    """Recommend rule.
+    """
+
+    def __init__(self, db):
+        self.db = db
+        self.new_rate = None
+        self.random_rate = None
+
+    def open(self):
+        self.create_table()
+        self.read_random_rate()
+        if self.random_rate is None:
+            self.create_random_rate()
+        return self
+
+    def create_table(self):
+        if table_exists(self.db, 'recommend'):
+            return
+        self.db.executescript(
+            '''CREATE TABLE `recommend` (
+                 `key` PRIMARY KEY,
+                 `value`
+               );''')
+
+    def create_random_rate(self):
+        self.random_rate = 0.1
+        self.db.cursor().execute(
+            '''INSERT INTO `recommend` (`key`, `value`)
+                 VALUES ('random', ?)''',
+            (self.random_rate, ))
+
+    def read_random_rate(self):
+        cursor = self.db.cursor()
+        cursor.execute(
+            "SELECT `value` FROM `recommend` WHERE `key` = 'random';")
+        rows = cursor.fetchall()
+        if rows:
+            self.random_rate = float(rows[0][0])
+        else:
+            self.random_rate = None
+
+    def set_random_rate(self, rate):
+        self.new_rate = rate
+
+    def flush_queue(self, bot):
+        try:
+            if self.new_rate is not None:
+                self.store_rate(self.new_rate)
+                self.random_rate = self.new_rate
+                bot.post('[rate] %f' % self.new_rate)
+                self.new_rate = None
+        except:
+            bot.post('[error]')
+            traceback.print_exc()
+
+    def store_rate(self, rate):
+        self.db.cursor().execute(
+            "UPDATE `recommend` SET `value` = ? WHERE `key` = 'random'",
+            (rate,))
+
+
 def parse_args():
     """Parse command line argments.
     """
@@ -242,17 +307,15 @@ def parse_args():
                       help='irc realname')
     parser.add_option('-e', '--encoding', dest='encoding', default='utf8',
                       help='irc encoding')
-    parser.add_option('-f', '--filter', dest='filter',
-                      help='community id filter (SQLite db)')
-    parser.add_option('-R', '--random', dest='random', type='float',
-                      metavar='RATE', default=0.0, help='random recommend rate')
+    parser.add_option('-d', '--db', dest='dbpath', metavar='PATH',
+                      default=':memory:', help='sqlite db')
     return parser.parse_args()
 
 
 def event_is_to_post(event, filter, rate):
     if not event.is_new_stream:
         return True
-    if filter and filter.includes(event['communityid']):
+    if filter.includes(event['communityid']):
         return True
     if random.random() <= rate:
         return True
@@ -262,17 +325,23 @@ def event_is_to_post(event, filter, rate):
 def main():
     options, argv = parse_args()
 
-    filter = None
-    if options.filter:
-        filter = Filter(options.filter)
-        filter.open()
+    db = sqlite3.connect(options.dbpath)
+    db.isolation_level = None
+
+    filter = Filter(db)
+    filter.open()
+
+    recommend = Recommend(db)
+    recommend.open()
 
     bot = NicoAlertIRCBot(
             [(options.server, options.port)],
             options.nick,
             options.real)
     bot.channel = options.channel
+    bot.encoding = options.encoding
     bot.filter = filter
+    bot.recommend = recommend
 
     bot_thread = Thread(target=bot.start)
     bot_thread.setDaemon(True)
@@ -282,9 +351,9 @@ def main():
     alert = nicolivealert.connect()
     try:
         for event in alert:
-            if filter:
-                filter.flush_queue(bot)
-            if event_is_to_post(event, filter, options.random):
+            filter.flush_queue(bot)
+            recommend.flush_queue(bot)
+            if event_is_to_post(event, filter, recommend.random_rate):
                 post_thread = Thread(target=bot.post_event, args=(event,))
                 post_thread.setDaemon(True)
                 post_thread.start()

@@ -266,18 +266,24 @@ class Connection:
         self.stream_info = StreamInfoApi(self.agent)
         self.comment_server = None
         self.processing = False
+        self.to_reconnect = False
 
     def close(self):
         self.processing = False
+        self.to_reconnect = False
         if self.comment_server:
             self.comment_server.close()
             self.comment_server = None
 
     def connect(self):
         self.processing = True
+        self.to_reconnect = False
         self.agent.reset()
         info = self.alert_info.get_info()
         self.comment_server = CommentServerApi(info)
+
+    def reconnect(self):
+        self.to_reconnect = True
 
     def __iter__(self):
         self.processing = True
@@ -287,7 +293,7 @@ class Connection:
             self.connect()
             yield MessageEvent('[connect]')
             for comment in self.comment_server:
-                if self.agent.is_busy():
+                if self.to_reconnect or self.agent.is_busy():
                     break
                 yield StreamEvent(comment, self.stream_info)
             yield MessageEvent('[close]')

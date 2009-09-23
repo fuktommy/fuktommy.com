@@ -62,6 +62,16 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
     encoding = 'utf8'
     filter = None
     recommend = None
+    alert = None
+    actions = [
+        'add',
+        'delete',
+        'list',
+        'rate_set',
+        'rate_show',
+        'reconnect',
+        'help',
+    ]
 
     def on_welcome(self, irc, e):
         irc.join(self.channel)
@@ -70,17 +80,9 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
     def on_pubmsg(self, irc, e):
         try:
             msg = e.arguments()[0]
-            if self.do_add(msg):
-                return
-            if self.do_delete(msg):
-                return
-            if self.do_list(msg):
-                return
-            if self.do_rate_set(msg):
-                return
-            if self.do_rate_show(msg):
-                return
-            self.do_help(msg)
+            for act in self.actions:
+                if getattr(self, 'do_' + act)(msg):
+                    return
         except:
             self.post('[error]')
             traceback.print_exc()
@@ -118,15 +120,23 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
             return False
         self.post('[rate] %f' % self.recommend.random_rate)
 
+    def do_reconnect(self, msg):
+        if msg != 'reconnect':
+            return False
+        self.alert.reconnect()
+
     def do_help(self, msg):
         if msg != 'help':
             return False
+        self.post('[help] begin')
         self.post('[help] random recommend rate is %f'
                   % self.recommend.random_rate)
         self.post('[help] "list" to list community id filter')
         self.post('[help] "add co123" to add community id to filter')
         self.post('[help] "delete co123" to delete community id from filter')
         self.post('[help] "rate 0.5" to set random recommend rate')
+        self.post('[help] "reconnect" to reconnect')
+        self.post('[help] end')
 
     def post(self, message):
         """Post message.
@@ -356,6 +366,7 @@ def main():
 
     time.sleep(1)
     alert = nicolivealert.connect()
+    bot.alert = alert
     try:
         for event in alert:
             filter.flush_queue(bot)

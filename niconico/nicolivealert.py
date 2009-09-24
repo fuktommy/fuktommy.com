@@ -226,15 +226,16 @@ class CommentServerApi:
                 buf += self.socket.recv(1024)
             except socket.timeout:
                 break
-            found = re.search(r'<chat.*?>(\d+),(\w+),(\d+)</chat>', buf)
-            if not found:
-                continue
-            buf = buf[found.end():]
-            yield {
-                'streamid': int(found.group(1)),
-                'communityid': found.group(2),
-                'userid': int(found.group(3)),
-            }
+            while True:
+                found = re.search(r'<chat.*?>(\d+),(\w+),(\d+)</chat>', buf)
+                if not found:
+                    break
+                buf = buf[found.end():]
+                yield {
+                    'streamid': int(found.group(1)),
+                    'communityid': found.group(2),
+                    'userid': int(found.group(3)),
+                }
 
 
 class StreamInfoApi:

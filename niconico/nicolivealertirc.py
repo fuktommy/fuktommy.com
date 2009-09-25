@@ -332,6 +332,8 @@ def parse_args():
 def event_is_to_post(event, filter, rate):
     if not event.is_new_stream:
         return True
+    if event['communityid'] == 'official':
+        return True
     if filter.includes(event['communityid']):
         return True
     if random.random() <= rate:

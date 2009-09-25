@@ -63,6 +63,14 @@ VERSION = __version__[11:-1].strip()
 
 socket.setdefaulttimeout(10)
 
+OFFICIAL_STREAM_INFO = {
+    'title': 'official',
+    'description': 'official',
+    'provider_type': 'official',
+    'communityname': 'official',
+    'thumbnail': '',
+}
+
 
 class Agent:
     """Web XML API client.
@@ -151,6 +159,8 @@ class StreamEvent(Event):
     def fetch(self):
         if self.info:
             return
+        if self.comment['communityid'] == 'official':
+            self.info = OFFICIAL_STREAM_INFO
         self.info = self.stream_info.get_info(self.comment['streamid'])
 
     def get(self, key, default = None):

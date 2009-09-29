@@ -212,12 +212,19 @@ class Filter:
                 bot.post('[add] %s' % id)
             if self.list_queue:
                 self.list_queue = False
-                bot.post('[list begin]')
-                self.list_table(bot)
-                bot.post('[list end]')
+                list_thread = Thread(target=self.post_list,
+                                     args=(bot, self.list_table()))
+                list_thread.setDaemon(True)
+                list_thread.start()
         except:
             bot.post('[error]')
             traceback.print_exc()
+
+    def post_list(self, bot, lines):
+        bot.post('[list begin]')
+        for line in lines:
+            bot.post(line)
+        bot.post('[list end]')
 
     def add_to_table(self, id):
         cursor = self.db.cursor()
@@ -232,7 +239,8 @@ class Filter:
         cursor.execute(
             "DELETE FROM `filter` WHERE `id` = ?;", (id, ))
 
-    def list_table(self, bot):
+    def list_table(self):
+        ret = []
         cursor = self.db.cursor()
         cursor.execute("SELECT `id` FROM `filter`")
         for row in cursor:
@@ -241,7 +249,8 @@ class Filter:
                 url = 'http://ch.nicovideo.jp/channel/'
             else:
                 url = 'http://ch.nicovideo.jp/community/'
-            bot.post('[list] %s %s%s' % (communityid, url, communityid))
+            ret.append('[list] %s %s%s' % (communityid, url, communityid))
+        return ret
 
 
 class Recommend:

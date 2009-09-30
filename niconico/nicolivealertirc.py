@@ -128,7 +128,7 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
     def do_help(self, msg):
         if msg != 'help':
             return False
-        self.post('[help] begin')
+        self.post('[help begin]')
         self.post('[help] random recommend rate is %f'
                   % self.recommend.random_rate)
         self.post('[help] "list" to list community id filter')
@@ -136,7 +136,7 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
         self.post('[help] "delete co123" to delete community id from filter')
         self.post('[help] "rate 0.5" to set random recommend rate')
         self.post('[help] "reconnect" to reconnect')
-        self.post('[help] end')
+        self.post('[help end]')
 
     def post(self, message):
         """Post message.
@@ -144,6 +144,7 @@ class NicoAlertIRCBot(ircbot.SingleServerIRCBot):
         self.connection.notice(
             self.channel,
             message.encode(self.encoding, 'replace'))
+        time.sleep(0.5)
 
     def post_event(self, event):
         """Post Nico Live Alert event.

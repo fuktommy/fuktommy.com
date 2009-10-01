@@ -54,7 +54,7 @@ import xml.dom.minidom
 
 
 __version__ = "$Revision$"
-__all__ = ['MessageEvent', 'StreamEvent', 'connect']
+__all__ = ['Event', 'connect']
 
 GET_ALERT_INFO = 'http://live.nicovideo.jp/api/getalertinfo'
 GET_STREAM_INFO = 'http://live.nicovideo.jp/api/getstreaminfo/lv'
@@ -114,6 +114,7 @@ class Event:
     """
     is_new_stream = False
     is_message = False
+    is_error = False
     message = ''
 
 
@@ -130,6 +131,20 @@ class MessageEvent(Event):
 
     def __str__(self):
         return self.message
+
+
+class ErrorEvent(Event):
+    """Event for exception.
+    """
+
+    is_error = True
+    error = None
+
+    def __init__(self, error):
+        self.error = error
+
+    def __str__(self):
+        return '[error]'
 
 
 class StreamEvent(Event):
@@ -279,12 +294,15 @@ class Connection:
         self.processing = False
         self.to_reconnect = False
 
-    def close(self):
-        self.processing = False
-        self.to_reconnect = False
+    def close_server(self):
         if self.comment_server:
             self.comment_server.close()
             self.comment_server = None
+
+    def close(self):
+        self.processing = False
+        self.to_reconnect = False
+        self.close_server()
 
     def connect(self):
         self.processing = True
@@ -299,15 +317,19 @@ class Connection:
     def __iter__(self):
         self.processing = True
         while self.processing:
-            time.sleep(1)
-            self.close()
-            self.connect()
-            yield MessageEvent('[connect]')
-            for comment in self.comment_server:
-                if self.to_reconnect or self.agent.is_busy():
-                    break
-                yield StreamEvent(comment, self.stream_info)
-            yield MessageEvent('[close]')
+            try:
+                time.sleep(1)
+                self.close_server()
+                self.connect()
+                yield MessageEvent('[connect]')
+                for comment in self.comment_server:
+                    if self.to_reconnect or self.agent.is_busy():
+                        break
+                    yield StreamEvent(comment, self.stream_info)
+                yield MessageEvent('[close]')
+            except Exception, err:
+                time.sleep(10)
+                yield ErrorEvent(err)
 
 
 def connect():

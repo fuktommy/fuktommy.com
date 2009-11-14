@@ -63,6 +63,10 @@
 
 <h2>ネットワーク</h2>
 <dl>
+  <dt><a href="http://www.google.com/chrome/intl/ja/landing.html?hl=ja">Google Chrome</a></dt>
+  <dd>Firefoxはいろいろ設定したら重くなってしまったので、
+      通常使うブラウザとして使い分けることにした。</dd>
+
   <dt><a href="http://www.mozilla-japan.org/products/firefox/">Firefox</a></dt>
   <dd>タブが便利なブラウザ。拡張機能は
       <a href="https://addons.mozilla.org/ja/firefox/addon/249/">Html Validator</a>,

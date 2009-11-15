@@ -63,19 +63,23 @@
 
 <h2>ネットワーク</h2>
 <dl>
-  <dt><a href="http://www.google.com/chrome/intl/ja/landing.html?hl=ja">Google Chrome</a></dt>
-  <dd>Firefoxはいろいろ設定したら重くなってしまったので、
-      通常使うブラウザとして使い分けることにした。</dd>
-
   <dt><a href="http://www.mozilla-japan.org/products/firefox/">Firefox</a></dt>
   <dd>タブが便利なブラウザ。拡張機能は
-      <a href="https://addons.mozilla.org/ja/firefox/addon/249/">Html Validator</a>,
+      <a href="https://addons.mozilla.org/ja/firefox/addon/249">Html Validator</a>,
       <a href="https://addons.mozilla.org/ja/firefox/addon/748">Greasemonkey</a>,
       <a href="https://addons.mozilla.org/ja/firefox/addon/1843">Firebug</a>,
       <a href="http://toolbar.google.com/intl/ja/?utm_source=ja-wh">Googleツールバー</a>,
       <a href="http://firemobilesimulator.org/">FireMobileSimulator</a>,
-      <a href="https://addons.mozilla.org/ja/firefox/addon/9727/">RequestPolicy</a>
-      を入れています。</dd>
+      <a href="https://addons.mozilla.org/ja/firefox/addon/9727">RequestPolicy</a>,
+      <a href="https://addons.mozilla.org/ja/firefox/addon/3895">Personal Menu</a>,
+      <a href="https://addons.mozilla.org/ja/firefox/addon/5737">Hide Chrome</a>
+      を入れています。
+      「<a href="http://journal.mycom.co.jp/news/2009/10/06/017/">Firefox高速化テクニック8 | エンタープライズ | マイコミジャーナル</a>」を見て、
+      極力高速化していますが、Google Chrome に比べると今いち遅いんだよなあ。</dd>
+
+  <dt><a href="http://www.google.com/chrome/intl/ja/landing.html?hl=ja">Google Chrome</a></dt>
+  <dd>動画サイト、Flashゲーム、未読が溜まってきたときのGoogleReader用。
+      いずれこっちがメインになっていくのかなあ。</dd>
 
   <dt id="putty"><a href="http://hp.vector.co.jp/authors/VA024651/" title="hdk の自作ソフトの紹介">PuTTY日本語版</a></dt>
   <dd>SSH接続クライアントです。LAN内部はこれで繋ぎます。</dd>
@@ -85,6 +89,9 @@
 
   <dt><a href="http://tubo.80.kg/">禁断の壷</a></dt>
   <dd><a href="http://2ch.net/">2ちゃんねる</a>ブラウザには何を使うか迷いましたが、公式っぽい壷にしました。ちなみにLinuxでは<a href="/py2ch/">py2ch</a>を使っています。<a href="tubo.pac">プロキシ設定ファイルの例</a>。</dd>
+
+  <dt><a href="http://limechat.net/">LimeChat</a></dt>
+  <dd>IRCクライアント。<a href="http://fuktommy.com/niconico/">ニコ生アラートIRC.py</a>のUIとかで。</dd>
 
   <dt><a href="http://www.skype.com/intl/ja/">Skype</a></dt>
   <dd>あんまり起動しない。</dd>

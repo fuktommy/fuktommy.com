@@ -7,7 +7,7 @@
 <ul>
   <li><a href="http://www.google.co.jp/imode">Google</a>(検索・地図・電車)</li>
   <li><a href="http://weather.mobile.yahoo.co.jp/forecast/pnts?k=&amp;code=13101&amp;area=4410&amp;ken=13">東京の天気</a></li>
-  <li><a href="http://trans.mobile.yahoo.co.jp/">路線検索・遅延速報</a></li>
+  <li><a href="http://trans.mobile.yahoo.co.jp/p/transit/diainfo/list?area=3&amp;guid=ON">遅延速報</a></li>
 </ul>
 
 >>>include "foot.h"

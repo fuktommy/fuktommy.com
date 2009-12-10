@@ -54,7 +54,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testUnpack()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance(100);
+        $wrapper = ModifireChain_Wrapper::factory(100);
         $this->assertSame(100, $wrapper->unpack());
     }
 
@@ -63,7 +63,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testFunc()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('%03d');
+        $wrapper = ModifireChain_Wrapper::factory('%03d');
         $this->assertSame('012', $wrapper->func('sprintf', 12)->unpack());
     }
  
@@ -77,7 +77,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
             ->method('foo')
             ->with('arg')
             ->will($this->returnValue('bar'));
-        $wrapper = ModifireChain_Wrapper::getInstance($obj);
+        $wrapper = ModifireChain_Wrapper::factory($obj);
         $this->assertSame('bar', $wrapper->method('foo', 'arg')->unpack());
     }
  
@@ -86,7 +86,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testCallFunction()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('%03d');
+        $wrapper = ModifireChain_Wrapper::factory('%03d');
         $this->assertSame('012', $wrapper->sprintf(12)->unpack());
     }
  
@@ -100,7 +100,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
             ->method('foo')
             ->with('arg')
             ->will($this->returnValue('bar'));
-        $wrapper = ModifireChain_Wrapper::getInstance($obj);
+        $wrapper = ModifireChain_Wrapper::factory($obj);
         $this->assertSame('bar', $wrapper->foo('arg')->unpack());
     }
  
@@ -109,7 +109,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testCallUndefinedFunction()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('foo');
+        $wrapper = ModifireChain_Wrapper::factory('foo');
         $this->assertSame(null, $wrapper->undefinedfunction('arg')->unpack());
     }
  
@@ -118,7 +118,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testDateFormat()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance(strtotime('2009-04-11'));
+        $wrapper = ModifireChain_Wrapper::factory(strtotime('2009-04-11'));
         $this->assertSame('2009-04-11', $wrapper->dateFormat('%Y-%m-%d')->unpack());
     }
 
@@ -127,7 +127,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testDefaultsNotReplaced()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('bar');
+        $wrapper = ModifireChain_Wrapper::factory('bar');
         $this->assertSame('bar', $wrapper->defaults('foo')->unpack());
     }
 
@@ -136,8 +136,18 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testDefaultsReplaced()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance(null);
+        $wrapper = ModifireChain_Wrapper::factory(null);
         $this->assertSame('foo', $wrapper->defaults('foo')->unpack());
+    }
+
+    /**
+     * Return default value if wrapped value is false.
+     */
+    public function testDefaultsReplacedByWrapper()
+    {
+        $default = ModifireChain_Wrapper::factory('bar');
+        $wrapper = ModifireChain_Wrapper::factory(null);
+        $this->assertSame('bar', $wrapper->defaults($default)->unpack());
     }
 
     /**
@@ -145,7 +155,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testEscapeHtml()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('<br>');
+        $wrapper = ModifireChain_Wrapper::factory('<br>');
         $this->assertSame('&lt;br&gt;', $wrapper->escape()->unpack());
         $this->assertSame('&lt;br&gt;', $wrapper->escape('html')->unpack());
     }
@@ -155,7 +165,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testEscapeUrl()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('/ a');
+        $wrapper = ModifireChain_Wrapper::factory('/ a');
         $this->assertSame('%2F%20a', $wrapper->escape('url')->unpack());
     }
 
@@ -164,7 +174,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testEscape()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('<br>');
+        $wrapper = ModifireChain_Wrapper::factory('<br>');
         $this->assertSame('<br>', $wrapper->escape('invalidParameter')->unpack());
     }
 
@@ -173,7 +183,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testRegexReplace()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('abcde');
+        $wrapper = ModifireChain_Wrapper::factory('abcde');
         $this->assertSame('axxxe', $wrapper->regexReplace('/[b-d]/', 'x')->unpack());
     }
 
@@ -182,7 +192,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testReplace()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('abcde');
+        $wrapper = ModifireChain_Wrapper::factory('abcde');
         $this->assertSame('axyze', $wrapper->replace('bcd', 'xyz')->unpack());
     }
 
@@ -191,7 +201,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testStringFormat()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance(100);
+        $wrapper = ModifireChain_Wrapper::factory(100);
         $this->assertSame('100.0', $wrapper->stringFormat('%.1f')->unpack());
     }
 
@@ -200,7 +210,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testPrint()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('<br>');
+        $wrapper = ModifireChain_Wrapper::factory('<br>');
         ob_start();
         $result = $wrapper->p();
         $output = ob_get_contents();
@@ -214,7 +224,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testEcho()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('<br>');
+        $wrapper = ModifireChain_Wrapper::factory('<br>');
         ob_start();
         $result = $wrapper->e();
         $output = ob_get_contents();
@@ -228,7 +238,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testEchoHtml()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('<br>');
+        $wrapper = ModifireChain_Wrapper::factory('<br>');
         ob_start();
         $result = $wrapper->e('html');
         $output = ob_get_contents();
@@ -242,7 +252,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testEchoUrl()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('/ a');
+        $wrapper = ModifireChain_Wrapper::factory('/ a');
         ob_start();
         $result = $wrapper->e('url');
         $output = ob_get_contents();
@@ -256,7 +266,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     private function myTestGetIterator($value, $expected)
     {
-        $wrapper = ModifireChain_Wrapper::getInstance($value);
+        $wrapper = ModifireChain_Wrapper::factory($value);
         $i = 0;
         foreach ($wrapper as $k => $v) {
             $this->assertSame($i, $k);
@@ -288,7 +298,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testGet()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance(array('a' => 'b'));
+        $wrapper = ModifireChain_Wrapper::factory(array('a' => 'b'));
         $this->assertSame('b', $wrapper->get('a')->unpack());
     }
 
@@ -297,7 +307,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testGetterArrayElement()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance(array('a' => 'b'));
+        $wrapper = ModifireChain_Wrapper::factory(array('a' => 'b'));
         $this->assertSame('b', $wrapper->a->unpack());
     }
 
@@ -306,7 +316,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testGetNull()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('a');
+        $wrapper = ModifireChain_Wrapper::factory('a');
         $this->assertSame(null, $wrapper->get('a')->unpack());
     }
 
@@ -315,8 +325,18 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testGetDefault()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('a');
+        $wrapper = ModifireChain_Wrapper::factory('a');
         $this->assertSame('b', $wrapper->get('a', 'b')->unpack());
+    }
+
+    /**
+     * Get array element.
+     */
+    public function testGetDefaultWrapper()
+    {
+        $default = ModifireChain_Wrapper::factory('b');
+        $wrapper = ModifireChain_Wrapper::factory('a');
+        $this->assertSame('b', $wrapper->get('a', $default)->unpack());
     }
 
     /**
@@ -324,7 +344,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testGetterArrayElementNull()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('a');
+        $wrapper = ModifireChain_Wrapper::factory('a');
         $this->assertSame(null, $wrapper->a->unpack());
     }
 
@@ -335,7 +355,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
     {
         $obj = new StdClass();
         $obj->foo = 'bar';
-        $wrapper = ModifireChain_Wrapper::getInstance($obj);
+        $wrapper = ModifireChain_Wrapper::factory($obj);
         $this->assertSame('bar', $wrapper->prop('foo')->unpack());
     }
 
@@ -345,8 +365,19 @@ class WrapperTest extends PHPUnit_Framework_TestCase
     public function testPropertyDefault()
     {
         $obj = new StdClass();
-        $wrapper = ModifireChain_Wrapper::getInstance($obj);
+        $wrapper = ModifireChain_Wrapper::factory($obj);
         $this->assertSame('bar', $wrapper->prop('foo', 'bar')->unpack());
+    }
+
+    /**
+     * Get object property.
+     */
+    public function testPropertyDefaultWrapper()
+    {
+        $default = ModifireChain_Wrapper::factory('bar');
+        $obj = new StdClass();
+        $wrapper = ModifireChain_Wrapper::factory($obj);
+        $this->assertSame('bar', $wrapper->prop('foo', $default)->unpack());
     }
 
     /**
@@ -356,7 +387,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
     {
         $obj = new StdClass();
         $obj->foo = 'bar';
-        $wrapper = ModifireChain_Wrapper::getInstance($obj);
+        $wrapper = ModifireChain_Wrapper::factory($obj);
         $this->assertSame('bar', $wrapper->foo->unpack());
     }
 
@@ -366,7 +397,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
     public function testPropertyNull()
     {
         $obj = new StdClass();
-        $wrapper = ModifireChain_Wrapper::getInstance($obj);
+        $wrapper = ModifireChain_Wrapper::factory($obj);
         $this->assertSame(null, $wrapper->foo->unpack());
     }
 
@@ -375,7 +406,7 @@ class WrapperTest extends PHPUnit_Framework_TestCase
      */
     public function testPropertyScalar()
     {
-        $wrapper = ModifireChain_Wrapper::getInstance('foo');
+        $wrapper = ModifireChain_Wrapper::factory('foo');
         $this->assertSame(null, $wrapper->foo->unpack());
     }
 }

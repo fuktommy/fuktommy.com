@@ -43,7 +43,7 @@ ModifireChain では</p>
 <h2>使い方</h2>
 <pre class="code"><code>// PHPロジック部分
 require_once 'ModifireChain.php';
-$chain = ModifireChain::getInstance();
+$chain = ModifireChain::factory();
 
 // 任意のフィールドに値を設定できます。
 $chain-&gt;text = 'abc';

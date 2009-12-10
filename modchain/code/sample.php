@@ -1,6 +1,6 @@
 <?php
     require_once 'ModifireChain.php';
-    $chain = ModifireChain::getInstance();
+    $chain = ModifireChain::factory();
     $chain->text = 'Hello World. 10 < 11';
     $chain->array = array('a', 'b', 'c');
     $chain->assoc = array('a' => array('b' => 'c'));

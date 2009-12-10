@@ -24,7 +24,7 @@
 // OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 // SUCH DAMAGE.
 //
-// $Id:$
+// $Id$
 //
 
 require_once 'PHPUnit/Framework.php';
@@ -45,7 +45,7 @@ class ModifireChainTest extends PHPUnit_Framework_TestCase
      */
     public function testSetAndGet()
     {
-        $chain = ModifireChain::getInstance();
+        $chain = ModifireChain::factory();
         $chain->foo = 100;
         $this->assertSame(100, $chain->foo->unpack());
     }
@@ -55,7 +55,7 @@ class ModifireChainTest extends PHPUnit_Framework_TestCase
      */
     public function testGetNull()
     {
-        $chain = ModifireChain::getInstance();
+        $chain = ModifireChain::factory();
         $this->assertSame(null, $chain->foo->unpack());
     }
 
@@ -64,7 +64,7 @@ class ModifireChainTest extends PHPUnit_Framework_TestCase
      */
     public function testPack()
     {
-        $chain = ModifireChain::getInstance();
+        $chain = ModifireChain::factory();
         $this->assertSame(100, $chain->pack(100)->unpack());
     }
 }

@@ -31,7 +31,7 @@
 /**
  * Modifire Chain.
  *
- * $mc = ModifireChain::getInstance();
+ * $mc = ModifireChain::factory();
  * $mc->foo = 100;
  * $mc->foo->stringFormat('%.1f')->e();   // puts '100.0'
  *
@@ -57,7 +57,7 @@ class ModifireChain
      * Factory.
      * @return ModifireChain
      */
-    public static function getInstance()
+    public static function factory()
     {
         return new self();
     }
@@ -69,7 +69,7 @@ class ModifireChain
      */
     public function __get($key)
     {
-        return ModifireChain_Wrapper::getInstance(
+        return ModifireChain_Wrapper::factory(
             array_key_exists($key, $this->values) ?
                 $this->values[$key] : null
         );
@@ -92,7 +92,7 @@ class ModifireChain
      */
     public function pack($value)
     {
-        return ModifireChain_Wrapper::getInstance($value);
+        return ModifireChain_Wrapper::factory($value);
     }
 }
 
@@ -100,7 +100,7 @@ class ModifireChain
 /**
  * Wrapper of Value.
  *
- * $w = ModifireChain_Wrapper::getInstance(100);
+ * $w = ModifireChain_Wrapper::factory(100);
  * $w->stringFormat('%.1f')->e();   // puts '100.0'
  *
  * Methods come from Smarty, but selected.
@@ -128,7 +128,7 @@ class ModifireChain_Wrapper implements IteratorAggregate
      * @param string $value Wrapped string.
      * @return ModifireChain_Wrapper
      */
-    public static function getInstance($value)
+    public static function factory($value)
     {
         return new self($value);
     }
@@ -181,7 +181,7 @@ class ModifireChain_Wrapper implements IteratorAggregate
         } elseif (function_exists($name)) {
             $method = 'func';
         } else {
-            return ModifireChain_Wrapper::getInstance(null);
+            return ModifireChain_Wrapper::factory(null);
         }
         array_unshift($arguments, $name);
         return call_user_func_array(array($this, $method), $arguments);
@@ -199,7 +199,7 @@ class ModifireChain_Wrapper implements IteratorAggregate
         } elseif (is_array($this->value)) {
             return $this->get($key);
         } else {
-            return ModifireChain_Wrapper::getInstance(null);
+            return ModifireChain_Wrapper::factory(null);
         }
     }
 
@@ -221,7 +221,13 @@ class ModifireChain_Wrapper implements IteratorAggregate
      */
     public function defaults($value)
     {
-        return ($this->value) ? $this : new self($value);
+        if ($this->value) {
+            return $this;
+        } elseif ($value instanceof self) {
+            return $value;
+        } else {
+            return new self($value);
+        }
     }
 
     /**
@@ -306,10 +312,13 @@ class ModifireChain_Wrapper implements IteratorAggregate
      */
     public function get($key, $default = null)
     {
-        return new self(
-            (is_array($this->value) && array_key_exists($key, $this->value)) ?
-                $this->value[$key] : $default
-        );
+        if (is_array($this->value) && array_key_exists($key, $this->value)) {
+            return new self($this->value[$key]);
+        } elseif ($default instanceof self) {
+            return $default;
+        } else {
+            return new self($default);
+        }
     }
 
     /**
@@ -320,10 +329,13 @@ class ModifireChain_Wrapper implements IteratorAggregate
      */
     public function prop($key, $default = null)
     {
-        return new self(
-            (is_object($this->value) && property_exists($this->value, $key)) ?
-                $this->value->$key : $default
-        );
+        if (is_object($this->value) && property_exists($this->value, $key)) {
+            return new self($this->value->$key);
+        } elseif ($default instanceof self) {
+            return $default;
+        } else {
+            return new self($default);
+        }
     }
 
     /**
@@ -362,7 +374,7 @@ class ModifireChain_Iterator implements Iterator
 
     public function current()
     {
-        return ModifireChain_Wrapper::getInstance($this->innerIterator->current());
+        return ModifireChain_Wrapper::factory($this->innerIterator->current());
     }
 
     /**

@@ -29,7 +29,7 @@
   <li><a href="./"><$SECTION></a></li>
 >>>endif
   <li><a href="http://blog.fuktommy.com/">ブログ</a></li>
-  <li><a href="http://b.hatena.ne.jp/fuktommy/">はてなブックマーク</a></li>
+  <li><a href="http://twitter.com/fuktommy/">Twitter</a></li>
   <li><a href="http://bbs.fuktommy.com/">掲示板</a></li>
   <li><a href="http://mixi.jp/show_friend.pl?id=30173">mixi/fuktommy</a></li>
   <li><a href="http://bbs.shingetsu.info/" id="shingetsu_link" title="関連する新月の掲示板">shinGETsu</a></li>

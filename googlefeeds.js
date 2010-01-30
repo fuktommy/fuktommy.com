@@ -5,37 +5,9 @@
 (function () {
     var feeds = [
         {'container': 'feed_blog', 'url': 'http://blog.fuktommy.com/rss'},
-        {'container': 'feed_bookmark', 'url': 'http://b.hatena.ne.jp/fuktommy/rss'},
         {'container': 'feed_twitter', 'url': 'http://twitter.com/statuses/user_timeline/fuktommy.rss'}
     ];
     google.load('feeds', '1');
-
-    function formatBookmarkFeed(container, item) {
-        var span = document.createElement('span');
-        container.appendChild(span);
-        span.className = 'comment';
-        for (k=0; k<item.categories.length; k++) {
-            span.appendChild(document.createTextNode('['));
-            var a = document.createElement('a');
-            span.appendChild(a);
-            a.href = 'http://b.hatena.ne.jp/fuktommy/' + 
-                     encodeURIComponent(item.categories[k]) +
-                     '/';
-            a.appendChild(document.createTextNode(item.categories[k]));
-            span.appendChild(document.createTextNode(']'));
-        }
-        var commentBody = document.createElement('span');
-        var content = item.content;
-        content = content.replace(/\n/g, '')
-                         .replace(/<blockquote.*blockquote>/, '')
-                         .replace(/<a .*<\/a>/g, '')
-                         .replace(/<.*?>/g, '')
-                         .replace(/(https?:\/\/[^\0-\x20\x7F-\xFF"'<>]+)/g, '<a href="$1">$1</a>');
-        if (content != '') {
-            span.appendChild(commentBody);
-            commentBody.innerHTML = content;
-        }
-    }
 
     function formatTwitterTitle(title) {
         return title.replace(/^fuktommy: /, '');
@@ -58,9 +30,6 @@
                 title = formatTwitterTitle(title);
             }
             a.appendChild(document.createTextNode(title));
-            if (container.id == 'feed_bookmark') {
-                formatBookmarkFeed(li, item);
-            }
         }
     }
 

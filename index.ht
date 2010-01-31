@@ -2,6 +2,8 @@
 >>>define DESCRIPTION   Fuktommyの個人サイトです。
 >>>define TOPPAGE 1
 >>>include "head.h"
+<!-- $Id$ -->
+
 <h1><span style="color:#0039b6">F</span><span style="color:#c41200">u</span><span style="color:#f3c518">k</span><span style="color:#0039b6">t</span><span style="color:#30a72f">o</span><span style="color:#c41200">m</span><span style="color:#0039b6">m</span><span style="color:#c41200">y</span><span style="color:#f3c518">.</span><span style="color:#0039b6">c</span><span style="color:#30a72f">o</span><span style="color:#0039b6">m</span></h1>
 
 <noscript>

@@ -1,16 +1,16 @@
 // Call Google Feeds API
-// Copyright (c) 2007-2009 Satoshi Fukutomi <info@fuktommy.com>.
+// Copyright (c) 2007-2010 Satoshi Fukutomi <info@fuktommy.com>.
 // $Id$
 
 (function () {
     var feeds = [
         {'container': 'feed_blog', 'url': 'http://blog.fuktommy.com/rss'},
-        {'container': 'feed_twitter', 'url': 'http://twitter.com/statuses/user_timeline/fuktommy.rss'}
+        {'container': 'feed_buzz', 'url': 'http://buzz.googleapis.com/feeds/104787602969620799839/public/posted'}
     ];
     google.load('feeds', '1');
 
-    function formatTwitterTitle(title) {
-        return title.replace(/^fuktommy: /, '');
+    function formatBuzzLink(link) {
+        return link.replace('/buzz/104787602969620799839/', '/buzz/fuktommy/');
     }
 
     function insertEntries(container, entries) {
@@ -26,8 +26,9 @@
             var a = document.createElement('a');
             li.appendChild(a);
             a.href = item.link;
-            if (container.id == 'feed_twitter') {
-                title = formatTwitterTitle(title);
+            if (container.id == 'feed_buzz') {
+                title = item.contentSnippet;
+                a.href = formatBuzzLink(item.link);
             }
             a.appendChild(document.createTextNode(title));
         }

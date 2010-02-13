@@ -4,7 +4,7 @@
 
 (function () {
     var feeds = [
-        {'container': 'feed_blog', 'url': 'http://blog.fuktommy.com/rss'},
+        {'container': 'feed_blog', 'url': 'http://blog.fuktommy.com/atom'},
         {'container': 'feed_buzz', 'url': 'http://buzz.googleapis.com/feeds/104787602969620799839/public/posted'}
     ];
     google.load('feeds', '1');

@@ -53,49 +53,50 @@ p#search {
     margin-bottom: 2em;
 }
 
-.feedset td {
+.feedlist td {
     vertical-align: top;
     border: none;
 }
 
-.feedset .feedlist {
+.feedlist {
     border: 1px solid #808080;
     padding: 1ex;
+    margin-top: 2em;
 }
 
-.feedset a {
+.feedlist a {
     text-decoration: none;
     color: #0000aa;
 }
 
-.feedset a:hover {
+.feedlist a:hover {
     text-decoration: underline;
 }
 
-.feedset h2 {
+.feedlist h2 {
     margin-top: 0;
 }
 
-.feedset h2 a {
+.feedlist h2 a {
     color: #00B;
 }
 
-.feedset ul {
+.feedlist ul {
     padding-left: 0;
     margin-left: 0;
 }
 
-.feedset li {
+.feedlist li {
     list-style: none;
     padding-left: 0;
     margin-left: 0;
 }
 
-.feedset .listmark {
+.feedlist .listmark {
     color: #ccc;
 }
 
-.feedset .comment {
+.feedlist .comment {
     color: #333;
     font-size: 80%;
 }

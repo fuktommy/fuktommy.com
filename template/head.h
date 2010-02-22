@@ -11,7 +11,7 @@
 >>>ifdef SECTION
   <link rel="contents" href="./" title="<$SECTION>" />
 >>>endif
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="http://blog.fuktommy.com/rss" />
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="http://blog.fuktommy.com/atom" />
   <link rel="meta" type="application/rdf+xml" title="license" href="/license" />
 </head>
 <body style="background-color:#efefef;">

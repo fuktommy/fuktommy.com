@@ -21,6 +21,7 @@
   <link rel="stylesheet" type="text/css" href="/pc.css" media="screen" />
 >>>endif
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />
+  <link rel="alternate" type="application/atom+xml" title="Buzz Atom" href="http://buzz.googleapis.com/feeds/104787602969620799839/public/posted" />
   <link rel="meta" type="application/rdf+xml" title="license" href="/license" />
 </head>
 <body>

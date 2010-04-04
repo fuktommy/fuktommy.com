@@ -13,12 +13,12 @@
   <link rel="contents" href="./" title="<$SECTION>" />
 >>>endif
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />
+  <link rel="alternate" type="application/atom+xml" title="Buzz Atom Feed" href="http://feeds.feedburner.com/fuktommy_buzz" />
   <link rel="meta" type="application/rdf+xml" title="license" href="/license" />
 >>>ifdef TOPPAGE
   <link rel="stylesheet" type="text/css" href="/topcommon.css" />
   <link rel="stylesheet" type="text/css" href="/toppc.css" media="screen" />
   <link rel="alternate" media="handheld" href="http://mobile.fuktommy.com/" />
-  <link rel="alternate" type="application/atom+xml" title="Buzz Atom Feed" href="http://feeds.feedburner.com/fuktommy_buzz" />
 >>>else
   <link rel="stylesheet" type="text/css" href="/common.css" />
   <link rel="stylesheet" type="text/css" href="/pc.css" media="screen" />

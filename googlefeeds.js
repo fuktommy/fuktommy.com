@@ -4,7 +4,7 @@
 
 (function () {
     var feeds = [
-        {'container': 'feed_buzz', 'url': 'http://buzz.googleapis.com/feeds/104787602969620799839/public/posted'}
+        {'container': 'feed_buzz', 'url': 'http://feeds.feedburner.com/fuktommy_buzz'}
     ];
     google.load('feeds', '1');
 

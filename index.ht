@@ -10,13 +10,6 @@
 <p><a href="http://mobile.fuktommy.com/">携帯電話の方はこちら。</a></p>
 </noscript>
 
-<ul class="navi">
-  <li><a href="http://www.google.com/profiles/fuktommy#buzz">Google バズ</a></li>
-  <li><a href="/map#soft">ソフト</a></li>
-  <li><a href="/map#address">連絡先</a></li>
-  <li><a href="http://feeds.feedburner.com/fuktommy_buzz"><img src="/feed-icon-16x16.gif" width="16" height="16" alt="Buzz Atom Feed" title="Buzz Atom Feed" /></a></li>
-</ul>
-
 <script type="text/javascript">
 // <![CDATA[
     var searchbox_engines = [
@@ -68,6 +61,20 @@ amazon_color_link="0000FF"; //--></script>
 <iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=fuktommy-22&amp;o=9&amp;p=13&amp;l=ez&amp;f=ifr&amp;f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border:none;"></iframe>
 </noscript>
 </div>
+
+<ul class="navi">
+  <li><a href="http://www.google.com/profiles/fuktommy#buzz">Google バズ</a>
+      <a href="http://feeds.feedburner.com/fuktommy_buzz"><img src="/feed-icon-16x16.gif" width="16" height="16" alt="Buzz Atom Feed" title="Buzz Atom Feed" /></a></li>
+  <li><a href="/map#soft">ソフト</a></li>
+  <li><a href="/map#data">データ</a></li>
+  <li><a href="/map#blog">ブログ等</a></li>
+</ul>
+<ul class="navi">
+  <li><a href="/map#address">連絡先</a></li>
+  <li><a href="/map#profile">プロフィール</a></li>
+  <li><a href="http://bbs.fuktommy.com/">掲示板</a></li>
+  <li><a href="http://twitter.com/fuktommy">Twitter</a></li>
+</ul>
 
 >>>include "address.h"
 </body>

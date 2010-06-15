@@ -16,8 +16,9 @@
 
 <h2>ユーザインタフェース</h2>
 <dl>
-  <dt><a href="http://mayu.sourceforge.net/">窓使いの憂鬱</a></dt>
-  <dd>AltIMEとどちらをインストールするか迷ったのですが、Shift-0で~を出したかったのでこちらにしました。</dd>
+  <dt><a href="http://www.vector.co.jp/soft/winnt/util/se228667.html">KeySwap for XP</a></dt>
+  <dd>レジストリを書き換えることでキーの入れ替えを行うツール。
+      <a href="http://mayu.sourceforge.net/">窓使いの憂鬱</a>はEmacs23.2.1との相性が悪いっぽかったので、こっちにしました。</dd>
   <dd>.mayuの設定例: <a href="dot.mayu">HHKっぽい配列を目指した版</a>、<a href="dot.mayu.x11">Xっぽくした版。</a></dd>
 
   <dt><a href="http://www.tatari-sakamoto.jp/skkime.jis.html">SKKIME</a></dt>
@@ -64,8 +65,11 @@
 
 <h2>ネットワーク</h2>
 <dl>
+  <dt><a href="http://www.google.com/chrome/intl/ja/landing.html?hl=ja">Google Chrome</a></dt>
+  <dd>メインのブラウザ。</dd>
+
   <dt><a href="http://www.mozilla-japan.org/products/firefox/">Firefox</a></dt>
-  <dd>タブが便利なブラウザ。拡張機能は
+  <dd>検証用とか。拡張機能は
       <a href="https://addons.mozilla.org/ja/firefox/addon/249">Html Validator</a>,
       <a href="https://addons.mozilla.org/ja/firefox/addon/748">Greasemonkey</a>,
       <a href="https://addons.mozilla.org/ja/firefox/addon/1843">Firebug</a>,
@@ -75,10 +79,6 @@
       を入れています。
       「<a href="http://journal.mycom.co.jp/news/2009/10/06/017/">Firefox高速化テクニック8 | エンタープライズ | マイコミジャーナル</a>」を見て、
       極力高速化していますが、Google Chrome に比べると今いち遅いんだよなあ。</dd>
-
-  <dt><a href="http://www.google.com/chrome/intl/ja/landing.html?hl=ja">Google Chrome</a></dt>
-  <dd>動画サイト、Flashゲーム、未読が溜まってきたときのGoogleReader用。
-      いずれこっちがメインになっていくのかなあ。</dd>
 
   <dt id="putty"><a href="http://hp.vector.co.jp/authors/VA024651/" title="hdk の自作ソフトの紹介">PuTTY日本語版</a></dt>
   <dd>SSH接続クライアントです。LAN内部はこれで繋ぎます。</dd>

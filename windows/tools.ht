@@ -56,7 +56,7 @@
   <dd>Emacs上の日本語入力はこれです。環境変数PATHにEmacsのパスを追加してコンパイルします。
       <a href="dot.skk">.skkの設定例</a>。</dd>
 
-  <dt><a href="http://www.ie.u-ryukyu.ac.jp/~kono/nkf/">NKF</a></dt>
+  <dt><a href="http://sourceforge.jp/projects/nkf/">NKF</a></dt>
   <dd>定番の文字コード変換ツールです。コマンドラインから使えるので便利。</dd>
 
   <dt><a href="http://www.ff.iij4u.or.jp/~nrt/lv/">LV</a></dt>

@@ -58,15 +58,15 @@
 
   <dt><a href="http://sourceforge.jp/projects/nkf/">NKF</a></dt>
   <dd>定番の文字コード変換ツールです。コマンドラインから使えるので便利。</dd>
-
-  <dt><a href="http://www.ff.iij4u.or.jp/~nrt/lv/">LV</a></dt>
-  <dd>多言語対応のテキストビューアです。</dd>
 </dl>
 
 <h2>ネットワーク</h2>
 <dl>
   <dt><a href="http://www.google.com/chrome/intl/ja/landing.html?hl=ja">Google Chrome</a></dt>
-  <dd>メインのブラウザ。</dd>
+  <dd>メインのブラウザ。
+      漫画喫茶とかでなぜかインストールできないときは
+      <a href="http://www.google.com/chrome/eula.html?hl=ja&amp;platform=win&amp;standalone=1">ダウンロードのページに standalone=1 を追加</a>
+      するとできるかも。</dd>
 
   <dt><a href="http://www.mozilla-japan.org/products/firefox/">Firefox</a></dt>
   <dd>検証用とか。拡張機能は
@@ -92,15 +92,11 @@
   <dt><a href="http://limechat.net/">LimeChat</a></dt>
   <dd>IRCクライアント。<a href="http://fuktommy.com/niconico/">ニコ生アラートIRC.py</a>のUIとかで。</dd>
 
-  <dt><a href="http://www.skype.com/intl/ja/">Skype</a></dt>
-  <dd>あんまり起動しない。</dd>
-
   <dt><a href="http://www.google.com/talk/intl/ja/">Google Talk</a></dt>
-  <dd>あんまり起動しない。</dd>
+  <dd>Gmailに届くメールのアラートを兼ねて。</dd>
 
   <dt><a href="http://www.mozilla-japan.org/products/thunderbird/">Thunderbird</a></dt>
   <dd><a href="http://blog.fuktommy.com/1131849156">アイコンが萌えキャラ</a>なので。
-      あとはGoogle Desktopで検索できるのも便利。
       拡張機能は
       <a href="https://addons.mozilla.org/ja/thunderbird/addon/4654">Remove Duplicate Messages (Alternate)</a>,
       <a href="https://addons.mozilla.org/ja/thunderbird/addon/2110">MinimizeToTray</a>

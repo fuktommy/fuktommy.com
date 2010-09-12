@@ -10,7 +10,7 @@ RewriteRule ^$ http://www.google.com/profiles/fuktommy [R,L]
 
 RewriteRule ^hateber/(.*)    http://hateber.fuktommy.com/$1             [R=301,L]
 RewriteRule ^htmlpp/blog-pin http://fuktommy.com/homebin/blog-ping      [R=301,L]
-RewriteRule ^htmlpp/tinyhttp http://fuktommy.com/homebin/tinyhttp       [R=301,L]
+RewriteRule ^htmlpp/tinyhttp http://fuktommy.com/homebin/tinyhttpd      [R=301,L]
 RewriteRule ^htmlpp/htmlpp   http://fuktommy.com/homebin/htmlpp         [R=301,L]
 RewriteRule ^htmlpp/mkrss    http://fuktommy.com/homebin/mkrss          [R=301,L]
 RewriteRule ^htmlpp/mksitema http://fuktommy.com/homebin/mksitemap      [R=301,L]

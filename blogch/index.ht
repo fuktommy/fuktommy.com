@@ -4,9 +4,8 @@
 <!-- $Id$ -->
 
 <h2>blogchとは</h2>
-<p>「blogch」(ぶろぐっち)は簡易的なブログです。
-コメント機能は<a href="http://www.google.com/reader/">Google Reader</a>頼みで、
-トラックバックの代わりに<a href="http://blogsearch.google.com/">Google Blog Search</a>を使ったバックリンクがあります。</p>
+<p>「blogch」(ぶろぐっち)はGoogleバズを整形して表示するツールです。
+歴史的経緯で、簡易的なブログ機能がくっついています。</p>
 
 <p>もともとの「blogch」は掲示板風のBlog、またはBlog風の掲示板でしたが、
 新しいブログの開発のために名前を引き継ぎました。</p>
@@ -17,6 +16,7 @@
 <h2>ダウンロード</h2>
 <p>blogch3。PHP+Smartyによる実装。</p>
 <ul>
+  <li><a href="blogch3.2010-09-20.tar.gz">blogch3.2010-09-20</a></li>
   <li><a href="blogch3.2010-09-12.tar.gz">blogch3.2010-09-12</a></li>
   <li><a href="blogch3.2010-01-31.tar.gz">blogch3.2010-01-31</a></li>
   <li><a href="blogch3.2009-10-09.tar.gz">blogch3.2009-10-09</a></li>

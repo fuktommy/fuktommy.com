@@ -1,0 +1,20 @@
+>>>define TITLE         genpasswd
+>>>define DESCRIPTION   genpasswd homepage
+>>>include "head.h"
+<!-- $Id$ -->
+
+<p>genpasswd is a simple password generator with algorithm <br />
+base64(sha1(domain+":"+passphrase)) or base64(sha1(domain+":"+salt+":"+passphrase)).</p>
+
+<p>There are following 2 implements.</p>
+
+<ul>
+  <li><a href="/homebin/genpasswd">Python version</a> for PC.</li>
+  <li><a href="http://jp.androlib.com/android.application.com-fuktommy-genpasswd-wDnA.aspx">Android version</a>.</li>
+</ul>
+
+<p>So you can generate password from one master password for any domain on your android phone and PC.</p>
+
+<p>There are licensed ander the <a href="/bsdl">2-clause BSD license</a>.</p>
+
+>>>include "foot.h"

@@ -113,7 +113,7 @@
   <dd>エニックス4コマDB。最近更新してません。</dd>
 </dl>
 
-<h2 id="blog">ブログ等</h2>
+<h2 id="blog">外部サービス等</h2>
 <dl>
   <dt><a href="http://blog.fuktommy.com/">blog.fuktommy.com</a></dt>
   <dd>メイン。</dd>
@@ -132,16 +132,14 @@
       <a href="/twitter?out=csv">バックアップはこちら</a>。
       ここのコメントにも
       <a href="http://creativecommons.org/licenses/by/2.1/jp/">CC_BY</a>
-      を適用します。</dd>
+      を適用します。
+      <a href="/sns">その他のSNS</a>はこちら。</dd>
 
   <dt><a href="http://www.amazon.co.jp/gp/registry/registry.html?type=wishlist&amp;id=3VGI29TIGSZ8">Amazonほしい物リスト</a></dt>
   <dd>プレゼント募集中。</dd>
 
   <dt><a href="http://bbs.fuktommy.com/">掲示板</a></dt>
   <dd>「<a href="http://www.hyuki.com/kakera/about.html">声のかけら。</a>」を使った掲示板。</dd>
-
-  <dt><a href="http://tumblr.fuktommy.com/">Tumblr</a></dt>
-  <dd>ブログの更新を流しています。</dd>
 
   <dt><a href="http://pipes.yahoo.com/fuktommy">Yahoo! Pipes</a></dt>
   <dd>ヘッドライン。<a href="http://pipes.yahoo.com/pipes/pipe.run?_id=vtDv2VkO3hGA5KIw3rVd_w&amp;_render=rss">フィードはこちら</a>。</dd>
@@ -166,10 +164,6 @@
 
   <dt><a href="/fuktommy.asc">公開鍵</a></dt>
   <dd>GnuPGの公開鍵。</dd>
-
-  <dt><a href="http://mixi.jp/show_friend.pl?id=30173">mixi</a></dt>
-  <dd>ソーシャルネットワーク。
-      <a href="/sns">その他のSNS</a>はこちら。</dd>
 
   <dt><a href="mailto:fuktommy@gmail.com">fuktommy@gmail.com</a></dt>
   <dd><a href="http://www.google.com/talk/intl/ja/">Google Talk</a>アカウント。</dd>

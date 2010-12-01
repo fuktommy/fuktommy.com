@@ -18,7 +18,9 @@
 >>>ifdef TOPPAGE
   <link rel="stylesheet" type="text/css" href="/topcommon.css" />
   <link rel="stylesheet" type="text/css" href="/toppc.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/touch.css" media="screen and (max-width: 500px)" />
   <link rel="alternate" media="handheld" href="http://mobile.fuktommy.com/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.1, maximum-scale=10.0, user-scalable=yes;" />
 >>>else
   <link rel="stylesheet" type="text/css" href="/common.css" />
   <link rel="stylesheet" type="text/css" href="/pc.css" media="screen" />

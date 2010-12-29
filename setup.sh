@@ -16,6 +16,7 @@ rsync -Cacv --delete \
     --exclude="*.pyc" \
     --exclude="README.html" \
     --exclude="- /genpasswd/index.html" \
+    --exclude="- /head.txt" \
     --exclude="- /setup.sh" \
     --exclude="- /smarty" \
     --exclude="- /template" \

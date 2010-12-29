@@ -27,6 +27,7 @@
   <li><a href="http://friendfeed.com/fuktommy">FriendFeed</a></li>
   <li><a href="http://youtube.com/user/fuktommy">YouTube</a></li>
   <li><a href="http://jp.linkedin.com/in/fuktommy">LinkedIn</a></li>
+  <li><a href="http://maps.google.com/maps/user?uid=204399269241815982247">Googleマップ</a></li>
   <li><a href="http://about.me/fuktommy">Abount.me</a></li>
 </ul>
 >>>include "foot.h"

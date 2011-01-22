@@ -17,27 +17,16 @@
 <h2>ユーザインタフェース</h2>
 <dl>
   <dt><a href="http://www.vector.co.jp/soft/winnt/util/se228667.html">KeySwap for XP</a></dt>
-  <dd>レジストリを書き換えることでキーの入れ替えを行うツール。
-      <a href="http://mayu.sourceforge.net/">窓使いの憂鬱</a>はEmacs23.2.1との相性が悪いっぽかったので、こっちにしました。</dd>
-  <dd>.mayuの設定例: <a href="dot.mayu">HHKっぽい配列を目指した版</a>、<a href="dot.mayu.x11">Xっぽくした版。</a></dd>
+  <dd>レジストリを書き換えることでキーの入れ替えを行うツール。</dd>
 
   <dt><a href="http://www.tatari-sakamoto.jp/skkime.jis.html">SKKIME</a></dt>
   <dd>日本語入力はこれです。SKKに慣れてしまうと他のIMEは使えなくなってしまいます。<a href="http://openlab.jp/skk/wiki/wiki.cgi?page=SKK%BC%AD%BD%F1#p0">辞書</a>は<a href="http://openlab.jp/skk/index-j.html">SKK Openlab</a>から入手します。</dd>
-
-  <dt><a href="http://www.microsoft.com/windowsxp/downloads/powertoys/xppowertoys.mspx" title="Microsoft PowerToys for Windows XP">Tweak UI</a></dt>
-  <dd>X-Mouseを設定します。</dd>
-
-  <dt><a href="http://mx1.tiki.ne.jp/~wraith/software.htm">ウィンドウフォルダ</a></dt>
-  <dd>ウィンドウをタスクトレイに格納して、タスクバーをすっきりさせます。</dd>
 </dl>
 
 <h2>プログラム実行環境</h2>
 <dl>
   <dt><a href="http://www.cygwin.com/">Cygwin</a></dt>
   <dd>これは必須でしょう。下に出てくるSKKのインストールにも使います。ちなみにシェルはzshにしています。<a href="dot.zshrc">.zshrcの設定例</a>。</dd>
-
-  <dt><a href="http://www.dd.iij4u.or.jp/~nsym/cygwin/cygterm/">CygTerm</a></dt>
-  <dd>Cygwin用の端末を作るのに使います。<a href="#putty">PuTTY</a>と組み合わせると便利です。設定の方法は「<a href="http://www.ep.sci.hokudai.ac.jp/~kk/setup/env_cnf.html#cygterm">Windows 環境構築</a>」を参考にしました。</dd>
 
   <dt><a href="http://www.python.jp/Zope/">Python</a></dt>
   <dd><a href="/saku">朔</a>を動かすのに使います。</dd>
@@ -48,16 +37,12 @@
   <dt><a href="http://www.gnu.org/software/emacs/emacs.html">GNU Emacs</a></dt>
   <dd>定番のエディタです。ダウンロードはRINGサーバの<a href="http://www.t.ring.gr.jp/pub/GNU/emacs/windows/">GNU/Emacs</a>から。
       <a href="dot.emacs">.emacsの設定例 (Emacs23)</a> /
-      <a href="dot.emacs.22">Emacs22</a> /
-      <a href="dot.emacs.21">Emacs21</a>。
+      <a href="dot.emacs.22">Emacs22</a>。
       フォントの設定にてこずりましたが、<a href="http://www.asahi-net.or.jp/~pw9s-szk/emacs/emacs_conf.html">Emacs21のWindowsへのインストールと設定</a>を参考にしました。</dd>
 
   <dt><a href="http://openlab.jp/skk/index-j.html">ddskk</a></dt>
   <dd>Emacs上の日本語入力はこれです。環境変数PATHにEmacsのパスを追加してコンパイルします。
       <a href="dot.skk">.skkの設定例</a>。</dd>
-
-  <dt><a href="http://sourceforge.jp/projects/nkf/">NKF</a></dt>
-  <dd>定番の文字コード変換ツールです。コマンドラインから使えるので便利。</dd>
 </dl>
 
 <h2>ネットワーク</h2>
@@ -116,18 +101,8 @@
   <dt><a href="http://www8.plala.or.jp/kusutaku/iview/">IrfanView32 日本語版</a></dt>
   <dd>画像表示・調整・変換に。</dd>
 
-  <dt><a href="http://www.adobe.co.jp/products/acrobat/readstep2.html">Adobe Reader</a></dt>
-  <dd>定番ですけど。</dd>
-
   <dt><a href="http://deepburner.com/">DeepBurner</a></dt>
   <dd>ISOイメージを焼けるソフトです。</dd>
-</dl>
-
-<h2>自作ツール</h2>
-<dl>
-  <dt><a href="access.pyw">HDDアクセス</a></dt>
-  <dd><a href="http://blog.fuktommy.com/1118236244">Dell INSPIRON 700m</a>を使っています。Linuxを入れていたときからなんですが、HDDがスピンダウン(回転停止)するまでの時間が異様に短かいのです。30秒くらいのときもあります。2chで相談したら、「 ずっとアクセスしときゃいいんじゃね」というありがたいコメントを貰ったので、30秒ごとにアクセスすることにしました。</dd>
-  <dd>その後同じスレで「BIOSをA04にしてみ。再始動キュイーン消えるから」と教えてもらったのでそのようにしました。直ったようです。</dd>
 </dl>
 
 >>>include "foot.h"

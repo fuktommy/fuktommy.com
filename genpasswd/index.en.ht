@@ -10,7 +10,7 @@ base64(sha1(domain+":"+passphrase)) or base64(sha1(domain+":"+salt+":"+passphras
 
 <ul>
   <li><a href="/homebin/genpasswd">Python version</a> for PC.</li>
-  <li><a href="http://jp.androlib.com/android.application.com-fuktommy-genpasswd-wDnA.aspx">Android version</a>.</li>
+  <li><a href="https://market.android.com/details?id=com.fuktommy.genpasswd">Android version</a> And its <a href="http://repos.fuktommy.com/trac/browser/android/genpasswd/trunk">source code</a>.</li>
 </ul>
 
 <p>So you can generate password from one master password for any domain on your android phone and PC.</p>

@@ -13,7 +13,7 @@
   <link rel="contents" href="./" title="<$SECTION>" />
 >>>endif
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />
-  <link rel="alternate" type="application/atom+xml" title="Buzz Atom Feed" href="http://feeds.feedburner.com/fuktommy_buzz" />
+  <link rel="alternate" type="application/atom+xml" title="Blog Atom Feed" href="http://feeds.feedburner.com/fuktommy" />
   <link rel="meta" type="application/rdf+xml" title="license" href="/license" />
 >>>ifdef TOPPAGE
   <link rel="stylesheet" type="text/css" href="/topcommon.css" />

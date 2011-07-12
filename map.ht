@@ -115,25 +115,15 @@
 
 <h2 id="blog">外部サービス等</h2>
 <dl>
-  <dt><a href="http://blog.fuktommy.com/">blog.fuktommy.com</a></dt>
-  <dd>メイン。</dd>
-
-  <dt><a href="https://profiles.google.com/fuktommy/about">Google バズ</a></dt>
-  <dd>ブログのマスターデータです。
-      ここのコメントにも
-      <a href="http://creativecommons.org/licenses/by/2.1/jp/">CC_BY</a>
-      を適用します。</dd>
-
-  <dt><a href="http://astore.amazon.co.jp/fuktommy-22">Fuktommyはこんな本を読んでいます。</a></dt>
-  <dd>Amazonインスタントストア。</dd>
-
-  <dt><a href="http://twitter.com/fuktommy">Twitter</a></dt>
-  <dd>ブログの更新を流しています。
-      <a href="/twitter?out=csv">バックアップはこちら</a>。
-      ここのコメントにも
+  <dt><a href="http://gplus.to/fuktommy">Google+</a></dt>
+  <dd>ブログです。
+      ここの記事にも
       <a href="http://creativecommons.org/licenses/by/2.1/jp/">CC_BY</a>
       を適用します。
       <a href="/sns">その他のSNS</a>はこちら。</dd>
+
+  <dt><a href="http://astore.amazon.co.jp/fuktommy-22">Fuktommyはこんな本を読んでいます。</a></dt>
+  <dd>Amazonインスタントストア。</dd>
 
   <dt><a href="http://www.amazon.co.jp/gp/registry/registry.html?type=wishlist&amp;id=3VGI29TIGSZ8">Amazonほしい物リスト</a></dt>
   <dd>プレゼント募集中。</dd>
@@ -159,8 +149,7 @@
 <dl>
   <dt><a href="mailto:info@fuktommy.com">info@fuktommy.com</a></dt>
   <dd>メールアドレス。
-      <a href="https://mail.google.com/">Gmail</a>で読んでいます。
-      <a href="http://messenger.live.jp/">Windows Messenger</a> のアカウントも兼ねてます。</dd>
+      <a href="https://mail.google.com/">Gmail</a>で読んでいます。</dd>
 
   <dt><a href="/fuktommy.asc">公開鍵</a></dt>
   <dd>GnuPGの公開鍵。</dd>
@@ -185,12 +174,11 @@
   <li><a href="http://www.uec.ac.jp/">電気通信大学</a>卒業(2002年)、
       同修士課程修了(2004年)、
       同博士課程単位取得済退学(2007年)</li>
-  <li>プログラマ (主に携帯サイトの開発)</li>
-  <li><a href="http://info.dwango.co.jp/">ドワンゴ</a>所属(2007年から)</li>
+  <li><a href="http://info.dwango.co.jp/">ドワンゴ</a>でプログラマー(携帯サイトの開発)として勤務(2007年から)</li>
 </ul>
 <p>このウェブサイトに含まれる意見や結論は私個人によるものであって、
 現在または過去の所属組織の公式な方針を、
 明示黙示を問わず、あらわしているものととってはならない。
-(cf. <a href="http://www.freebsd.org/ja/copyright/freebsd-license.html">The FreeBSD Copyright</a>)</p>
+(<a href="http://www.freebsd.org/ja/copyright/freebsd-license.html">The FreeBSD Copyright</a> を真似てみた)</p>
 
 >>>include "foot.h"

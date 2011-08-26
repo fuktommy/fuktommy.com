@@ -23,6 +23,9 @@
   <dt><a href="/genpasswd/">genpasswd</a></dt>
   <dd>パスワード生成ツール。</dd>
 
+  <dt><a href="/bookmarklets">ブックマークレット</a></dt>
+  <dd>ちょっと便利なブックマークレットたち</dd>
+
   <dt><a href="/niconico/">ニコニコ動画便利ツール</a></dt>
   <dd>ニコニコ動画のための便利ツール。</dd>
 
@@ -115,7 +118,7 @@
 
 <h2 id="blog">外部サービス等</h2>
 <dl>
-  <dt><a href="http://gplus.to/fuktommy">Google+</a></dt>
+  <dt><a href="/+">Google+</a></dt>
   <dd>ブログです。
       ここの記事にも
       <a href="http://creativecommons.org/licenses/by/2.1/jp/">CC_BY</a>

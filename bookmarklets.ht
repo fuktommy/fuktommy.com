@@ -1,0 +1,13 @@
+>>>define TITLE         ブックマークレット
+>>>define DESCRIPTION   ちょっと便利なブックマークレットたち
+>>>include "head.h"
+<!-- $Id$ -->
+
+<ul>
+  <li><a href="/google/plusone">Google +1 をどのページでも</a></li>
+  <li><a href="/bookmarklet?js=http://fuktommy.com/js/jkimg.js&amp;title=jkimg">jとkのキーで次の画像に移動する</a></li>
+  <li><a href="javascript:(function(){if(location.href.search(new RegExp('https://plus[.]google[.]com/([0-9]+)'))==0){prompt('','http://plusfeed.appspot.com/'+RegExp.$1);}})();void 0;">g+ のフィード</a></li>
+  <li><a href="javascript:(function(){var a=document.getElementsByTagName('div');for(var i=0;i&lt;a.length;i++){if(a[i].className.search(/profile-actions-(\d+)/)&gt;0){prompt('','http://twitter.com/statuses/user_timeline/'+RegExp.$1+'.atom');break;}}})();void(0);">Twitterのフィード</a></li>
+</ul>
+
+>>>include "foot.h"

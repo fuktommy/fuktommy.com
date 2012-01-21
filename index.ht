@@ -63,17 +63,18 @@ amazon_color_link="0000FF"; //--></script>
 </div>
 
 <ul class="navi">
-  <li><a href="https://plus.google.com/104787602969620799839" rel="author">ブログ</a>
+  <li><a href="http://fuktommy.hatenablog.com/">ブログ</a>
       <a href="http://feeds.feedburner.com/fuktommy"><img src="/feed-icon-16x16.gif" width="16" height="16" alt="Atom Feed" title="Atom Feed" /></a></li>
   <li><a href="http://blog.fuktommy.com/category/tanuki">タヌキ</a></li>
   <li><a href="/map#soft">ソフト</a></li>
   <li><a href="/map#data">データ</a></li>
+  <li><a href="/map#blog">外部</a></li>
 </ul>
 <ul class="navi">
-  <li><a href="/map#blog">外部</a></li>
   <li><a href="/map#address">連絡先</a></li>
   <li><a href="/map#profile">プロフィール</a></li>
   <li><a href="http://bbs.fuktommy.com/">掲示板</a></li>
+  <li><a href="https://plus.google.com/104787602969620799839" rel="author">g+</a>
 </ul>
 
 >>>include "address.h"

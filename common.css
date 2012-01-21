@@ -24,9 +24,11 @@ p.sitename a {
     text-decoration: none;
 }
 
-address {
+address, div.address {
     clear: both;
     text-align: center;
+    font-style: italic;
+    padding-top: 1em;
 }
 
 strong {

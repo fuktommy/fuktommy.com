@@ -1,5 +1,5 @@
 >>>define TITLE         Windowsにインストールするツール類
->>>define DESCRIPTION   SKKIMEや窓使いの憂鬱などです。
+>>>define DESCRIPTION   SKKIMEやCygwinなどです。
 >>>define SECTION       Windows
 >>>include "head.h"
 <!-- $Id$ -->
@@ -19,7 +19,8 @@
   <dt><a href="http://www.vector.co.jp/soft/winnt/util/se228667.html">KeySwap for XP</a></dt>
   <dd>レジストリを書き換えることでキーの入れ替えを行うツール。</dd>
 
-  <dt><a href="http://www.tatari-sakamoto.jp/skkime.jis.html">SKKIME</a></dt>
+  <dt><a href="http://homepage3.nifty.com/monjya/skkime.jis.html">SKKIME</a>
+      (<a href="http://archives.fuktommy.com/skkime/">非公式ミラー</a>)</dt>
   <dd>日本語入力はこれです。SKKに慣れてしまうと他のIMEは使えなくなってしまいます。<a href="http://openlab.jp/skk/wiki/wiki.cgi?page=SKK%BC%AD%BD%F1#p0">辞書</a>は<a href="http://openlab.jp/skk/index-j.html">SKK Openlab</a>から入手します。</dd>
 </dl>
 

@@ -8,7 +8,7 @@ RewriteCond %{HTTP_USER_AGENT} ^libwww-perl [OR]
 RewriteCond %{HTTP_USER_AGENT} "^Hatena Antenna"
 RewriteRule ^$ https://plus.google.com/104787602969620799839/posts [R,L]
 
-RewriteRule ^[+]$ https://plus.google.com/104787602969620799839/posts [R,L]
+RewriteRule ^[+]$ https://plus.google.com/104787602969620799839/about [R,L]
 
 RewriteRule ^hateber/(.*)    http://hateber.fuktommy.com/$1             [R=301,L]
 RewriteRule ^htmlpp/blog-pin http://fuktommy.com/homebin/blog-ping      [R=301,L]
@@ -16,6 +16,7 @@ RewriteRule ^htmlpp/tinyhttp http://fuktommy.com/homebin/tinyhttpd      [R=301,L
 RewriteRule ^htmlpp/htmlpp   http://fuktommy.com/homebin/htmlpp         [R=301,L]
 RewriteRule ^htmlpp/mkrss    http://fuktommy.com/homebin/mkrss          [R=301,L]
 RewriteRule ^htmlpp/mksitema http://fuktommy.com/homebin/mksitemap      [R=301,L]
+RewriteRule ^homebin/(.*)    https://github.com/fuktommy/homebin/blob/master/$1 [R=301,L]
 RewriteRule ^script/csvview  http://fuktommy.com/homebin/csvview        [R=301,L]
 RewriteRule ^script/filediet http://fuktommy.com/homebin/filediet       [R=301,L]
 RewriteRule ^script/mkpswd   http://fuktommy.com/homebin/mkpswd         [R=301,L]

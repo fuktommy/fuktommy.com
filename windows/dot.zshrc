@@ -11,16 +11,32 @@ setopt HIST_IGNORE_SPACE
 setopt NO_BG_NICE
 unsetopt NOMATCH
 
-export CVSROOT=$HOME/.cvsroot
-export CVS_RSH=ssh
+export PAGER="lv -Os -c"
+export VISUAL=vi
 export PERL5LIB=${HOME}/lib/perl
 export PYTHONPATH=${HOME}/lib/python
+export PYTHONSTARTUP=${HOME}/.pythonrc
 export HTTP_HOME=${HOME}/.w3m/bookmark.html
 export TMP=/tmp
 export TMPDIR=/tmp
+
+if [ -n "$CYGTERM" -o "$TERM" = emacs ]; then
+    PATH="/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+    PATH="/usr/local/bin:/usr/bin:/bin:/usr/X11R6/bin:$PATH"
+    PATH="/usr/local/node/bin:$PATH"
+fi
 PATH=$HOME/bin:$PATH
 
 bindkey -e
+WORDCHARS="*?_-.[]~=&!#$%^(){}<>"
+
+autoload -U compinit && compinit
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format '%B%d%b'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches for: %d'
+zstyle ':completion:*' group-name ''
+
 alias ls="ls -F"
 alias cp="cp -i"
 alias mv="mv -i"
@@ -55,7 +71,7 @@ alias	du='du -h'
 alias	j='jobs'
 alias	today='date +%Y-%m-%d'
 
-abc	() { echo $* | sed 's/x/*/g' | bc -l }
 title	() { echo -ne "\033]0;$*\007" }
 mcd	() { mkdir -p $1 ; cd $1 }
+compdef -d mcd
 rcd	() { local d=`pwd`; cd ..; rmdir "$d" }

@@ -1,0 +1,10 @@
+>>>define TITLE         Windows
+>>>define DESCRIPTION   Windowsで快適生活
+>>>include "head.h"
+
+<ul>
+  <li><a href="vmware">VMware PlayerでKnoppixを起動してみた</a></li>
+  <li><a href="tools">Windowsにインストールするツール類</a></li>
+</ul>
+
+>>>include "foot.h"

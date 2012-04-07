@@ -1,0 +1,145 @@
+>>>define TITLE         HTMLプリプロセッサ(Another HTMLPP)
+>>>define DESCRIPTION   HTMLのための、CPPのようなもの
+>>>include "head.h"
+<!-- $Id$ -->
+
+<h2>はじめに</h2>
+<p>Blogなどの<a href="http://www.atmarkit.co.jp/aig/04biz/contentmanagement.html" title="＠IT情報マネジメント用語事典 [CMS (content management system)]">CMS</a>では複数のページのデザインを統一したり、一度に変換したりできます。
+静的なHTMLであっても<a href="http://hp.vector.co.jp/authors/VA013937/cssref/" title="CSSリファレンス">CSS</a>を利用すればデザインの統一ができます。</p>
+
+<p>ここでは静的なHTMLで、デザインの統一をするツールを紹介します。
+やりたいことは例えば「どのページにも同じメニューバーをつけたい」とか、
+「どのページにも同じ著作権表示を入れたい」とかです。</p>
+
+<p>解のひとつはWiki記法のようなものです。
+テキストファイルを読み込んで、HTMLに変換します。
+確かにこれは便利ですが、どうせHTMLに変換するのだから、
+最初からHTMLで書けばいい、という気もします。</p>
+
+<p>そこでこの文書では、もっと単純に、
+(不完全な)HTMLにテンプレートを組み込んでHTMLを合成してしまいます。</p>
+
+<p>ついでにHTMLの文法チェックもしますが、
+<a href="http://openlab.ring.gr.jp/k16/htmllint/">Another HTML-lint</a>
+のような高機能なものではありません。
+PythonのXMLパーザにかけてエラーが出るかどうかだけで判定しています。
+つまり文法チェックができるのはXHTMLのみで、
+タグの閉じ忘れや綴り間違いが検出できる程度です。</p>
+
+<h2>経緯</h2>
+<p>僕は<a href="http://www.hyuki.com/">結城浩</a>さんのサイトのデザインが好きです。
+たまたま、このサイトは<a href="http://www.hyuki.com/makeweb/">MakeWeb</a>という
+ソフトで生成しているということを知りました。
+同じようなことを、もっと簡単な実装でやることを考えました。</p>
+
+<p>ちなみに<a href="http://www.imatix.com/html/htmlpp/">iMatix版Htmlpp</a>とは別物です。
+こちらはかなり大掛かりな実装です。</p>
+
+<h2>ダウンロード</h2>
+<p>このスクリプトを使うには<a href="http://www.python.jp/Zope/">Python</a>
+(2.3+日本語コーデック または 2.4以降)が必要です。</p>
+
+<ul>
+  <li>2007-11-10 <a href="htmlpp-0.8.0.py">htmlpp-0.8.0.py</a></li>
+  <li>2007-04-30 <a href="htmlpp-0.7.b1.py">htmlpp-0.7.b1.py</a></li>
+  <li>2006-11-21 <a href="htmlpp-0.6.b3.py">htmlpp-0.6.b3.py</a></li>
+  <li>2006-07-01 <a href="htmlpp-0.6.b2.py">htmlpp-0.6.b2.py</a></li>
+</ul>
+
+<h2>実行方法</h2>
+<p>次のようにして実行します。</p>
+
+<pre>htmlpp [-f] [-n] [-I path] foo.txt</pre>
+
+<p>foo.txtが解釈され、foo.htmlが生成されます。
+foo.htmlがfoo.txtよりも新しいときには生成されません。
+<del>foo.htmlの更新時刻はfoo.txtの1秒後に設定されます。</del></p>
+
+<dl>
+  <dt>-f</dt>
+  <dd>新旧に関わらず、foo.htmlを生成します。</dd>
+
+  <dt>-n</dt>
+  <dd>HTMLの文法チェックをしません。</dd>
+
+  <dt>-I path</dt>
+  <dd>合成するときのテンプレートやCSVなどの場所を指定します。
+      複数指定できます。</dd>
+
+  <dt>foo.txt</dt>
+  <dd>解釈される(不完全な)HTMLです。
+      複数指定できます。</dd>
+</dl>
+
+<h2>記法</h2>
+<p>ほとんどCPPと同じです。
+「#」の代わりに「&gt;」を使います。
+「&gt;」は「&gt;&gt;&gt;」のように複数個書いても構いません。</p>
+
+<table summary="HTMLPPの記法">
+  <thead>
+>>>>csvtable "grammer.csv" 1 escape
+  </thead>
+>>>>csvtable "grammer.csv" 2.. escape
+</table>
+
+<ul>
+  <li>&gt;includeで読み込むファイルは
+      それを呼び出した(不完全な)HTMLのディレクトリ、
+      -Iで指定したディレクトリ、
+      スクリプト中で設定されているディレクトリの順に検索されます。
+      第2引数として localvars を書くと
+      呼び出されたファイル内で定義した変数は
+      呼び出したファイルには影響しません。</li>
+  <li>設定した変数は &gt;if 文などで使うこともできますし、
+      HTML中で &lt;$varname&gt; のようにして参照することもできます。</li>
+  <li>&gt;csvtable の第2引数は取り込む範囲です。
+      4(4行目)、3..5(3〜5行目)、..2(2行目まで)、
+      5..(5行目以降)などが指定できます。</li>
+  <li>&gt;csvtable の第3引数は&lt;&gt;などをエスケープするかどうかです。
+      escapeと書けばエスケープされます。</li>
+  <li>&gt;csvtable ではtableタグは生成されません。</li>
+  <li>&gt;textpre ではテキストはエスケープされます。
+      preタグも生成されます。</li>
+</ul>
+
+<h2>テンプレートと(不完全な)HTML</h2>
+<p>例えばこんなファイルを作って、適当なところに保存しておきます。</p>
+
+>>>textpre "head.h.txt"
+>>>textpre "foot.h.txt"
+
+<p>処理されるファイルは次のように書きます。</p>
+>>>textpre "test.html.txt"
+
+<h2 id="coop">連携</h2>
+<p><a href="/linux/rss">RSS生成ツール</a>と組み合わせると、
+ますますCMSっぽくなっていい感じです。</p>
+<ul>
+  <li><a href="mkrss-0.5.0.py">mkrss-0.5.0.py</a></li>
+  <li><a href="mkrss-0.3.0.py">mkrss-0.3.0.py</a></li>
+  <li><a href="rss-0.1.3.py">rss-0.1.3.py</a></li>
+</ul>
+
+<p><a href="/quickblog/">くっつきブログ</a>と組み合わせると
+簡単にコメントやトラックバックを受け取ることができます。</p>
+
+<p>TrackbackPingやUpdatePingを送ることもできます。</p>
+<ul>
+  <li><a href="tb-0.2.0.pl">tb-0.2.0.pl</a></li>
+  <li><a href="blog-ping-0.2.0.py">blog-ping-0.2.0.py</a></li>
+</ul>
+
+<p><a href="http://www.google.co.jp/">Google</a>の<a href="http://www.google.com/webmasters/sitemaps/docs/en/overview.html">Sitemap</a>のための<a href="http://www.google.com/webmasters/sitemaps/docs/en/other.html#text_file">テキスト形式</a>のファイルを生成するツールもあります</p>
+<ul>
+  <li><a href="mksitemap-0.1.0.py">mksitemap-0.1.0.py</a></li>
+</ul>
+
+<p>小さなHTTPDと組み合わせると、ローカルで絶対パスのテストができます。</p>
+<ul>
+  <li><a href="tinyhttpd-0.1.b2.py">tinyhttpd-0.1.b2.py</a></li>
+  <li><a href="httpd-0.1b11.pl">httpd-0.1b11.pl</a></li>
+  <li><a href="httpd-0.1b10.pl">httpd-0.1b10.pl</a></li>
+</ul>
+
+>>>include "foot.h"

@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="content-style-type" content="text/css" />
+  <meta http-equiv="content-script-type" content="text/javascript" />
+  <title>Unixを便利にする道具</title>
+  <meta name="description" content="フィルタコマンド、シェルスクリプト、Perl" />
+  <link rev="made" href="http://fuktommy.com/" />
+  <link rel="contents" href="http://fuktommy.com/" />
+  <link rel="meta" type="application/rdf+xml" title="license" href="/license" />
+  <style type="text/css">
+     body { padding: 20px; background-color: #fff; color: #000;
+            font-family: sans-serif; }
+     h1 { padding: 20px; background-color: #fcc; }
+     h2 { padding: 10px; background-color: #8ff; }
+     .section, .abstract { margin-bottom: 3em; }
+     .section p, .section dl { margin-left: 1em; }
+     dd { margin-bottom: 1ex; }
+     p.example { margin-left: 2em; text-indent: 0; font-family: monospace; }
+     pre.example { margin: 0 2em 1em 2em; padding: 1ex;
+                   border: solid 1px #aaa; }
+     address { text-align: center; }
+     .googleads { text-align: center; }
+  </style>
+</head>
+<body>
+<h1>Unixを便利にする道具</h1>
+
+<div class="abstract">
+<p>これは研究室の講習会のために作ったテキストに加筆訂正したものです。
+Unixコマンドを使用例とともに紹介します。</p>
+</div>
+
+<div class="googleads">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0908882948816599";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "336699";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "008000";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<div class="section">
+<h2 id="lgrep">lgrep - ゼミの日程ってどうなってたっけ？</h2>
+<pre class="example">% find ~/Mail -type f | xargs lgrep ゼミ
+/home/foo/Mail/inbox/1: ゼミの日程を決めたいのですが。
+/home/foo/Mail/inbox/4: ゼミの日程が決まりました。</pre>
+<dl>
+  <dt>findの主な機能</dt>
+  <dd>ファイル名、ディレクトリ名などを検索し、出力する。</dd>
+  <dt>xargsの主な機能</dt>
+  <dd>標準入力の各行を引数にしてコマンドを実行する。</dd>
+  <dt>lgrepの主な機能</dt>
+  <dd>指定されたファイルに対しての全文検索。
+      さまざまな文字コードに対応している。</dd>
+</dl>
+<p>lgrepはgrepの多言語対応版です。
+grepにはegrep, fgrepなどの兄弟があります。</p>
+</div>
+
+<div class="section">
+<h2 id="sort">sort - ファイルを片付けて容量を減らしたい</h2>
+<pre class="example">% du ~/ | sort -nr | lv
+107301  /home/foo
+13527   /home/foo/Mail
+8097    /home/foo/Mail/2005</pre>
+<dl>
+  <dt>duの主な機能</dt>
+  <dd>ディレクトリごとのディスク使用量を表示する。</dd>
+  <dt>sortの主な機能</dt>
+  <dd>行単位の並べ替え。
+      -n は数として扱うこと、 -r は逆順を意味する。</dd>
+  <dt>lvの主な機能</dt>
+  <dd>テキストビューワ。1ページごとに表示する。多言語対応。</dd>
+</dl>
+</div>
+
+<div class="section">
+<h2 id="screen">screen - 実験用プログラムを動かしてから帰りたい</h2>
+<p>screen というプログラムを使います。
+ターミナルの中に1つから複数のターミナルを作ることができます。</p>
+
+<h3>キーバインド</h3>
+<dl>
+  <dt>C-a C-c / C-a c</dt>
+  <dd>新しい仮想ターミナルを作る。</dd>
+  <dt>C-a C-a / C-a C-n / C-a n / C-a C-p / C-a p</dt>
+  <dd>仮想ターミナルの切り替え。</dd>
+  <dt>C-a a</dt>
+  <dd>仮想ターミナル内への C-a の入力。</dd>
+  <dt>C-a x</dt>
+  <dd>ロック。</dd>
+  <dt>C-a d</dt>
+  <dd>内部でプログラムを動かしながら、スクリーンを閉じる。
+      screen -r で再接続。</dd>
+</dl>
+</div>
+
+<div class="section">
+<h2 id="tail">tail - 出力ファイルの様子を見たい</h2>
+<pre class="example">% ./foo &gt; output.txt
+(C-a c 等で別のターミナルへ)
+% wc output.txt
+      7      22     174 output.txt
+% tail -f output.txt
+aaa
+bbb</pre>
+<dl>
+  <dt>wcの主な機能</dt>
+  <dd>ファイルの行数、単語数、文字数(Byte数)を出力する。</dd>
+  <dt>tailの主な機能</dt>
+  <dd>ファイルの後ろから10行を出力する。
+      -f オプションでファイルに何か追加されるごとに出力される。</dd>
+</dl>
+<p>関連するコマンドに head があります。</p>
+</div>
+
+<div class="section">
+<h2 id="sh">sh - 引数を変えながらプログラムを実行したい</h2>
+<h3>シェルスクリプトの例</h3>
+<pre class="example">#!/bin/sh
+for i in 1 2 3 4 5; do
+    ./foo $i &gt; out_$i.txt
+done</pre>
+
+<pre class="example">#!/bin/sh
+for i in 1 2 3 4 5; do
+    output="out_$i.txt"
+    if [ -f $output ]; then
+        echo "$output: exists"
+    else
+        ./foo $i &gt; $output
+    fi
+done</pre>
+
+<h3>実行例</h3>
+<pre class="example">% chmod +x foo.sh
+% ./foo.sh
+% ls
+foo        foo.sh*    out_1.txt  out_2.txt  out_3.txt  out_4.txt  out_5.txt</pre>
+</div>
+
+<div class="section">
+<h2 id="uniq">uniq - 出力ファイルの集計(1)</h2>
+<p>プログラムを実行して、次のような出力が得られたとする。
+どんなパターンが何回出力されたかを集計する。</p>
+
+<pre class="example">a
+b
+c
+c
+a
+c</pre>
+
+<h3>Perlスクリプト</h3>
+<pre class="example">#!/usr/local/bin/perl -w
+%count = ();
+while (&lt;&gt;) {
+    chomp;
+    $count{$_}++;
+}
+@k = sort {$count{$b} &lt;=&gt; $count{$a}} keys(%count);
+foreach (@k) {
+    print "$count{$_} $_\n"
+}</pre>
+
+<dl>
+  <dt>%count</dt>
+  <dd>%で始まる変数はハッシュ(連想配列)。
+      添字として文字列をとる配列。</dd>
+  <dt>while (&lt;&gt;) {}</dt>
+  <dd>入力の各行についてのループ。
+      行は $_ に文字列形式で格納される。</dd>
+  <dt>chomp</dt>
+  <dd>改行コードを削除する組み込み関数。</dd>
+  <dt>$count{$_}</dt>
+  <dd>ハッシュの要素の使い方の例。</dd>
+  <dt>@k</dt>
+  <dd>@で始まる変数は配列。</dd>
+  <dt>sort</dt>
+  <dd>並べ替えの組み込み関数。
+      第1引数を省略すると文字コード順に並べる。</dd>
+  <dt>keys</dt>
+  <dd>ハッシュのキーからなる配列を作る組み込み関数。</dd>
+  <dt>foreach (@k) {}</dt>
+  <dd>配列の各要素についてのループ。</dd>
+</dl>
+
+<h3>コマンドライン</h3>
+<pre class="example">% sort output.txt | uniq -c | sort -nr
+      3 c
+      2 a
+      1 b</pre>
+
+<dl>
+  <dt>uniqの主な機能</dt>
+  <dd>同じ内容の行が1つ以上連続したとき、それを1つだけ出力。
+      -c でその行数を出力。</dd>
+</dl>
+</div>
+
+<div class="section">
+<h2 id="perl">Perl - 出力ファイルの集計(2)</h2>
+<p>プログラムを実行して、次のような出力が得られたとする。
+各行がパターンと得点だとして、パターンごとに得点を集計する。</p>
+
+<pre class="example">a 3
+b 1
+c 2
+c 2
+a 1
+c 6</pre>
+
+<h3>Perlスクリプト</h3>
+<pre class="example">#!/usr/local/bin/perl -w
+%count = ();
+while (&lt;&gt;) {
+    s/\n//;
+    @_ = split;
+    $count{$_[0]} += $_[1];
+}
+@k = sort {$count{$b} &lt;=&gt; $count{$a}} keys(%count);
+foreach (@k) {
+    print "$count{$_} $_\n"
+}
+</pre>
+
+<dl>
+  <dt>s/\n//;</dt>
+  <dd>正規表現による置換。
+      この場合はchompと同じ動作になる。</dd>
+  <dt>split</dt>
+  <dd>スペースで単語に区切る組み込み関数。
+      どういう文字で区切るかを正規表現で指定できる。</dd>
+</dl>
+
+<h3>実行例</h3>
+<pre class="example">% chmod +x foo.pl
+% ./foo.pl output.txt
+10 c
+4 a
+1 b</pre>
+</div>
+
+<div class="section">
+<h2 id="awk">awk - 表の列の入れ替え</h2>
+<pre class="example">10 c
+4 A
+1 b</pre>
+
+<p>列の入れ替えはこんな感じ。</p>
+<pre class="example">% awk '{print $2 " " $1}' output.txt
+c 10
+A 4
+b 1</pre>
+
+<p>条件文も使える。</p>
+<pre class="example">% awk '/[a-z]/{print $2 " " $1}' output.txt
+c 10
+b 1</pre>
+</div>
+
+<!--
+<div class="section">
+<h2 id=""></h2>
+<pre class="example"></pre>
+<dl>
+  <dt>の主な機能</dt>
+  <dd></dd>
+</dl>
+</div>
+-->
+
+<div class="section">
+<h2 id="practice">課題</h2>
+<p>/DataBase/YOMIURI_EN/E2003.txt の1月1日の記事本文(T2タグ)で
+使われている単語を、
+頻度順に10単語、出現回数とともに抜き出しなさい。
+過去形、複数形などで変化したものは別の単語とみなしてよい。</p>
+</div>
+
+<div class="appendix">
+<h2 id="reference">参考文献</h2>
+<ul>
+  <li>越智 裕之,
+      <a href="http://www.amazon.co.jp/exec/obidos/redirect?link_code=as2&amp;path=ASIN/4339023450&amp;tag=fuktommysstor-22&amp;camp=247&amp;creative=1211">UNIX入門演習</a><img src="http://www.assoc-amazon.jp/e/ir?t=fuktommysstor-22&amp;l=as2&amp;o=9&amp;a=4339023450" width="1" height="1" alt="" />,
+      コロナ社, 1997.</li>
+  <li>皆本 晃弥, 奥村 浩,
+      <a href="http://www.amazon.co.jp/exec/obidos/redirect?link_code=as2&amp;path=ASIN/4781909973&amp;tag=fuktommysstor-22&amp;camp=247&amp;creative=1211">シェル&amp;Perl入門―bash/tcsh/grep/sed/awk/Perl</a><img src="http://www.assoc-amazon.jp/e/ir?t=fuktommysstor-22&amp;l=as2&amp;o=9&amp;a=4781909973" width="1" height="1" alt="" />,
+      サイエンス社, 2001.</li>
+</ul>
+</div>
+
+<div class="googleads">
+<script type="text/javascript"><!--
+google_ad_client = "pub-0908882948816599";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_type = "text";
+google_ad_channel ="";
+google_color_border = "336699";
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_url = "008000";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<address>Copyright&copy; 1998-2006 <a href="http://fuktommy.com/">Fuktommy</a>.
+All Rights Reserved.<br />
+<a href="mailto:webmaster@fuktommy.com">webmaster@fuktommy.com</a>
+(<a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/" title="This work is licensed under a Creative Commons Attribution 2.1 Japan License.">Legal Notices</a>)
+</address>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-61877-7";
+urchinTracker();
+</script>
+</body>
+</html>

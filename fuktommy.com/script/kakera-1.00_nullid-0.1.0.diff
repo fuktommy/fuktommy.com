@@ -1,0 +1,12 @@
+diff -Nru kakera.orig/lib/Yuki/Kakera.pm kakera/lib/Yuki/Kakera.pm
+--- kakera.orig/lib/Yuki/Kakera.pm	2004-05-19 16:56:50.000000000 +0900
++++ kakera/lib/Yuki/Kakera.pm	2007-07-03 22:18:04.000000000 +0900
+@@ -800,6 +800,8 @@
+     if (defined($self->{form}->{myid})) {
+         return if $self->{form}->{myid} =~ /^$id_pattern$/;
+         $self->{form}->{myid} = _create_id();
++    } elsif (defined($self->{form}->{mymsg})) {
++        $self->{form}->{myid} = _create_id();
+     }
+ }
+ 

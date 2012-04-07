@@ -1,0 +1,11 @@
+>include "filename" [localvars],別のファイルを取り込む
+>define var value,変数に値を設定する
+>undef var,変数を削除する
+>if exp,if文
+>ifdef var,変数が設定されているかどうか
+>ifndef var,変数が設定されているかどうか
+>else [//comment],if文の切り替え
+>endif [//comment],if文の終わり
+>csvtable "filename" [範囲] [escape],CVSをHTMLのテーブルにする
+>textpre "filename",テキストをpreタグの中に読み込む
+># コメント文,コメント

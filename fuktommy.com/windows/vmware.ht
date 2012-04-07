@@ -1,0 +1,24 @@
+>>>define TITLE         VMware PlayerでKnoppixを起動してみた
+>>>define DESCRIPTION   HTTP-FUSE-KNOPPIX が起動しました。
+>>>define SECTION       Windows
+>>>include "head.h"
+
+<h2>手順</h2>
+<ol>
+  <li><a href="http://www.vmware.com/ja/download/player/">VMware Player</a>をインストール。</li>
+  <li><a href="http://unit.aist.go.jp/itri/knoppix/http-fuse/">HTTP-FUSE-KNOPPIX</a>(4.7MB)を入手。
+      <a href="http://www.vmware.com/vmtn/appliances/directory/browserapp.html">ブラウザ アプライアンス仮想マシン</a>(259MB)よりずっと小さいのでおすすめ。</li>
+  <li><a href="http://mcn.oops.jp/wiki/index.php?VM%2FVMware%2FVMware%20Player#m5a1d0cd">SyncHack</a>さんのをちょこっと編集した<a href="knoppix.vmx">knoppix.vmx</a>を入手。</li>
+  <li>knoppix.vmxの ide1:0.fileName の行を適切に書き換える。</li>
+  <li>isoファイルとknoppix.vmxを同じディレクトリにおき、
+      knoppix.vmxをダブルクリックすると起動する。</li>
+  <li>CDイメージは /dev/hdc、 CDドライブは /dev/hdd と認識された。</li>
+</ol>
+
+<h2>Tips</h2>
+<ul>
+  <li>ホストOS(この場合はWindows)のディレクトリをSambaで共有して作業領域にする。</li>
+  <li>いちいちシャットダウンしなくても、VMwareを終了すると、そのときのメモリの状態を保管してくれる。</li>
+</ul>
+
+>>>include "foot.h"

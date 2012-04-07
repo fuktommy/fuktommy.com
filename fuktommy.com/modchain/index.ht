@@ -1,0 +1,80 @@
+>>>define TITLE         ModifireChain
+>>>define DESCRIPTION   Smarty風のメソッドチェインでテンプレートを書くライブラリ。
+>>>include "head.h"
+<!-- $Id$ -->
+
+<h2>はじめに</h2>
+<p><a href="http://www.smarty.net/manual/ja/">Smarty</a>
+では</p>
+
+<ol>
+  <li>文字列を先頭から100文字にカットする</li>
+  <li>英数字を半角にする</li>
+  <li>HTMLエスケープ処理をする</li>
+  <li>改行コードをbrタグに変換する</li>
+  <li>表示</li>
+</ol>
+
+<p>(この例は
+<cite><a href="http://www.exgear.jp/tech/doc/detail/85">エクスギア技術系サイト PHP5限定　CakePHPのView内の関数処理を綺麗に記述する（邪道でしょうか？）</a></cite>
+から引用しました)を</p>
+
+<pre class="code"><code>{$text|mb_substr:0:100|mb_convert_kana:"a"|escape|nl2br}</code></pre>
+
+<p>のように書くことができます。
+これを素のPHPでやると、</p>
+
+<pre class="code"><code>&lt;?php echo nl2br(htmlspecialchars(mb_convert_kana(mb_substr($text, 0, 100), 'a'))); ?&gt;</code></pre>
+
+<p>となります(このコードも引用しました)。
+Smartyやそのほかのテンプレートエンジンを使うほど大袈裟じゃないけど、
+こんなことがしたいな、というときに使えるものを作りました。
+ModifireChain では</p>
+
+<pre class="code"><code>&lt;?php $chain-&gt;text-&gt;mb_substr(0, 100)-&gt;mb_convert_kana('a')-&gt;escape()-&gt;nl2br()-&gt;p(); ?&gt;</code></pre>
+
+<p>と書くことができます。</p>
+
+<h2>ダウンロード</h2>
+<p><a href="code/">code</a> にファイル一式があります。
+実際に必要なのは <a href="code/ModifireChain.php">ModifireChain.php</a>
+だけです。</p>
+
+<h2>使い方</h2>
+<pre class="code"><code>// PHPロジック部分
+require_once 'ModifireChain.php';
+$chain = ModifireChain::factory();
+
+// 任意のフィールドに値を設定できます。
+$chain-&gt;text = 'abc';
+$chain-&gt;array = array('a', 'b', 'c');
+$chain-&gt;assoc = array('a' =&gt; array('b' =&gt; 'c'));
+
+$obj = new StdClass();
+$obj->foo = 'bar';
+$chain->obj = $obj;
+
+// テンプレート部分
+$chain-&gt;text-&gt;e();       // HTMLエスケープして表示
+$chain-&gt;text-&gt;e('url');  // URLエンコードして表示
+$chain-&gt;text-&gt;escape()-&gt;nl2br()-&gt;p();  // p()はエスケープなしの表示
+$chain-&gt;text-&gt;stringFormat('%10s')-&gt;e();  // Smarty風のメソッドがいくつかあります。
+
+// 配列も扱えます。
+// ただしキーは個々にpack()する必要があります。
+&lt;?php foreach ($chain-&gt;array as $k =&gt; $v): ?&gt;
+  &lt;li&gt;&lt;?php $chain-&gt;pack($k)-&gt;e(); ?&gt;: &lt;?php $v-&gt;e(); ?&gt;&lt;/li&gt;
+&lt;?php endforeach; ?&gt;
+
+// 配列のキーを指定する方法
+$chain-&gt;assoc-&gt;get('a')-&gt;get('b')-&gt;e();
+$chain-&gt;assoc-&gt;a-&gt;b-&gt;e();
+
+// オブジェクトの場合
+$chain-&gt;obj-&gt;prop('foo')-&gt;e();
+$chain-&gt;obj-&gt;foo-&gt;e();
+
+// 中身を取り出すとき
+echo $chain-&gt;unpack();</code></pre>
+
+>>>include "foot.h"

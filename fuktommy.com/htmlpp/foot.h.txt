@@ -1,0 +1,6 @@
+foot.h:
+<address>Copyright(c) 1998-2007
+<a href="/fuktommy.txt">Fuktommy</a> All Rights Reserved.<br />
+<a href="mailto:webmaster@fuktommy.com">mailto:webmaster@fuktommy.com</a></address>
+</body>
+</html>

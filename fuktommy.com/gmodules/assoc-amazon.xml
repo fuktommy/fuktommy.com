@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Fuktommy's books" />
+  <Content type="html"><![CDATA[
+<div style="text-align:center; background-color:#EFEFEF">
+<script type="text/javascript"><!--
+document.body.style.backgroundColor = "#EFEFEF";
+amazon_ad_tag="fuktommy-22"; 
+amazon_ad_width="160"; 
+amazon_ad_height="600"; 
+amazon_color_background="EFEFEF"; 
+amazon_color_border="808080"; 
+amazon_color_logo="000000"; 
+amazon_color_link="0000FF"; //--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.jp/s/asw.js"></script>
+</div>
+  ]]>
+  </Content>
+</Module>

@@ -1,0 +1,16 @@
+>>>define TITLE         py2ch
+>>>define DESCRIPTION   CGIとして動作する2chブラウザ
+>>>include "head.h"
+
+<p>py2chはCGIとして動作する<a href="http://2ch.net/">2ちゃんねる</a>専用ブラウザです。
+<a href="/perl/#pu-roxy">pu-roxy</a>を<a href="http://www.python.jp/Zope/">Python</a>に移植して、開発がスタートしました。
+<a href="http://2ch.tora3.net/">2ちゃんねるビューア</a>に対応しています。
+<a href="http://w3m.sourceforge.net/">W3M</a>のLocal CGIとして使うのをお勧めします。</p>
+
+<ul>
+  <li><a href="py2ch-0.1.1.tar.gz">0.1.1</a> 2006-07-28</li>
+  <li><a href="py2ch-0.1.0.tar.gz">0.1.0</a> 2006-05-28</li>
+  <li><a href="py2ch-0.1.b8.tar.gz">0.1-beta8</a> 2005-09-30</li>
+</ul>
+
+>>>include "foot.h"

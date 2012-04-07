@@ -1,0 +1,81 @@
+>>>define TITLE         Fuktommy.com
+>>>define DESCRIPTION   Fuktommyの個人サイトです。
+>>>define TOPPAGE 1
+>>>include "head.h"
+<!-- $Id$ -->
+
+<h1><span style="color:#0039b6">F</span><span style="color:#c41200">u</span><span style="color:#f3c518">k</span><span style="color:#0039b6">t</span><span style="color:#30a72f">o</span><span style="color:#c41200">m</span><span style="color:#0039b6">m</span><span style="color:#c41200">y</span><span style="color:#f3c518">.</span><span style="color:#0039b6">c</span><span style="color:#30a72f">o</span><span style="color:#0039b6">m</span></h1>
+
+<noscript>
+<p><a href="http://mobile.fuktommy.com/">携帯電話の方はこちら。</a></p>
+</noscript>
+
+<script type="text/javascript">
+// <![CDATA[
+    var searchbox_engines = [
+        ['ウェブ全体', 'Google 検索', false,
+         'http://www.google.co.jp/search?ie=UTF-8&domains=fuktommy.com&q='],
+        ['僕のブログ', 'Google 検索', true,
+         'http://www.google.com/cse?cx=003570941829906538055:5apetotzz44'
+         + '&ie=UTF-8&q='],
+        ['ブログ一般', 'Yahoo! 検索', false,
+         'http://blog-search.yahoo.co.jp/search?fr=top_v2&ei=UTF-8&p='],
+        ['通販', 'Amazon 検索', false,
+         'http://www.amazon.co.jp/gp/search?ie=UTF8&tag=fuktommy-22'
+         + '&index=blended&linkCode=ur2&camp=247&creative=1211&keywords=']
+    ];
+    var searchbox_poweredby = [
+        ['Google', 'http://www.google.co.jp/'],
+        ['Yahoo', 'http://www.yahoo.co.jp/'],
+        ['Amazon', 'http://www.amazon.co.jp/?_encoding=UTF8'
+                   + '&tag=fuktommy-22&linkCode=sb1&camp=663&creative=3407']
+    ];
+// ]]>
+</script>
+<script type="text/javascript" src="/searchbox.js"></script>
+<noscript>
+  <div style="text-align:center">
+    <form method="get" action="http://www.google.co.jp/search"><p>
+      <input type="hidden" name="ie" value="utf-8" />
+      <input type="hidden" name="hl" value="ja" />
+      <input type="hidden" name="domains" value="fuktommy.com" />
+      <input type="hidden" name="sitesearch" value="fuktommy.com" />
+      <input type="text" id="q" name="q" value="" size="55" maxlength="255" />
+      <input type="submit" name="btnG" value="サイト内検索" />
+    </p></form>
+  </div>
+</noscript>
+
+<div class="adsfoot">
+<script type="text/javascript"><!--
+amazon_ad_tag="fuktommy-22"; 
+amazon_ad_width="468"; 
+amazon_ad_height="60"; 
+amazon_color_background="EFEFEF"; 
+amazon_color_border="000000"; 
+amazon_color_logo="FFFFFF"; 
+amazon_color_link="0000FF"; //--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.jp/s/asw.js"></script>
+<noscript>
+<br />
+<iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=fuktommy-22&amp;o=9&amp;p=13&amp;l=ez&amp;f=ifr&amp;f=ifr" width="468" height="60" style="border:none;"></iframe>
+</noscript>
+</div>
+
+<ul class="navi">
+  <li><a href="https://plus.google.com/104787602969620799839" rel="author">ブログ</a>
+      <a href="http://feeds.feedburner.com/fuktommy"><img src="/feed-icon-16x16.gif" width="16" height="16" alt="Atom Feed" title="Atom Feed" /></a></li>
+  <li><a href="http://blog.fuktommy.com/category/tanuki">タヌキ</a></li>
+  <li><a href="/map#soft">ソフト</a></li>
+  <li><a href="/map#data">データ</a></li>
+</ul>
+<ul class="navi">
+  <li><a href="/map#blog">外部</a></li>
+  <li><a href="/map#address">連絡先</a></li>
+  <li><a href="/map#profile">プロフィール</a></li>
+  <li><a href="http://bbs.fuktommy.com/">掲示板</a></li>
+</ul>
+
+>>>include "address.h"
+</body>
+</html>

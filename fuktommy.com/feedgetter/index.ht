@@ -1,0 +1,26 @@
+>>>define TITLE         FeedGetter
+>>>define DESCRIPTION   RSSフィードを取ってきて整形するツール
+>>>include "head.h"
+
+<p><a href="/">トップページ</a>は3つのRSSフィードをもとに自動生成してるのですが、
+その舞台裏はこんな感じでした。
+今は<a href="http://code.google.com/apis/ajaxfeeds/">Google AJAX Feed API</a>を使っています。</p>
+
+<h3>JSONPで非同期的に読み込む版</h3>
+<ul>
+  <li><a href="feedgetter.2007-10-21.tar.gz">feedgetter.2007-10-21.tar.gz</a></li>
+</ul>
+
+<h3>JavaScriptを使ってみた版</h3>
+<ul>
+  <li><a href="feedgetter.2007-10-20.tar.gz">feedgetter.2007-10-20.tar.gz</a></li>
+</ul>
+
+<h3>以下は直接HTMLを生成していた版</h3>
+<ul>
+  <li><a href="feedgetter.2007-09-06.1.tar.gz">feedgetter.2007-09-06.1.tar.gz</a></li>
+  <li><a href="feedgetter.2007-09-06.tar.gz">feedgetter.2007-09-06.tar.gz</a></li>
+  <li><a href="feedgetter.2007-09-04.tar.gz">feedgetter.2007-09-04.tar.gz</a></li>
+</ul>
+
+>>>include "foot.h"

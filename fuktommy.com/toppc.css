@@ -1,0 +1,110 @@
+@import "common.css";
+@import "pc.css";
+
+div#maincolumn {
+    border: none;
+    width: 100%;
+    padding-top: 0;
+}
+
+div#maincolumn p {
+    margin: 1em 20%;
+}
+
+div#maincolumn ul, div#maincolumn dl {
+    margin: 1em 30%;
+}
+
+div#maincolumn ul.navi {
+    margin: 1em 10%;
+}
+
+div#sidebar {
+    width: 25%;
+    display: none;
+}
+
+h1 {
+    font-size: 400%;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+div.menupanel {
+    margin: 1em;
+    border: solid 1px black;
+}
+
+ul.navi {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul.navi li {
+    display: inline;
+    padding: 0 1ex;
+}
+
+p#search {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.feedlist td {
+    vertical-align: top;
+    border: none;
+}
+
+.feedlist {
+    border: 1px solid #808080;
+    padding: 1ex;
+    margin-top: 2em;
+}
+
+.feedlist a {
+    text-decoration: none;
+    color: #0000aa;
+}
+
+.feedlist a:hover {
+    text-decoration: underline;
+}
+
+.feedlist h2 {
+    margin-top: 0;
+}
+
+.feedlist h2 a {
+    color: #00B;
+}
+
+.feedlist ul {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.feedlist li {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.feedlist .listmark {
+    color: #ccc;
+}
+
+.feedlist .comment {
+    color: #333;
+    font-size: 80%;
+}
+
+address {
+    margin-top: 1em;
+}
+
+div.adsfoot {
+    margin-bottom: 1em;
+}

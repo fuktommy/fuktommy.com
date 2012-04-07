@@ -1,0 +1,62 @@
+>>>define TITLE         ニコニコ動画外部プレーヤー
+>>>define DESCRIPTION   ニコニコ動画の外部プレーヤーを読み込むページ
+>>>define SECTION       ニコニコ動画便利ツール
+>>>define AMAZONADS     1
+>>>include "head.h"
+<!-- $Id$ -->
+
+<div id="container"></div>
+
+<form id="controller" method="get" action="#"><table>
+  <tr>
+    <td>動画ID:</td>
+    <td><input name="video" value="sm13141793" /></td>
+  </tr>
+  <tr>
+    <td>幅:</td>
+    <td><input name="width" value="490" /></td>
+  </tr>
+</table>
+<input type="submit" value="表示" />
+</form>
+
+<script type="text/javascript">//<![CDATA[
+(function () {
+    var controller = document.getElementById('controller');
+
+    var update = function () {
+        var container = document.getElementById('container');
+        container.innerHTML = '';
+
+        var video = controller.video.value;
+        var width = controller.width.value;
+        var height = width / 490 * 307;
+
+        document.write = function (str) { container.innerHTML += str; };
+
+        var player = document.createElement('script');
+        player.src = 'http://ext.nicovideo.jp/thumb_watch/'
+                   + video + '?w=' + width + '&h=' + height;
+        document.body.appendChild(player);
+
+        location.hash = '#' + video;
+        return false;
+    };
+    controller.onsubmit = update;
+
+    if (location.hash.length >= 2) {
+              controller.video.value = location.hash.substring(1);
+    }
+
+    if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded',
+                                  update, false);
+    } else if (window.attachEvent) {
+        window.attachEvent('onload',update);
+    } else {
+        window.onload = update;
+    }
+})();
+//]]></script>
+
+>>>include "foot.h"

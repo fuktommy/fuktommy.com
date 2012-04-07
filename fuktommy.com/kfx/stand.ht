@@ -1,0 +1,127 @@
+>>>define TITLE         スタンド使い in KFX
+>>>define DESCRIPTION   昔書いたものです。
+>>>define SECTION       KFX
+>>>include "head.h"
+
+<p>スタンド使いだけではなく、似たようなのも集めました。多分漏れがあると思うので指摘して下さい。</p>
+
+<table summary="stand users">
+  <thead>
+    <tr>
+      <td>スタンド使い</td>
+      <td>スタンド</td>
+      <td>作者</td>
+      <td>説明</td>
+    </tr>
+  </thead>
+  <tr>
+    <td>ＫＡＺＺ（カッズ）</td>
+    <td>ザ・ワード</td>
+    <td>KAZU殿</td>
+    <td>自分の体を布状にしてのばす。血縁が色々あるらしい。</td>
+  </tr>
+  <tr>
+    <td>紅赤のＫＵＴＳ</td>
+    <td>デスクリムゾン</td>
+    <td>KAZU殿</td>
+    <td>拳銃のスタンド。師匠も応援に来る。</td>
+  </tr>
+  <tr>
+    <td>KENICHI</td>
+    <td>魔王</td>
+    <td>KAZU殿</td>
+    <td>ある高校生に魔王が乗り移った状態。</td>
+  </tr>
+  <tr>
+    <td>ＧＯＡＣＣＨＯ（ゴアッチョ）</td>
+    <td>エクセル</td>
+    <td>KAZU殿</td>
+    <td>温度を下げる。</td>
+  </tr>
+  <tr>
+    <td>？？？</td>
+    <td>ＴＨＥ　太陽</td>
+    <td><a href="http://www.geocities.co.jp/Playtown-Bingo/9593/index.htm">ＷＩＳ殿</a></td>
+    <td>どこにいるッ！　出てこい！　しかし太陽に振れると火傷してしまう。</td>
+  </tr>
+  <tr>
+    <td>Ｇ−０１</td>
+    <td>グラディウス</td>
+    <td>Ｇ−０１殿／<a href="http://www2.freeweb.ne.jp/~muranet/">むらたん殿</a></td>
+    <td>モノスゴイ腕力＋時を止める。実はかなり高度な技術が使われている。</td>
+  </tr>
+  <tr>
+    <td>XOL（ゾル、またはソル）</td>
+    <td>SHADOW（アーム）</td>
+    <td><a href="http://www.freepage.total.co.jp/yashiro/">ＹＳＲ＋＋</a></td>
+    <td>アームはスタンドに酷似しているが別物。影のような外見を持つ。</td>
+  </tr>
+  <tr>
+    <td>Tak-A</td>
+    <td>センチメンタル・バス</td>
+    <td><a href="http://www3.freeweb.ne.jp/play/tak-g/">Tak-G殿</a></td>
+    <td>アドバンスドTak-G。らしい。</td>
+  </tr>
+  <tr>
+    <td>ＤＩＡＢＬＯ（ディアブロ）</td>
+    <td>エクスプローラー</td>
+    <td>KAZU殿</td>
+    <td>他人の技をコピーする。パワーアップ法の傑作。台詞がすばらしい。</td>
+    </tr>
+  <tr>
+    <td>土井（ＤＯＩ）</td>
+    <td>サ・ワールゾ２１</td>
+    <td><a href="http://fuktommy.xrea.jp/kfx/">FukTommy</a></td>
+    <td>時を止めるスタソド。攻撃判定のやたら広い問題児。</td>
+  </tr>
+  <tr>
+    <td>ＤＯＮＯ</td>
+    <td>キューピーマヨネーズ</td>
+    <td><a href="http://www2.freeweb.ne.jp/~muranet/">むらたん殿</a></td>
+    <td>スタンドよりも目から怪光線のほうが使い勝手が良かったりする。スタンドは脂肪を操る、だったかな？</td>
+  </tr>
+  <tr>
+    <td>二ノ宮　馬秀</td>
+    <td>トライガン</td>
+    <td>倉ウド酢とライフ殿／<a href="http://www2.freeweb.ne.jp/~muranet/">むらたん殿</a></td>
+    <td>拳銃型のスタンド。スタンドは地味だが声とか受けるぞ。</td>
+  </tr>
+  <tr>
+    <td>ぷち</td>
+    <td>ちょちょ</td>
+    <td>老谷津殿</td>
+    <td>「煩悩」のスタンド。怪奇虹男が出る前はＫＦＸ界最小キャラだった。</td>
+  </tr>
+  <tr>
+    <td>blood pitt</td>
+    <td>マインスイーパー</td>
+    <td>KAZU殿</td>
+    <td>爆弾を飛ばす。そのほか色々あるが省略。</td>
+    </tr>
+  <tr>
+    <td>Ｍ．Ａ．Ｄ（マッド）</td>
+    <td>ロータス</td>
+    <td>KAZU殿</td>
+    <td>物を別の物にみせる。それを高速で飛ばす。それにふれると「何かを一瞬断つ」</td>
+  </tr>
+  <tr>
+    <td>ムサ夫</td>
+    <td>セヴンストアー・オンライン</td>
+    <td><a href="http://fuktommy.xrea.jp/kfx/">FukTommy</a></td>
+    <td>他人の記憶を読み書きできる。特長に乏しいかも。</td>
+  </tr>
+  <tr>
+    <td>ＭＵＲＡＴＡＮ</td>
+    <td>ヒステリック・ブルー</td>
+    <td><a href="http://www2.freeweb.ne.jp/~muranet/">むらたん殿</a></td>
+    <td>波音使いの使う触手型スタンド。渋いッ！</td>
+  </tr>
+  <tr>
+    <td>若尾トミ</td>
+    <td>ジジイ</td>
+    <td><a href="http://www.aba.ne.jp/~oosama/">おおさま殿</a></td>
+    <td>冥王星の電波を一身に受けた世紀のハイブリッド婆さん。</td>
+  </tr>
+  </table>
+
+>>>include "foot.h"

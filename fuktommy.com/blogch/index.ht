@@ -1,0 +1,35 @@
+>>>define TITLE         blogch配布ページ
+>>>define DESCRIPTION   「blogch」(ぶろぐっち)は簡易的なブログです。
+>>>include "head.h"
+<!-- $Id$ -->
+
+<h2>blogchとは</h2>
+<p>「blogch」(ぶろぐっち)はGoogleバズを整形して表示するツールです。
+歴史的経緯で、簡易的なブログ機能がくっついています。</p>
+
+<p>もともとの「blogch」は掲示板風のBlog、またはBlog風の掲示板でしたが、
+新しいブログの開発のために名前を引き継ぎました。</p>
+
+<p>サンプルはこちら:
+<a href="http://blog.fuktommy.com/">blog.fuktommy.com</a></p>
+
+<h2>ダウンロード</h2>
+<p>blogch3。PHP+Smartyによる実装。</p>
+<ul>
+  <li><a href="blogch3.2010-12-25.tar.gz">blogch3.2010-12-25</a></li>
+  <li><a href="blogch3.2010-12-12.tar.gz">blogch3.2010-12-12</a></li>
+  <li><a href="blogch3.2010-09-20.tar.gz">blogch3.2010-09-20</a></li>
+</ul>
+
+<h2>blogch2</h2>
+<p>Pythonによる実装。</p>
+<ul>
+  <li><a href="blogch.2007-05-01.tar.gz">blogch 2007-05-01</a></li>
+</ul>
+
+<h2>元祖blogch</h2>
+<ul>
+  <li>2004-12-28 <a href="blogch-0.3.7.tar.gz">blogch-0.3.7</a></li>
+</ul>
+
+>>>include "foot.h"

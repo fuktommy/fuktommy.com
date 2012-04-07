@@ -1,0 +1,10 @@
+>>>define TITLE         Linuxについて
+>>>define DESCRIPTION   設定のメモなどです
+>>>include "head.h"
+
+<ul>
+  <li><a href="tools">Unixを便利にする道具</a></li>
+  <li><a href="sarge">Debian Sarge のメモ</a></li>
+</ul>
+
+>>>include "foot.h"

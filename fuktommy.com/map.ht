@@ -1,0 +1,187 @@
+>>>define TITLE         サイトマップ
+>>>define DESCRIPTION   Fuktommyの個人サイトです。
+>>>include "head.h"
+<!-- $Id$ -->
+
+<h2>目次</h2>
+<ul>
+  <li><a href="#soft">ソフト</a></li>
+  <li><a href="#data">データ</a></li>
+  <li><a href="#blog">ブログ等</a></li>
+  <li><a href="#address">連絡先</a></li>
+  <li><a href="#profile">プロフィール</a></li>
+</ul>
+
+<h2 id="soft">ソフト</h2>
+<dl>
+  <dt><a href="/blogch/">blogch</a></dt>
+  <dd>簡易ブログ。</dd>
+
+  <dt><a href="/htmlpp/">HTMLプリプロセッサ</a></dt>
+  <dd>HTMLの合成ツール。</dd>
+
+  <dt><a href="/genpasswd/">genpasswd</a></dt>
+  <dd>パスワード生成ツール。</dd>
+
+  <dt><a href="/bookmarklets">ブックマークレット</a></dt>
+  <dd>ちょっと便利なブックマークレットたち</dd>
+
+  <dt><a href="/niconico/">ニコニコ動画便利ツール</a></dt>
+  <dd>ニコニコ動画のための便利ツール。</dd>
+
+  <dt><a href="http://hateber.fuktommy.com/">はてバーぶろぐ</a></dt>
+  <dd>はてなブックマークを使ったミニブログ。</dd>
+
+  <dt><a href="http://shingetsu.info/">新月</a></dt>
+  <dd>P2P匿名掲示板。</dd>
+
+  <dt><a href="/modchain/">ModifireChain</a></dt>
+  <dd>Smarty風のメソッドチェインでテンプレートを書くライブラリ。</dd>
+
+  <dt><a href="/upnp/">UPnP</a></dt>
+  <dd>UPnPを利用したツール。</dd>
+
+  <dt><a href="/kakera/">声のかけら。自作パッチ</a></dt>
+  <dd>「<a href="http://www.hyuki.com/kakera/about.html">声のかけら。</a>」を拡張しています。</dd>
+
+  <dt><a href="/script/">各種スクリプト</a></dt>
+  <dd>PythonやPerlのスクリプトです。</dd>
+
+  <dt><a href="/homebin/">~/bin</a></dt>
+  <dd>~/binの中身です。</dd>
+
+  <dt><a href="/js/">JavaScript</a></dt>
+  <dd>ブックマークレットや
+      <a href="https://addons.mozilla.org/ja/firefox/addon/748">Greasemonkey</a>のユーザスクリプトです。</dd>
+
+  <dt><a href="/feedgetter/">FeedGetter</a></dt>
+  <dd>RSSフィードを取ってきて整形するツール。</dd>
+
+  <dt><a href="http://recognition.web.fc2.com/trend/">コピペトレンド</a></dt>
+  <dd>複数のブログ記事から文を抜き出してニュースっぽいものを作るツール。</dd>
+
+  <dt><a href="http://pyny.sourceforge.net/">Pyny</a></dt>
+  <dd>PythonによるWinnyクローン。</dd>
+
+  <dt><a href="/py2ch/">py2ch</a></dt>
+  <dd>2chブラウザ。</dd>
+
+  <dt><a href="/slb/">SLB</a></dt>
+  <dd>Ajaxを用いた軽量ブログ。</dd>
+
+  <dt><a href="/numberplace/">必勝!! ナンバープレイス</a></dt>
+  <dd>JavaScriptでナンバープレイス(数独)を解く。</dd>
+
+  <dt><a href="/tropy/">FukTropy</a></dt>
+  <dd>チラシの裏ツール。</dd>
+
+  <dt><a href="/quickblog/">くっつきブログ</a></dt>
+  <dd>どんなウェブページでもブログにしてしまいます。</dd>
+
+  <dt><a href="/tsuwiki/">つWiki</a></dt>
+  <dd>掲示板風Wiki。</dd>
+
+  <dt><a href="/pushare/">pushare</a></dt>
+  <dd>PUSH型ファイル共有ソフト。</dd>
+
+  <dt><a href="/perl/">その他Perlスクリプト</a></dt>
+  <dd>昔に作ったものです。</dd>
+
+  <dt><a href="/java/">その他Javaアプリ</a></dt>
+  <dd>昔に作ったものです。</dd>
+</dl>
+
+<h2 id="data">データ</h2>
+<dl>
+  <dt><a href="http://archives.fuktommy.com/">貸倉庫</a>,
+      <a href="http://archives2.fuktommy.com/">貸倉庫2</a></dt>
+  <dd>OSSなどを再配布しています。</dd>
+
+  <dt><a href="http://repos.fuktommy.com/trac/browser">repos.fuktommy.com</a></dt>
+  <dd>サイトのソースコードなど。</dd>
+
+  <dt><a href="/p2p/">P2P</a></dt>
+  <dd>P2P勉強会の資料などです。</dd>
+
+  <dt><a href="/linux/">Linux</a></dt>
+  <dd>インストール方法など。</dd>
+
+  <dt><a href="/windows/">Windows</a></dt>
+  <dd>設定ファイルなど。</dd>
+
+  <dt><a href="/kfx/">KFX</a></dt>
+  <dd>格闘ゲームのデータ。昔に作ったものです。</dd>
+
+  <dt><a href="/comic/">漫画</a></dt>
+  <dd>エニックス4コマDB。最近更新してません。</dd>
+</dl>
+
+<h2 id="blog">外部サービス等</h2>
+<dl>
+  <dt><a href="/+">Google+</a></dt>
+  <dd>ブログです。
+      ここの記事にも
+      <a href="http://creativecommons.org/licenses/by/2.1/jp/">CC_BY</a>
+      を適用します。
+      <a href="http://www.fuktommy.com/sns">その他のSNS</a>はこちら。</dd>
+
+  <dt><a href="http://astore.amazon.co.jp/fuktommy-22">Fuktommyはこんな本を読んでいます。</a></dt>
+  <dd>Amazonインスタントストア。</dd>
+
+  <dt><a href="http://www.amazon.co.jp/gp/registry/registry.html?type=wishlist&amp;id=3VGI29TIGSZ8">Amazonほしい物リスト</a></dt>
+  <dd>プレゼント募集中。</dd>
+
+  <dt><a href="http://bbs.fuktommy.com/">掲示板</a></dt>
+  <dd>「<a href="http://www.hyuki.com/kakera/about.html">声のかけら。</a>」を使った掲示板。</dd>
+
+  <dt><a href="http://pipes.yahoo.com/fuktommy">Yahoo! Pipes</a></dt>
+  <dd>ヘッドライン。<a href="http://pipes.yahoo.com/pipes/pipe.run?_id=vtDv2VkO3hGA5KIw3rVd_w&amp;_render=rss">フィードはこちら</a>。</dd>
+
+  <dt><a href="http://www.google.com/calendar/embed?src=ai4ot97m3u8sof91p661soe4bo%40group.calendar.google.com&amp;ctz=Asia/Tokyo">Googleカレンダー</a></dt>
+  <dd>公開カレンダー</dd>
+
+  <dt><a href="http://bbs.shingetsu.info/">新月掲示板</a></dt>
+  <dd>P2P匿名掲示板ゲートウェイ。</dd>
+
+  <dt><a href="http://mobile.fuktommy.com/">モバイルサイト</a></dt>
+  <dd><a href="http://mobile.fuktommy.com/"><img src="/mobileqrcode.gif" width="132" height="132" alt="モバイルサイト" title="モバイルサイト" /></a><br />
+      <a href="http://qry.jp/">QRコードのQRy</a>で生成しました。</dd>
+</dl>
+
+<h2 id="address">連絡先</h2>
+<dl>
+  <dt><a href="mailto:info@fuktommy.com">info@fuktommy.com</a></dt>
+  <dd>メールアドレス。
+      <a href="https://mail.google.com/">Gmail</a>で読んでいます。</dd>
+
+  <dt><a href="/fuktommy.asc">公開鍵</a></dt>
+  <dd>GnuPGの公開鍵。</dd>
+
+  <dt><a href="mailto:fuktommy@gmail.com">fuktommy@gmail.com</a></dt>
+  <dd><a href="http://www.google.com/talk/intl/ja/">Google Talk</a>アカウント。</dd>
+
+  <dt><a href="callto://fuktommy">callto://fuktommy</a></dt>
+  <dd><a href="http://www.skype.com/intl/ja/">Skype</a></dd>
+
+  <dt>090-6340-7335</dt>
+  <dd>電話です。</dd>
+</dl>
+
+<h2 id="profile">プロフィール</h2>
+<p><img src="fuktommy-face.jpg" width="150" height="171" alt="portrait" /></p>
+<ul>
+  <li>福冨 諭 (Fukutomi, Satoshi)</li>
+  <li>ハンドルはFuktommyです。</li>
+  <li>1979年生まれ 東京都出身・在住</li>
+  <li>修士(工学)</li>
+  <li><a href="http://www.uec.ac.jp/">電気通信大学</a>卒業(2002年)、
+      同修士課程修了(2004年)、
+      同博士課程単位取得済退学(2007年)</li>
+  <li><a href="http://info.dwango.co.jp/">ドワンゴ</a>でプログラマー(携帯サイトの開発)として勤務(2007年から)</li>
+</ul>
+<p>このウェブサイトに含まれる意見や結論は私個人によるものであって、
+現在または過去の所属組織の公式な方針を、
+明示黙示を問わず、あらわしているものととってはならない。
+(<a href="http://www.freebsd.org/ja/copyright/freebsd-license.html">The FreeBSD Copyright</a> を真似てみた)</p>
+
+>>>include "foot.h"

@@ -1,0 +1,6 @@
+title: Fuktommy.com
+uri: http://fuktommy.com/rss
+link: http://fuktommy.com/
+parent: http://fuktommy.com/
+description: Fuktommyの個人サイトです。
+xsl: /rss1.xsl

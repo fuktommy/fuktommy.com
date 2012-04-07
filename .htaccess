@@ -1,0 +1,33 @@
+RewriteEngine on
+
+RewriteRule ^poeny/rss.cgi$ http://fuktommy.com/poeny/rss [R=301,L]
+
+RewriteCond %{HTTP_USER_AGENT} ^WWWC [OR]
+RewriteCond %{HTTP_USER_AGENT} ^MFcrawler [OR]
+RewriteCond %{HTTP_USER_AGENT} ^libwww-perl [OR]
+RewriteCond %{HTTP_USER_AGENT} "^Hatena Antenna"
+RewriteRule ^$ https://plus.google.com/104787602969620799839/posts [R,L]
+
+RewriteRule ^[+]$ https://plus.google.com/104787602969620799839/about [R,L]
+
+RewriteRule ^hateber/(.*)    http://hateber.fuktommy.com/$1             [R=301,L]
+RewriteRule ^htmlpp/blog-pin http://fuktommy.com/homebin/blog-ping      [R=301,L]
+RewriteRule ^htmlpp/tinyhttp http://fuktommy.com/homebin/tinyhttpd      [R=301,L]
+RewriteRule ^htmlpp/htmlpp   http://fuktommy.com/homebin/htmlpp         [R=301,L]
+RewriteRule ^htmlpp/mkrss    http://fuktommy.com/homebin/mkrss          [R=301,L]
+RewriteRule ^htmlpp/mksitema http://fuktommy.com/homebin/mksitemap      [R=301,L]
+RewriteRule ^homebin/(.*)    https://github.com/fuktommy/homebin/blob/master/$1 [R=301,L]
+RewriteRule ^script/csvview  http://fuktommy.com/homebin/csvview        [R=301,L]
+RewriteRule ^script/filediet http://fuktommy.com/homebin/filediet       [R=301,L]
+RewriteRule ^script/mkpswd   http://fuktommy.com/homebin/mkpswd         [R=301,L]
+RewriteRule ^script/parse-qu http://fuktommy.com/homebin/parse-query    [R=301,L]
+RewriteRule ^script/riget    http://fuktommy.com/homebin/riget          [R=301,L]
+RewriteRule ^script/rss2hate http://fuktommy.com/homebin/rss2hatena     [R=301,L]
+RewriteRule ^script/sweetumb http://fuktommy.com/homebin/sweetumb       [R=301,L]
+RewriteRule ^script/twitter- http://fuktommy.com/homebin/twitter-backup [R=301,L]
+RewriteRule ^script/xmlcheck http://fuktommy.com/homebin/xmlcheck       [R=301,L]
+RewriteRule ^script/zgu      http://fuktommy.com/homebin/zgu            [R=301,L]
+RewriteRule ^sns$            http://www.fuktommy.com/sns                [R=301,L]
+
+RewriteRule ^js/nicovideo_player_to_link.user.js http://fuktommy.com/niconico/player_to_link.user.js [R=301,L]
+RewriteRule ^js/nicovideo_scroll.user.js         http://fuktommy.com/niconico/jkscroll.user.js [R=301,L]

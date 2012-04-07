@@ -1,0 +1,53 @@
+diff -Nru kakera-1.0.0/index.cgi kakera/index.cgi
+--- kakera-1.0.0/index.cgi	2007-12-15 00:05:04.000000000 +0900
++++ kakera/index.cgi	2007-12-15 00:24:01.000000000 +0900
+@@ -21,6 +21,7 @@
+ my $modifier_profile = '<a href="http://www.example.com/you/">Your Name</a>';
+ my $modifier_mail = 'you@example.com';
+ my $modifier_sendmail = "";
++my $modifier_backup = "/usr/you/kakera/tools/backup.sh";
+ my $modifier_site_name = q(Sample Site);
+ my $modifier_site_url = "http://www.example.com/kakera/";
+ my $modifier_theme_dir = "/usr/you/kakera/theme/default";
+@@ -82,6 +83,8 @@
+ 
+ sub hook_send_mail {
+     my ($id, $mode, $content) = @_;
++    my @lines = split(/\n/, $content);
++    system($modifier_backup, $mode, $lines[1] || $lines[0]);
+     return unless $modifier_sendmail;
+     my $message = <<"EOD";
+ To: $modifier_mail
+diff -Nru kakera-1.0.0/lib/Yuki/Kakera.pm kakera/lib/Yuki/Kakera.pm
+--- kakera-1.0.0/lib/Yuki/Kakera.pm	2007-12-15 00:05:02.000000000 +0900
++++ kakera/lib/Yuki/Kakera.pm	2007-12-15 00:24:01.000000000 +0900
+@@ -304,8 +304,8 @@
+         }
+     } else {
+         my $content = $self->{database}->{$self->{form}->{myid}};
+-        $self->{hook_send_mail}->($self->{form}->{myid}, 'delete', $content) if $self->{hook_send_mail};
+         delete $self->{database}->{$self->{form}->{myid}};
++        $self->{hook_send_mail}->($self->{form}->{myid}, 'delete', $content) if $self->{hook_send_mail};
+         &delete_uploaded_file($self, $self->{form}->{myid});
+         $self->update_recent_changes($self->{form}->{myid}, 'delete');
+         $self->{hook_touch}->() if $self->{hook_touch};
+diff -Nru kakera-1.0.0/tools/backup.sh kakera/tools/backup.sh
+--- kakera-1.0.0/tools/backup.sh	1970-01-01 09:00:00.000000000 +0900
++++ kakera/tools/backup.sh	2007-12-14 23:48:16.000000000 +0900
+@@ -0,0 +1,16 @@
++#!/bin/sh -e
++export HOME=/home/apache
++export LANG=en_US.UTF-8
++
++cd /usr/you/kakera/files
++
++for i in `svn status | awk '/^[?]/ {print $2}'`; do
++    svn add -q $i
++    svn propset -q svn:mime-type text/plain $i
++done
++
++for i in `svn status | awk '/^[!]/ {print $2}'`; do
++    svn remove -q $i
++done
++
++svn --config-dir $HOME/.subversion commit -q -m "$1 $2"

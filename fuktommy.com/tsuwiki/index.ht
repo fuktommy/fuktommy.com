@@ -1,0 +1,10 @@
+>>>define TITLE         つWiki配布ページ
+>>>define DESCRIPTION   「つWiki」は気軽に書き込めるWikiです。
+>>>include "head.h"
+
+<p>「つWiki」は気軽に書き込めるWikiです。</p>
+
+<ul>
+  <li><a href="tsuwiki-0.2.0.tar.gz">tsuwiki-0.2.0</a> 2004-08-11</li>
+</ul>
+>>>include "foot.h"

@@ -1,0 +1,42 @@
+>>>define TITLE         Perlの部屋
+>>>define DESCRIPTION   割と昔に作ったソフトが多いです
+>>>include "head.h"
+
+<h2 id="pu-roxy">プッ　ロクシー</h2>
+<ul>
+  <li><a href="pu-roxy-0.2.5.tar.gz">pu-roxy-0.2.5</a> 2005-04-02</li>
+  <li><a href="pu-roxy-0.2.4.tar.gz">pu-roxy-0.2.4</a> 2005-01-02</li>
+  <li><a href="pu-roxy-0.2.3.tar.gz">pu-roxy-0.2.3</a> 2004-12-27</li>
+  <li><a href="pu-roxy-0.2.2.tar.gz">pu-roxy-0.2.2</a> 2004-12-27</li>
+  <li><a href="pu-roxy-0.2.1.tar.gz">pu-roxy-0.2.1</a> 2004-08-20</li>
+  <li><a href="pu-roxy-0.1.7.tar.gz">pu-roxy-0.1.7</a> 2003-11-29</li>
+</ul>
+<p>プロクシとして動作する2ch専用ブラウザです。CGIです。
+機能を強化した<a href="/py2ch/">py2ch</a>をお使いください。</p>
+
+<h2>音楽ファイルのランダム演奏</h2>
+<p><a href="randplay-1.0.tar.gz">randplay-1.0</a>
+　2.4KB　2004/07/04</p>
+<p>音楽ファイルをランダムに並べかえ、連続してプレーヤに渡します。</p>
+
+<h2>jiti BBS</h2>
+<p><a href="jitibbs-0.1.b3.tar.gz">jitibbs-0.1.b3</a>
+　5KB　2003/02/08</p>
+<p>簡易的な掲示板です。誰でも発言を削除できます。セキュリティホールがあります。</p>
+
+<h2>アクセスログ</h2>
+<p><a href="acclog-0.0.5.tar.gz">acclog-0.0.5</a>
+　10KB　2002/06/18</p>
+<p>簡易的なアクセスログです。</p>
+
+<h2>MicroPlan2002</h2>
+<p><a href="mp2002-0.0.3.tar.gz">MicroPlan2002-0.0.3</a>
+　19KB　2002/05/27</p>
+<p>MicroPlan2002言語の処理系です。</p>
+
+<h2>必勝！ナンバープレイス</h2>
+<p><a href="numplace.lzh">必勝！ナンバープレイス</a>
+　ver.2.30　30KB　2001/05/29</p>
+<p>9x9のマスに数字を入れていくパズルを解きます。大抵のバリエーションには対応してます。(<a href="np-tips.lzh">付録</a>ただしサポート対象外)</p>
+
+>>>include "foot.h"

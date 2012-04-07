@@ -1,0 +1,5 @@
+test.html:
+>>>define TITLE テストページ
+>>>include "head.h"
+<p>これはテストページです</p>
+>>>include "foot.h"

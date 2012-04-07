@@ -1,0 +1,62 @@
+>>>define TITLE         SLB - Super Light Blog
+>>>define DESCRIPTION   Ajaxを使った軽量ブログです。
+>>>include "head.h"
+
+<p>サーバ側でCGIが動くのは記事を投稿するときだけなので
+サーバの負荷を軽減し、軽快に動作します。
+サーバ側のCGIはPythonで書かれています。
+動作はWindowsXP上のIE6, Firefox1.5, Opera9.0,
+Linux上のFirefox1.5で確認しました。</p>
+
+<p>0.2 からは <a href="http://prototype.conio.net/">prototype.js</a>
+を利用しています。</p>
+
+<p>サンプル: <a href="http://ajaxblog.hp.infoseek.co.jp/">Ajax Blog isweb出張所</a></p>
+
+<p>SLBの開発は中断しています。
+現在開発しているブログツールは <a href="/blogch/">blogch</a>です。
+</p>
+
+<h2>ダウンロード</h2>
+<ul>
+  <li>2006-11-26 <a href="slb-0.5.0.tar.gz">0.5.0</a></li>
+  <li>2006-05-17 <a href="slb-0.4.0.tar.gz">0.4.0</a></li>
+  <li>2006-04-21 <a href="slb-0.3.4.tar.gz">0.3.4</a></li>
+  <li>2005-12-31 <a href="slb-0.2.2.tar.gz">0.2.2</a></li>
+  <li>2005-12-23 <a href="slb-0.1.2.tar.gz">0.1.2</a></li>
+</ul>
+
+<h2>歴史</h2>
+<ul>
+  <li>2005-12-09
+      <a href="http://blog.fuktommy.com/1134134544">Ajaxで動くブログ</a>
+      の構想を発表。
+      ただし作る気はなかった。</li>
+  <li>2005-12-16
+      <a href="http://bloggerconference.jp/">Japan Blogger Conference</a>
+      の懇親会で<a href="http://wslash.com/">横田</a>さんに
+      作れと言われる。</li>
+  <li>2005-12-17
+      <a href="http://blog.fuktommy.com/1134813079">0.1 Beta1を公開</a></li>
+  <li>2005-12-21
+      <a href="http://blog.fuktommy.com/1135171146">0.1.0を公開</a></li>
+  <li>2005-12-24
+      <a href="http://prototype.conio.net/">prototype.js</a>を使った
+      <a href="http://blog.fuktommy.com/1135352214">0.2 Beta1を公開</a></li>
+  <li>2005-12-25
+      <a href="http://blog.fuktommy.com/1135500180">0.2.0を公開</a></li>
+  <li>2005-12-27
+      <a href="http://blog.fuktommy.com/1135663409">Perl版 0.1 Beta1を公開</a></li>
+  <li>2006-01-07
+      <a href="http://blog.fuktommy.com/1136622832">0.3.0を公開</a></li>
+  <li>2006-05-17
+      <a href="http://blog.fuktommy.com/1147844386">0.4.0を公開</a></li>
+  <li>2006-06-16
+      <a href="http://blog.fuktommy.com/1150386754">「永遠のベータ版」</a></li>
+  <li>2006-07-15
+      開発中止</li>
+  <li>2006-11-26
+      0.5.0を公開</li>
+</ul>
+
+>>>include "foot.h"

@@ -1,0 +1,100 @@
+>>>define TITLE         声のかけら。自作パッチ
+>>>define DESCRIPTION   声のかけら。を拡張しています。
+>>>include "head.h"
+<!-- $Id$ -->
+
+<h2>声のかけら。とは</h2>
+<p><a href="http://www.hyuki.com/kakera/about.html">声のかけら。</a> は
+<a href="http://www.hyuki.com/">結城浩</a> さんの作った
+<a href="http://ja.wikipedia.org/wiki/%E3%82%A6%E3%82%A3%E3%82%AD">Wiki</a> のような
+掲示板のようなメモ帳のようなWebアプリです。
+僕は<a href="http://bbs.fuktommy.com/">掲示板</a>にも使ってますし、
+メモ帳にも使っています。</p>
+
+<h2>パッチ</h2>
+<p>これらのパッチは「声のかけら。」と同じ条件のもとで配布することができます。</p>
+<ul>
+  <li><a href="kakera-1.00_nullid-0.1.0.diff">日付なしの記事が書けてしまうバグを修正する</a></li>
+  <li><a href="kakera-1.00_spam-0.3.0.diff">スパムフィルタ</a></li>
+  <li><a href="kakera-1.00_utf8-0.1.1.diff">文字コードをUTF-8にする</a></li>
+  <li><a href="kakera-1.00_subversion-0.1.0.diff">Subversionでバックアップをとる</a></li>
+  <li><a href="kakera-1.00_robotua-0.1.0.diff">検索エンジンのロボットは
+      検索ワードを保存したり削除したりできなくする</a></li>
+</ul>
+
+<h2>インストール手順</h2>
+<h3>パッケージを入れる</h3>
+<p>Fedoraの場合です。適宜読み換えてください。</p>
+<pre class="code"><code># yum install perl-Jcode</code></pre>
+
+<h3>アーカイブを解凍する</h3>
+<p>ここにも<a href="kakera100.zip">ミラー</a>しておきます。</p>
+<pre class="code"><code>$ cd kakera
+$ unzip ../kakera100.zip</code></pre>
+
+<h3>パッチを当てる</h3>
+<p>基本的には必要なものだけでいいのですが、上から順に当てないと依存関係があったりします。</p>
+<pre class="code"><code>$ patch -p 1 -i ../kakera-1.00_nullid-0.1.0.diff
+$ patch -p 1 -i ../kakera-1.00_spam-0.3.0.diff
+$ patch -p 1 -i ../kakera-1.00_utf8-0.1.1.diff
+$ patch -p 1 -i ../kakera-1.00_subversion-0.1.0.diff
+$ patch -p 1 -i ../kakera-1.00_robotua-0.1.0.diff</code></pre>
+
+<h3>不要なファイルを消す</h3>
+<p>僕はデフォルトのテーマしか使わないのですが、適宜読み換えてください。</p>
+
+<pre class="code"><code>$ rm -R .htaccess clover.cgi files/* images/* lib/Jcode* news.cgi \
+      theme/{clover,news} tools/simple_theme_converter.pl
+$ find -name \*.orig -print0 | xargs -0 rm</code></pre>
+
+<h3>テンプレートのUTF-8化</h3>
+<pre class="code"><code>$ cd theme/default
+$ mkdir ../utf8
+$ for i in *; do nkf -wLu $i &gt; ../utf8/$i; done
+$ cd ..
+$ rm -R default
+$ mv utf8 default</code></pre>
+
+<h3>CGIとバックアップスクリプト</h3>
+<p>バックアップスクリプトは必要な方のみ</p>
+<pre class="code"><code>$ mv index.cgi x
+$ nkf -wLu x &gt; index.cgi
+$ rm x
+$ chmod +x index.cgi
+$ chmod +x tools/backup.sh</code></pre>
+
+<h3>パスの設定</h3>
+<p>CGIの設定を変更します。
+ライブラリ、データファイルやバックアップスクリプトは外部から見えないところに置いた方がいいかも。</p>
+<p>バックアップスクリプトにもデータファイルのディレクトリの設定があります。</p>
+
+<h3>Subversionの設定</h3>
+<p>「<a href="http://blog.fuktommy.com/1194691501">Fedora7にSubversionとTracを導入</a>」のように
+HTTP経由でコミットするようにしてもいいと思いますし、
+次のようにして直接ファイルに書いてもいいと思います。</p>
+
+<pre class="code"><code>$ svnadmin create /tmp/svntest
+$ svn import files/ file:///tmp/svntest/
+$ rmdir files
+$ svn co file:///tmp/svntest/
+$ mv svntest files
+$ cd files
+$ svn propedit svn:ignore .
+$ svn commit</code></pre>
+
+<p><code>svn propedit svn:ignore .</code>
+で立ち上がるエディタには、次のように入力します。</p>
+
+<pre class="code">recent_changes.txt
+touched.txt</pre>
+
+<h3>パーミッション</h3>
+<pre class="code"><code>$ chown -R apache.apache files images
+$ chown -R apache.apache /tmp/svntest</code></pre>
+
+<h2>書き込み認証</h2>
+<p>SPAMを(ある程度)防いだり、
+検索エンジンのロボットが検索履歴を消していかないように設定する方法です。<br />
+<a href="http://blog.fuktommy.com/1240074944">声のかけら。にDigest認証をかけてみたよ</a></p>
+
+>>>include "foot.h"

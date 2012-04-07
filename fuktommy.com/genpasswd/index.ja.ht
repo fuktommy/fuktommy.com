@@ -12,7 +12,7 @@ base64(sha1(domain+":"+salt+":"+passphrase)) です。</p>
 
 <ul>
   <li><a href="/homebin/genpasswd">Python版</a> (PC用)</li>
-  <li><a href="https://market.android.com/details?id=com.fuktommy.genpasswd">Android 版</a> と <a href="http://repos.fuktommy.com/trac/browser/android/genpasswd/trunk">ソースコード</a></li>
+  <li><a href="https://market.android.com/details?id=com.fuktommy.genpasswd">Android 版</a> と <a href="https://github.com/fuktommy/genpasswd-android">ソースコード</a></li>
 </ul>
 
 <p>Android上でもPCでも、同じパスワードからどのドメインのパスワードでも生成できます。</p>

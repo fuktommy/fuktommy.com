@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-cd /srv/stage/fuktommy.com
+cd `dirname $0`
 del rss.rdf sitemap.txt recent.js || true
 mkrss -h head.txt > rss.rdf
 mksitemap http://fuktommy.com/ . | sort > sitemap.txt

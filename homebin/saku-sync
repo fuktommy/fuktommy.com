@@ -1,2 +1,0 @@
-#!/bin/sh
-rsync --delete -Cachv $HOME/devel/saku/ sakura.fuktommy.com:/srv/saku/source

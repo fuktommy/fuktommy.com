@@ -1,0 +1,65 @@
+Content-type: text/html; charset=utf-8
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <IF SEARCH_WORD>
+        <meta name="robots" content="noindex,nofollow,noarchive" />
+    </IF>
+    <link rel="index" href="<SITE_URL>" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="<SITE_URL>?rss" />
+    <link rel="SHORTCUT ICON" type="image/x-icon" href="/favicon.ico" />
+    <link href="<THEME_BASE_URL>/style.css" type="text/css" rel="stylesheet" media="screen,print" />
+    <IF ITEM_TITLE>
+        <title><ITEM_TITLE> - <SITE_NAME></title>
+    <ELSE>
+        <title><SITE_NAME></title>
+    </IF>
+</head>
+<body>
+
+<div class="header">
+    <table summary="top banner layout"><tr><td width="200" valign="top">
+        <h1><a
+            title="「<SITE_NAME>」のトップページへ行きます（リロード）。"
+            href="<SITE_URL>"><SITE_NAME></a></h1>
+        <p>パスワードを求められたら、ユーザ名とパスワードにguestと入力してください。</p>
+    </td><td valign="top">
+        <INCLUDE localjump.txt>
+    </td></tr></table>
+
+    <div class="menu">
+        <a
+            title="はじめての方へのメッセージです。"
+            href="<SITE_URL>?about">はじめての方へ</a>&nbsp;・&nbsp;<a
+            title="新しい「かけら」を作る画面へ移ります。"
+            href="<SITE_URL>?create">かけらを作る</a>&nbsp;・&nbsp;<a
+            title="最新の「かけら」を表示します。"
+            href="<SITE_URL>">最新</a>&nbsp;・&nbsp;<a
+            title="すべての「かけら」の中からランダムに1個ひろいあげて表示します。"
+            href="<SITE_URL>?random">ランダム</a>&nbsp;・&nbsp;<a
+            title="すべての「かけら」の一覧を表示する画面へ移ります。"
+            href="<SITE_URL>?recent">すべてのかけら</a>&nbsp;・&nbsp;<a
+            title="更新情報をRSSリーダーで取得するためのリンクです。"
+            href="<SITE_URL>?rss">RSS</a>
+    </div>
+</div>
+<div class="ads">
+<script type="text/javascript"><!--
+  amazon_ad_tag = "fuktommysstor-22";
+  amazon_ad_width = "728";
+  amazon_ad_height = "90";
+  amazon_color_border = "CCFFCC";
+  amazon_color_background = "FFFFCC";
+  amazon_color_link = "0000FF";
+  amazon_ad_logo = "hide";
+//--></script>
+<script type="text/javascript" src="http://www.assoc-amazon.jp/s/ads.js"></script>
+<noscript>
+<iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=fuktommy-22&amp;o=9&amp;p=13&amp;l=ez&amp;f=ifr&amp;f=ifr" width="468" height="
+60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border:none;"></iframe>
+</noscript>
+</div>

@@ -1,0 +1,35 @@
+Content-type: application/xml
+
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns="http://purl.org/rss/1.0/"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:content="http://purl.org/rss/1.0/modules/content/"
+>
+    <channel rdf:about="<SITE_URL>?rss">
+        <title><SITE_NAME></title>
+        <link><SITE_URL></link>
+        <description>やさしい心で、ひとことどうぞ。</description>
+        <items>
+            <rdf:Seq>
+                <LOOP RSS_ITEM_LIST>
+                    <rdf:li rdf:resource="<RSS_ITEM_LINK>" />
+                </LOOP>
+            </rdf:Seq>
+        </items>
+    </channel>
+
+    <LOOP RSS_ITEM_LIST>
+        <item rdf:about="<RSS_ITEM_ABOUT>">
+            <title><RSS_ITEM_TITLE></title>
+            <link><RSS_ITEM_LINK></link>
+            <description><RSS_ITEM_DESCRIPTION></description>
+            <dc:date><RSS_ITEM_DATE></dc:date>
+            <content:encoded><![CDATA[
+                <RSS_ITEM_CONTENT>
+            ]]></content:encoded>
+        </item>
+    </LOOP>
+
+</rdf:RDF>

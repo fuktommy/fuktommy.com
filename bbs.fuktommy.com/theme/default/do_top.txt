@@ -1,0 +1,10 @@
+<INCLUDE header.txt>
+
+<INCLUDE create.txt>
+
+<a name="written" id="written"> </a>
+<LOOP ITEM_LIST>
+    <INCLUDE item.txt>
+</LOOP>
+
+<INCLUDE footer.txt>

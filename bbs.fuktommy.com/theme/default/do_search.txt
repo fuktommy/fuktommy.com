@@ -1,0 +1,7 @@
+<INCLUDE header.txt>
+
+<LOOP ITEM_LIST>
+    <INCLUDE item.txt>
+</LOOP>
+
+<INCLUDE footer.txt>

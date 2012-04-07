@@ -1,0 +1,36 @@
+>>>define TITLE         mobile.fuktommy.com
+>>>define DESCRIPTION   Fuktommyの携帯電話向けサイトです。
+>>>define TOPPAGE       1
+>>>include "tags.h"
+>>>include "head.h"
+
+<$H2>読む<$_H2>
+<ul>
+  <li><a href="http://mobile.fuktommy.com/blog/">ブログ</a></li>
+  <li><a href="http://www.nicovideo.jp/user/146583">ニコニコ動画</a></li>
+  <li><a href="http://fuktommy.com/">Fuktommy.com</a></li>
+</ul>
+
+<$H2>連絡先<$_H2>
+<ul>
+  <li><a href="mailto:info@fuktommy.com">メール</a></li>
+  <li><a href="tel:09063407335">電話</a></li>
+</ul>
+
+<$H2>使う<$_H2>
+<ul>
+  <li><a href="http://bbs.shingetsu.info/">新月掲示板</a></li>
+  <li><a href="http://hateber.fuktommy.com/">はてバーぶろぐ</a></li>
+  <li><a href="tokyo">モバイル東京</a></li>
+</ul>
+
+<$H2>おすすめ<$_H2>
+<ul>
+  <li><a href="google">グーグル関連</a></li>
+  <li><a href="http://www.amazon.co.jp/gp/aw/rd.html?uid=NULLGWDOCOMO&amp;url=/gp/aw/h.html&amp;at=fuktommysstor-22&amp;lc=mbn">Amazon</a></li>
+  <li><a href="http://c.2ch.net/">2ちゃんねる</a></li>
+  <li><a href="http://wpedia.mobile.goo.ne.jp/">Wikipedia検索</a></li>
+  <li><a href="dwango">ドワンゴ関連</a></li>
+</ul>
+
+>>>include "foot.h"

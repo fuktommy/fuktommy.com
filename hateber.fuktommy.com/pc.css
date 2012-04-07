@@ -1,0 +1,65 @@
+body {
+    padding: 20px;
+}
+
+p.sitename {
+    font-size: 300%;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    background-color: #efefef;
+    margin: 0;
+    padding: 0;
+}
+
+h1 a, h1 a:visited {
+    text-decoration: none;
+    color: #00b;
+}
+
+form#searchbar p {
+    text-align: right;
+    width: 180px;
+}
+
+form#searchbar input#searchbox {
+    width: 90%;
+}
+
+a:hover {
+    color: #000;
+    background-color: #aaf;
+}
+
+dd {
+    margin-bottom: 1em;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+pre.code {
+    border: solid 1px #7f7;
+    padding: 0 1ex;
+}
+
+div.list h2 {
+    border-left: solid 1.5em #faa;
+    border-bottom: solid 1px #afa;
+    margin-top: 2em;
+    padding-left: 0.5em;
+}
+
+div.list h3 {
+    border-left: solid 1em #aaf;
+    padding-left: 0.5em;
+}
+
+div.list p {
+    margin-left: 2em;
+}

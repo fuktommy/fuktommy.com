@@ -1,6 +1,6 @@
 <?php
-$scriptURI = $_REQUEST['js'];
-$title     = $_REQUEST['title'];
+$scriptURI = empty($_REQUEST['js']) ? '' : $_REQUEST['js'];
+$title     = empty($_REQUEST['title']) ? '' : $_REQUEST['title'];
 $scriptURI = preg_replace("/\"/", "\\\"", $scriptURI);
 $jsstring = 'javascript:(function(){' .
             'var s=document.createElement("script");' .

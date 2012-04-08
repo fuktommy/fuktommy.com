@@ -30,12 +30,12 @@ PATH=$HOME/bin:$PATH
 bindkey -e
 WORDCHARS="*?_-.[]~=&!#$%^(){}<>"
 
-autoload -U compinit && compinit
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*:descriptions' format '%B%d%b'
-zstyle ':completion:*:messages' format '%d'
-zstyle ':completion:*:warnings' format 'No matches for: %d'
-zstyle ':completion:*' group-name ''
+#autoload -U compinit && compinit
+#zstyle ':completion:*' verbose yes
+#zstyle ':completion:*:descriptions' format '%B%d%b'
+#zstyle ':completion:*:messages' format '%d'
+#zstyle ':completion:*:warnings' format 'No matches for: %d'
+#zstyle ':completion:*' group-name ''
 
 alias ls="ls -F"
 alias cp="cp -i"
@@ -73,5 +73,6 @@ alias	today='date +%Y-%m-%d'
 
 title	() { echo -ne "\033]0;$*\007" }
 mcd	() { mkdir -p $1 ; cd $1 }
-compdef -d mcd
 rcd	() { local d=`pwd`; cd ..; rmdir "$d" }
+
+#compdef -d mcd

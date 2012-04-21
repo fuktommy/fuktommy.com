@@ -2,7 +2,6 @@
 >>>define DESCRIPTION   Fuktommyの個人サイトです。
 >>>define TOPPAGE 1
 >>>include "head.h"
-<!-- $Id$ -->
 
 <h1><span style="color:#0039b6">F</span><span style="color:#c41200">u</span><span style="color:#f3c518">k</span><span style="color:#0039b6">t</span><span style="color:#30a72f">o</span><span style="color:#c41200">m</span><span style="color:#0039b6">m</span><span style="color:#c41200">y</span><span style="color:#f3c518">.</span><span style="color:#0039b6">c</span><span style="color:#30a72f">o</span><span style="color:#0039b6">m</span></h1>
 
@@ -10,29 +9,14 @@
 <p><a href="http://mobile.fuktommy.com/">携帯電話の方はこちら。</a></p>
 </noscript>
 
-<script type="text/javascript">
-// <![CDATA[
-    var searchbox_engines = [
-        ['ウェブ全体', 'Google 検索', false,
-         'http://www.google.co.jp/search?ie=UTF-8&domains=fuktommy.com&q='],
-        ['僕のブログ', 'Google 検索', true,
-         'http://www.google.com/cse?cx=003570941829906538055:5apetotzz44'
-         + '&ie=UTF-8&q='],
-        ['ブログ一般', 'Yahoo! 検索', false,
-         'http://blog-search.yahoo.co.jp/search?fr=top_v2&ei=UTF-8&p='],
-        ['通販', 'Amazon 検索', false,
-         'http://www.amazon.co.jp/gp/search?ie=UTF8&tag=fuktommy-22'
-         + '&index=blended&linkCode=ur2&camp=247&creative=1211&keywords=']
-    ];
-    var searchbox_poweredby = [
-        ['Google', 'http://www.google.co.jp/'],
-        ['Yahoo', 'http://www.yahoo.co.jp/'],
-        ['Amazon', 'http://www.amazon.co.jp/?_encoding=UTF8'
-                   + '&tag=fuktommy-22&linkCode=sb1&camp=663&creative=3407']
-    ];
-// ]]>
-</script>
-<script type="text/javascript" src="/searchbox.js"></script>
+<form action="http://www.google.com/cse" id="searchbox"><p id="search">
+  <input type="text" name="q" size="31" />
+  <input type="hidden" name="cx" value="003570941829906538055:5apetotzz44" />
+  <input type="hidden" name="ie" value="UTF-8" />
+  <input type="submit" value="サイト内検索" />
+</p></form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=searchbox&amp;lang=ja"></script>
+
 <noscript>
   <div style="text-align:center">
     <form method="get" action="http://www.google.co.jp/search"><p>

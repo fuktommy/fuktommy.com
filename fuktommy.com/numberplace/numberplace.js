@@ -1,6 +1,6 @@
 // 必勝!! ナンバープレイス
 //
-// Copyright (c) 2001,2006 Satoshi Fukutomi <info@fuktommy.com>.
+// Copyright (c) 2001,2006,2012 Satoshi Fukutomi <info@fuktommy.com>.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -24,6 +24,10 @@
 // OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 // SUCH DAMAGE.
 //
+
+var numberplace = {};
+
+(function () {
 
 var SIZE = 9;
 var ROWS = 3;	// 箱の縦の長さ
@@ -105,6 +109,28 @@ FixedMatrix.prototype.set = function(x, y, value) {
     this.matrix[x][y].value = value;
 }
 
+// データだけ取り出す
+FixedMatrix.prototype.export = function () {
+    var values = [];
+    for (var i=0; i<SIZE; i++) {
+        values[i] = [];
+        for (var j=0; j<SIZE; j++) {
+            values[i][j] = this.get(i, j);
+        }
+    }
+    return values;
+};
+
+// 取り出したデータを代入する
+FixedMatrix.prototype.import = function (values) {
+    for (var i=0; i<SIZE; i++) {
+        for (var j=0; j<SIZE; j++) {
+            this.set(i, j, values[i][j]);
+            console.log(i, j, values[i][j]);
+        }
+    }
+};
+
 
 //
 // 数字の候補を格納する表
@@ -176,10 +202,18 @@ CandidateMatrix.prototype.check = function(x, y, value) {
 //
 var fixedMatrix;
 var candidateMatrix;
+var matrixHistory = [];
 function np_init() {
     var status = document.getElementById('status');
     status.innerHTML = '';
     fixedMatrix = new FixedMatrix();
+}
+
+function np_back() {
+    if (matrixHistory.length === 0) {
+        return;
+    }
+    fixedMatrix.import(matrixHistory.pop());
 }
 
 function np_clear() {
@@ -196,6 +230,7 @@ function np_start() {
     candidateMatrix = new CandidateMatrix();
     var status = document.getElementById('status');
     status.innerHTML = '計算中';
+    matrixHistory.push(fixedMatrix.export());
     var count = 0;
 
     for (var i=0; i<SIZE; i++) {
@@ -271,3 +306,10 @@ function np_start() {
 
     status.innerHTML = '終了';
 }
+
+numberplace.start = np_start;
+numberplace.back = np_back;
+numberplace.clear = np_clear;
+numberplace.init = np_init;
+
+})();

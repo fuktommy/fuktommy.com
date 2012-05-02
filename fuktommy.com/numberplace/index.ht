@@ -9,10 +9,11 @@
 <div id="matrix"><p>JavaScriptを有効にしてください。</p></div>
 <script type="text/javascript" src="numberplace.js" charset="utf-8"></script>
 <p>
-<button tabindex="90" accesskey="s" onclick="np_start();" onkeypress="np_start();">スタート</button>
-<button tabindex="91" accesskey="c" onclick="np_clear();" onkeypress="np_clear();">消去</button>
+<button tabindex="90" accesskey="s" onclick="numberplace.start();" onkeypress="numberplace.start();">スタート</button>
+<button tabindex="91" accesskey="b" onclick="numberplace.back();" onkeypress="numberplace.back();">戻す</button>
+<button tabindex="92" accesskey="c" onclick="numberplace.clear();" onkeypress="numberplace.clear();">消去</button>
 <span id="status">JavaScriptを有効にしてください。</span>
 </p>
-<script type="text/javascript">np_init();</script>
+<script type="text/javascript">numberplace.init();</script>
 
 >>>include "foot.h"

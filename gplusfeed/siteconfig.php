@@ -10,10 +10,13 @@ ini_set('user_agent', 'https://github.com/fuktommy/google-plus-feed');
 
 // configration
 return array(
-    'w3ctimezone' => '+09:00',
+    'google_api_key' => 'AIzaSyAMl46OeQC65XVPdTEinvPzZBqd00vwpkE',
 
     'site_top' => 'http://gpf.fuktommy.com/',
     'rights' => 'http://creativecommons.org/licenses/by/2.1/jp/',
+
+    // PubSubHubbub. set empty to skip publish.
+    'push_publisher' => 'https://pubsubhubbub.appspot.com/publish',
 
     'log_dir'         => "{$appRoot}/log",
     'gplus_cache_dir' => "{$appRoot}/tmp/gplus_cache",
@@ -29,7 +32,6 @@ return array(
         '100234116023959363815',    // Shin Iwata
         '100890200991479840634',    // Tomoe Fukutomi
         '101341483406792705086',    // ssig33
-        '101463981287086074128',    // bkノート
         '101469377131638204516',    // Hiromi Ogata
         '102183698010783593298',    // 横田真俊
         '102354460982682319775',    // 赤井猫
@@ -37,6 +39,7 @@ return array(
         '105684442055166146866',    // Hikaru Shimasaki
         '107002572043873162468',    // Masaki Yamada
         '108007043574812149024',    // 井原健紘
+        '109147348593403414073',    // 鷹野凌
         '110737960632793111269',    // Masafumi Otsune
         '112667774340108374584',    // hiroyuki yamanaka
         '114835769462966948273',    // skame

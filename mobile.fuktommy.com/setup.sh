@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-cd /srv/stage/mobile.fuktommy.com
+cd `dirname $0`
 del sitemap.txt || true
 mksitemap http://mobile.fuktommy.com/ . | sort > sitemap.txt
 

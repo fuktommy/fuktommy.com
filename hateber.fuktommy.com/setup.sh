@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-cd /srv/stage/hateber.fuktommy.com
+cd `dirname $0`
 
 rsync -Cacv --delete \
     --exclude="- /*.ht" \

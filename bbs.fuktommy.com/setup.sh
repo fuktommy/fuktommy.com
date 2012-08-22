@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-cd /srv/stage/bbs.fuktommy.com
+cd `dirname $0`
 
 rsync -Cacv --delete \
     --exclude="- /setup.sh" \

@@ -2,7 +2,7 @@
 //
 // Google +1 をどのページにもつけるための中間ページ
 //
-// Copyright (c) 2011 Satoshi Fukutomi <info@fuktommy.com>.
+// Copyright (c) 2011,2013 Satoshi Fukutomi <info@fuktommy.com>.
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -63,6 +63,10 @@ $chain->url = $url;
 <script src="http://apis.google.com/js/plusone.js">{lang: 'ja'}</script>
 
 <div>ブックマークレット: <a href="javascript:location.href='http://fuktommy.com/google/plusone?url='+encodeURIComponent(location.href);">+1</a></div>
+<div>ブックマークレット(別ウィンドウ開く版): <a href="javascript:(function(){window.open('http://fuktommy.com/google/plusone?url='+encodeURIComponent(location.href),'','width=800,height=600,scrollbars=no')})();">+1</a></div>
+
+<p>ChromeでサードパーティのCookieをブロックしている場合には
+設定→プライバシー→コンテンツの設定→Cookie→例外の管理で [*.]google.com を許可する必要があります。</p>
 
 <div class="adsfoot" style="margin:2em">
 <script type="text/javascript"><!--
@@ -80,7 +84,7 @@ amazon_color_link="0000FF"; //--></script>
 </noscript> 
 </div> 
 
-<div style="text-align:center;font-style:italic;margin:2em">Copyright&copy; 2011
+<div style="text-align:center;font-style:italic;margin:2em">Copyright&copy; 2011,2013
 <a href="https://plus.google.com/104787602969620799839" rel="auther">Fuktommy</a>.
 All Rights Reserved.<br /> 
 <a href="mailto:webmaster@fuktommy.com">webmaster@fuktommy.com</a> 

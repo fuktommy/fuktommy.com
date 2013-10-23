@@ -47,7 +47,7 @@ amazon_color_link="0000FF"; //--></script>
 </div>
 
 <ul class="navi">
-  <li><a href="https://plus.google.com/104787602969620799839" rel="author">ブログ</a>
+  <li><a href="https://plus.google.com/104787602969620799839?rel=author" rel="author">ブログ</a>
       <a href="http://feeds.feedburner.com/fuktommy"><img src="/feed-icon-16x16.gif" width="16" height="16" alt="Atom Feed" title="Atom Feed" /></a></li>
   <li><a href="http://blog.fuktommy.com/category/tanuki">タヌキ</a></li>
   <li><a href="/map#soft">ソフト</a></li>

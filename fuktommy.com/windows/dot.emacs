@@ -1,20 +1,20 @@
-; -*- coding: shift_jis -*-
+; -*- coding: utf-8 -*-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; “ú–{Œê•\¦‚Ìİ’è
+;; æ—¥æœ¬èªè¡¨ç¤ºã®è¨­å®š
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (set-language-environment "Japanese")
 (set-clipboard-coding-system 'japanese-shift-jis-dos)
 ;(set-w32-system-coding-system 'japanese-shift-jis-dos)
 (setq default-file-name-coding-system 'japanese-shift-jis)
 (setq file-name-coding-system 'japanese-shift-jis)
-(set-default-coding-systems 'euc-jp-unix)
-(set-buffer-file-coding-system 'euc-jp-unix)
+(set-default-coding-systems 'utf-8-unix)
+(set-buffer-file-coding-system 'utf-8-unix)
 (set-terminal-coding-system 'japanese-shift-jis-dos)
 (set-keyboard-coding-system 'japanese-shift-jis-dos)
 (setq default-process-coding-system '(euc-jp-unix . euc-jp-unix))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Š¿š•ÏŠ· (skk) ‚Ìİ’è
+;; æ¼¢å­—å¤‰æ› (skk) ã®è¨­å®š
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (skk-mode 1)
 (global-set-key "\C-o" 'toggle-input-method)
@@ -34,7 +34,7 @@
 (setq default-input-method "japanese-skk")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ‚¢‚ë‚¢‚ë
+;; ã„ã‚ã„ã‚
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key [delete] 'delete-char)
 (line-number-mode t)
@@ -88,20 +88,24 @@
 (defun nroff-mode		() (my-favorite-mode))
 (defun makefile-mode		() (my-favorite-mode))
 (defun conf-mode		() (my-favorite-mode))
+(defun change-log-mode		() (my-favorite-mode))
+(defun javascript-mode		() (my-favorite-mode))
+(defun js-mode		() (my-favorite-mode))
+(defun css-mode		() (my-favorite-mode))
 (setq initial-major-mode 'my-favorite-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Windows
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (create-fontset-from-ascii-font
- "-outline-‚l‚r ƒSƒVƒbƒN-normal-r-normal-normal-16-*-*-*-*-*-iso8859-1"
+ "-outline-ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯-normal-r-normal-normal-16-*-*-*-*-*-iso8859-1"
  nil "myfont")
 (set-fontset-font "fontset-myfont"
                   'japanese-jisx0208
-                  '("‚l‚r ƒSƒVƒbƒN*" . "jisx0208-sjis"))
+                  '("ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯*" . "jisx0208-sjis"))
 (set-fontset-font "fontset-myfont"
                   'katakana-jisx0201
-                  '("‚l‚r ƒSƒVƒbƒN*" . "jisx0201-katakana"))
+                  '("ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯*" . "jisx0201-katakana"))
 (add-to-list 'default-frame-alist '(font . "fontset-myfont"))
 
 ;(set-default-font "-outline-\202l\202r \203\123\203V\203b\203N-normal-r-normal-normal-16-120-96-96-c-*-iso10646-1")
@@ -114,12 +118,12 @@
 (setq shell-command-switch "-c")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ƒeƒ“ƒvƒŒ[ƒg•ÒW
+;; ãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆç·¨é›†
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-coding-alist '("\\.tpl$" . utf-8))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; ƒ`ƒ‹ƒ_–â‘è
+;; ãƒãƒ«ãƒ€å•é¡Œ
 ;; http://www.bookshelf.jp/2ch/unix/1141309172.html#975
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (let ((my-translation-table
@@ -131,4 +135,13 @@
             (coding-system-put coding-system :decode-translation-table my-translation-table)
             (coding-system-put coding-system :encode-translation-table my-translation-table)
         )
-    '(utf-8 cp932 utf-16le))) 
+    '(utf-8 cp932 utf-16le)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq x-select-enable-clipboard t)
+(setq select-active-regions t)
+(setq mouse-drag-copy-region t)
+(setq x-select-enable-primary t)
+(global-set-key [mouse-2] 'mouse-yank-at-click)

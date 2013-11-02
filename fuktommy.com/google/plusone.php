@@ -85,7 +85,7 @@ amazon_color_link="0000FF"; //--></script>
 </div> 
 
 <div style="text-align:center;font-style:italic;margin:2em">Copyright&copy; 2011,2013
-<a href="https://plus.google.com/104787602969620799839" rel="auther">Fuktommy</a>.
+<a href="https://plus.google.com/+%E8%AB%AD%E7%A6%8F%E5%86%A8Fuktommy/about" rel="auther">Fuktommy</a>.
 All Rights Reserved.<br /> 
 <a href="mailto:webmaster@fuktommy.com">webmaster@fuktommy.com</a> 
 (<a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/" title="This work is licensed under a Creative Commons Attribution 2.1 Japan License.">Legal Notices</a>)

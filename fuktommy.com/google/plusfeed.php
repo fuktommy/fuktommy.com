@@ -48,16 +48,16 @@ header('Content-Type: text/xml; charset=UTF-8');
   <title>Fuktommy - Google+</title>
   <subtitle>RSSリーダーのために自動生成されたエントリー</subtitle>
   <link rel="self" href="http://fuktommy.com/google/plusfeed" />
-  <link rel="alternate" href="https://plus.google.com/104787602969620799839" type="text/html"/>
+  <link rel="alternate" href="https://plus.google.com/+%E8%AB%AD%E7%A6%8F%E5%86%A8Fuktommy/posts" type="text/html"/>
   <updated><?php $chain->accessTime->dateFormat('%Y-%m-%dT%H:%M:%S+09:00')->e(); ?></updated>
   <generator>google/plusfeed tool</generator>
   <id>tag:fuktommy.com,2011:google/plus</id>
   <author><name>fuktommy</name></author>
   <entry>
     <title><?php $chain->title->e(); ?></title>
-    <link rel="alternate" href="https://plus.google.com/104787602969620799839/posts?date<?php $chain->accessTime->dateFormat('%Y%m%d')->e(); ?>"/>
+    <link rel="alternate" href="https://plus.google.com/+%E8%AB%AD%E7%A6%8F%E5%86%A8Fuktommy/posts?date<?php $chain->accessTime->dateFormat('%Y%m%d')->e(); ?>"/>
     <summary type="text"><?php $chain->title->e(); ?></summary>
-    <content type="html"><?php $chain->title->e(); ?>: <a href="https://plus.google.com/104787602969620799839/posts">投稿</a>, <a href="https://plus.google.com/104787602969620799839/plusones">+1</a></content>
+    <content type="html"><?php $chain->title->e(); ?>: <a href="https://plus.google.com/+%E8%AB%AD%E7%A6%8F%E5%86%A8Fuktommy/posts">投稿</a>, <a href="https://plus.google.com/+%E8%AB%AD%E7%A6%8F%E5%86%A8Fuktommy/plusones">+1</a></content>
     <published><?php $chain->accessTime->dateFormat('%Y-%m-%dT%H:%M:%S+09:00')->e(); ?></published>
     <updated><?php $chain->accessTime->dateFormat('%Y-%m-%dT%H:%M:%S+09:00')->e(); ?></updated>
     <author><name>Fuktommy</name></author>

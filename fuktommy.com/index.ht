@@ -33,8 +33,16 @@
 <div class="adsfoot">
 <script type="text/javascript"><!--
 amazon_ad_tag="fuktommy-22"; 
-amazon_ad_width="468"; 
-amazon_ad_height="60"; 
+if ($(window).width() >= 468) {
+    amazon_ad_width="468"; 
+    amazon_ad_height="60"; 
+} else if ($(window).width() >= 300) {
+    amazon_ad_width="300"; 
+    amazon_ad_height="250"; 
+} else {
+    amazon_ad_width="180"; 
+    amazon_ad_height="150"; 
+}
 amazon_color_background="EFEFEF"; 
 amazon_color_border="000000"; 
 amazon_color_logo="FFFFFF"; 

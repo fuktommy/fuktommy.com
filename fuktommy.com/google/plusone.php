@@ -39,14 +39,14 @@ $chain = ModifireChain::factory();
 $chain->url = $url;
 
 ?>
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
   <meta http-equiv="content-script-type" content="text/javascript" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google +1 中間ページ</title>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <link rev="made" href="mailto:webmaster@fuktommy.com" />
   <link rel="contents" href="/" title="トップ" />
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />
@@ -71,8 +71,19 @@ $chain->url = $url;
 <div class="adsfoot" style="margin:2em">
 <script type="text/javascript"><!--
 amazon_ad_tag="fuktommy-22"; 
-amazon_ad_width="468"; 
-amazon_ad_height="60"; 
+if ($(window).width() >= 728) {
+    amazon_ad_width="728"; 
+    amazon_ad_height="90"; 
+} else if ($(window).width() >= 468) {
+    amazon_ad_width="468"; 
+    amazon_ad_height="60"; 
+} else if ($(window).width() >= 300) {
+    amazon_ad_width="300"; 
+    amazon_ad_height="250"; 
+} else {
+    amazon_ad_width="180"; 
+    amazon_ad_height="150"; 
+}
 amazon_color_background="EFEFEF"; 
 amazon_color_border="000000"; 
 amazon_color_logo="FFFFFF"; 

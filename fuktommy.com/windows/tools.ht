@@ -2,7 +2,6 @@
 >>>define DESCRIPTION   SKKIMEやCygwinなどです。
 >>>define SECTION       Windows
 >>>include "head.h"
-<!-- $Id$ -->
 
 <h2>はじめに</h2>
 <p>ここ数年はクライアント機にもLinuxを使っていました。
@@ -19,9 +18,10 @@
   <dt><a href="http://www.vector.co.jp/soft/winnt/util/se228667.html">KeySwap for XP</a></dt>
   <dd>レジストリを書き換えることでキーの入れ替えを行うツール。</dd>
 
-  <dt><a href="http://homepage3.nifty.com/monjya/skkime.jis.html">SKKIME</a>
-      (<a href="http://archives.fuktommy.com/skkime/">非公式ミラー</a>)</dt>
-  <dd>日本語入力はこれです。SKKに慣れてしまうと他のIMEは使えなくなってしまいます。<a href="http://openlab.jp/skk/wiki/wiki.cgi?page=SKK%BC%AD%BD%F1#p0">辞書</a>は<a href="http://openlab.jp/skk/index-j.html">SKK Openlab</a>から入手します。</dd>
+  <dt><a href="https://code.google.com/p/corvus-skk/">corvus-skk</a></dt>
+  <dd>日本語入力はこれです。SKKに慣れてしまうと他のIMEは使えなくなってしまいます。<a href="http://openlab.jp/skk/wiki/wiki.cgi?page=SKK%BC%AD%BD%F1#p0">辞書</a>は<a href="http://openlab.jp/skk/index-j.html">SKK Openlab</a>から入手します。
+      ちょっと前までは <a href="http://homepage3.nifty.com/monjya/skkime.jis.html">SKKIME</a>
+      (<a href="http://archives.fuktommy.com/skkime/">非公式ミラー</a>) を使ってました。</dd>
 </dl>
 
 <h2>プログラム実行環境</h2>
@@ -72,11 +72,8 @@
   <dt><a href="http://www.tab2.jp/~winscp/">WinSCP</a></dt>
   <dd>ファイル転送用。</dd>
 
-  <dt><a href="http://tubo.80.kg/">禁断の壷</a></dt>
-  <dd><a href="http://2ch.net/">2ちゃんねる</a>ブラウザには何を使うか迷いましたが、公式っぽい壷にしました。ちなみにLinuxでは<a href="/py2ch/">py2ch</a>を使っています。<a href="tubo.pac">プロキシ設定ファイルの例</a>。</dd>
-
   <dt><a href="http://limechat.net/">LimeChat</a></dt>
-  <dd>IRCクライアント。<a href="http://fuktommy.com/niconico/">ニコ生アラートIRC.py</a>のUIとかで。</dd>
+  <dd>IRCクライアント。<a href="/niconico/">ニコ生アラートIRC.py</a>のUIとかで。</dd>
 
   <dt><a href="http://www.google.com/talk/intl/ja/">Google Talk</a></dt>
   <dd>Gmailに届くメールのアラートを兼ねて。</dd>
@@ -89,21 +86,12 @@
       を入れています。
       <a href="https://mail.google.com/mail/">Gmail</a>の方が便利だけどね。
       <a href="thunderbird.user.js">user.jsの設定例</a>。</dd>
-
-  <dt><a href="http://desktop.google.com/ja/">Google Desktop</a></dt>
-  <dd>検索とか。</dd>
 </dl>
 
 <h2>マルチメディア</h2>
 <dl>
-  <dt><a href="http://www.winamp.com/">WINAMP</a></dt>
-  <dd>定番のオーディオプレーヤーです。<a href="http://www.xmms.org/">X Multimedia System</a>を使っていたのでとっつきやすかったです。日本語フォントの設定は<a href="http://cssbug.at.infoseek.co.jp/winamp/wa5/faq.html">Winamp5 FAQ</a>を参考にしました。</dd>
-
   <dt><a href="http://www8.plala.or.jp/kusutaku/iview/">IrfanView32 日本語版</a></dt>
   <dd>画像表示・調整・変換に。</dd>
-
-  <dt><a href="http://deepburner.com/">DeepBurner</a></dt>
-  <dd>ISOイメージを焼けるソフトです。</dd>
 </dl>
 
 >>>include "foot.h"

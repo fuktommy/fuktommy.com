@@ -92,6 +92,9 @@
 <dl>
   <dt><a href="http://www8.plala.or.jp/kusutaku/iview/">IrfanView32 日本語版</a></dt>
   <dd>画像表示・調整・変換に。</dd>
+
+  <dt><a href="http://www.videolan.org/vlc/">VLC media player</a></dt>
+  <dd>動画と音楽の再生に。</dd>
 </dl>
 
 >>>include "foot.h"

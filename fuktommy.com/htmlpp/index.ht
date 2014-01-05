@@ -1,7 +1,6 @@
 >>>define TITLE         HTMLプリプロセッサ(Another HTMLPP)
 >>>define DESCRIPTION   HTMLのための、CPPのようなもの
 >>>include "head.h"
-<!-- $Id$ -->
 
 <h2>はじめに</h2>
 <p>Blogなどの<a href="http://www.atmarkit.co.jp/aig/04biz/contentmanagement.html" title="＠IT情報マネジメント用語事典 [CMS (content management system)]">CMS</a>では複数のページのデザインを統一したり、一度に変換したりできます。
@@ -39,17 +38,12 @@ PythonのXMLパーザにかけてエラーが出るかどうかだけで判定�
 <p>このスクリプトを使うには<a href="http://www.python.jp/Zope/">Python</a>
 (2.3+日本語コーデック または 2.4以降)が必要です。</p>
 
-<ul>
-  <li>2007-11-10 <a href="htmlpp-0.8.0.py">htmlpp-0.8.0.py</a></li>
-  <li>2007-04-30 <a href="htmlpp-0.7.b1.py">htmlpp-0.7.b1.py</a></li>
-  <li>2006-11-21 <a href="htmlpp-0.6.b3.py">htmlpp-0.6.b3.py</a></li>
-  <li>2006-07-01 <a href="htmlpp-0.6.b2.py">htmlpp-0.6.b2.py</a></li>
-</ul>
+<p><a href="https://github.com/fuktommy/homebin/blob/master/htmlpp">ダウンロード</a></p>
 
 <h2>実行方法</h2>
 <p>次のようにして実行します。</p>
 
-<pre>htmlpp [-f] [-n] [-I path] foo.txt</pre>
+<pre>htmlpp [-f] [-v] [-I path] foo.txt</pre>
 
 <p>foo.txtが解釈され、foo.htmlが生成されます。
 foo.htmlがfoo.txtよりも新しいときには生成されません。
@@ -59,8 +53,8 @@ foo.htmlがfoo.txtよりも新しいときには生成されません。
   <dt>-f</dt>
   <dd>新旧に関わらず、foo.htmlを生成します。</dd>
 
-  <dt>-n</dt>
-  <dd>HTMLの文法チェックをしません。</dd>
+  <dt>-v</dt>
+  <dd>HTMLの文法チェックを行います。</dd>
 
   <dt>-I path</dt>
   <dd>合成するときのテンプレートやCSVなどの場所を指定します。

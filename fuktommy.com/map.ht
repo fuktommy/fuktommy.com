@@ -1,7 +1,6 @@
 >>>define TITLE         サイトマップ
 >>>define DESCRIPTION   Fuktommyの個人サイトです。
 >>>include "head.h"
-<!-- $Id$ -->
 
 <h2>目次</h2>
 <ul>
@@ -136,6 +135,9 @@
 
   <dt><a href="http://bbs.fuktommy.com/">掲示板</a></dt>
   <dd>「<a href="http://www.hyuki.com/kakera/about.html">声のかけら。</a>」を使った掲示板。</dd>
+
+  <dt><a href="http://item.fuktommy.com/">こんなの買いました</a></dt>
+  <dd>時系列が適当な日記です。</dd>
 
   <dt><a href="http://pipes.yahoo.com/fuktommy">Yahoo! Pipes</a></dt>
   <dd>ヘッドライン。<a href="http://pipes.yahoo.com/pipes/pipe.run?_id=vtDv2VkO3hGA5KIw3rVd_w&amp;_render=rss">フィードはこちら</a>。</dd>

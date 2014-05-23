@@ -1,4 +1,4 @@
-<div class="address">Copyright&copy; 1998-2013 <a href="https://plus.google.com/+%E8%AB%AD%E7%A6%8F%E5%86%A8Fuktommy/about">Fuktommy</a>.
+<div class="address">Copyright&copy; 1998-2014 <a href="https://plus.google.com/+%E8%AB%AD%E7%A6%8F%E5%86%A8Fuktommy/about">Fuktommy</a>.
 All Rights Reserved.<br />
 <a href="mailto:webmaster@fuktommy.com">webmaster@fuktommy.com</a>
 (<a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/" title="This work is licensed under a Creative Commons Attribution 2.1 Japan License.">Legal Notices</a>)
@@ -20,7 +20,6 @@ All Rights Reserved.<br />
 </rdf:RDF>
 -->
 
-<script type="text/javascript" src="http://bbs.shingetsu.info/suggest.js" charset="utf-8"></script>
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
 </script>
 <script type="text/javascript">

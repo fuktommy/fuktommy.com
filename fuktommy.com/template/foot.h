@@ -30,7 +30,6 @@
 >>>endif
   <li><a href="https://plus.google.com/+%E8%AB%AD%E7%A6%8F%E5%86%A8Fuktommy?rel=author" rel="author">ブログ</a></li>
   <li><a href="http://bbs.fuktommy.com/">掲示板</a></li>
-  <li><a href="http://bbs.shingetsu.info/" id="shingetsu_link" title="関連する新月の掲示板">shinGETsu</a></li>
 </ul>
 
 <h2>最近の記事</h2>

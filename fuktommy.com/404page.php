@@ -58,7 +58,6 @@ All Rights Reserved.<br />
 </rdf:RDF>
 -->
 
-<script type="text/javascript" src="http://bbs.shingetsu.info/suggest.js" charset="utf-8"></script>
 <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
 </script>
 <script type="text/javascript">

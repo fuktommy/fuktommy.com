@@ -1,7 +1,6 @@
 >>>define TITLE         ニコニコ動画便利ツール
 >>>define DESCRIPTION   ニコニコ動画のための便利ツール
 >>>include "head.h"
-<!-- $Id$ -->
 
 <p><a href="http://www.nicovideo.jp/">ニコニコ動画</a>のための便利ツールです。</p>
 
@@ -64,8 +63,11 @@
   <li>2009-09-20 作ってみた。</li>
 </ul>
 
+<h3><a href="https://github.com/fuktommy/homebin/blob/master/lib/nicoalert.py">ニコニコアラート.py</a></h3>
+<p>ニコニコアラート版も作ってみました。</p>
 
-<h3><a href="player">外部プレーヤーページ</a></h3>
+
+<h2><a href="player">外部プレーヤーページ</a></h2>
 <p>JSでできそうなのでやってみました。</p>
 
 <p>履歴</p>

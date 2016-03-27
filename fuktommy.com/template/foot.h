@@ -41,13 +41,8 @@
   <li><a href="/rss">
       <img src="/feed-icon-16x16.gif" width="16" height="16" alt="" />
       RSS 1.0</a></li>
-  <li><a href="http://fusion.google.com/add?feedurl=http%3A//fuktommy.com/rss"><img src="http://buttons.googlesyndication.com/fusion/add.gif" width="104" height="17" alt="Add to Google" /></a></li>
-  <li><form action="https://www.paypal.com/cgi-bin/webscr" method="post"><div>
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="7210101" />
-        <input type="image" src="https://www.paypal.com/ja_JP/JP/i/btn/btn_paynow_SM.gif" name="submit" alt="PayPal - オンラインで安全・簡単にお支払い" />
-        <img alt="" src="https://www.paypal.com/ja_JP/i/scr/pixel.gif" width="1" height="1" />
-      </div></form></li>
+  <li><div class="p7-b" data-p7id="8b4d08a4415949e481b2975596b00778" data-p7c="r"></div>
+      <script src="https://fuktommy.app.push7.jp/static/button/p7.js"></script></li>
   <li><a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/" title="This work is licensed under a Creative Commons Attribution 2.1 Japan License."><img alt="Creative Commons License" src="/cc-by-88x31.png" width="88" height="31" /></a></li>
   <li><a href="http://mobile.fuktommy.com/"><img src="/mobileqrcode.gif" width="132" height="132" alt="モバイルサイト" title="モバイルサイト" /></a></li>
 </ul>

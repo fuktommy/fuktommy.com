@@ -12,6 +12,7 @@
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />
   <link rel="alternate" type="application/atom+xml" title="Blog Atom Feed" href="http://feeds.feedburner.com/fuktommy" />
   <link rel="license" type="application/rdf+xml" href="/license" />
+  <link rel="apple-touch-icon" sizes="57x57"  href="/apple-touch-icon.png" />
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 >>>ifdef TOPPAGE
   <link rel="stylesheet" type="text/css" href="/topcommon.css" />

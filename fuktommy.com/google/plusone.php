@@ -84,11 +84,13 @@ if ($(window).width() >= 728) {
     amazon_ad_width="180"; 
     amazon_ad_height="150"; 
 }
-amazon_color_background="EFEFEF"; 
-amazon_color_border="000000"; 
-amazon_color_logo="FFFFFF"; 
-amazon_color_link="0000FF"; //--></script> 
-<script type="text/javascript" src="http://www.assoc-amazon.jp/s/asw.js"></script> 
+amazon_ad_link_target ="new";
+amazon_color_background = "EFEFEF";
+amazon_color_border = "000000";
+amazon_color_logo = "FFFFFF";
+amazon_color_link = "0000FF";
+</script>
+<script src="//ir-jp.amazon-adsystem.com/s/ads.js"></script>
 <noscript> 
 <br />
 <iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=fuktommy-22&amp;o=9&amp;p=13&amp;l=ez&amp;f=ifr&amp;f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="border:none;"></iframe>

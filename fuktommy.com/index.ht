@@ -43,11 +43,13 @@ if ($(window).width() >= 468) {
     amazon_ad_width="180"; 
     amazon_ad_height="150"; 
 }
-amazon_color_background="EFEFEF"; 
-amazon_color_border="000000"; 
-amazon_color_logo="FFFFFF"; 
-amazon_color_link="0000FF"; //--></script>
-<script type="text/javascript" src="http://www.assoc-amazon.jp/s/asw.js"></script>
+amazon_ad_link_target ="new";
+amazon_color_background = "EFEFEF";
+amazon_color_border = "000000";
+amazon_color_logo = "FFFFFF";
+amazon_color_link = "0000FF";
+</script>
+<script src="//ir-jp.amazon-adsystem.com/s/ads.js"></script>
 <noscript>
 <br />
 <iframe src="http://rcm-jp.amazon.co.jp/e/cm?t=fuktommy-22&amp;o=9&amp;p=13&amp;l=ez&amp;f=ifr&amp;f=ifr" width="468" height="60" style="border:none;"></iframe>
@@ -55,9 +57,8 @@ amazon_color_link="0000FF"; //--></script>
 </div>
 
 <ul class="navi">
-  <li><a href=https://plus.google.com/+%E8%AB%AD%E7%A6%8F%E5%86%A8Fuktommy?rel=author" rel="author">ブログ</a>
+  <li><a href="https://twitter.com/fuktommy">Twitter</a>
       <a href="http://feeds.feedburner.com/fuktommy"><img src="/feed-icon-16x16.gif" width="16" height="16" alt="Atom Feed" title="Atom Feed" /></a></li>
-  <li><a href="http://blog.fuktommy.com/category/tanuki">タヌキ</a></li>
   <li><a href="/map#soft">ソフト</a></li>
   <li><a href="/map#data">データ</a></li>
 </ul>

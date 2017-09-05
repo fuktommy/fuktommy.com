@@ -3,7 +3,6 @@
 >>>define SECTION       ニコニコ動画便利ツール
 >>>define AMAZONADS     1
 >>>include "head.h"
-<!-- $Id$ -->
 
 <div id="container"></div>
 

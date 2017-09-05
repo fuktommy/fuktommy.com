@@ -1,5 +1,5 @@
 <?php
-define('PC_FORMAT', 'http://astore.amazon.co.jp/fuktommy-22/detail/%s');
+define('PC_FORMAT', 'https://www.amazon.co.jp/dp/%s?tag=fuktommy-22');
 define('MOBILE_FORMAT', 'http://www.amazon.co.jp/gp/aw/rd.html?ie=UTF8&dl=1&uid=NULLGWDOCOMO' .
                         '&lc=msn&a=%s&at=fuktommysstor-22&url=%%2Fgp%%2Faw%%2Fd.html');
 

@@ -3,15 +3,16 @@
 ;; 日本語表示の設定
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (set-language-environment "Japanese")
-(set-clipboard-coding-system 'japanese-shift-jis-dos)
-;(set-w32-system-coding-system 'japanese-shift-jis-dos)
-(setq default-file-name-coding-system 'japanese-shift-jis)
-(setq file-name-coding-system 'japanese-shift-jis)
+(set-clipboard-coding-system 'cp932-dos)
+;(set-w32-system-coding-system 'cp932-dos)
+(setq default-file-name-coding-system 'cp932)
+(setq file-name-coding-system 'cp932)
 (set-default-coding-systems 'utf-8-unix)
 (set-buffer-file-coding-system 'utf-8-unix)
-(set-terminal-coding-system 'japanese-shift-jis-dos)
-(set-keyboard-coding-system 'japanese-shift-jis-dos)
-(setq default-process-coding-system '(euc-jp-unix . euc-jp-unix))
+(set-terminal-coding-system 'cp932-dos)
+(set-keyboard-coding-system 'cp932-dos)
+(setq default-process-coding-system '(cp932-unix . cp932-unix))
+(prefer-coding-system 'utf-8)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 漢字変換 (skk) の設定
@@ -121,21 +122,6 @@
 ;; テンプレート編集
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-coding-alist '("\\.tpl$" . utf-8))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; チルダ問題
-;; http://www.bookshelf.jp/2ch/unix/1141309172.html#975
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(let ((my-translation-table
-    (make-translation-table-from-alist
-        '((#x301c . #xff5e)
-    ))))
-    (mapc
-        (lambda (coding-system)
-            (coding-system-put coding-system :decode-translation-table my-translation-table)
-            (coding-system-put coding-system :encode-translation-table my-translation-table)
-        )
-    '(utf-8 cp932 utf-16le)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; クリップボード

@@ -20,9 +20,5 @@
 {/if}
 
 <address>Copyright&copy; 2008 <a href="http://fuktommy.com/">Fuktommy</a>.</address>
-<script type="text/javascript">
-_uacct = "UA-61877-7";
-urchinTracker();
-</script>
 </body>
 </html>

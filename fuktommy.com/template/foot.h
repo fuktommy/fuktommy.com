@@ -28,7 +28,7 @@
 >>>ifdef SECTION
   <li><a href="./"><$SECTION></a></li>
 >>>endif
-  <li><a href="https://plus.google.com/+%E8%AB%AD%E7%A6%8F%E5%86%A8Fuktommy?rel=author" rel="author">ブログ</a></li>
+  <li><a href="http://item.fuktommy.com/">ブログ</a></li>
   <li><a href="http://bbs.fuktommy.com/">掲示板</a></li>
 </ul>
 

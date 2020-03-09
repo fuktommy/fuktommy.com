@@ -8,4 +8,4 @@
   amazon_color_link = "0000FF";
   amazon_color_logo = "FFFFFF";
 //--></script>
-<script type="text/javascript" src="http://www.assoc-amazon.jp/s/ads.js"></script>
+<script type="text/javascript" src="https://www.assoc-amazon.jp/s/ads.js"></script>

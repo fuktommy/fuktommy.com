@@ -10,7 +10,7 @@
   <link rel="contents" href="./" title="<$SECTION>" />
 >>>endif
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" />
-  <link rel="alternate" type="application/atom+xml" title="Blog Atom Feed" href="http://feeds.feedburner.com/fuktommy" />
+  <link rel="alternate" type="application/atom+xml" title="Blog Atom Feed" href="https://feeds.feedburner.com/fuktommy" />
   <link rel="license" type="application/rdf+xml" href="/license" />
   <link rel="apple-touch-icon" sizes="57x57"  href="/apple-touch-icon.png" />
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -18,8 +18,7 @@
   <link rel="stylesheet" type="text/css" href="/topcommon.css" />
   <link rel="stylesheet" type="text/css" href="/toppc.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="/touch.css" media="screen and (max-width: 500px)" />
-  <link rel="alternate" media="handheld" href="http://mobile.fuktommy.com/" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.1, maximum-scale=10.0, user-scalable=yes;" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.1, maximum-scale=10.0, user-scalable=yes" />
 >>>else
   <link rel="stylesheet" type="text/css" href="/common.css" />
   <link rel="stylesheet" type="text/css" href="/pc.css" media="screen" />

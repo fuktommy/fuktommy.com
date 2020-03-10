@@ -1,11 +1,2 @@
-<script type="text/javascript"><!--
-  amazon_ad_tag = "fuktommysstor-22";
-  amazon_ad_width = "180";
-  amazon_ad_height = "150";
-  amazon_ad_logo = "hide";
-  amazon_color_border = "808080";
-  amazon_color_background = "EFEFEF";
-  amazon_color_link = "0000FF";
-  amazon_color_logo = "FFFFFF";
-//--></script>
-<script type="text/javascript" src="https://www.assoc-amazon.jp/s/ads.js"></script>
+<script charset="utf-8" type="text/javascript" src="//ws-fe.amazon-adsystem.com/widgets/q?rt=tf_mfw&amp;ServiceVersion=20070822&amp;MarketPlace=JP&amp;ID=V20070822%2FJP%2Ffuktommysstor-22%2F8001%2F75dd359c-1bb2-4253-b373-a3e03036cef5"></script>
+<noscript><a rel="nofollow" href="//ws-fe.amazon-adsystem.com/widgets/q?rt=tf_mfw&amp;ServiceVersion=20070822&amp;MarketPlace=JP&amp;ID=V20070822%2FJP%2Ffuktommysstor-22%2F8001%2F75dd359c-1bb2-4253-b373-a3e03036cef5&amp;Operation=NoScript">Amazon.co.jp ウィジェット</a></noscript>

@@ -13,7 +13,7 @@ $links = call_user_func(function () {
     $links = [];
     foreach ($lines as $line) {
         if (preg_match('/\A<a href="([^"]+)">([^<]+)<\/a>\r*\z/', $line, $matches)) {
-            $links[$matches[1]] = $matches[2];
+            $links[htmlspecialchars_decode($matches[1])] = htmlspecialchars_decode($matches[2]);
         }
     }
     return $links;

@@ -107,4 +107,5 @@ address {
 
 div.adsfoot {
     margin-bottom: 1em;
+    display: flex; justify-content: center;
 }

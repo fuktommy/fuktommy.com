@@ -34,9 +34,9 @@
         document.write = function (str) { container.innerHTML += str; };
 
         var player = document.createElement('script');
-        player.src = 'http://ext.nicovideo.jp/thumb_watch/'
+        player.src = 'https://ext.nicovideo.jp/thumb_watch/'
                    + video + '?w=' + width + '&h=' + height;
-        document.body.appendChild(player);
+        container.appendChild(player);
 
         location.hash = '#' + video;
         return false;

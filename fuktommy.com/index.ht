@@ -27,6 +27,7 @@
 </noscript>
 
 <div class="adsfoot">
+>>>include "adsfoot.h"
 </div>
 
 <ul class="navi">

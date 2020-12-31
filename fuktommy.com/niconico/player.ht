@@ -1,7 +1,6 @@
 >>>define TITLE         ニコニコ動画外部プレーヤー
 >>>define DESCRIPTION   ニコニコ動画の外部プレーヤーを読み込むページ
 >>>define SECTION       ニコニコ動画便利ツール
->>>define AMAZONADS     1
 >>>include "head.h"
 
 <div id="container"></div>

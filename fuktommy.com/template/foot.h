@@ -2,17 +2,7 @@
 </div>
 
 <div id="sidebar">
->>>endif
->>>ifdef AMAZONADS
->>>include "amazonwidget.h"
->>>else
->>>ifndef TOPPAGE
 >>>include "adsmini.h"
->>>endif
->>>include "amazonbanner.h"
->>>endif
-
->>>ifndef TOPPAGE
 <form action="https://www.google.com/cse" id="searchbar"><p>
   <input type="hidden" name="cx" value="003570941829906538055:5apetotzz44" />
   <input type="hidden" name="ie" value="UTF-8" />

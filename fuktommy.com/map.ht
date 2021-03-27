@@ -34,7 +34,7 @@
   <dt><a href="http://hateber.fuktommy.com/">はてバーぶろぐ</a></dt>
   <dd>はてなブックマークを使ったミニブログ。</dd>
 
-  <dt><a href="http://www.shingetsu.info/">新月</a></dt>
+  <dt><a href="https://shingetsu.info/">新月</a></dt>
   <dd>P2P匿名掲示板。</dd>
 
   <dt><a href="/modchain/">ModifireChain</a></dt>
@@ -99,9 +99,6 @@
       <a href="http://archives2.fuktommy.com/">貸倉庫2</a></dt>
   <dd>OSSなどを再配布しています。</dd>
 
-  <dt><a href="http://repos.fuktommy.com/trac/browser">repos.fuktommy.com</a></dt>
-  <dd>サイトのソースコードなど。</dd>
-
   <dt><a href="/p2p/">P2P</a></dt>
   <dd>P2P勉強会の資料などです。</dd>
 
@@ -115,34 +112,25 @@
   <dd>格闘ゲームのデータ。昔に作ったものです。</dd>
 
   <dt><a href="/comic/">漫画</a></dt>
-  <dd>エニックス4コマDB。最近更新してません。</dd>
+  <dd>エニックス4コマDB。更新してません。</dd>
 </dl>
 
 <h2 id="blog">外部サービス等</h2>
 <dl>
-  <dt><a href="/+">Google+</a></dt>
+  <dt><a href="https://ch.nicovideo.jp/fuktommy">福冨諭の福冨論</a></dt>
   <dd>ブログです。
-      ここの記事にも
-      <a href="http://creativecommons.org/licenses/by/2.1/jp/">CC_BY</a>
-      を適用します。
-      <a href="http://www.fuktommy.com/sns">その他のSNS</a>はこちら。</dd>
+      <a href="/sns">その他のSNS</a>はこちら。</dd>
 
-  <dt><a href="http://www.amazon.co.jp/gp/registry/registry.html?type=wishlist&amp;id=3VGI29TIGSZ8">Amazonほしい物リスト</a></dt>
+  <dt><a href="https://www.amazon.co.jp/hz/wishlist/genericItemsPage/C4BTHSW29I4D">Amazonほしい物リスト</a></dt>
   <dd>プレゼント募集中。</dd>
-
-  <dt><a href="http://bbs.fuktommy.com/">掲示板</a></dt>
-  <dd>「<a href="http://www.hyuki.com/kakera/about.html">声のかけら。</a>」を使った掲示板。</dd>
 
   <dt><a href="http://item.fuktommy.com/">こんなの買いました</a></dt>
   <dd>時系列が適当な日記です。</dd>
 
-  <dt><a href="http://pipes.yahoo.com/fuktommy">Yahoo! Pipes</a></dt>
-  <dd>ヘッドライン。<a href="http://pipes.yahoo.com/pipes/pipe.run?_id=vtDv2VkO3hGA5KIw3rVd_w&amp;_render=rss">フィードはこちら</a>。</dd>
-
   <dt><a href="http://www.google.com/calendar/embed?src=ai4ot97m3u8sof91p661soe4bo%40group.calendar.google.com&amp;ctz=Asia/Tokyo">Googleカレンダー</a></dt>
   <dd>公開カレンダー</dd>
 
-  <dt><a href="http://bbs.shingetsu.info/">新月掲示板</a></dt>
+  <dt><a href="https://bbs.shingetsu.info/">新月掲示板</a></dt>
   <dd>P2P匿名掲示板ゲートウェイ。</dd>
 </dl>
 
@@ -156,32 +144,32 @@
   <dd>GnuPGの公開鍵。</dd>
 
   <dt><a href="mailto:fuktommy@gmail.com">fuktommy@gmail.com</a></dt>
-  <dd><a href="http://www.google.com/talk/intl/ja/">Google Talk</a>アカウント。</dd>
+  <dd>Googleハングアウトアカウント。</dd>
 
   <dt><a href="callto://fuktommy">callto://fuktommy</a></dt>
-  <dd><a href="http://www.skype.com/intl/ja/">Skype</a></dd>
+  <dd><a href="https://www.skype.com/intl/ja/">Skype</a></dd>
 
   <dt>090-6340-7335</dt>
   <dd>電話です。</dd>
 </dl>
 
 <h2 id="profile">プロフィール</h2>
-<p><img src="fuktommy-face.jpg" width="150" height="171" alt="portrait" /></p>
+<p><img src="/fuktommy-face.jpg" width="150" height="171" alt="portrait" /></p>
 <ul>
   <li>福冨 諭 (Fukutomi, Satoshi)</li>
-  <li>ハンドルはFuktommyです。</li>
+  <li>ハンドルはfuktommyです。</li>
   <li>1979年生まれ 東京都出身・在住</li>
   <li>修士(工学)</li>
   <li>FSM牧師</li>
-  <li><a href="http://www.uec.ac.jp/">電気通信大学</a>卒業(2002年)、
+  <li><a href="https://www.uec.ac.jp/">電気通信大学</a>卒業(2002年)、
       同修士課程修了(2004年)、
       同博士課程単位取得済退学(2007年)</li>
-  <li><a href="http://info.dwango.co.jp/">ドワンゴ</a>でプログラマー(携帯サイトの開発)として勤務(2007年から2012年まで)</li>
+  <li><a href="https://www.dwango.co.jp/">ドワンゴ</a>でプログラマー(携帯サイトの開発)として勤務(2007年から2012年まで)</li>
   <li>某社でプログラマーとして勤務(2012年から)</li>
 </ul>
 <p>このウェブサイトに含まれる意見や結論は私個人によるものであって、
 現在または過去の所属組織の公式な方針を、
 明示黙示を問わず、あらわしているものととってはならない。
-(<a href="http://www.freebsd.org/ja/copyright/freebsd-license.html">The FreeBSD Copyright</a> を真似てみた)</p>
+(<a href="https://www.freebsd.org/ja/copyright/freebsd-license/">The FreeBSD Copyright</a> を真似てみた)</p>
 
 >>>include "foot.h"

@@ -1,7 +1,7 @@
-<div class="address">Copyright&copy; 1998-2020 <a href="https://fuktommy.com/">Fuktommy</a>.
+<div class="address">Copyright&copy; 1998-2021 <a href="https://fuktommy.com/">Fuktommy</a>.
 All Rights Reserved.<br />
 <a href="mailto:webmaster@fuktommy.com">webmaster@fuktommy.com</a>
-(<a rel="license" href="https://creativecommons.org/licenses/by/2.1/jp/" title="This work is licensed under a Creative Commons Attribution 2.1 Japan License.">Legal Notices</a>)
+(<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ja" title="This work is licensed under a Creative Commons Attribution 4.0 International License.">Legal Notices</a>)
 </div>
 
 <!--

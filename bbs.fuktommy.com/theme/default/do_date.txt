@@ -1,9 +1,0 @@
-<INCLUDE header.txt>
-
-<ul>
-    <LOOP ITEM_LIST>
-        <li><ITEM_DATE> - <a href="<ITEM_URL>"><ITEM_TITLE></a><br /></li>
-    </LOOP>
-</ul>
-
-<INCLUDE footer.txt>

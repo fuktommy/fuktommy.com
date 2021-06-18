@@ -1,8 +1,8 @@
-#!/usr/local/bin/python
+#!/usr/bin/python3
 '''Jump to Recent Script.
 '''
 #
-# Copyright (c) 2006 Satoshi Fukutomi <info@fuktommy.com>.
+# Copyright (c) 2006,2021 Satoshi Fukutomi <info@fuktommy.com>.
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -34,10 +34,10 @@ DIR = [('./homebin', 'http://fuktommy.com/homebin/'),
        ('./script', 'http://fuktommy.com/script/')]
 
 def print_error():
-    print 'Status: 404 Not Found'
-    print 'Content-Type: text/plain'
-    print
-    print 'ERROR'
+    print('Status: 404 Not Found')
+    print('Content-Type: text/plain')
+    print()
+    print('ERROR')
 
 def main():
     basename = os.environ.get('PATH_INFO', '').replace('/', '', 1)
@@ -48,12 +48,13 @@ def main():
         for dirname, baseuri in DIR:
             files = os.listdir(dirname)
             files = filter(lambda i: i.startswith(basename), files)
+            files = list(files)
             files.sort()
             if files:
-                print 'Location: %s%s' % (baseuri, files[-1])
-                print 'Content-Type: text/plain'
-                print 
-                print files[-1]
+                print('Location: %s%s' % (baseuri, files[-1]))
+                print('Content-Type: text/plain')
+                print()
+                print(files[-1])
                 return
     print_error()
 

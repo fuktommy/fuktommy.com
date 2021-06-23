@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/python
 #
 """FukTropy2 - Ajax Tropy
 """

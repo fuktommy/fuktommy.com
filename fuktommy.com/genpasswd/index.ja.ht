@@ -1,7 +1,6 @@
 >>>define TITLE         genpasswd
 >>>define DESCRIPTION   genpasswd homepage
 >>>include "head.h"
-<!-- $Id$ -->
 
 <p>genpasswdはシンプルなパスワード生成ツールです。生成方式は<br />
 base64(sha1(domain+":"+passphrase))
@@ -18,5 +17,8 @@ base64(sha1(domain+":"+salt+":"+passphrase)) です。</p>
 <p>Android上でもPCでも、同じパスワードからどのドメインのパスワードでも生成できます。</p>
 
 <p>ライセンスは<a href="/bsdl">2条項BSDライセンス</a>です。</p>
+
+<h2 id="privacy">プライバシーポリシー</h2>
+<p>genpasswdはユーザー情報を収集しません。</p>
 
 >>>include "foot.h"

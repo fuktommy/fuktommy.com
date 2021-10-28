@@ -1,7 +1,6 @@
 >>>define TITLE         genpasswd
 >>>define DESCRIPTION   genpasswd homepage
 >>>include "head.h"
-<!-- $Id$ -->
 
 <p>genpasswd is a simple password generator with algorithm <br />
 base64(sha1(domain+":"+passphrase)) or base64(sha1(domain+":"+salt+":"+passphrase)).</p>
@@ -16,5 +15,8 @@ base64(sha1(domain+":"+passphrase)) or base64(sha1(domain+":"+salt+":"+passphras
 <p>So you can generate password from one master password for any domain on your android phone and PC.</p>
 
 <p>There are licensed ander the <a href="/bsdl">2-clause BSD license</a>.</p>
+
+<h2 id="privacy">Privacy Policy</h2>
+<p>genpasswd doesn't collect user information.</p>
 
 >>>include "foot.h"

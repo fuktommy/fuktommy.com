@@ -2,8 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title><$TITLE></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="<$DESCRIPTION>" />
+  <title><$TITLE></title>
   <link rel="author" href="mailto:webmaster@fuktommy.com" />
   <link rel="contents" href="/" title="トップ" />
 >>>ifdef SECTION
@@ -23,6 +24,7 @@
   <link rel="stylesheet" type="text/css" href="/common.css" />
   <link rel="stylesheet" type="text/css" href="/pc.css" media="screen" />
 >>>endif
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0908882948816599" crossorigin="anonymous"></script>
 </head>
 <body>
 >>>ifndef TOPPAGE

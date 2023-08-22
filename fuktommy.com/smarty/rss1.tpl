@@ -1,5 +1,5 @@
 {* -*- coding: utf-8 -*- *}
-{* Copyright (c) 2007 Satoshi Fukutomi <info@fuktommy.com>. *}
+{* Copyright (c) 2007,2023 Satoshi Fukutomi <info@fuktommy.com>. *}
 <?xml version="1.0" encoding="{$rss->encode}"?>
 {if $rss->xsl}
 <?xml-stylesheet href="{$rss->xsl}" type="text/xsl"?>
@@ -25,16 +25,18 @@
   <title>{$item.title}</title>
   <link>{$item.link}</link>
   <dc:date>{$item.date|date_format:"%Y-%m-%dT%H:%M:%SZ"}</dc:date>
-  {if $item.creator}
+  {if !empty($item.creator)}
   <dc:creator>f.creator</dc:creator>
   {/if}
-  {foreach from=$item.subject item="sub"}
-  <dc:subject>{$sub|escape:"html"}</dc:subject>
-  {/foreach}
-  {if $item.description}
-  <description>{$item.description}</description>
+  {if !empty($item.subject)}
+    {foreach from=$item.subject item="sub"}
+      <dc:subject>{$sub|escape:"html"}</dc:subject>
+    {/foreach}
   {/if}
-  {if $item.content}
+  {if !empty($item.description)}
+    <description>{$item.description}</description>
+  {/if}
+  {if !empty($item.content)}
     <content:encoded><![CDATA[{$item.content}]]></content:encoded>
   {/if}
   </item>

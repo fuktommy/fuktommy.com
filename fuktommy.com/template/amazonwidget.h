@@ -1,2 +1,0 @@
-<script charset="utf-8" type="text/javascript" src="//ws-fe.amazon-adsystem.com/widgets/q?rt=tf_mfw&amp;ServiceVersion=20070822&amp;MarketPlace=JP&amp;ID=V20070822%2FJP%2Ffuktommysstor-22%2F8001%2F75dd359c-1bb2-4253-b373-a3e03036cef5"></script>
-<noscript><a rel="nofollow" href="//ws-fe.amazon-adsystem.com/widgets/q?rt=tf_mfw&amp;ServiceVersion=20070822&amp;MarketPlace=JP&amp;ID=V20070822%2FJP%2Ffuktommysstor-22%2F8001%2F75dd359c-1bb2-4253-b373-a3e03036cef5&amp;Operation=NoScript">Amazon.co.jp ウィジェット</a></noscript>

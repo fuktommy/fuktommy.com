@@ -18,7 +18,7 @@
 >>>ifdef SECTION
   <li><a href="./"><$SECTION></a></li>
 >>>endif
-  <li><a href="https://item.fuktommy.com/">ブログ</a></li>
+  <li><a href="https://fuktommy.hatenablog.com/">ブログ</a></li>
 </ul>
 
 <h2>最近の記事</h2>

@@ -13,9 +13,6 @@
 
 <h2 id="soft">ソフト</h2>
 <dl>
-  <dt><a href="http://todo.fuktommy.com/">TODO.RSS</a></dt>
-  <dd>TODOをRSSリーダーに読み込ませるサービス。</dd>
-
   <dt><a href="/blogch/">blogch</a></dt>
   <dd>簡易ブログ。</dd>
 

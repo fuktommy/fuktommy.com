@@ -22,6 +22,9 @@
   <dt><a href="/genpasswd/">genpasswd</a></dt>
   <dd>パスワード生成ツール。</dd>
 
+  <dt><a href="/pin-encrypter/">pin-encrypter</a></dt>
+  <dd>PIN暗号化ツール。</dd>
+
   <dt><a href="/bookmarklets">ブックマークレット</a></dt>
   <dd>ちょっと便利なブックマークレットたち</dd>
 

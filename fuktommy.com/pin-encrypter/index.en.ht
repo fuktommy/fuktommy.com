@@ -1,0 +1,19 @@
+>>>define TITLE         pin-encrypter 
+>>>define DESCRIPTION   pin-encrypter homepage
+>>>include "head.h"
+
+<p>pin-encrypter is a simple pin encrypter/decoder.</p>
+
+<p>There are following 2 implements.</p>
+
+<ul>
+  <li><a href="/homebin/pin-encrypter">Python version</a> for PC.</li>
+  <li><a href="https://market.android.com/details?id=com.fuktommy.pinencrypter">Android version</a> And its <a href="https://github.com/fuktommy/pin-encrypter-android">source code</a>.</li>
+</ul>
+
+<p>There are licensed ander the <a href="/bsdl">2-clause BSD license</a>.</p>
+
+<h2 id="privacy">Privacy Policy</h2>
+<p>pin-encrypter doesn't collect user information.</p>
+
+>>>include "foot.h"

@@ -1,0 +1,19 @@
+>>>define TITLE         pin-encrypter 
+>>>define DESCRIPTION   pin-encrypter homepage
+>>>include "head.h"
+
+<p>pin-encrypterはシンプルなPIN暗号化ツールです。</p>
+
+<p>次の2つの実装があります。</p>
+
+<ul>
+  <li><a href="/homebin/pin-encrypter">Python版</a> (PC用)</li>
+  <li><a href="https://market.android.com/details?id=com.fuktommy.pinencrypter">Android 版</a> と <a href="https://github.com/fuktommy/pin-encrypter-android">ソースコード</a></li>
+</ul>
+
+<p>ライセンスは<a href="/bsdl">2条項BSDライセンス</a>です。</p>
+
+<h2 id="privacy">プライバシーポリシー</h2>
+<p>pin-encrypterはユーザー情報を収集しません。</p>
+
+>>>include "foot.h"

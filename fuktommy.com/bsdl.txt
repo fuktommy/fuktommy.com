@@ -1,4 +1,4 @@
-Copyright (c) 1998-2011 Satoshi Fukutomi <info@fuktommy.com>.
+Copyright (c) 1998-2026 Satoshi Fukutomi.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

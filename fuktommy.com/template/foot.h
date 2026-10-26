@@ -29,8 +29,6 @@
   <li><a href="/rss">
       <img src="/feed-icon-16x16.gif" width="16" height="16" alt="" />
       RSS 1.0</a></li>
-  <li><div class="p7-b" data-p7id="8b4d08a4415949e481b2975596b00778" data-p7c="r"></div>
-      <script src="https://fuktommy.app.push7.jp/static/button/p7.js"></script></li>
   <li><a rel="license" href="https://creativecommons.org/licenses/by/2.1/jp/" title="This work is licensed under a Creative Commons Attribution 2.1 Japan License."><img alt="Creative Commons License" src="/cc-by-88x31.png" width="88" height="31" /></a></li>
 </ul>
 
